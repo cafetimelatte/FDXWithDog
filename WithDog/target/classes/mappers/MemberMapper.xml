@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.withdog.mapper.memberMapper">
+
+	<insert id="insertMember" parameterType="com.withdog.dto.MemberDto">
+		insert into member values(#{m_id}, #{m_pw}, #{m_nick},TO_DATE(#{birth},'yyyy-mm-dd'), #{m_phone}, #{m_addr1}, #{m_addr2}, #{m_addr3}, sysdate)
+	</insert>
+	
+	<select id="userInfo" parameterType="String" resultType="com.withdog.dto.MemberDto">
+		select m_id, m_pw, m_nick, to_number(to_char(m_birth,'yyyymmdd')), m_phone, m_add1, m_add2, m_add3, m_regidate
+		from member
+		where m_id = #{userEmail}
+	</select>
+	
+	<select id="login" parameterType="String" resultType="String">
+		select m_pw from member where m_id = #{email}
+	</select>
+	
+	<select id="findId" parameterType="HashMap" resultType="com.withdog.dto.MemberDto">
+		select m_id, m_pw, m_nick, to_number(to_char(m_birth,'yyyymmdd')), m_phone, m_add1, m_add2, m_add3, m_regidate
+		from member
+		where m_id = #{userid} and m_nick = #{usernick}
+	</select>
+</mapper>

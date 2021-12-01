@@ -1,0 +1,222 @@
+@charset "utf-8";
+
+/* ****************** LAYOUT ********************** */
+
+#wrap {overflow:hidden; width:100%; min-width:1260px; position:relative; }
+.area{ max-width:1200px ! important; min-width:1260px ! important;margin:0px auto;} 
+.area900{ max-width:900px ! important; margin:0px auto; border:0px solid #000} 
+/* ****************** HEADER ********************** */
+#header{height:190px;width:100%; z-index:9999;}	
+#headerInnerWrap{position:relative; width:100%;}
+#headerTop{position:relative; height:25px; margin:0px auto; padding:6px;background:#e97723;color:#fff}
+#headerTop .top_text{float:left;font-size:15px;padding:5px }
+#headerTop ul{float:right;width:auto;margin:0}
+#headerTop li{float:left;padding:5px 5px;}
+#headerTop li a{color:#fff;font-size:14px}
+#headerTop li a:hover{color:#fffc00;}
+#headerTop .star{background:url(http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/ico_star.png) left center no-repeat;}
+#headerTop .star:hover{animation-name: ani01;animation-duration: 2s;background:url(http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/ico_star_on.png) left center no-repeat;}
+#headerTop .star a{padding-left:15px;}
+#headerTop .line{color:#fdc69d}
+@keyframes ani01 {
+   0%   {background:url(http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/ico_star.png) left center no-repeat;}
+  50%  {background:url(http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/ico_star_on.png) left center no-repeat;}
+}
+
+#headerInner{position:relative; height:65px; margin:0px auto; padding:10px; }
+#headerInner .download a{float:left;width:150px;height:44px;color:#8d8d8d;padding-left:45px;line-height:20px;font-size:16px;margin-top:12px;background:url(http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/top_left_down2.png) left center no-repeat;}
+#headerInner .download span{font-size:;16px;color:#646464}
+#headerInner .download a:hover{animation-name: ani02;animation-duration: 2s;float:left;width:150px;height:44px;color:#8d8d8d;padding-left:45px;line-height:20px;font-size:16px;margin-top:12px;background:url(http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/top_left_down2_on.png) left center no-repeat;}
+#headerInner .download span:hover{font-size:;16px;color:#e97723}
+
+@keyframes ani02 {
+   0%   {background:url(http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/top_left_down2.png) left center no-repeat;left:0px; }
+  100%  {background:url(http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/top_left_down2_on.png) left center no-repeat;left:0px; }
+}
+
+#headerInner .s_search{float:right;width:270px;margin-top:9px;margin-right:20px;}
+#headerInner .SearchInput {
+  background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/ico_search.png') 250px 5px no-repeat ;
+  width: 100%;
+  font-size: 14px;
+  padding: 12px 10px 12px 10px;
+  border: 1px solid #ddd;
+  border-radius:60px;
+  cursor:pointer;
+}
+
+
+
+#header .logo{position:absolute;top:8px;left:45%; z-index:100; padding:0px 0;text-align:center; }	
+#header .logo a{display:block; }
+#header .logo img{display:block; vertical-align:top;width:180px}
+
+.s21_t_hospital a{border-radius:60px;padding:2px 10px 4px 10px;background:#333;color:#fff;font-size:13px ! important;letter-spacing:-0.05em;font-weight:400;}
+.s21_t_bigsale a{border-radius:60px;padding:2px 10px 4px 10px;background:#fff;color:#e97723 ! important;font-size:13px ! important;letter-spacing:-0.05em;font-weight:600}
+.s21_t_bigsale a:hover {border-radius:60px;padding:2px 10px 4px 10px;background:#fff;color:#111 ! important;font-size:13px ! important;letter-spacing:-0.05em;font-weight:600}
+
+/* -------- Header :: GNB(PC) -------- */
+#gnb{position:relative; width:100%;  z-index:99;margin:0 auto;height:67px; text-align:center;border-top:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0}
+#gnb .gnb-wrapper{text-align:left; margin: 0 auto;}
+#gnb .gnb-wrapper > ul{margin: 0 auto; width:100%;}
+#gnb .gnb-wrapper > ul > li{float: left; }
+#gnb .gnb-wrapper > ul > li > a{z-index:100; height:67px; line-height:67px; padding:0 0px; text-align:left; color:#656565; font-size:20px; font-weight:400;}
+#gnb .gnb-wrapper > ul > li > a > span{display: inline-block; position: relative; padding: 0 170px;}
+#gnb .gnb-wrapper > ul > li > a > span:before{display: block; position: absolute; left: 50%; bottom: -1px; content: ''; width: 0; height: 3px; z-index: 100; background-color: #e97723; -webkit-transition: all 0.4s;-moz-transition: all 0.4s; -ms-transition: all 0.4s; -o-transition: all 0.4s; transition: all 0.4s;}
+#gnb .gnb-wrapper > ul > li > a:hover, #gnb .gnb-wrapper > ul > li.on > a{color: #e97723;}
+#gnb .gnb-wrapper > ul > li > a:hover > span:before, #gnb .gnb-wrapper > ul > li.on > a > span:before{width: 100%; margin-left: -50%;color:#656565;}
+
+
+/* ****************** FOOTER ********************** */
+#footer{float:left;width:100%;background-color:#4d4d4d;margin:0px auto 0 auto;text-align:center;padding:20px 0}
+.footerInner{position:relative;margin:0 auto;padding:10px 0 10px 0;}
+.s_notice{float:left;width:50%;display:inline-block;padding-top:15px}
+.s_notice h3{color:#cecece;font-size:20px;font-weight:600;float:left;width:23%}
+.s_notice dl{float:left;width:65%}
+.s_notice dt{float:left;text-align:left;color:#fff;font-size:16px;font-weight:300;float:left;width:77%;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:1; -webkit-box-orient:vertical; word-break:break-all;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1}
+.s_notice dt a{color:#fff ! important}
+.s_notice dd{float:right;text-align:right;color:#b3b3b3;font-size:14px;font-weight:300;float:left;width:22%;border:0px solid #fff}
+
+.s_btm_line{height:50px;background: #737373;width:1px;display:inline-block}
+.footer_btns{float:right;width:45%;display:inline-block}
+.footer_btns button{display:inline-block;width:46%;margin:0 1.5%;font-size:16px;padding-bottom:5px;color:#dfdfdf;border-bottom:3px solid #ff9e05;animation-name: ani03; animation-duration: 2s;text-align:left;background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/footer_more.png') right center no-repeat ;}
+.footer_btns button:hover{display:inline-block;width:46%;margin:0 1.5%;font-size:16px;padding-bottom:5px;color:#dfdfdf;border-bottom:3px solid #ff9e05;text-align:left;animation-name: ani03; animation-duration: 2s;background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/footer_more_on.png') right center no-repeat ;}
+.footer_btns button img{padding:10px;width:20px;}
+
+@keyframes ani03 {
+   0%   {background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/footer_more.png') right center no-repeat ;left:0}
+  50%  {background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/footer_more_on.png') right center no-repeat ; left:15px}
+}
+
+/* -------- FOOTER :: 하단 -------- */
+.footerBottom{position:relative;margin-top:20px;margin-bottom:40px;padding:20px 0;border-top:2px solid #404040;width:100%;}
+.footerBottom_left{float:left;width:80%;}
+.footerBottom_left p{font-size:14px;color:#878787;line-height:20px;text-align:left}
+.footerBottom_left span{padding:0 7px}
+.footerBottom_left address{font-size:13px;color:#797979;line-height:20px;text-align:left;padding-top:5px;}
+
+.footerBottom_right{float:right;width:18%}
+.footerBottom_right li a{font-size:14px;color:#9c9c9c;line-height:20px;text-align:left;float:left;background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/footer_ico.png') left center no-repeat ;padding-left:15px;margin-left:15px}
+
+/* ****************** QUICK ********************** */
+#quick{top:255px;right:20px;background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/quick_bg.png')  repeat-y ;width:119px;}
+#quick dl{width:95%;border-radius:12px;height:130px;background:#fff;margin-bottom:15px;box-shadow: 5px 5px 31px rgba(181, 179, 181, 0.5)  ; -webkit-box-shadow: 5px 5px 31px rgba(181, 179, 181, 0.5)  ; -moz-box-shadow: 5px 5px 31px rgba(181, 179, 181, 0.5)  ; }
+#quick dt{padding:12px;text-align:center;display:block}
+#quick dd{background:#9e9e9e;display:block;font-size:16px;text-align:center;color:#fff;height:48px;line-height:48px;border-bottom-right-radius:12px;border-bottom-left-radius:12px;}
+#quick dd:hover{background:#e97723;animation-name: ani04; animation-duration: 1s;height:48px;line-height:48px;border-bottom-right-radius:12px;border-bottom-left-radius:12px;}
+#quick .go_top{margin:15px auto 0px auto;border-radius:100px;border:3px solid #e97723;background:#fff;line-height:60px;height:60px;width:60px;text-align:center;font-size:16px;}
+#quick .go_top span{border-bottom:3px solid #e97723}
+#quick .go_top:hover{color:#fff;animation-name: ani_quick; animation-duration: 1s;}
+
+@keyframes ani04 {
+   0%   {background:#9e9e9e}
+  50%  {background:#e97723;} 
+  75%  {background:#e97723;}
+  100%  {background:#e97723;}
+}
+
+@keyframes ani_quick {
+   0%   {background:#9e9e9e}
+  50%  {background:#e97723;color:#fff;box-shadow: 12px 13px 37px rgba(171, 171, 171, 0.5)  ; -webkit-box-shadow: 12px 13px 37px rgba(171, 171, 171, 0.5)  ; -moz-box-shadow: 12px 13px 37px rgba(171, 171, 171, 0.5)  ; }
+  75%  {background:#e97723;color:#fff;box-shadow: 12px 13px 37px rgba(171, 171, 171, 0.5)  ; -webkit-box-shadow: 12px 13px 37px rgba(171, 171, 171, 0.5)  ; -moz-box-shadow: 12px 13px 37px rgba(171, 171, 171, 0.5)  ; }
+  100%  {background:#e97723;color:#fff;box-shadow: 12px 13px 37px rgba(171, 171, 171, 0.5)  ; -webkit-box-shadow: 12px 13px 37px rgba(171, 171, 171, 0.5)  ; -moz-box-shadow: 12px 13px 37px rgba(171, 171, 171, 0.5)  ; }
+}
+
+/* ****************** MAIN/SUB LAYOUT ********************** */
+
+#Container{width:100%;margin:0px auto;}
+
+/* ****************** MAIN LAYOUT ********************** */
+.mContainer{float:left;text-align:center;width:100%;margin:70px auto;border:0px solid #000}
+
+/* ****************** SUB LAYOUT ********************** */
+.sContainer{float:left;text-align:center;width:100%;margin:0px auto 70px auto;border:0px solid #000}
+
+
+	/* sns */
+	.sns_Tg{color:#ee6a53;}
+	.sns_Tf{color:#587ac3;}
+	.sns_Tn{color:#1dc800;}
+	.sns_Tk{color:#ad7a00;}
+	.sns_To{color:#c0c0c0;}
+	.txt_orange{color:#f98d3c;}
+	.txt_pink{color:#fe3463; font-weight:600;}
+	.txt_pink2{color:#d65baf; font-weight:600;}
+	.txt_purple{color:#6468f4; font-weight:600;}
+	.txt_green{color:#58bb0e; font-weight:600;}
+	.txt_orange2{color:#f9bb59; font-weight:600;}
+
+	.txt_green2{color:#19b0a4; font-weight:600;}
+	.txt_blue{color:#139de5; font-weight:600;}
+	/**/
+/*2021.01.04 김주희 추가*/
+	a{cursor:pointer;}
+	
+	/* TXT */
+	.Ntxt_green{color:#98cf00;}
+	.Ntxt_blue{color:#579cdd;}
+	.Ntxt_orange{color:#e87a23;}
+	.Ntxt_purple{color:#b24ea8;}
+	.Ntxt_red{color:#e33f3e;}
+/*2021.01.04 김주희 추가*/
+
+@media screen and (max-width: 1560px) and (min-width: 1501px) {
+#quick{top:255px;right:0px;width:100px ! important;border:0px solid #000}
+}
+@media screen and (max-width: 1500px) and (min-width: 1401px) {
+#quick{top:255px;right:0px;background: none ;width:90px ! important;border:0px solid #000}
+#quick dl{width:95%;border-radius:12px;height:100px;background:#fff;margin-bottom:15px;box-shadow: 5px 5px 31px rgba(181, 179, 181, 0.5)  ; -webkit-box-shadow: 5px 5px 31px rgba(181, 179, 181, 0.5)  ; -moz-box-shadow: 5px 5px 31px rgba(181, 179, 181, 0.5)  ; }
+#quick dt{padding:12px;text-align:center;display:block}
+#quick dt img{width:35px}
+#quick dd{background:#9e9e9e;display:block;font-size:13px;text-align:center;color:#fff;height:48px;line-height:48px;border-bottom-right-radius:12px;border-bottom-left-radius:12px;}
+#quick .go_top{margin:15px auto 0px auto;border-radius:100px;border:3px solid #e97723;background:#fff;line-height:40px;height:40px;width:40px;text-align:center;font-size:14px;}
+
+}
+@media screen and (max-width: 1499px) and (min-width: 1423px) {
+#quick{top:255px;right:0px;background: none ;width:70px ! important;border:0px solid #000}
+}
+
+@media screen and (max-width: 1422px) {
+	#quick{display:none;}
+	#quick_w1422{top:10px;left:0px;width:130px;}
+	#quick_w1422 dl{display:inline-block;width:48%;border-left:1px solid #e9e9e9}
+	#quick_w1422 dt{float:left;width:100%;text-align:center;}
+	#quick_w1422 dt img{width:30px;text-align:center;;}
+	#quick_w1422 dd{float:left;width:100%;font-size:13px;text-align:center;padding-top:5px}
+	.s21_w1422{float:right;width:430px;}
+}
+@media screen and (min-width: 1422px) {
+#quick_w1422{display:none;}
+}
+
+
+/*********** 2021.03.12 ***************/
+.s_notice {line-height:26px}
+.s_notice .s21_more{float:right;color:#a9a9a9;font-size:12px;font-weight:200;margin:0px auto 0 auto;border:1px solid #a9a9a9;text-align:center;padding:0px 10px;border-radius:3px;}
+.s_notice .s21_more a{color:#a9a9a9}
+.s_notice .s21_more a:hover{color:#cfcfcf}
+.s_notice .s21_more:hover{color:#cfcfcf;font-size:12px;font-weight:200;margin:0px auto 0 auto;border:1px solid #cfcfcf;text-align:center;padding:0px 10px;border-radius:3px;}
+
+.s_notice dt{font-size:14px ! important;}
+.s_notice dd{font-size:13px ! important;}
+
+.s_btm_line{height:70px ! important;background: #737373;width:1px;display:inline-block}
+.footer_btns{float:right;width:45%;display:inline-block;margin-top:10px}
+
+
+/******* 2021.03.12 footer2 ************/
+.s_notice_n{float:left;width:50%;display:inline-block;padding-top:15px}
+.s_notice_n h3{display:block;width:100%;margin:0 1.5%;font-size:16px;padding-bottom:5px;color:#dfdfdf;border-bottom:3px solid #ff9e05;animation-name: ani03; animation-duration: 2s;text-align:left;background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/footer_more.png') right center no-repeat ;}
+.s_notice_n h3 a{color:#dfdfdf}
+.s_notice_n dl{float:left;width:47%;margin:13px 7px;}
+.s_notice_n dt{float:left;text-align:left;color:#fff;font-size:14px;font-weight:300;float:left;width:73%;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:1; -webkit-box-orient:vertical; word-break:break-all;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1}
+.s_notice_n dt a{color:#fff ! important}
+.s_notice_n dd{float:right;text-align:right;color:#b3b3b3;font-size:13px;font-weight:300;float:left;width:25%;border:0px solid #fff}
+.s_notice_n h3 img{padding:10px;width:20px;}
+
+.s_btm_line_n{height:90px ! important;background: #737373;width:1px;display:inline-block}
+
+.footer_btns_n{float:right;width:45%;display:inline-block}
+.footer_btns_n button{display:inline-block;width:46%;margin:5px 1.5%;font-size:16px;padding-bottom:15px;color:#dfdfdf;border-bottom:3px solid #ff9e05;animation-name: ani03; animation-duration: 2s;text-align:left;background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/footer_more.png') right center no-repeat ;}
+.footer_btns_n button:hover{display:inline-block;width:46%;margin:0 1.5%;font-size:16px;padding-bottom:15px;color:#dfdfdf;border-bottom:3px solid #ff9e05;text-align:left;animation-name: ani03; animation-duration: 2s;background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/footer_more_on.png') right center no-repeat ;}
+.footer_btns_n button img{padding:10px;width:20px;}

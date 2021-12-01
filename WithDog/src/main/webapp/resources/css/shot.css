@@ -1,0 +1,371 @@
+
+/********** ë°˜ë ¤ê²¬ì ‘ì¢…ì¼ì • **********/
+
+.shot_menu{display: block; overflow: hidden; width:100%; background: #ffffff; z-index:10000;}
+.shot_menu li{float:left; width:50%; height:45px; padding:9px 0 10px 0; font-size: 15px; color:#636363; font-weight:600; text-align:center; border-top:1px solid #f0f0f0; border-bottom: 1px solid #d4d4d4; -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+
+
+.s21_shot_bx{width:100%;margin:0;padding:0px 0 30px 0;text-align:center;min-height:60px;}
+.s21_shot_bx .s21_shot_button{border:0;height:65px;line-height:65px;border-radius:100px;min-width:360px;background:#fff url('http://appdata.hungryapp.co.kr/images/hatdog/img/shot/shot_btn.png') 20px center no-repeat;background-size:30px;padding-left:37px;color:#585858;font-size:20px;letter-spacing:-0.05em;font-weight:500;box-shadow: 0 3px 21px rgba(207, 207, 207, 0.5)  ; 
+	-webkit-box-shadow: 0 3px 21px rgba(207, 207, 207, 0.5)  ; 
+	-moz-box-shadow: 0 3px 21px rgba(207, 207, 207, 0.5)  ; }
+
+.f_l_r{text-align:right;width:96%;font-size:16px;margin-right:2%}
+.f_l_r span{background:url('http://appdata.hungryapp.co.kr/images/hatdog/img/shot/shot_star.png') left center no-repeat;background-size:14px;padding-left:25px;}
+.f_c_b{color:#757575;}
+
+.s21_shot_list{width:96%;margin:20px auto;text-align:center;}
+.s21_shot_list .s21_shot_list_bx{margin:0px 0.8% 25px 0.8%;width:48%;height:233px;float:left;display:inline-block;border:1px solid #e9e9e9;padding:20px 0 0 0;background:#fff;border-radius:20px;min-height:100px;box-shadow: 0 3px 21px rgba(207, 207, 207, 0.5)  ; 
+	-webkit-box-shadow: 0 3px 21px rgba(207, 207, 207, 0.5)  ; 
+	-moz-box-shadow: 0 3px 21px rgba(207, 207, 207, 0.5)  ; }
+
+.s21_shot_dl{float:left;padding:10px 15px;width:100%;}
+.s21_shot_dl dt{float:left;width:96%;font-size:20px;font-weight:600;letter-spacing:-0.05em;color:#585353;text-align:left;line-height:23px;padding-bottom:14px;border-bottom:1px dashed #d2d1d0;}
+.s21_shot_dl dt span{background:url('http://appdata.hungryapp.co.kr/images/hatdog/img/shot/shot_star.png') left center no-repeat;background-size:14px;padding-left:25px;}
+.s21_shot_dl dd{float:left;width:100%;font-size:15px;font-weight:300;letter-spacing:-0.05em;color:#585353;text-align:left;padding-top:10px;line-height:22px}
+.s21_shot_dl dd span{color:#333;padding-right:12px;font-weight:500;display:block;}
+.s21_shot_pbx{display:inline-block;width:90%;height:80px;border-top:1px solid #d2d1d0;background:#f9f9f9;padding:15px 5% 25px 5%;line-height:20px;text-align:left;font-size:14px;color:#797878;border-bottom-left-radius:20px;border-bottom-right-radius:20px;}
+
+.s21_shot_bx_dog{width:94%;margin:0;padding:0px 0%  10px 0%;margin:0 1% 0 3%;/*border-radius:30px;*/text-align:center;min-height:60px;background:#fff;border-bottom:0px solid #222}
+.s21_shot_dog{width:100%;margin:0px auto;text-align:left }
+.s21_shot_dog p{display:block;padding-right:25px;font-size:25px;letter-spacing:-0.05em;line-height:50px;padding-left:10px}
+.s21_shot_dog p span{padding-left:10px;color:#222;font-size:25px;display:inline-block;padding-left:40px}
+.s21_shot_my{float:right;margin:0px auto 0 auto;border:0;height:45px;line-height:45px;border-radius:100px;min-width:160px;background:#fe5543;color:#fff;font-size:18px;letter-spacing:-0.05em;font-weight:500;box-shadow: 0 3px 21px rgba(207, 207, 207, 0.5)  ; 
+	-webkit-box-shadow: 0 3px 21px rgba(207, 207, 207, 0.5)  ; 
+	-moz-box-shadow: 0 3px 21px rgba(207, 207, 207, 0.5)  ; }
+.s21_shot_my:hover{transition:0.6s;background:#222;color:#fff;font-size:18px;letter-spacing:-0.05em;font-weight:500;box-shadow: 0 3px 21px rgba(207, 207, 207, 0.5)  ; 
+	-webkit-box-shadow: 0 3px 21px rgba(207, 207, 207, 0.5)  ; 
+	-moz-box-shadow: 0 3px 21px rgba(207, 207, 207, 0.5)  ; }
+
+
+.s21_shot_list .s21_shot_list_bx_dog{margin:0px 0 25px 0;width:47.8%;margin:10px 1% 15px 1%;float:left;display:inline-block;border:1px solid #e9e9e9;padding:0px 0 10px 0;background:#fff;border-radius:20px;min-height:100px;box-shadow: 0 3px 21px rgba(207, 207, 207, 0.5)  ; 
+	-webkit-box-shadow: 0 3px 21px rgba(207, 207, 207, 0.5)  ;
+	-moz-box-shadow: 0 3px 21px rgba(207, 207, 207, 0.5)  ; }
+.s21_shot_dl_dog{float:left;padding:0px 0px;width:100%;border-bottom:1px solid #d2d1d0;}
+.s21_shot_dl_dog dt{float:left;width:72%;font-size:20px;font-weight:600;letter-spacing:-0.05em;color:#585353;text-align:left;line-height:23px;padding:15px 15px}
+.s21_shot_dl_dog dt span{background:url('http://appdata.hungryapp.co.kr/images/hatdog/img/shot/shot_star.png') 20px center no-repeat;background-size:14px;padding-left:55px;border-top-left-radius:20px;}
+.s21_shot_dl_dog dd{float:right;background:#fe5543;height:25px;line-height:25px;width:20%;font-size:16px;font-weight:300;letter-spacing:-0.03em;color:#fff;text-align:center;padding:15px 5px;border-top-right-radius:20px;}
+.s21_shot_dl_dog dd span{color:#333;padding-right:12px;font-weight:500;display:block;}
+
+.s21_shot_pbx_dog{float:left;width:90%;background:#fff;border-top:1px solid #e9e9e9;padding:9px 5% 6px 5%;line-height:20px;text-align:left;font-size:14px;color:#797878;border-bottom-left-radius:20px;border-bottom-right-radius:20px;}
+.op_end{opacity:0.4}
+
+.s21_shot_tnone{border-top:0px;}
+
+.s21_shot_pbx_list{float:left;width:64%;}
+.s21_shot_pbx_list dl{width:100%;padding:5px 0 15px 0;}
+.s21_shot_pbx_list dt{float:left;width:30%;height:30px;line-height:25px;font-size:15px;letter-spacing:-0.05em;font-weight:400;text-overflow:ellipsis;-webkit-line-clamp:1; -webkit-box-orient:vertical; word-break:break-all;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical}
+.s21_shot_pbx_list dt span{border-radius:100px;padding:2px 8px 5px 8px;background:#fe5543;color:#fff;font-size:14px;font-weight:400;margin-right:7px}
+.s21_shot_pbx_list dd{float:right;width:68%;font-size:15px;letter-spacing:-0.05em;font-weight:600;line-height:25px;}
+.s21_shot_pbx_btn{float:right;width:36%;text-align:right}
+
+
+.s21_shot_pbx_list2{float:left;width:80%;}
+.s21_shot_pbx_list2 dl{width:100%;padding:5px 0 15px 0;}
+.s21_shot_pbx_list2 dt{float:left;width:60%;height:30px;line-height:25px;font-size:15px;letter-spacing:-0.05em;font-weight:400;text-overflow:ellipsis;-webkit-line-clamp:1; -webkit-box-orient:vertical; word-break:break-all;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical}
+.s21_shot_pbx_list2 dt span{border-radius:100px;padding:2px 8px 5px 8px;background:#fe5543;color:#fff;font-size:14px;font-weight:400;margin-right:7px}
+.s21_shot_pbx_list2 dd{float:right;width:38%;font-size:15px;letter-spacing:-0.05em;font-weight:600;line-height:25px;}
+.s21_shot_pbx_btn2{float:right;width:20%;text-align:right;border:0px solid #000}
+
+.s21_shot_pbx_btn_on{border:0;background:#333;color:#ff8a7e;font-size:14px;text-align:center;padding:5px 8px;border-radius:60px;display:inline-block;letter-spacing:-0.05em;}
+.s21_shot_pbx_btn_off{border:0;background:#e2e1e1;color:#808080;font-size:14px;text-align:center;padding:5px 8px;border-radius:60px;display:inline-block;letter-spacing:-0.05em;}
+
+
+/********************/
+/* The Modal (background) */
+.modal_shot {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 99999999999999999; /* Sit on top */
+  padding-top: 8%; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content_shot {
+  position: relative;
+  background-color: #fff;
+  margin: auto;
+  padding: 0;
+  width: 650px;
+  min-height:600px;
+  max-height:600px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  border-radius:40px;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close_shot {
+  color: white;
+  float: right;
+  margin-right:15px;
+  font-size: 40px;
+  font-weight: bold;
+ line-height:10px;border:0px solid #fff
+}
+
+.close_shot:hover,
+.close_shot:focus {
+  color: #222;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header_shot {
+  padding: 30px 0px 10px 0;
+  background-color: #fa8d3b;
+  color: white;
+  border-top-left-radius:25px;border-top-right-radius:25px;
+}
+.modal-header_shot h2{font-size:30px;width:85%;margin:0px;padding-bottom:25px;letter-spacing:-0.05em ! important;text-align:center;font-weight:600;border-bottom:1px solid #ffd1ae;background:url('http://appdata.hungryapp.co.kr/images/hatdog/img/shot/shot_ico_btn2.png') 34% 0px no-repeat;background-size:35px;padding-left:15%;}
+
+.modal-body_shot {padding:5px 5% 50px 5%; width:90%;background: #fa8d3b;float:left;position:relative;margin:0}
+.modal-body_shot ul{float:left;padding:0px;width:76%;margin:0 13% 15px 13%}
+.modal-body_shot li{width:100%;float:left;color:#fff;padding:5px 0}
+
+.modal-body_shot dl{float:left;width:100%;padding:3px}
+.modal-body_shot dt{float:left;width:25%;letter-spacing:-0.05em;font-size:20px;line-height:28px;}
+.modal-body_shot dd{float:right;width:74%}
+
+.s21_shot_input{border:0px ! important;border-radius:100px ! important;padding:10px  ! important;font-size:16px;width:90%}
+.s21_shot_select{font-size:16px;border:0px ! important;border-radius:100px ! important;width:100px ! important;padding:10px  ! important;margin-right:10px;background-image: url("http://appdata.hungryapp.co.kr/images/mobitalk/sub/select_arrow_gray02.png"); background-repeat: no-repeat; background-size:18px; background-position: right center; -webkit-appearance: none; -moz-appearance: none; appearance: none; -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+
+.modal-body_shot_btn{position:absolute;bottom:-32px;left:8%;width:85%;background:#555;color:#fff;padding:20px 0;text-align:center;border-radius:100px;font-size:18px;letter-spacing:-0.05em;border:0}
+
+.s21_shot_pop_list_dog{float:left;margin:40px 0 20px 0;width:100%;overflow-y:auto;min-height:190px;max-height:190px;padding-bottom:12px;}
+/* width */
+.s21_shot_pop_list_dog::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.s21_shot_pop_list_dog::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #eeeeee; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+.s21_shot_pop_list_dog::-webkit-scrollbar-thumb {
+  background: #dfdfdf; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.s21_shot_pop_list_dog::-webkit-scrollbar-thumb:hover {
+  background: #ff7979; 
+}
+/*********/
+.n2021_shot{position:absolute;top:-58px;left:20px;border-radius:100px;background:#222;text-align:center;font-size:18px;color:#fff;z-index:999999999999;padding:10px 20px;}
+.n2021_shot:hover{transition:0.6s;position:absolute;top:-58px;left:20px;border-radius:100px;background:#fa8d3b;text-align:center;font-size:18px;color:#fff;z-index:999999999999;padding:10px 20px;}
+.s21_shot_wbox{min-height:200px;max-height:250px;height:250px;overflow-y:none;float:left;width:100%}
+
+/**scroll bar**/
+/* width */
+.s21_shot_wbox::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.s21_shot_wbox::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #eeeeee; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+.s21_shot_wbox::-webkit-scrollbar-thumb {
+  background: #dfdfdf; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.s21_shot_wbox::-webkit-scrollbar-thumb:hover {
+  background: #ff7979; 
+}
+
+/*******2021.09.08 *******/
+
+.s21_shot_pbx_select{width:30px;height:30px;border:0;background:url('http://appdata.hungryapp.co.kr/images/hatdog/img/shot/ico_shot_check_off.png') 0px 0px no-repeat;background-size:23px;}
+.s21_shot_pbx_select:hover{text-indent:-999999999999999999px;width:30px;height:30px;border:0;background:url('http://appdata.hungryapp.co.kr/images/hatdog/img/shot/ico_shot_check2_on.png') 0px 0px no-repeat;background-size:23px;}
+.s21_shot_pbx_select_on{text-indent:-999999999999999999px;width:30px;height:30px;border:0;background:url('http://appdata.hungryapp.co.kr/images/hatdog/img/shot/ico_shot_check2_on.png') 0px 0px no-repeat;background-size:23px;}
+
+.s21_shot_pbx_modify{text-indent:-999999999999999999px;width:30px;height:30px;border:0;background:url('http://appdata.hungryapp.co.kr/images/hatdog/img/shot/ico_shot_modify_off.png') 0px 0px no-repeat;background-size:23px;}
+.s21_shot_pbx_modify:hover{text-indent:-999999999999999999px;width:30px;height:30px;border:0;background:url('http://appdata.hungryapp.co.kr/images/hatdog/img/shot/ico_shot_modify2_on.png') 0px 0px no-repeat;background-size:23px;}
+.s21_shot_pbx_modify_on{text-indent:-999999999999999999px;width:30px;height:30px;border:0;background:url('http://appdata.hungryapp.co.kr/images/hatdog/img/shot/ico_shot_modify2_on.png') 0px 0px no-repeat;background-size:23px;}
+
+.s21_shot_pbx_del{text-indent:-999999999999999999px;width:30px;height:30px;border:0;background:url('http://appdata.hungryapp.co.kr/images/hatdog/img/shot/ico_shot_del_off.png') 0px 0px no-repeat;background-size:23px;}
+.s21_shot_pbx_del:hover{text-indent:-999999999999999999px;width:30px;height:30px;border:0;background:url('http://appdata.hungryapp.co.kr/images/hatdog/img/shot/ico_shot_del2_on.png') 0px 0px no-repeat;background-size:23px;}
+.s21_shot_pbx_del_on{text-indent:-999999999999999999px;width:30px;height:30px;border:0;background:url('http://appdata.hungryapp.co.kr/images/hatdog/img/shot/ico_shot_del2_on.png') 0px 0px no-repeat;background-size:23px;}
+
+.s21_shot_pbx_select span{font-size:0}
+.s21_shot_pbx_select_on span{font-size:0}
+.s21_shot_pbx_modify span{font-size:0}
+.s21_shot_pbx_modify_on span{font-size:0}
+.s21_shot_pbx_del span{font-size:0}
+.s21_shot_pbx_del_on span{font-size:0}
+
+
+
+/*********2021.09.13************/
+.s21_shot_important{float:left;width:94%;margin:20px 3%;border-top:4px solid #ff2d45;padding:30px 0px;}
+.s21_shot_important h3{padding:0 15px 25px 15px;font-size:25px;letter-spacing:-0.05em;text-align:left;border-bottom:1px solid #333;color:#ff2d45}
+.s21_shot_important ul{padding:25px 15px;width:100%;}
+.s21_shot_important li{padding:5px 0px;font-size:18px;line-height:28px;letter-spacing:-0.05em;text-align:left}
+.s21_shot_important li .li_pd{padding-right:15px;font-size:18px;font-weight:600}
+.s21_shot_important li .pd20{padding-left:18px;}
+
+
+/**********2121.09.23**********/
+/* Style the tab */
+.s21_shot_tab { overflow: hidden;text-align:center}
+
+/* Style the buttons inside the tab */
+.s21_shot_tab button {
+  background-color: #fff;
+  border:1px solid #e4e4e4;
+  border-radius:100px;
+  display:inline-block;
+  outline: none;
+  cursor: pointer;
+  padding: 5px 6px;
+  margin:3px auto;
+  transition: 0.3s;
+  font-size: 12px;
+  letter-spacing:-0.05em;
+}
+
+/* Change background color of buttons on hover */
+.s21_shot_tab button:hover {
+  background-color: #ff5454;
+}
+
+/* Create an active/current tablink class */
+.s21_shot_tab button.active {
+  background-color: #ff5454;color:#fff
+}
+
+/* Style the tab content */
+.s21_shot_tabcontent {
+  display: none;
+  padding: 6px 12px;
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/** ë‚´ ë°˜ë ¤ê²¬ **/
+.s21_shot_card{float:left;position:relative;margin:0px 0% 50px 0%;width:98%;display:inline-block;border:1px solid #e9e9e9;padding:12px 10px;background:#fff;border-radius:20px;min-height:280px;box-shadow: 0 3px 21px rgba(207, 207, 207, 0.5)  ; 
+	-webkit-box-shadow: 0 3px 21px rgba(207, 207, 207, 0.5)  ; 
+	-moz-box-shadow: 0 3px 21px rgba(207, 207, 207, 0.5)  ; }
+.s21_shot_card_img{float:left;width:35%;position:relative;}
+.s21_shot_card_text{float:right;width:60%;text-align:left;margin-top:15px;margin-right:3%}
+.s21_shot_card_text p{margin:3px 0}
+
+.s21_shot_card_text_pop{float:right;width:60%;text-align:left;margin-top:0px;margin-right:3%}
+.s21_shot_card_text_pop p{margin:8px 0}
+
+.s21_shot_nolist {
+   /* float: left;border-radius:14px;
+    width: 95%;
+    margin: 8px 2.3%;
+    border: 1px solid #ddd;
+    padding-top:0px;
+    font-size: 18px;
+	height:280px;
+    */
+	position:relative; overflow: hidden; float: left; width:95%; padding-bottom: 65%; margin: 8px 2.3%;; -webkit-border-radius: 14px; -moz-border-radius: 14px; -o-border-radius: 14px; border-radius: 14px;background: #555 url(http://appdata.hungryapp.co.kr/images/hatdog/img/common/noimg.png) center center no-repeat;background-size: 100%;
+	}
+.s21_shot_nolist img{/*border-radius:0px;max-width:100%;min-width:100%;;max-height:100%;min-height:100%;*/position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; height:100%;}
+
+.s21_shot_card_text h3{display:inline-block;width:100%;font-size:25px;letter-spacing:-0.05em;font-weight:600;margin-bottom:10px;padding:10px 0px 25px 0 ! important;border-bottom:1px solid #ddd;text-overflow:ellipsis;-webkit-line-clamp:1; -webkit-box-orient:vertical; word-break:break-all;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical}
+.s21_shot_card_text p span{padding-left:10px;color:#222;font-size:18px;display:inline-block}
+
+
+.s21_shot_card_text dl{float:left;width:100%;margin:10px 0 10px 0;padding-bottom:15px;;border-bottom:1px dashed #ddd}
+.s21_shot_card_text dt{float:left;width:25%;font-size:18px;letter-spacing:-0.05em;color:#8f8f8f}
+.s21_shot_card_text dd{float:right;width:74%;font-size:18px;letter-spacing:-0.05em;color:#3c3c3c}
+
+.s21_shot_my{display:inline-block;margin:15px auto 0 0px;border:0;height:60px;line-height:60px;border-radius:100px;width:100%;background:#fe5543;color:#fff;font-size:20px;letter-spacing:-0.05em;font-weight:500;box-shadow: 0 3px 21px rgba(207, 207, 207, 0.5)  ; 
+	-webkit-box-shadow: 0 3px 21px rgba(207, 207, 207, 0.5)  ; 
+	-moz-box-shadow: 0 3px 21px rgba(207, 207, 207, 0.5)  ; }
+
+
+.s21_shot_photo_input_img {
+	position:absolute;
+    background:rgba(0,0,0,0.6);
+    font-size: 0;
+	height:30px;width:30px;
+	bottom:6px;right:12px;border-radius:100px;text-align:center;
+}
+.s21_shot_photo_input_img img{width:15px;padding-top:8px}
+
+.s21_shot_img_input{
+	position:relative;
+	 float: left;border-radius:14px;
+    width: 95%;text-align:center;
+    margin: 0px 2.3%;
+     background: #f7f7f7 url(http://appdata.hungryapp.co.kr/images/hatdog/img/common/noimg.png) center center no-repeat;
+    padding-top: 0px;
+    font-size: 18px;
+	height:150px;
+    background-size: 100%;
+	}
+	.s21_shot_img_input img{border-radius:14px;width:100%;min-height:150px;max-height:150px}
+
+/********* 2021.09.23 e**********/
+
+/******* 2021.09.29 **********/
+
+/* Modal Content */
+.modal-content_shot2 {
+  position: relative;
+  background-color: #fff;
+  margin: auto;
+  padding: 0;
+  width: 600px;
+  min-height:280px;
+  max-height:280px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  border-radius:40px;
+}
+.modal-body_shot h4{font-size:20px;color:#fff;letter-spacing:-0.05em;background:none;font-weight:500;text-align:center;margin:12px 0;}
+.modal-body_shot h4 span{padding:10px 13px;background:#333;color:#fff;font-size:16px;border-radius:100%}
+.s21_shot_card_date{width:100%;margin:40px 0 20px 0;}
+.modal-body_shot_btn2{position:absolute;bottom:-48px;left:0%;width:100%;background:#555;color:#fff;padding:20px 0;text-align:center;border-bottom-left-radius:25px;border-bottom-right-radius:25px;font-size:18px;letter-spacing:-0.05em;border:0}
+
+
+
