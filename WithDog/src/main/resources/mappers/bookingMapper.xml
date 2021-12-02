@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.withdog.mapper.bookingMapper">
+	
+	<select resultType="com.withdog.dto.HotelDto" id="getHotelInfo" parameterType="int">
+		select h_id, h_name, h_add1, h_add2, h_add3, h_price from hotel where h_id = #{h_id}
+	</select>
+	
+	<insert id="addBooking" parameterType="com.withdog.dto.BookingDto">
+		insert into booking
+		values (#{b_id}, #{b_chkInDate}, #{b_chkOutDate}, #{b_price}, #{b_humanNum}, #{b_petNum}, #{b_state}, #{m_id}, #{h_id}, #{b_name}, default)
+	</insert>
+
+	<select resultType="com.withdog.dto.BookingDto" id="getBookingInfo" parameterType="String">
+		select * from booking
+		where 
+		<if test="b_id != null">
+			b_id = #{b_id}
+			and 
+		</if>
+		b_state = '예약대기'
+		order by b_regiDate desc
+	</select>
+	
+	<select resultType="com.withdog.dto.BookingDto" id="getBookingList" parameterType="com.withdog.dto.CriteriaDto">
+		select * from (select rownum num, b.* from (select * from booking where<if test="category == 'b_id'">b_id like '%'||#{field}||'%' and</if><if test="category == 'b_name'">b_name like '%'||#{field}||'%' and</if><if test="category == 'm_id'">m_id like '%'||#{field}||'%' and</if>b_state = '예약대기' order by b_regiDate desc) b) where num between #{pageStart} and #{pageEnd}
+	</select>
+	
+	<select resultType="com.withdog.dto.BookingDto" id="getBookingLists">
+		select * from booking where b_state = '예약대기' order by b_regiDate desc
+	</select>
+	
+	<update id="updateBookingInfo" parameterType="com.withdog.dto.BookingDto">
+		update booking
+		set b_chkInDate = #{b_chkInDate}, b_chkOutDate = #{b_chkOutDate}, b_price = #{b_price}, b_humanNum = #{b_humanNum}, b_petNum = #{b_petNum}, b_name = #{b_name}
+		where b_id = #{b_id}
+	</update>
+	
+	<delete id="deleteBookingInfo" parameterType="String">
+		delete booking
+		where b_id = #{b_id}
+	</delete>
+	
+	<select resultType="int" id="getBookingCount" parameterType="map">
+		select count(b_id) from booking
+		<choose>
+		<when test="category == 'b_id'">
+		where b_id like '%'||#{field}||'%'
+		</when>
+		<when test="category == 'm_id'">
+		where m_id like '%'||#{field}||'%'
+		</when>
+		<when test="category == 'b_name'">
+		where b_name like '%'||#{field}||'%'
+		</when>
+		</choose>
+	</select>
+	
+
+</mapper>

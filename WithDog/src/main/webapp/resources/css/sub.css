@@ -48,7 +48,7 @@
 .s21_sm_search_tag span:hover{color:#e97723}
 
 .s21_tour_list{width:100%;margin:40px auto 40px auto;}
-.s21_tour_sun{width:100%;margin:0px 0 0px 0;text-align:right;border:0px solid #000}
+.s21_tour_sun{width:100%;margin:30px 0 0px 0;text-align:right;border:0px solid #000}
 .s21_tour_sun p{color:#484848;font-size:16px;float:left;text-align:left;padding-top:15px;padding-left:13px;}
 
 .s21_tour_sun p span{color:#e97723;font-size:16px;font-weight:600}
@@ -166,7 +166,7 @@
 .s21_detail_tbox{float:right;width:42%;border-top:3px solid #646361}
 
 .s21_today_arrow{left:390px;top:20px;width:30%;}
-.s21_today_arrow div{float:left;display:inline-block;padding-left:10px;margin-left:10px;background:#000;border-radius:100px;width:65px;height:40px;opacity:0.5;margin:font-size:14px;color:#fff;text-align:center}
+.s21_today_arrow div{float:left;display:inline-block;padding-left:10px;margin-left:10px;background:#000;border-radius:100px;width:65px;height:40px;opacity:0.5;font-size:14px;color:#fff;text-align:center}
 .s21_today_arrow div button{margin:8px 0px;opacity:0.5}
 .s21_today_arrow div button:hover{opacity:1}
 .s21_today_arrow p{float:left;display:inline-block;margin-left:10px;background:#000;border-radius:100px;width:90px;height:40px;opacity:0.5;line-height:40px;font-size:15px;color:#fff;text-align:center}
@@ -178,6 +178,13 @@
 .s21_detail_tbox .s21_detail_twrap li dt{float:left;width:21%;font-size:16px;color:#626262;padding-left:3px;text-align:left;}
 .s21_detail_tbox .s21_detail_twrap li dd{font-size:14px;color:#a1a1a1;line-height:18px;text-align:left;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:1; -webkit-box-orient:vertical; word-break:break-all;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1}
 .s21_detail_tbox .s21_detail_twrap li dd a{font-size:14px;color:#a1a1a1;text-align:left;}
+
+.s21_detail_tbox .s21_detail_twrap_mod{width:100%;padding:0px 0}
+.s21_detail_tbox .s21_detail_twrap_mod li{float:left;width:100%;padding:18px 0;border-bottom:1px solid #dddbd6;}
+.s21_detail_tbox .s21_detail_twrap_mod li dl{width:100%;}
+.s21_detail_tbox .s21_detail_twrap_mod li dt{float:left;width:18%;font-size:16px;color:#626262;padding-left:3px;text-align:left;}
+.s21_detail_tbox .s21_detail_twrap_mod li dd{float:left;width:31%;font-size:14px;color:#a1a1a1;line-height:18px;text-align:left;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:1; -webkit-box-orient:vertical; word-break:break-all;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1}
+.s21_detail_tbox .s21_detail_twrap_mod li dd a{font-size:14px;color:#a1a1a1;text-align:left;}
 
 .s21_detail_twrap_sns{padding:10px 0 ! important}
 
@@ -200,7 +207,7 @@
 .s21_tab { float:left;width:100%;margin:40px 0;overflow: hidden; border-top: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0; border-left: 1px solid #e0e0e0;}
 
 /* Style the buttons inside the tab */
-.s21_tab button {background-color: #fff;float: left; border: none;outline: none;cursor: pointer; padding: 14px 0px;transition: 0.3s;font-size: 17px;border-right: 1px solid #e0e0e0;width:33.33%;}
+.s21_tab button {background-color: #fff;float: left; border: none;outline: none;cursor: pointer; padding: 14px 0px;transition: 0.3s;font-size: 17px;border-right: 1px solid #e0e0e0;width:50%;}
 
 /* Change background color of buttons on hover */
 .s21_tab button:hover {  background-color: #f9f7f2;}
@@ -773,7 +780,7 @@
 .s21_album_top h3 span{font-size:40px;color:#ff8f34;text-align:left;font-weight:600;letter-spacing:-0.08em}
 
 .s21_arrow_box{top:5px;right:5px;}
-.s21_arrow_box div{float:left;display:inline-block;padding-left:10px;margin-left:10px;background:#000;border-radius:100px;width:65px;height:40px;opacity:0.5;margin:font-size:14px;color:#fff;text-align:center}
+.s21_arrow_box div{float:left;display:inline-block;padding-left:10px;margin-left:10px;background:#000;border-radius:100px;width:65px;height:40px;opacity:0.5;font-size:14px;color:#fff;text-align:center}
 .s21_arrow_box div button{margin:8px 0px;opacity:0.5}
 .s21_arrow_box div button:hover{opacity:1}
 .s21_arrow_box p{float:left;display:inline-block;margin-left:10px;background:#000;border-radius:100px;width:90px;height:40px;opacity:0.5;line-height:40px;font-size:15px;color:#fff;text-align:center}
@@ -888,7 +895,7 @@
 
 /* 검색 */
 .s21_ab_search_box{width:680px;margin:0 auto;text-align:center;height:80px;top:180px}
-.s21_ab_search{;width:100%;background:#fff;border-radius:40px;height:50px;padding:10px;box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6)  ; -webkit-box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6)  ; -moz-box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6)  ; }
+.s21_ab_search{width:100%;background:#fff;border-radius:40px;height:50px;padding:10px;box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6)  ; -webkit-box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6)  ; -moz-box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6)  ; }
 .s21_ab_search_button{border-radius:60px;padding:10px 40px;color:#fff;font-size:20px;margin-right:5px;float:right}
 .s21_ab_SearchInput{font-size:16px;border-radius:60px;padding:12px 20px;border:0px solid #ddd;float:left;margin-left:5px;width:67%}
 
@@ -983,7 +990,7 @@
 	 transform:rotate(45deg);
 	 -webkit-transform:rotate(45deg);
 	 -moz-transform:rotate(45deg);
-	 background-color:#none;
+	 background-color:none;
 }
 
 
@@ -1135,7 +1142,7 @@ input[switch]:checked + label:after {
 }
 /**/
 
-.s21_ab_w_btm{margin:20px auto:}
+.s21_ab_w_btm{margin:20px auto;}
 .s21_ab_w_input{display:inline-block;width:46%;margin:20px 2%;border:1px solid #d4cee8;background:#f0edf8;padding:0px;min-height:320px;}
 .s21_ab_w_img{border-bottom:1px solid #111;padding:50px 20px}
 .s21_ab_photo_img{border:0px;outline:0px;margin-top:115px;border-radius:100%;background:#8b72dd url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/album/top_ico1.png') center center no-repeat;background-size:50px;height:70px;width:70px;font-size:0;}
@@ -1494,7 +1501,7 @@ input[switch_view]:checked + label:after {
   left: 90px;
   background-color: #f7f7f7;
 }
-/****노트보기 > 사진펼치기 끝*****/'
+/****노트보기 > 사진펼치기 끝*****/
 
 
 .s21_nt_vbx2{float:left;width:100%;margin:40px auto;text-align:center;}
@@ -1795,8 +1802,8 @@ input[switch_view]:checked + label:after {
 .s21_schedule_tab .s21_schedulebx ul {float:left;width:100%;border:0px solid #fff}
 .s21_schedule_tab .s21_schedulebx ul li{float:left;padding:0 0px;}
 .s21_schedule_tab .s21_schedulebx .s21_sche_left{width:30px;text-align:left;}
-.s21_schedule_tab .s21_schedulebx .s21_sche_center{width:260px;text-align:center;font-size:25px;letter-spacing:0.05em;color:#fff;font-weight:300;line-height:45px;f}
-.s21_schedule_tab .s21_schedulebx .s21_sche_center span{font-weight:600}
+.s21_schedule_tab .s21_schedulebx .s21_sche_center{width:260px;text-align:center;font-size:25px;letter-spacing:0.05em;color:#fff;font-weight:300;line-height:45px;}
+.s21_schedule_tab .s21_schedulebx .s21_sche_center span{font-weight:600;}
 .s21_schedule_tab .s21_schedulebx .s21_sche_right{width:30px;text-align:right;}
 
 .s21_schedule_tab .s21_schedulebx ul li a { text-decoration: none;display: inline-block;padding: 3px;color: #42846d;background:#fff;}
