@@ -5,8 +5,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.withdog.dao.IHotelDao;
@@ -71,15 +73,19 @@ public class HotelService implements IHotelService {
 		File[] fileList = dir.listFiles();
 		String img = "";
 		for (int i = 0; i < fileList.length; i++) {
-			File file = fileList[i];
-			if(file.getName().equals(del_img)) {
-				file.delete();
+			if(fileList[i].getName().equals(del_img)) {
+				fileList[i].delete();
+				break;
+			}
+		}
+		fileList = dir.listFiles();
+		for (int i = 0; i < fileList.length; i++) {
+			File renameFile = new File(path, (i+1)+fileList[i].getName().substring(fileList[i].getName().lastIndexOf(".")));
+			fileList[i].renameTo(renameFile);
+			if(img.equals("")) {
+				img += renameFile.getName();
 			} else {
-				if(img.equals("")) {
-					img += file.getName();
-				} else {
-					img += "," + file.getName();
-				}
+				img += "," + renameFile.getName();
 			}
 		}
 		HashMap<String, Object> map = new HashMap<String, Object>();
@@ -94,25 +100,30 @@ public class HotelService implements IHotelService {
 	}
 
 	@Override
-	public void updateImage(int h_id, String type, MultipartFile file) {
+	public void updateImage(int h_id, String type, MultipartFile[] files) {
 		String uploadPath = "D:/git/FDXWithDog/WithDog/src/main/webapp/resources/upload/hotel/" + h_id + "/"+ type + "/";
-        String saveName = file.getOriginalFilename();
-		File saveFile = new File(uploadPath, saveName);
-        
-        try {
-			file.transferTo(saveFile);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-        
         File dir = new File(uploadPath);
 		File[] fileList = dir.listFiles();
 		String img = "";
+
+		for (int i = 0; i < files.length; i++) {
+			String saveName = "" + (fileList.length + i + 1);
+			File saveFile = new File(uploadPath, saveName);
+			try {
+				files[i].transferTo(saveFile);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		fileList = dir.listFiles();
 		for (int i = 0; i < fileList.length; i++) {
+			File renameFile = new File(uploadPath, (i+1)+fileList[i].getName().substring(fileList[i].getName().lastIndexOf(".")));
+			fileList[i].renameTo(renameFile);
 			if(img.equals("")) {
-				img += fileList[i].getName();
+				img += renameFile.getName();
 			} else {
-				img += "," + fileList[i].getName();
+				img += "," + renameFile.getName();
 			}
 		}
 		
@@ -137,6 +148,8 @@ public class HotelService implements IHotelService {
 		HashMap<Integer,String> img = new HashMap<Integer,String>();
 		map.put(0, "/h_img/");
 		map.put(1, "/h_detail/");
+		String type1 = "h_img";
+		String type2 = "h_detail";
 		files.put(0, filesI);
 		files.put(1, filesD);
 		img.put(0, "");
@@ -155,10 +168,12 @@ public class HotelService implements IHotelService {
 			}
 			File[] fileList = file.listFiles();
 			for (int j = 0; j < fileList.length; j++) {
+				File renameFile = new File(path, (j+1)+fileList[j].getName().substring(fileList[j].getName().lastIndexOf(".")));
+				fileList[j].renameTo(renameFile);
 				if(img.get(i).equals("")) {
-					img.put(i, fileList[j].getName());
+					img.put(i, renameFile.getName());
 				} else {
-					img.put(i, img.get(i) + "," + fileList[j].getName());
+					img.put(i, img.get(i) + "," + renameFile.getName());
 				}
 			}
 		}
@@ -180,6 +195,12 @@ public class HotelService implements IHotelService {
 		map.put("field", field);
 		map.put("category", category);
 		return dao.getHotelCount(map);
+	}
+	
+	public String fileUp(int h_id, String type, MultipartFile[] files) {
+		
+		
+		return null;
 	}
 
 }

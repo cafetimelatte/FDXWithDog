@@ -69,7 +69,7 @@ public class HotelController {
 	}
 
 	@RequestMapping(value="/updateImg", method=RequestMethod.GET)
-	public String updateImg(int h_id, String type, String del_img, Model model) {
+	public String deleteImg(int h_id, String type, String del_img, Model model) {
 		hotelService.deleteImage(h_id, type, del_img);
 		return "redirect:/updateHotelM?h_id="+h_id;
 	}
@@ -77,9 +77,7 @@ public class HotelController {
 	@RequestMapping(value="/updateImg", method=RequestMethod.POST)
 	public String updateImg(@RequestParam(value="dir", required=false, defaultValue="/") String dir,
 			@RequestParam MultipartFile[] files, String type, int h_id, Model model) {
-		for (int i = 0; i < files.length; i++) {
-			hotelService.updateImage(h_id, type, files[i]);
-		}
+			hotelService.updateImage(h_id, type, files);
 		return "redirect:/updateHotelM?h_id="+h_id;
 	}
 	

@@ -16,7 +16,7 @@ public interface IHotelService {
 	void deleteHotel(String path);
 	void updateHotel(HotelDto dto);
 	void deleteImage(int h_id, String type, String del_img);
-	void updateImage(int h_id, String type, MultipartFile file);
+	void updateImage(int h_id, String type, MultipartFile[] files);
 	void insertHotel(HotelDto dto, MultipartFile[] filesI, MultipartFile[] filesD);
 	int getHotelCount(String field, String category);
 }
