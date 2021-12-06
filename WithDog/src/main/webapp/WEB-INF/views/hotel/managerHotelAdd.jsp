@@ -36,32 +36,142 @@
     		background-color: red;
     		font-size: 13px;
     		color:white;
-    		padding:5px" type="button
+    		padding:5px;
     	}
     </style>
     <script type="text/javascript">
-	
+    
     	function uploadPreview(event){
-    		var selectedFiles = event.files;
-			var imgContainer = document.getElementById("previewI");
-			for (var file of selectedFiles){
-				var list = document.createElement("div");
-				list.classList.add("pv");
-				imgContainer.appendChild(list);
-				var imgs = document.createElement("img");
-				var delImg = document.createElement("button");
-				delImg.textContent = '삭제';
-				var reader = new FileReader();
-				reader.onload = function () {
-					imgs.src = reader.result;
-				};
-				console.log(file);
-				reader.readAsDataURL(file);
-				list.appendChild(imgs);
-				list.appendChild(delImg);
+    		var files = event.files;
+	    	var totalCount = 5;
+	    	var fileCount = 0;
+    		var filesArr = Array.prototype.slice.call(files);
+    		if(fileCount + filesArr.length > totalCount){
+    			alert("파일은 최대 " + totalCount + "개까지 업로드 가능");
+    			return;
+    		}
+    		
+			function readAndPreview(file){
+				if(/\.(jpe?g|png|gif)$/i.test(file.name)){
+					var reader = new FileReader();
+					
+					reader.addEventListener("load", function(){
+						var list = document.createElement("div");
+						list.classList.add("pv");
+						
+						var image1 = new Image();
+						image1.title = file.name;
+						image1.src = this.result;
+						var image2 = image1.cloneNode(false);
+						
+						var delImg = document.createElement("button");
+						delImg.textContent = '삭제';
+						list.appendChild(image1);
+						list.appendChild(delImg);
+						
+						var preview;
+						if(event.name == 'filesI'){
+							preview = document.getElementById("previewI");
+							var wrapper = document.getElementsByClassName("swiper-wrapper");
+							var slide = document.createElement("p");
+							while(wrapper[0].firstChild){
+								wrapper[0].removeChild(wrapper[0].firstChild);
+							}
+							slide.classList.add("swiper-slide");
+							wrapper[0].appendChild(slide);
+							slide.appendChild(image2);
+			    		} else if(event.name == 'filesD'){
+			    			preview = document.getElementById("previewD");
+			    			var detail = document.getElementsByClassName("s21_tabcontent_left");
+			    			var container = document.createElement("div");
+			    			while(detail[0].firstChild){
+			    				detail[0].removeChild(detail[0].firstChild);
+			    			}
+			    			detail[0].appendChild(container);
+			    			container.appendChild(image2);
+			    		}
+						while(preview.firstChild){
+							preview.removeChild(preview.firstChild);
+						}
+						preview.appendChild(list);
+					}, false);
+					console.log(file);
+					reader.readAsDataURL(file);
+				}
+			}
+			if(files){
+				[].forEach.call(files, readAndPreview);
 			}
     	};
+		/* 
+    	const input = document.querySelector('input');
+        const preview = document.querySelector('.preview');
 
+        input.style.opacity = 0;
+
+        input.addEventListener('change', updateImageDisplay);
+
+        function updateImageDisplay() {
+          while(preview.firstChild) {
+            preview.removeChild(preview.firstChild);
+          }
+
+          const curFiles = input.files;
+          if(curFiles.length === 0) {
+            const para = document.createElement('p');
+            para.textContent = 'No files currently selected for upload';
+            preview.appendChild(para);
+          } else {
+            const list = document.createElement('ol');
+            preview.appendChild(list);
+
+            for(const file of curFiles) {
+              const listItem = document.createElement('li');
+              const para = document.createElement('p');
+
+              if(validFileType(file)) {
+                para.textContent = `File name ${file.name}, file size ${returnFileSize(file.size)}.`;
+                const image = document.createElement('img');
+                image.src = URL.createObjectURL(file);
+
+                listItem.appendChild(image);
+                listItem.appendChild(para);
+              } else {
+                para.textContent = `File name ${file.name}: Not a valid file type. Update your selection.`;
+                listItem.appendChild(para);
+              }
+
+              list.appendChild(listItem);
+            }
+          }
+        } */
+    	
+        const fileTypes = [
+            'image/apng',
+            'image/bmp',
+            'image/gif',
+            'image/jpeg',
+            'image/pjpeg',
+            'image/png',
+            'image/svg+xml',
+            'image/tiff',
+            'image/webp',
+            'image/x-icon'
+        ];
+
+        function validFileType(file) {
+          return fileTypes.includes(file.type);
+        }
+
+        function returnFileSize(number) {
+          if(number < 1024) {
+            return number + 'bytes';
+          } else if(number > 1024 && number < 1048576) {
+            return (number/1024).toFixed(1) + 'KB';
+          } else if(number > 1048576) {
+            return (number/1048576).toFixed(1) + 'MB';
+          }
+        }
     </script>
 </head>
 
@@ -82,11 +192,11 @@
                 <div class="s21_detail_box area pr">
                     <div class="s21_detail_img swiper-container ">
                         <div class="swiper-wrapper">
-                            <p class="swiper-slide"><img id="preview" alt="사진"></p>
+                            <!-- <p class="swiper-slide"></p> -->
                         </div>
                     </div>
-                    <!-- 	
-                    배너 이동 조작
+                    	
+                    <!-- 배너 이동 조작 -->
 						<div class="s21_today_arrow pa" style="z-index: 9">
 							<button type="button" class="button_stop"
 								onclick="$(this).hide();$('.button_start').show();swiper_main.autoplay.stop();">정지</button>
@@ -100,8 +210,8 @@
 								<button type="button" class="button_next">다음</button>
 							</div>
 						</div>
-						// 배너 이동 조작
-                     -->
+						<!-- // 배너 이동 조작 -->
+                     
 
                     <div class="s21_detail_tbox">
                         <!-- 우측 정보 s -->
@@ -183,8 +293,9 @@
 				<div id="previewI">
 				</div>
 				<div style="margin-top: 50px">
-					<label for="filesI" style="background-color: green; font-size: 15px; color: white; padding: 10px;">숙소 이미지 선택</label>
-					<input style="display: none;" onchange="uploadPreview(this);" type="file" name="filesI" id="filesI" accept="image/*" multiple>
+					<!-- <label for="filesI" style="background-color: green; font-size: 15px; color: white; padding: 10px;">숙소 이미지 선택</label> -->
+					<input style="" onchange="uploadPreview(this);" type="file" name="filesI" id="filesI" accept="image/*" multiple>
+					<span style="font-size:10px; color: gray;">※첨부파일은 최대 5개까지 등록이 가능합니다.</span>
 				</div>
             </div>
             <!-- sub m btm -->
@@ -233,8 +344,13 @@
                             요청배너 e
  -->						
                             <div class="s21_tabcontent_more">
-								<label for="filesD" style="background-color: green; font-size: 15px; color: white; padding: 10px;">상세페이지 이미지 선택</label>
-	                            <input style="display: none;" type="file" name="filesD" id="filesD" accept="image/*" multiple>
+                	            <div id="previewD">
+								</div>
+								<div style="margin-top: 50px">
+									<label for="filesD" style="background-color: green; font-size: 15px; color: white; padding: 10px;">상세페이지 이미지 선택</label>
+		                            <input style="display: none;" onchange="uploadPreview(this);" type="file" name="filesD" id="filesD" accept="image/*" multiple>
+									<span style="font-size:10px; color: gray;">※첨부파일은 최대 5개까지 등록이 가능합니다.</span>
+								</div>
 							</div>
                         </div>
                     </div>

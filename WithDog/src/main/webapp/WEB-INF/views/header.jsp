@@ -10,11 +10,22 @@
 						<li class="line">|</li>
 						<c:choose>
 							<c:when test="${loginRs == 1}">
-								<li class=""><a onclick="location.href='logout'">로그아웃 </a></li>
-								<li class="line">|</li>
-								<li class="">${loginEmail}</li>
-								<li class="line">|</li>
-								<li class=""><a onclick="location.href='myPage'">마이페이지</a></li>
+								<c:when test="${loginEmail eq 'admin'}">
+									<li class=""><a onclick="location.href='logout'">로그아웃 </a></li>
+									<li class="line">|</li>
+									<li class="">${loginEmail}</li>
+									<li class="line">|</li>
+									<li class=""><a onclick="location.href='hotelListM'">숙소관리</a></li>
+									<li class="line">|</li>
+									<li class=""><a onclick="location.href='bookingListM'">예약관리</a></li>
+								</c:when>
+								<c:otherwise>
+									<li class=""><a onclick="location.href='logout'">로그아웃 </a></li>
+									<li class="line">|</li>
+									<li class="">${loginEmail}</li>
+									<li class="line">|</li>
+									<li class=""><a onclick="location.href='myPage'">마이페이지</a></li>
+								</c:otherwise>
 							</c:when>
 							<c:otherwise>
 									<li class=""><a onclick="location.href='login'">로그인 </a></li>
