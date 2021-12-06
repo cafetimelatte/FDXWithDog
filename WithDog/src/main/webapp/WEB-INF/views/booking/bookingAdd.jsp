@@ -49,7 +49,7 @@
                         <ul class="s21_detail_twrap_mod">
                         	<form action="booking" method="post">
 	                            <input type="hidden" name="h_id" value="${h_booking.h_id}">
-	                            <input type="hidden" name="m_id" value="ASDF">
+	                            <input type="hidden" name="m_id" value="${loginEmail}">
 	                            <input type="hidden" name="b_state" value="예약대기">
 	                            <input type="hidden" name="b_name" value="${h_booking.h_name}">
 	                            <input type="hidden" name="b_price" value="${h_booking.h_price}">
@@ -58,7 +58,7 @@
 	                                    <dt>숙소명</dt>
 	                                    <dd>${h_booking.h_name}</dd>
 	                                    <dt>예약자</dt>
-	                                    <dd>아직 멤버 안만들었음</dd>
+	                                    <dd>${loginEmail}</dd>
 	                                </dl>
 	                            </li>
 	                            <li>
@@ -86,13 +86,20 @@
 	                                    <dt>숙박인원</dt>
 	                                    <dd>
 		                                    <select name="b_humanNum" style="text-align:center;height:24px;width:10%">
-	                                    		<option value="0">0</option>
+	                                    		<option value="1">1</option>
+	                                    		<option value="2">2</option>
+	                                    		<option value="3">3</option>
+	                                    		<option value="4">4</option>
 	                                    	</select>명
 	                                    </dd>
 	                                    <dt>동반애완동물</dt>
 	                                    <dd>
 	                                    	<select name="b_petNum" style="text-align:center;height:24px;width:10%">
 	                                    		<option value="0">0</option>
+	                                    		<option value="1">1</option>
+	                                    		<option value="2">2</option>
+	                                    		<option value="3">3</option>
+	                                    		<option value="4">4</option>
 	                                    	</select>마리
 	                                    </dd>
 	                                </dl>

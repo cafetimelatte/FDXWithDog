@@ -54,33 +54,34 @@
                     <div class="s21_detail_tbox" style="width:100%; float:none">
                         <!-- 예약 정보 입력 s -->
                         <ul class="s21_detail_twrap_mod">
-                        	<form action="" method="">
-                            <li>
-                                <dl>
-                                    <dt>숙소명</dt>
-                                    <dd><input class="applyInput" type="text"></dd>
-                                    <dt>전화번호</dt>
-                                    <dd><input class="applyInput" type="text" placeholder="'-' 제외"></dd>
-                                </dl>
-                            </li>
-                            <li>
-                                <dl>
-                                    <dt>주소</dt>
-                                    <dd><input class="applyInput" style="width:91px;margin-right:10px" type="text"><input class="applyInput" style="width:91px" type="text"></dd>
-                                    <dt>홈페이지</dt>
-                                    <dd><input class="applyInput" type="text" placeholder="example@google.com"></dd>
-                                </dl>
-                            </li>
-                            <li>
-                                <dl>
-                                    <dt>상세주소</dt>
-                                    <dd>
-                                    	<input class="applyInput" style="width:300px" type="text">
-                                    </dd>
-                                </dl>
-                            </li>
-                            	<input class="bbtn" type="button" value="신청하기" name="submit">
-                            	<input class="bbtn" type="button" value="돌아가기" name="cancel" onclick="location.href='hotelList'">
+                        	<form action="applyHotel" method="post">
+	                        	<input type="hidden" name="m_id" value="${loginEmail}">
+	                            <li>
+	                                <dl>
+	                                    <dt>숙소명</dt>
+	                                    <dd><input name="a_name" style="width:250px" type="text"></dd>
+	                                    <dt>전화번호</dt>
+	                                    <dd><input name="a_phoneNumber" style="width:250px" type="text" placeholder="'-' 제외"></dd>
+	                                </dl>
+	                            </li>
+	                            <li>
+	                                <dl>
+	                                    <dt>주소</dt>
+	                                    <dd><input name="a_add1" style="width:115px;margin-right:10px" type="text"><input name="a_add2" style="width:115px" type="text"></dd>
+	                                    <dt>홈페이지</dt>
+	                                    <dd><input name="a_web" style="width:250px" type="text" placeholder="example@google.com"></dd>
+	                                </dl>
+	                            </li>
+	                            <li>
+	                                <dl>
+	                                    <dt>상세주소</dt>
+	                                    <dd>
+	                                    	<input name="a_add3" style="width:250px" type="text">
+	                                    </dd>
+	                                </dl>
+	                            </li>
+	                            	<input class="bbtn" type="submit" value="신청하기">
+	                            	<input class="bbtn" type="button" value="돌아가기" name="cancel" onclick="location.href='hotelList'">
                             </form>
                         </ul>
                         <!-- 예약 정보 입력 e -->

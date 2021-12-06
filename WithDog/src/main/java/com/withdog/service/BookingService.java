@@ -32,8 +32,8 @@ public class BookingService implements IBookingService {
 	}
 
 	@Override
-	public List<BookingDto> getBookingList() {
-		return dao.getBookingList();
+	public List<BookingDto> getBookingList(String m_id) {
+		return dao.getBookingList(m_id);
 	}
 
 	@Override
@@ -60,8 +60,8 @@ public class BookingService implements IBookingService {
 	}
 
 	@Override
-	public List<BookingDto> getBookingList(CriteriaDto cDto) {
-		return dao.getBookingList(cDto);
+	public List<BookingDto> getBookingListM(CriteriaDto cDto) {
+		return dao.getBookingListM(cDto);
 	}
 
 

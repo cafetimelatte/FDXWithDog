@@ -66,7 +66,7 @@
                         <ul class="s21_detail_twrap_mod">
                         		<input type="hidden" name="b_id" value="${b_info.b_id}">
                         		<input type="hidden" name="h_id" value="${h_booking.h_id}">
-	                            <input type="hidden" name="m_id" value="ASDF">
+	                            <input type="hidden" name="m_id" value="${b_info.m_id}">
 	                            <input type="hidden" name="b_name" value="${b_info.b_name}">
 	                            <input type="hidden" name="b_price" value="${h_booking.h_price}">
                         	
@@ -75,7 +75,7 @@
                                     <dt>숙소명</dt>
                                     <dd>${b_info.b_name}</dd>
                                     <dt>예약자</dt>
-                                    <dd>멤버 들어오면 아이디 받아서 닉네임 가져올 예정</dd>
+                                    <dd>${b_info.m_id}</dd>
                                 </dl>
                             </li>
                             <li>
@@ -103,9 +103,10 @@
                                     <dt>숙박인원</dt>
                                     <dd>
 	                                    <select name="b_humanNum" style="text-align:center;height:24px;width:10%"" >
-                                    		<option value="0" <c:if test="${b_info.b_humanNum eq 0}">selected</c:if>>0</option>
                                     		<option value="1" <c:if test="${b_info.b_humanNum eq 1}">selected</c:if>>1</option>
                                     		<option value="2" <c:if test="${b_info.b_humanNum eq 2}">selected</c:if>>2</option>
+                                    		<option value="3" <c:if test="${b_info.b_humanNum eq 3}">selected</c:if>>3</option>
+                                    		<option value="4" <c:if test="${b_info.b_humanNum eq 4}">selected</c:if>>4</option>
                                     	</select>명
                                     </dd>
                                     <dt>반려동물</dt>
@@ -114,6 +115,8 @@
                                     		<option value="0" <c:if test="${b_info.b_petNum eq 0}">selected</c:if>>0</option>
                                     		<option value="1" <c:if test="${b_info.b_petNum eq 1}">selected</c:if>>1</option>
                                     		<option value="2" <c:if test="${b_info.b_petNum eq 2}">selected</c:if>>2</option>
+                                    		<option value="3" <c:if test="${b_info.b_petNum eq 3}">selected</c:if>>3</option>
+                                    		<option value="4" <c:if test="${b_info.b_petNum eq 4}">selected</c:if>>4</option>
                                     	</select>마리
                                     </dd>
                                 </dl>

@@ -33,8 +33,17 @@
          <beans:property name="maxInMemorySize" value="10485760"/>
     </beans:bean>
 	
+	<!-- 아이디 확인 인터셉터 -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/bookingList"/>
+			<mapping path="/booking"/>
+			<mapping path="/updateBooking"/>
+			<mapping path="/hotelApply"/>
+			<beans:bean class="com.withdog.interceptor.IdCheckInterceptor"/>
+		</interceptor>
+	</interceptors>
+	
 	<context:component-scan base-package="com.withdog.controller" />
-	
-	
 	
 </beans:beans>

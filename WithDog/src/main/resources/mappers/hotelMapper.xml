@@ -55,10 +55,10 @@ on rnk.h_id = h1.h_id<choose><when test="category == 'h_name'">where h_name like
 	<update id="updateImage" parameterType="map">
 		update hotel set
 		<if test="h_img!=null">
-			h_img = #{img}
+			h_img = #{dbIn}
 		</if>
 		<if test="h_detail!=null">
-			h_detail = #{img}
+			h_detail = #{dbIn}
 		</if>
 		 where h_id = #{h_id}
 	</update>

@@ -28,8 +28,8 @@ public class BookingDao implements IBookingDao {
 	}
 
 	@Override
-	public List<BookingDto> getBookingList() {
-		return sqlSession.selectList("com.withdog.mapper.bookingMapper.getBookingLists");
+	public List<BookingDto> getBookingList(String m_id) {
+		return sqlSession.selectList("com.withdog.mapper.bookingMapper.getBookingList", m_id);
 	}
 
 	@Override
@@ -53,8 +53,8 @@ public class BookingDao implements IBookingDao {
 	}
 
 	@Override
-	public List<BookingDto> getBookingList(CriteriaDto cDto) {
-		return sqlSession.selectList("com.withdog.mapper.bookingMapper.getBookingList", cDto);
+	public List<BookingDto> getBookingListM(CriteriaDto cDto) {
+		return sqlSession.selectList("com.withdog.mapper.bookingMapper.getBookingListM", cDto);
 	}
-	
+
 }

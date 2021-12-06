@@ -60,7 +60,6 @@
                     <div class="s21_detail_tbox" style="width:100%; float:none">
                         <ul class="s21_detail_twrap_mod">
                         <!-- 예약 정보 입력 s -->
-                        	<form action="" method="">
 	                            <li>
 	                                <dl>
 	                                    <dt style="text-align:center;width:8%;padding:0 3px 0 3px">예약번호</dt>
@@ -99,7 +98,6 @@
 	                                </dl>
 	                            </li>
 	                            </c:forEach>
-                            </form>
                         <!-- 예약 정보 입력 e -->
                         </ul>
                     </div>

@@ -265,12 +265,6 @@
 	                            요청배너 e
 	 -->
 							<div class="s21_tabcontent_more">
-								<div style="padding-top: 10px; text-align: center">
-									<label
-										style="display: block; background-color: green; font-size: 15px; color: white; padding: 20px;"
-										for="upload">상세페이지 업로드</label><input style="display: none"
-										type="file" name="img" id="upload">
-								</div>
 								<form style="margin-top: 10px" action="updateImg" enctype="multipart/form-data" method="post">
 									<div>
 										<c:forTokens var="h_d" items="${h_detail.h_detail}" delims="," varStatus="st">

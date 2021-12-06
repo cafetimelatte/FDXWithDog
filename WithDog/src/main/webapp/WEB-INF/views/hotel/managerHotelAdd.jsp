@@ -21,18 +21,47 @@
     <script src="js/swiper-bundle.min.js"></script>
     <title>관리자 - 숙소 등록</title>
     
+    <style>
+    	.pv{
+    		border:solid 1px blue;
+    		display:inline-block;
+    		padding:5px
+    	}
+    	.pv img{
+    		min-height: 0;
+    		max-height: 80px;
+    	}
+    	.pv button{
+    		border:solid;
+    		background-color: red;
+    		font-size: 13px;
+    		color:white;
+    		padding:5px" type="button
+    	}
+    </style>
     <script type="text/javascript">
-    	/* function readURL(input){
-    		if (input.files&&input.files[0]) {
-    			var reader = new FileReader();
-    			reader.onload = function(e) {
-    				document.getElementById('preview').src = e.target.result;
-    			};
-    			reader.readAsDataURL(input.files[0]);
-    		} else {
-    			document.getElementById('preview').src = "";
-    		}
-    	} */
+	
+    	function uploadPreview(event){
+    		var selectedFiles = event.files;
+			var imgContainer = document.getElementById("previewI");
+			for (var file of selectedFiles){
+				var list = document.createElement("div");
+				list.classList.add("pv");
+				imgContainer.appendChild(list);
+				var imgs = document.createElement("img");
+				var delImg = document.createElement("button");
+				delImg.textContent = '삭제';
+				var reader = new FileReader();
+				reader.onload = function () {
+					imgs.src = reader.result;
+				};
+				console.log(file);
+				reader.readAsDataURL(file);
+				list.appendChild(imgs);
+				list.appendChild(delImg);
+			}
+    	};
+
     </script>
 </head>
 
@@ -81,9 +110,9 @@
                                 <dl>
                                     <dt>주소</dt>
                                     <dd>
-                                    	<input style="width: 126px" type="text" name="h_add1">
-                                    	<input style="width: 126px" type="text" name="h_add2">
-                                    	<input style="width: 126px" type="text" name="h_add3">
+                                    	<input style="width: 126px" type="text" name="h_add1" placeholder="도/시">
+                                    	<input style="width: 126px" type="text" name="h_add2" placeholder="시/군/구">
+                                    	<input style="width: 126px" type="text" name="h_add3" placeholder="상세주소">
                                     </dd>
                                 </dl>
                             </li>
@@ -91,7 +120,7 @@
                                 <dl>
                                     <dt>연락처</dt>
                                     <dd>
-										<input style="width: 400px" type="text" name="h_phone">
+										<input style="width: 400px" type="text" name="h_phone" placeholder="'-' 제외">
 									</dd>
                                 </dl>
                             </li>
@@ -107,8 +136,8 @@
                                 <dl>
                                     <dt>영업시간</dt>
                                     <dd title="">
-										<input style="width: 189px" name="h_chkInTime" type="text"> ~ 
-										<input style="width: 189px" name="h_chkOutTime" type="text">
+										<input style="width: 189px" name="h_chkInTime" type="text" placeholder="체크인 ex) 15:00"> ~ 
+										<input style="width: 189px" name="h_chkOutTime" type="text" placeholder="체크아웃 ex) 11:00">
 									</dd>
                                 </dl>
                             </li>
@@ -133,16 +162,16 @@
                                 <dt>
                                     <img src="http://appdata.hungryapp.co.kr/images/hatdog/img/travel/icon_dog_line.png?ver=2" /></dt>
                                 <dd>
-									<input style="width: 50px" type="text" name="h_petSize">
+									<input style="width: 50px" type="text" name="h_petSize" placeholder="ex)소형">
 											</dd>
                             </dl>
                             <dl>
                                 <dt><img src="http://appdata.hungryapp.co.kr/images/hatdog/img/travel/icon_scale_line.png?ver=2" alt="숙소" /></dt>
-                                <dd><input style="width:50px" type="text" name="h_petWeight"></dd>
+                                <dd><input style="width:50px" type="text" name="h_petWeight" placeholder="ex) 5kg"></dd>
                             </dl>
                             <dl class="mgr_0">
                                 <dt><img src="http://appdata.hungryapp.co.kr/images/hatdog/img/travel/icon_moneyadd_line.png?ver=2" alt="숙소" /></dt>
-                                <dd><input style="width:50px" type="text" name="h_price"></dd>
+                                <dd><input style="width:50px" type="text" name="h_price" placeholder="ex)15000"></dd>
                             </dl>
                         </div>
                         <!--// 하단 분류 e -->
@@ -151,8 +180,12 @@
             </div>
             <!--// sub m top -->
 			<div>
-				<label style="background-color: green; font-size: 15px; color: white; padding: 10px;">숙소 이미지 업로드</label>
-				<input type="file" name="filesI" id="filesI" multiple>
+				<div id="previewI">
+				</div>
+				<div style="margin-top: 50px">
+					<label for="filesI" style="background-color: green; font-size: 15px; color: white; padding: 10px;">숙소 이미지 선택</label>
+					<input style="display: none;" onchange="uploadPreview(this);" type="file" name="filesI" id="filesI" accept="image/*" multiple>
+				</div>
             </div>
             <!-- sub m btm -->
             <div class="s21_tour_de_btm area">
@@ -200,8 +233,8 @@
                             요청배너 e
  -->						
                             <div class="s21_tabcontent_more">
-								<label style="background-color: green; font-size: 15px; color: white; padding: 10px;">상세페이지 업로드</label>
-	                            <input type="file" name="filesD" id="filesD" multiple>
+								<label for="filesD" style="background-color: green; font-size: 15px; color: white; padding: 10px;">상세페이지 이미지 선택</label>
+	                            <input style="display: none;" type="file" name="filesD" id="filesD" accept="image/*" multiple>
 							</div>
                         </div>
                     </div>

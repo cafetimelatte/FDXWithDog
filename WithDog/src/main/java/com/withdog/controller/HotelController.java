@@ -103,5 +103,10 @@ public class HotelController {
 		return "hotel/hotelApply";
 	}
 	
+	@RequestMapping(value="/applyHotel", method=RequestMethod.POST)
+	public String hotelApply(Model model) {
+		return "redirect:/hotelList";
+	}
+	
 	
 }
