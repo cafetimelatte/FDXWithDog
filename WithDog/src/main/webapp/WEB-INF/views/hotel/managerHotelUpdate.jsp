@@ -23,11 +23,30 @@
 <script src="js/jquery.js"></script>
 <script src="js/swiper-bundle.min.js"></script>
 <script src="js/verification.js"></script>
+<script src="js/filePreview.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 <title>Manager-HotelUpdate</title>
+	<style>
+    	.pv{
+    		border:solid 1px blue;
+    		display:inline-block;
+    		padding:5px
+    	}
+    	.pv img{
+    		min-height: 0;
+    		max-height: 80px;
+    	}
+    	.pv button{
+    		border:solid;
+    		background-color: red;
+    		font-size: 13px;
+    		color:white;
+    		padding:5px;
+    	}
+    </style>
 </head>
 <body>
 	<!-- header -->
@@ -186,21 +205,27 @@
 			</form>
 		<!--// sub m top -->
 			<form action="updateImg" enctype="multipart/form-data" method="post">
-				<div>
+				<div id="imgs"> 현재 이미지 : &nbsp;
 					<c:forTokens var="h_i" items="${h_detail.h_img}" delims="," varStatus="st">
 						<div class="uploadedImg" style="border:solid 1px blue;display:inline-block;padding:5px">
-							<img style="min-height: 0; max-height: 80px"
+							<img style="min-height: 0; max-height: 80px" title="${h_d}"
 								src="hotel/${h_detail.h_id}/h_img/${h_i}" alt="${h_detail.h_name}">
 							<a style="border:solid;background-color: red;font-size: 13px; color:white; padding:5px" type="button" onclick="if(deleteChk(this)){location.href='updateImg?h_id=${h_detail.h_id}&type=h_img&del_img=${h_i}'};" >삭제</a>
 						</div>
 					</c:forTokens>
 				</div>
+				<br>
+				<div id="previewI"> 업로드 이미지 : &nbsp;
+				</div>
 				<div style="margin-top: 50px">
+					<label for="filesI" style="background-color: green; font-size: 15px; color: white; padding: 10px;">숙소 이미지 선택</label>
+					<input style="display: none" onchange="uploadPreview(this);" type="file" name="filesI" id="filesI" accept="image/*" multiple>
 					<input type="hidden" name="type" value="h_img">
 					<input type="hidden" name="h_id" value="${h_detail.h_id}">
 					<input type="file" name="files" id="files" multiple>
 					<input style="display:none" type="submit" id="imgUp">
 					<label style="background-color: green; font-size: 15px; color: white; padding: 10px;" for="imgUp">이미지 업로드</label>
+					<span style="font-size:10px; color: gray;">※첨부파일은 최대 5개까지 등록이 가능합니다.</span>
 				</div>
 			</form>
 
@@ -268,19 +293,24 @@
 								<form style="margin-top: 10px" action="updateImg" enctype="multipart/form-data" method="post">
 									<div>
 										<c:forTokens var="h_d" items="${h_detail.h_detail}" delims="," varStatus="st">
-											<div style="border:solid 1px blue;display:inline-block;padding:5px">
-												<img style="min-height: 0; max-height: 80px"
+											<div class="uploadedImg" style="border:solid 1px blue;display:inline-block;padding:5px">
+												<img style="min-height: 0; max-height: 80px" title="${h_d}"
 													src="hotel/${h_detail.h_id}/h_detail/${h_d}" alt="${h_detail.h_name}">
-												<a style="border:solid;background-color: red;font-size: 13px; color:white; padding:5px" type="button" href="updateImg?h_id=${h_detail.h_id}&type=h_detail&del_img=${h_d}">삭제</a>
+												<a style="border:solid;background-color: red;font-size: 13px; color:white; padding:5px" type="button" onclick="if(deleteChk(this)){location.href='updateImg?h_id=${h_detail.h_id}&type=h_detail&del_img=${h_d}'};">삭제</a>
 											</div>
 										</c:forTokens>
 									</div>
+									<div id="previewD">
+									</div>
 									<div style="margin-top: 50px">
+									<label for="filesD" style="background-color: green; font-size: 15px; color: white; padding: 10px;">상세페이지 이미지 선택</label>
+										<input style="display: none;" onchange="uploadPreview(this);" type="file" name="filesD" id="filesD" accept="image/*" multiple>
 										<input type="hidden" name="type" value="h_detail">
 										<input type="hidden" name="h_id" value="${h_detail.h_id}">
 										<input type="file" name="files" id="files" multiple>
 										<input style="display: none" type="submit" id="detailUp">
 										<label style="background-color: green; font-size: 15px; color: white; padding: 10px;" for="detailUp">이미지 업로드</label>
+										<span style="font-size:10px; color: gray;">※첨부파일은 최대 5개까지 등록이 가능합니다.</span>
 									</div>
 								</form>
 							</div>

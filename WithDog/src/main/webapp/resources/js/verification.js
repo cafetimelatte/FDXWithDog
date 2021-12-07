@@ -92,8 +92,9 @@ function uploadChk(event){
 };
 
 function deleteChk(event){
-	var files = document.getElementsByClassName("uploadedImg");
-	if(files.length == 1){
+	var cnt = event.closest(".uploadedImg").parentElement.childElementCount;
+	
+	if(cnt == 3){
 		alert("이미지는 최소 1개 등록되어야합니다.");
 		return false;
 	}
