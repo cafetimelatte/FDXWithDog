@@ -19,6 +19,7 @@
 
     <script src="js/jquery.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/verification.js"></script>
     <title>관리자 - 숙소 등록</title>
     
     <style>
@@ -40,141 +41,70 @@
     	}
     </style>
     <script type="text/javascript">
-    
-    	function uploadPreview(event){
-    		var files = event.files;
-	    	var totalCount = 5;
-	    	var fileCount = 0;
-    		var filesArr = Array.prototype.slice.call(files);
-    		if(fileCount + filesArr.length > totalCount){
-    			alert("파일은 최대 " + totalCount + "개까지 업로드 가능");
-    			return;
-    		}
-    		
-			function readAndPreview(file){
-				if(/\.(jpe?g|png|gif)$/i.test(file.name)){
-					var reader = new FileReader();
-					
-					reader.addEventListener("load", function(){
-						var list = document.createElement("div");
-						list.classList.add("pv");
-						
-						var image1 = new Image();
-						image1.title = file.name;
-						image1.src = this.result;
-						var image2 = image1.cloneNode(false);
-						
-						var delImg = document.createElement("button");
-						delImg.textContent = '삭제';
-						list.appendChild(image1);
-						list.appendChild(delImg);
-						
-						var preview;
-						if(event.name == 'filesI'){
-							preview = document.getElementById("previewI");
-							var wrapper = document.getElementsByClassName("swiper-wrapper");
-							var slide = document.createElement("p");
-							while(wrapper[0].firstChild){
-								wrapper[0].removeChild(wrapper[0].firstChild);
-							}
-							slide.classList.add("swiper-slide");
-							wrapper[0].appendChild(slide);
-							slide.appendChild(image2);
-			    		} else if(event.name == 'filesD'){
-			    			preview = document.getElementById("previewD");
-			    			var detail = document.getElementsByClassName("s21_tabcontent_left");
-			    			var container = document.createElement("div");
-			    			while(detail[0].firstChild){
-			    				detail[0].removeChild(detail[0].firstChild);
-			    			}
-			    			detail[0].appendChild(container);
-			    			container.appendChild(image2);
-			    		}
-						while(preview.firstChild){
-							preview.removeChild(preview.firstChild);
-						}
-						preview.appendChild(list);
-					}, false);
-					console.log(file);
-					reader.readAsDataURL(file);
+    function uploadPreview(event){
+   		var files = event.files;
+    	var totalCount = 5;
+    	var fileCount = 0;
+   		var filesArr = Array.prototype.slice.call(files);
+   		if(fileCount + filesArr.length > totalCount){
+   			alert("파일은 최대 " + totalCount + "개까지 업로드 가능합니다.");
+   			return;
+   		}
+   		for(var i = 0; i < filesArr.length; i++){
+   			var fileSize = filesArr[i].size;
+   			var maxSize = 5 * 1024 * 1024;
+   			if(fileSize > maxSize){
+   				alert("파일의 허용 크기는 5MB 이하 입니다.");
+   				return;
+   			}
+   		}
+		function readAndPreview(file){
+			if(/\.(jpe?g|png|gif)$/i.test(file.name)){
+				var reader = new FileReader();
+				if(event.name == 'filesI'){
+					var preview = document.getElementById("previewI");
+					var container = document.getElementsByClassName("swiper-wrapper");
+				} else if(event.name == 'filesD'){
+					var preview = document.getElementById("previewD");
+		    		var container = document.getElementsByClassName("s21_tabcontent_left");
 				}
+				while(preview.firstChild){
+					preview.removeChild(preview.firstChild);
+				}
+				while(container[0].firstChild){
+					container[0].removeChild(container[0].firstChild);
+				}
+				reader.addEventListener("load", function(){
+					var list = document.createElement("div");
+					list.classList.add("pv");
+					var image1 = new Image();
+					image1.title = file.name;
+					image1.src = this.result;
+					var image2 = image1.cloneNode(false);
+					if(event.name == 'filesI'){
+						var content = document.createElement("p");
+						content.classList.add("swiper-slide");
+					} else if(event.name == 'filesD'){
+			    		var content = document.createElement("div");
+					}
+					list.appendChild(image1);
+					content.appendChild(image2);
+					container[0].appendChild(content);
+					preview.appendChild(list);
+				}, false);
+				console.log(file);
+				reader.readAsDataURL(file);
+			} else{
+				alert("이미지 파일만 업로드 가능합니다.");
+				return;
 			}
-			if(files){
-				[].forEach.call(files, readAndPreview);
-			}
-    	};
-		/* 
-    	const input = document.querySelector('input');
-        const preview = document.querySelector('.preview');
-
-        input.style.opacity = 0;
-
-        input.addEventListener('change', updateImageDisplay);
-
-        function updateImageDisplay() {
-          while(preview.firstChild) {
-            preview.removeChild(preview.firstChild);
-          }
-
-          const curFiles = input.files;
-          if(curFiles.length === 0) {
-            const para = document.createElement('p');
-            para.textContent = 'No files currently selected for upload';
-            preview.appendChild(para);
-          } else {
-            const list = document.createElement('ol');
-            preview.appendChild(list);
-
-            for(const file of curFiles) {
-              const listItem = document.createElement('li');
-              const para = document.createElement('p');
-
-              if(validFileType(file)) {
-                para.textContent = `File name ${file.name}, file size ${returnFileSize(file.size)}.`;
-                const image = document.createElement('img');
-                image.src = URL.createObjectURL(file);
-
-                listItem.appendChild(image);
-                listItem.appendChild(para);
-              } else {
-                para.textContent = `File name ${file.name}: Not a valid file type. Update your selection.`;
-                listItem.appendChild(para);
-              }
-
-              list.appendChild(listItem);
-            }
-          }
-        } */
-    	
-        const fileTypes = [
-            'image/apng',
-            'image/bmp',
-            'image/gif',
-            'image/jpeg',
-            'image/pjpeg',
-            'image/png',
-            'image/svg+xml',
-            'image/tiff',
-            'image/webp',
-            'image/x-icon'
-        ];
-
-        function validFileType(file) {
-          return fileTypes.includes(file.type);
-        }
-
-        function returnFileSize(number) {
-          if(number < 1024) {
-            return number + 'bytes';
-          } else if(number > 1024 && number < 1048576) {
-            return (number/1024).toFixed(1) + 'KB';
-          } else if(number > 1048576) {
-            return (number/1048576).toFixed(1) + 'MB';
-          }
-        }
+		}
+		if(files){
+			[].forEach.call(files, readAndPreview);
+		}
+   	};
     </script>
 </head>
-
 <body>
 	<!-- header -->
 	<jsp:include page="../header.jsp"/>
@@ -182,7 +112,7 @@
     <!-- container -->
     <div id="Container">
         <div class="sContainer">
-        <form action="addHotelM" id="hotelInfo" enctype="multipart/form-data" method="post">
+        <form action="addHotelM" name="hotelInfo" id="hotelInfo" enctype="multipart/form-data" method="post">
             <!-- sub m top -->
             <div class="s21_tour_de_top">
                 <h3 class="area" style="height:60px">
@@ -192,12 +122,10 @@
                 <div class="s21_detail_box area pr">
                     <div class="s21_detail_img swiper-container ">
                         <div class="swiper-wrapper">
-                            <!-- <p class="swiper-slide"></p> -->
                         </div>
                     </div>
-                    	
                     <!-- 배너 이동 조작 -->
-						<div class="s21_today_arrow pa" style="z-index: 9">
+						<!-- <div class="s21_today_arrow pa" style="z-index: 9">
 							<button type="button" class="button_stop"
 								onclick="$(this).hide();$('.button_start').show();swiper_main.autoplay.stop();">정지</button>
 							<button type="button" class="button_start"
@@ -209,10 +137,8 @@
 								<button type="button" class="button_prev">이전</button>
 								<button type="button" class="button_next">다음</button>
 							</div>
-						</div>
+						</div> -->
 						<!-- // 배너 이동 조작 -->
-                     
-
                     <div class="s21_detail_tbox">
                         <!-- 우측 정보 s -->
                         <ul class="s21_detail_twrap">
@@ -270,10 +196,11 @@
                             </dl>
                             <dl>
                                 <dt>
-                                    <img src="http://appdata.hungryapp.co.kr/images/hatdog/img/travel/icon_dog_line.png?ver=2" /></dt>
+                                    <img src="http://appdata.hungryapp.co.kr/images/hatdog/img/travel/icon_dog_line.png?ver=2" />
+								</dt>
                                 <dd>
 									<input style="width: 50px" type="text" name="h_petSize" placeholder="ex)소형">
-											</dd>
+								</dd>
                             </dl>
                             <dl>
                                 <dt><img src="http://appdata.hungryapp.co.kr/images/hatdog/img/travel/icon_scale_line.png?ver=2" alt="숙소" /></dt>
@@ -293,8 +220,8 @@
 				<div id="previewI">
 				</div>
 				<div style="margin-top: 50px">
-					<!-- <label for="filesI" style="background-color: green; font-size: 15px; color: white; padding: 10px;">숙소 이미지 선택</label> -->
-					<input style="" onchange="uploadPreview(this);" type="file" name="filesI" id="filesI" accept="image/*" multiple>
+					<label for="filesI" style="background-color: green; font-size: 15px; color: white; padding: 10px;">숙소 이미지 선택</label>
+					<input style="display: none" onchange="uploadPreview(this);" type="file" name="filesI" id="filesI" accept="image/*" multiple>
 					<span style="font-size:10px; color: gray;">※첨부파일은 최대 5개까지 등록이 가능합니다.</span>
 				</div>
             </div>
@@ -303,28 +230,17 @@
                 <div class="s21_tab">
                     <button type="button" class="tablinks" onclick="openCity(event, 'info')" id="defaultOpen">기본정보</button>
                 </div>
-
                 <!-- 기본정보 s -->
                 <div id="info" class="s21_tabcontent">
-                    <div class="s21_tabcontent_left">
-                        <!-- <div class="">
-                            <img src="http://appdata.hungryapp.co.kr/images/hatdog/upload/202111/M163705024257736193.jpg" style="max-width: 100%; image-orientation: from-image" alt="" />
-                            <img src="http://appdata.hungryapp.co.kr/images/hatdog/upload/202111/M163705024616715193.jpg" style="max-width: 100%; image-orientation: from-image" alt="" /><br />
-                            <img src="http://appdata.hungryapp.co.kr/images/hatdog/upload/202111/M163705025735263193.jpg" style="max-width: 100%; image-orientation: from-image" alt="" /><br />
-                            <img src="http://appdata.hungryapp.co.kr/images/hatdog/upload/202111/M163705026259957193.jpg" style="max-width: 100%; image-orientation: from-image" alt="" /><br />
-                            <br />
-                        </div> -->
-                    </div>
-
+                    <div class="s21_tabcontent_left"></div>
                     <!-- 오른쪽 내용들 s-->
                     <div class="s21_tabcontent_right">
                         <div class="s21_tabcontent_rightbox">
-
-                            <!-- 숙박예약 있을시에 button s -->
+                            <!-- 숙소 등록 button s -->
                             <div class="s21_tabcontent_rbtn">
-                                <button type="submit" form="hotelInfo" class="bg_orange">숙소 등록</button>
+                                <button type="button" onclick="return checkHotelInfo();" class="bg_orange">숙소 등록</button>
                             </div>
-                            <!--// 숙박예약 있을시에 button e\
+                            <!-- 숙소 등록 button e\
                             <!-- 공통주의사항 s -->
                             <div class="s21_tabcontent_more">
                                 <div class="s21_tabcontent_more_tit">
@@ -335,14 +251,6 @@
                                     <br><span>따라서, 방문 전 꼭 전화로 확인 부탁드립니다.</span>
                                 </p>
                             </div>
-                            <!--// 공통주의사항 e -->
-<!-- 
-                            요청배너 s
-                            <div class="s21_tabcontent_rbtn_btm">
-                                <button type="button" class="bg_mgray" onclick="alert('로그인 후 이용해주세요.');return;//location.href='?m1Code=etc&m2Code=join'; location.replace('?m1Code=ar_info&m2Code=shop_add&shopadd_tab=0&ar_idx=8892')">장소 및 업체 추가 요청</button>
-                            </div>
-                            요청배너 e
- -->						
                             <div class="s21_tabcontent_more">
                 	            <div id="previewD">
 								</div>
@@ -354,16 +262,11 @@
 							</div>
                         </div>
                     </div>
-
                     <!-- 오른쪽 내용들 e-->
-
                 </div>
-                
                 <!--// 기본정보 e -->
-
                 <script>
-
-				var swiper_main = new Swiper('.swiper-container', {
+				/* var swiper_main = new Swiper('.swiper-container', {
 					loop: true,
 					autoplay: {
 				        delay: 5000,
@@ -379,7 +282,7 @@
 					},threshold : 20,//터치거리 px
 
 				});
-				
+				 */
 
 				/**이벤트 발생 (크롬,파이어폭스,사파이어 OK!) **/
 				function eventOccur(evEle, evType){
