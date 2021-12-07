@@ -22,6 +22,7 @@
 
 <script src="js/jquery.js"></script>
 <script src="js/swiper-bundle.min.js"></script>
+<script src="js/verification.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -35,7 +36,7 @@
 	<!-- container -->
 	<div id="Container">
 		<div class="sContainer">
-			<form action="updateHotelM" id="hotelInfo" method="post">
+			<form action="updateHotelM" name="hotelInfo" id="hotelInfo" method="post">
 				<input type="hidden" name="h_id" id="h_id" value="${h_detail.h_id}">
 				<input type="hidden" name="h_img" value="${h_detail.h_img}">
 				<input type="hidden" name="h_detail" value="${h_detail.h_detail}">
@@ -187,10 +188,10 @@
 			<form action="updateImg" enctype="multipart/form-data" method="post">
 				<div>
 					<c:forTokens var="h_i" items="${h_detail.h_img}" delims="," varStatus="st">
-						<div style="border:solid 1px blue;display:inline-block;padding:5px">
+						<div class="uploadedImg" style="border:solid 1px blue;display:inline-block;padding:5px">
 							<img style="min-height: 0; max-height: 80px"
 								src="hotel/${h_detail.h_id}/h_img/${h_i}" alt="${h_detail.h_name}">
-							<a style="border:solid;background-color: red;font-size: 13px; color:white; padding:5px" type="button" href="updateImg?h_id=${h_detail.h_id}&type=h_img&del_img=${h_i}">삭제</a>
+							<a style="border:solid;background-color: red;font-size: 13px; color:white; padding:5px" type="button" onclick="if(deleteChk(this)){location.href='updateImg?h_id=${h_detail.h_id}&type=h_img&del_img=${h_i}'};" >삭제</a>
 						</div>
 					</c:forTokens>
 				</div>
@@ -230,8 +231,7 @@
 	
 							<!-- 숙박예약 있을시에 button s -->
 							<div class="s21_tabcontent_rbtn">
-								<button type="submit" form="hotelInfo" class="bg_orange">숙소
-									업로드</button>
+								<button type="button" onclick="return checkHotelInfo();" class="bg_orange">숙소 업로드</button>
 								<button type="button" class="bg_red"
 									onclick="location.href='deleteHotelM?h_id=${h_detail.h_id}'">숙소
 									삭제</button>
@@ -378,8 +378,7 @@
 						<div class="s21_tabcontent_rightbox">
 							<!-- 숙박예약 있을시에 button s -->
 							<div class="s21_tabcontent_rbtn">
-								<button type="button" class="bg_orange" form="hotelInfo">숙소
-									업로드</button>
+								<button type="button" onclick="return checkHotelInfo();" class="bg_orange">숙소 업로드</button>
 								<button type="button" class="bg_red"
 									onclick="location.href='deleteHotelM?h_id=${h_detail.h_id}'">숙소
 									삭제</button>
