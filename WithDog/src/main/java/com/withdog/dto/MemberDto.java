@@ -26,7 +26,6 @@ public class MemberDto {
 		this.m_addr3 = m_addr3;
 		this.m_regidate = m_regidate;
 	}
-	
 	public String getM_id() {
 		return m_id;
 	}
@@ -81,7 +80,6 @@ public class MemberDto {
 	public void setM_regidate(String m_regidate) {
 		this.m_regidate = m_regidate;
 	}
-	
 	@Override
 	public String toString() {
 		return "MemberDto [m_id=" + m_id + ", m_pw=" + m_pw + ", m_nick=" + m_nick + ", m_birth=" + m_birth

@@ -24,29 +24,30 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 	$(function(){
-		$('#login').click(function(){
-		/* 	var email = $('#email').val();
-			var pw = $('#pw').val();
+		$('#loginBtn').click(function(){
 			
-			if(email == ""){
-				alert('이메일을 입력해주세요');
-			}else if(pw == ""){
-				alert('비밀번호를 입력해주세요');
-			} */
 			var user_email = $('#email').val();
 			var user_pw = $('#pw').val();
-			
+			if(user_email == ""){
+				alert('이메일을 입력해주세요');
+				location.reload();
+			}else if(user_pw == ""){
+				alert('비밀번호를 입력해주세요');
+				location.reload();
+			} 
 			$.ajax({
 				url: 'login.do',
 				data: {'email': user_email, 'pw' : user_pw},
 			    type: 'post',
-				success: function(loginRs) {
-						if (loginRs == -2 || loginRs== 0) {
-							$("#loginMessage").text("이메일(아이디)또는 비밀번호가 일치하지 않습니다.");
-						}else{
-							// 로그인성공후 페이지 이동처리
-							location.href='/controller/';
-						}
+			    dataType : 'text',
+			    success: function(loginRs) {
+			    	
+			   		if (loginRs == -2 || loginRs== 0) {
+						alert("이메일(아이디)또는 비밀번호가 일치하지 않습니다.");
+					}else{
+						// 로그인성공후 페이지 이동처리
+						location.href='/WithDog/';
+					}  
 				}, error: function() {
 					alert('서버오류입니다 관리자에게 문의하세요.');
 				}
@@ -78,7 +79,7 @@
 				<div class="area">
 					<h1 class="logo">
 						<a
-							onclick="location.href='/'">
+							onclick="location.href='/WithDog/'">
 							<img
 							src="http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/logo.png"
 							alt="위드독">
@@ -132,8 +133,7 @@
 				<br /> 
 				<input type="button" name="serch" id="serch"value="아이디/이메일 찾기" onclick="location.href='serchUser'" style="width: 150px; height: 30px; margin-left: 470px" />
 				<input type="button" name="join" id="join" value="회원가입"onclick="location.href='join'" style="width: 150px; height: 30px" /><br />
-				<input type="submit" name="login" id="login" onclick="login()" value="로그인"
-					style="width: 303px; height: 30px; margin: 5px 0 0 470px" />
+				<input type="submit" name="login" id="loginBtn" onclick="login()" value="로그인" style="width: 303px; height: 30px; margin: 5px 0 0 470px" />
 
 				</p>
 			</div>
