@@ -62,12 +62,22 @@ function checkHotelInfo(){
 		f.h_price.focus();
 		return;	
 	}
-	if(f.filesI && f.filesD){
+	if(document.URL.indexOf("addHotelM")!=-1){
 		if(!f.filesI.value){
 			alert("숙소 이미지를 등록해주세요.");
 			return;
 		}
 		if(!f.filesD.value){
+			alert("상세페이지를 등록해주세요.");
+			return;
+		}
+	} else{
+		var chkCntI = f.filesI.closest(".imgContainer").querySelector(".uploadedImgs").childElementCount;
+		var chkCntD = f.filesD.closest(".imgContainer").querySelector(".uploadedImgs").childElementCount;
+		if(chkCntI == 0 && !f.filesI.value){
+			alert("숙소 이미지를 등록해주세요.");
+			return;
+		} else if(chkCntD == 0 && !f.filesD.value){
 			alert("상세페이지를 등록해주세요.");
 			return;
 		}
@@ -82,21 +92,5 @@ function checkHotelInfo(){
 	}
 		
 	f.submit();
-};
-
-function uploadChk(event){
-	
-	var files = document.getElementsByClassName("uploadedImg");
-		
-
-};
-
-function deleteChk(event){
-	var files = document.getElementsByClassName("uploadedImg");
-	if(files.length == 1){
-		alert("이미지는 최소 1개 등록되어야합니다.");
-		return false;
-	}
-	return true;
 };
 

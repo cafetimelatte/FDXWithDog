@@ -20,6 +20,7 @@
     <script src="js/jquery.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
     <script src="js/verification.js"></script>
+    <script src="js/filePreview.js"></script>
     <title>관리자 - 숙소 등록</title>
     
     <style>
@@ -39,70 +40,25 @@
     		color:white;
     		padding:5px;
     	}
+    	.fileSelect{
+    		margin-top: 50px;
+    	}
+    	.fileSelect label{
+    		background-color: green;
+    		font-size: 15px;
+    		color: white;
+    		padding: 10px;
+    	}
+    	.fileSelect input{
+    		display: none;
+    	}
+    	.fileSelect span{
+    		font-size:10px;
+    		color: gray;
+    	}
     </style>
     <script type="text/javascript">
-    function uploadPreview(event){
-   		var files = event.files;
-    	var totalCount = 5;
-    	var fileCount = 0;
-   		var filesArr = Array.prototype.slice.call(files);
-   		if(fileCount + filesArr.length > totalCount){
-   			alert("파일은 최대 " + totalCount + "개까지 업로드 가능합니다.");
-   			return;
-   		}
-   		for(var i = 0; i < filesArr.length; i++){
-   			var fileSize = filesArr[i].size;
-   			var maxSize = 5 * 1024 * 1024;
-   			if(fileSize > maxSize){
-   				alert("파일의 허용 크기는 5MB 이하 입니다.");
-   				return;
-   			}
-   		}
-		function readAndPreview(file){
-			if(/\.(jpe?g|png|gif)$/i.test(file.name)){
-				var reader = new FileReader();
-				if(event.name == 'filesI'){
-					var preview = document.getElementById("previewI");
-					var container = document.getElementsByClassName("swiper-wrapper");
-				} else if(event.name == 'filesD'){
-					var preview = document.getElementById("previewD");
-		    		var container = document.getElementsByClassName("s21_tabcontent_left");
-				}
-				while(preview.firstChild){
-					preview.removeChild(preview.firstChild);
-				}
-				while(container[0].firstChild){
-					container[0].removeChild(container[0].firstChild);
-				}
-				reader.addEventListener("load", function(){
-					var list = document.createElement("div");
-					list.classList.add("pv");
-					var image1 = new Image();
-					image1.title = file.name;
-					image1.src = this.result;
-					var image2 = image1.cloneNode(false);
-					if(event.name == 'filesI'){
-						var content = document.createElement("p");
-						content.classList.add("swiper-slide");
-					} else if(event.name == 'filesD'){
-			    		var content = document.createElement("div");
-					}
-					list.appendChild(image1);
-					content.appendChild(image2);
-					container[0].appendChild(content);
-					preview.appendChild(list);
-				}, false);
-				console.log(file);
-				reader.readAsDataURL(file);
-			} else{
-				alert("이미지 파일만 업로드 가능합니다.");
-				return;
-			}
-		}
-		if(files){
-			[].forEach.call(files, readAndPreview);
-		}
-   	};
+    
     </script>
 </head>
 <body>
@@ -217,12 +173,14 @@
             </div>
             <!--// sub m top -->
 			<div>
-				<div id="previewI">
-				</div>
-				<div style="margin-top: 50px">
-					<label for="filesI" style="background-color: green; font-size: 15px; color: white; padding: 10px;">숙소 이미지 선택</label>
-					<input style="display: none" onchange="uploadPreview(this);" type="file" name="filesI" id="filesI" accept="image/*" multiple>
-					<span style="font-size:10px; color: gray;">※첨부파일은 최대 5개까지 등록이 가능합니다.</span>
+				<div class="imgContainer">
+					<div class="selectedImg">
+					</div>
+					<div class="fileSelect">
+						<label for="filesI">숙소 이미지 선택</label>
+						<input onchange="uploadPreview(this);" type="file" name="filesI" id="filesI" accept="image/*" multiple>
+						<span>※첨부파일은 최대 5개까지 등록이 가능합니다.</span>
+					</div>
 				</div>
             </div>
             <!-- sub m btm -->
@@ -252,13 +210,15 @@
                                 </p>
                             </div>
                             <div class="s21_tabcontent_more">
-                	            <div id="previewD">
-								</div>
-								<div style="margin-top: 50px">
-									<label for="filesD" style="background-color: green; font-size: 15px; color: white; padding: 10px;">상세페이지 이미지 선택</label>
-		                            <input style="display: none;" onchange="uploadPreview(this);" type="file" name="filesD" id="filesD" accept="image/*" multiple>
-									<span style="font-size:10px; color: gray;">※첨부파일은 최대 5개까지 등록이 가능합니다.</span>
-								</div>
+                            	<div class="imgContainer">
+	                	            <div class="selectedImg">
+									</div>
+									<div class="fileSelect">
+										<label for="filesD">상세페이지 이미지 선택</label>
+			                            <input onchange="uploadPreview(this);" type="file" name="filesD" id="filesD" accept="image/*" multiple>
+										<span>※첨부파일은 최대 5개까지 등록이 가능합니다.</span>
+									</div>
+                            	</div>
 							</div>
                         </div>
                     </div>
