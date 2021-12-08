@@ -64,33 +64,15 @@ public class HotelController {
 	
 	@RequestMapping(value="/updateHotelM", method=RequestMethod.POST)
 	public String hotelUpdateM(HotelDto dto,
-			@RequestParam(value="filesI", required=false, defaultValue="") MultipartFile[] filesI,
-			@RequestParam(value="filesD", required=false, defaultValue="") MultipartFile[] filesD,
+			@RequestParam MultipartFile[] filesI,
+			@RequestParam MultipartFile[] filesD,
 			@RequestParam(value="del_filesI", required=false, defaultValue="") String[] del_filesI,
 			@RequestParam(value="del_filesD", required=false, defaultValue="") String[] del_filesD,
 			Model model) {
-		System.out.println("del_filesI: " + del_filesI.length);
-		System.out.println("del_filesD: " + del_filesD.length);
-		System.out.println("filesI: " + filesI.length);
-		System.out.println("filesI: " + filesI[0].getOriginalFilename());
-		System.out.println("filesD: " + filesD.length);
-		System.out.println("filesD: " + filesD[0].getOriginalFilename());
 		
-		hotelService.updateHotel(dto, filesI, filesD, del_filesI, del_filesD);
+		hotelService.updateHotel(dto, filesI, del_filesI, "h_img");
+		hotelService.updateHotel(dto, filesD, del_filesD, "h_detail");
 		return "redirect:/hotelListM";
-	}
-
-	@RequestMapping(value="/updateImg", method=RequestMethod.GET)
-	public String deleteImg(int h_id, String type, String del_img, Model model) {
-		hotelService.deleteImage(h_id, type, del_img);
-		return "redirect:/updateHotelM?h_id="+h_id;
-	}
-	
-	@RequestMapping(value="/updateImg", method=RequestMethod.POST)
-	public String updateImg(@RequestParam(value="dir", required=false, defaultValue="/") String dir,
-			@RequestParam MultipartFile[] files, String type, int h_id, Model model) {
-			hotelService.updateImage(h_id, type, files);
-		return "redirect:/updateHotelM?h_id="+h_id;
 	}
 	
 	@RequestMapping(value="/deleteHotelM", method=RequestMethod.GET)

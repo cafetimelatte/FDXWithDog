@@ -19,11 +19,6 @@ import com.withdog.dto.HotelDto;
 public class HotelService implements IHotelService {
 	@Autowired
 	IHotelDao dao;
-	
-	@Override
-	public List<HotelDto> getHotelList() {
-		return dao.getHotelList();
-	}
 
 	@Override
 	public HotelDto getHotelDetail(int h_id) {
@@ -31,19 +26,12 @@ public class HotelService implements IHotelService {
 	}
 
 	@Override
-	public int getHotelCount() {
-		return dao.getHotelCount();
-	}
-
-	@Override
 	public void deleteHotel(int h_id) {
-		//파일 및 폴더 삭제
 		String path = "D:/git/FDXWithDog/WithDog/src/main/webapp/resources/upload/hotel/" + h_id + "/";
 		deleteHotel(path);
 		dao.deleteHotel(h_id);
 	}
-	
-	@Override
+
 	public void deleteHotel(String path) {
 		File folder = new File(path);
 		while(folder.exists()) {
@@ -61,54 +49,37 @@ public class HotelService implements IHotelService {
 	}
 	
 	@Override
-	public void updateHotel(HotelDto dto, MultipartFile[] filesI, MultipartFile[] filesD, String[] del_filesI, String[] del_filesD) {
-		//del_img, del_detail에 값이 있을 경우 각각 타입으로 deleteImage를 수행한다
-		//filesI, filesD에 파일이 있을 경우 각각 타입으로 insertImage를 수행한다
-		//변경된 내용들을 h_img, h_detail에 ,로 묶어 넣고 dto에 입력한다
-		if(del_filesI.length != 0) {
-			for (int i = 0; i < del_filesI.length; i++) {
-				deleteImage(dto.getH_id(), "h_img", del_filesI[i]);
-			}
-		}
-		if(del_filesD.length != 0) {
-			for (int i = 0; i < del_filesD.length; i++) {
-				deleteImage(dto.getH_id(), "h_detail", del_filesD[i]);
-			}
-		}
-		if(filesI.length != 0) {
-			for (int i = 0; i < filesI.length; i++) {
-				updateImage(dto.getH_id(), "h_img", filesI);
-			}
-		}
-		if(filesD.length != 0) {
-			for (int i = 0; i < filesD.length; i++) {
-				updateImage(dto.getH_id(), "h_detail", filesD);
-			}
+	public void updateHotel(HotelDto dto, MultipartFile[] files, String[] del_files, String type) {
+		String path = "D:/git/FDXWithDog/WithDog/src/main/webapp/resources/upload/hotel/" + dto.getH_id() + "/" + type + "/";
+		deleteImage(dto.getH_id(), path, del_files);
+		updateImage(dto.getH_id(), path, files);
+		File dir = new File(path);
+		File[] fileList = dir.listFiles();
+		if(type.equals("h_img")) {
+			dto.setH_img(rename(path, fileList));
+		} else if(type.equals("h_detail")) {
+			dto.setH_detail(rename(path, fileList));
 		}
 		dao.updateHotel(dto);
+		
 	}
 
-	@Override
-	public void deleteImage(int h_id, String type, String del_img) {
-		String path = "D:/git/FDXWithDog/WithDog/src/main/webapp/resources/upload/hotel/" + h_id + "/" + type + "/";
+	public void deleteImage(int h_id, String path, String[] del_img) {
 		File dir = new File(path);
 		File[] fileList = dir.listFiles();
 		for (int i = 0; i < fileList.length; i++) {
-			if(fileList[i].getName().equals(del_img)) {
-				fileList[i].delete();
-				break;
+			for (int j = 0; j < del_img.length; j++) {
+				if(fileList[i].getName().equals(del_img[j])) {
+					fileList[i].delete();
+				}
 			}
 		}
-		dao.updateImage(input(h_id,rename(path,dir.listFiles()),type));
 	}
 
-	@Override
-	public void updateImage(int h_id, String type, MultipartFile[] files) {
-		String uploadPath = "D:/git/FDXWithDog/WithDog/src/main/webapp/resources/upload/hotel/" + h_id + "/"+ type + "/";
+	public void updateImage(int h_id, String uploadPath, MultipartFile[] files) {
 		upload(files, uploadPath);
 		File dir = new File(uploadPath);
 		File[] fileList = dir.listFiles();
-		dao.updateImage(input(h_id,rename(uploadPath,fileList),type));
 	}
 
 	@Override
