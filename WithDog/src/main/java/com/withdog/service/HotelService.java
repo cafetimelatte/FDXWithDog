@@ -61,7 +61,30 @@ public class HotelService implements IHotelService {
 	}
 	
 	@Override
-	public void updateHotel(HotelDto dto) {
+	public void updateHotel(HotelDto dto, MultipartFile[] filesI, MultipartFile[] filesD, String[] del_filesI, String[] del_filesD) {
+		//del_img, del_detail에 값이 있을 경우 각각 타입으로 deleteImage를 수행한다
+		//filesI, filesD에 파일이 있을 경우 각각 타입으로 insertImage를 수행한다
+		//변경된 내용들을 h_img, h_detail에 ,로 묶어 넣고 dto에 입력한다
+		if(del_filesI.length != 0) {
+			for (int i = 0; i < del_filesI.length; i++) {
+				deleteImage(dto.getH_id(), "h_img", del_filesI[i]);
+			}
+		}
+		if(del_filesD.length != 0) {
+			for (int i = 0; i < del_filesD.length; i++) {
+				deleteImage(dto.getH_id(), "h_detail", del_filesD[i]);
+			}
+		}
+		if(filesI.length != 0) {
+			for (int i = 0; i < filesI.length; i++) {
+				updateImage(dto.getH_id(), "h_img", filesI);
+			}
+		}
+		if(filesD.length != 0) {
+			for (int i = 0; i < filesD.length; i++) {
+				updateImage(dto.getH_id(), "h_detail", filesD);
+			}
+		}
 		dao.updateHotel(dto);
 	}
 

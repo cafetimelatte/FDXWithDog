@@ -63,25 +63,20 @@ public class HotelController {
 	}
 	
 	@RequestMapping(value="/updateHotelM", method=RequestMethod.POST)
-	public String hotelUpdateM(HotelDto dto, @RequestParam MultipartFile[] filesI,
-			@RequestParam MultipartFile[] filesD,
+	public String hotelUpdateM(HotelDto dto,
+			@RequestParam(value="filesI", required=false, defaultValue="") MultipartFile[] filesI,
+			@RequestParam(value="filesD", required=false, defaultValue="") MultipartFile[] filesD,
 			@RequestParam(value="del_filesI", required=false, defaultValue="") String[] del_filesI,
 			@RequestParam(value="del_filesD", required=false, defaultValue="") String[] del_filesD,
 			Model model) {
-		for (int i = 0; i < del_filesI.length; i++) {
-			System.out.println("del_filesI["+i+"] : " + del_filesI[i]);
-		}
-		for (int i = 0; i < del_filesD.length; i++) {
-			System.out.println("del_filesD["+i+"] : " + del_filesD[i]);
-		}
-		for (int i = 0; i < filesI.length; i++) {
-			System.out.println("filesI["+i+"] : " + filesI[i].getOriginalFilename());
-		}
-		for (int i = 0; i < filesD.length; i++) {
-			System.out.println("filesD["+i+"] : " + filesD[i].getOriginalFilename());
-		}
-		System.out.println("--------------------------------------");
-		hotelService.updateHotel(dto);
+		System.out.println("del_filesI: " + del_filesI.length);
+		System.out.println("del_filesD: " + del_filesD.length);
+		System.out.println("filesI: " + filesI.length);
+		System.out.println("filesI: " + filesI[0].getOriginalFilename());
+		System.out.println("filesD: " + filesD.length);
+		System.out.println("filesD: " + filesD[0].getOriginalFilename());
+		
+		hotelService.updateHotel(dto, filesI, filesD, del_filesI, del_filesD);
 		return "redirect:/hotelListM";
 	}
 
