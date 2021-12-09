@@ -3,11 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.withdog.mapper.hotelMapper">
-	<!-- 
-	<select resultType="com.test.dto.HotelDto" id="getHotelList">
-		select * from hotel
-	</select>
-	 -->
+
 	<select resultType="com.withdog.dto.HotelDto" id="getHotelList" parameterType="com.withdog.dto.CriteriaDto">
 		<choose>
 		<when test="order == 'recent'">
@@ -33,11 +29,7 @@ on rnk.h_id = h1.h_id<choose><when test="category == 'h_name'">where h_name like
 	<select resultType="com.withdog.dto.HotelDto" id="getHotelDetail" parameterType="int">
 		select * from hotel where h_id = #{h_id}
 	</select>
-	
-<!-- 	<select resultType="int" id="getHotelCount">
-		select count(h_id) from hotel
-	</select> -->
-	
+
 	<select resultType="int" id="getHotelCount" parameterType="map">
 		select count(h_id) from hotel<choose><when test="category == 'add'">where h_add1 like '%'||#{field}||'%' or h_add2 like '%'||#{field}||'%' or h_add3 like '%'||#{field}||'%'</when><when test="category == 'h_name'">where h_name like '%'||#{field}||'%'</when></choose>
 	</select>
@@ -50,17 +42,6 @@ on rnk.h_id = h1.h_id<choose><when test="category == 'h_name'">where h_name like
 		update hotel
 		set h_name = #{h_name}, h_info = #{h_info}, h_detail = #{h_detail}, h_phone = #{h_phone}, h_web = #{h_web}, h_chkInTime = #{h_chkInTime}, h_chkOutTime = #{h_chkOutTime}, h_add1 = #{h_add1}, h_add2 = #{h_add2}, h_add3 = #{h_add3}, h_img = #{h_img}, h_price = #{h_price}, h_petSize = #{h_petSize}, h_petWeight = #{h_petWeight}, h_etc = #{h_etc}
 		where h_id = #{h_id}
-	</update>
-	
-	<update id="updateImage" parameterType="map">
-		update hotel set
-		<if test="h_img!=null">
-			h_img = #{dbIn}
-		</if>
-		<if test="h_detail!=null">
-			h_detail = #{dbIn}
-		</if>
-		 where h_id = #{h_id}
 	</update>
 	
 	<select id="selectNextVal" resultType="int">

@@ -282,9 +282,9 @@
 	
 							<!-- 숙박예약 있을시에 button s -->
 							<div class="s21_tabcontent_rbtn">
-								<button type="button" onclick="return checkHotelInfo();" class="bg_orange">숙소 업로드</button>
-								<button type="button" class="bg_red"
-									onclick="location.href='deleteHotelM?h_id=${h_detail.h_id}'">숙소
+								<button type="button" onclick="return checkHotelInfo(this);" name="upBtn" class="bg_orange">숙소 업로드</button>
+								<button type="button" class="bg_red" name="delBtn"
+									onclick="if(validate(this)){location.href='deleteHotelM?h_id=${h_detail.h_id}'}">숙소
 									삭제</button>
 							</div>
 							<!--// 숙박예약 있을시에 button e -->
@@ -398,9 +398,9 @@
 						<div class="s21_tabcontent_rightbox">
 							<!-- 숙박예약 있을시에 button s -->
 							<div class="s21_tabcontent_rbtn">
-								<button type="button" onclick="return checkHotelInfo();" class="bg_orange">숙소 업로드</button>
-								<button type="button" class="bg_red"
-									onclick="location.href='deleteHotelM?h_id=${h_detail.h_id}'">숙소
+								<button type="button" onclick="return checkHotelInfo(this);" name="upBtn" class="bg_orange">숙소 업로드</button>
+								<button type="button" class="bg_red" name="delBtn"
+									onclick="if(validate(this)){location.href='deleteHotelM?h_id=${h_detail.h_id}'}">숙소
 									삭제</button>
 							</div>
 							<!--// 숙박예약 있을시에 button e -->

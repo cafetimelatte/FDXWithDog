@@ -1,4 +1,4 @@
-function checkHotelInfo(){
+function checkHotelInfo(event){
 	var f = document.hotelInfo;
 	var phoneChk = /^\d{9,11}$/;
 	var priceChk = /^[0-9]/g;
@@ -90,7 +90,61 @@ function checkHotelInfo(){
 		alert("가격에 숫자만 입력해주세요.");
 		return;
 	}
-		
+	
+	if(!validate(event)){
+		return;
+	}
+	
 	f.submit();
 };
+
+function checkBookingInfo(event){
+	var b = document.bookingInfo;
+	if(!b.b_chkInDate.value){
+		alert("입실날짜를 입력해주세요.");
+		return;
+		return;
+	}
+	if(!b.b_chkOutDate.value){
+		alert("퇴실날짜를 입력해주세요.");
+		return;
+	}
+	
+	if(b.b_chkInDate.value >= b.b_chkOutDate.value){
+		alert("입실날짜는 퇴실날짜와 같거나 더 나중이면 안됩니다.");
+		return;
+	}
+	
+	if(!validate(event)){
+		return;
+	}
+	
+	b.submit();
+}
+
+function checkSearch(event){
+	var s = document.search;
+	
+	if(!s.field.value){
+		alert("검색어를 입력해주세요.");
+		return;
+	}
+	
+	s.submit();
+}
+
+function validate(event){
+	if(event.name == "addBtn"){
+		return confirm("등록 하시겠습니까?");
+	} else if(event.name == "upBtn"){
+		return confirm("업로드 하시겠습니까?");
+	} else if(event.name == "delBtn"){
+		return confirm("삭제 하시겠습니까?");
+	} else if(event.name == "modBtn"){
+		return confirm("수정 하시겠습니까?");
+	} else if(event.name == "bookBtn"){
+		return confirm("예약 하시겠습니까?");
+	}
+};
+
 

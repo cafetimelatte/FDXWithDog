@@ -22,6 +22,8 @@
 
     <script src="js/jquery.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
+	<script src="js/verification.js"></script>
+	
     <title>예약 정보 수정</title>
     
     <style>
@@ -30,6 +32,8 @@
     		width:200px;
     		margin: 50px;
     		font-size: 15px;
+    		border: 1px solid black;
+    		background-color: #D5D5D5;
     	}
     </style>
 </head>
@@ -52,7 +56,7 @@
                     <div class="s21_detail_tbox" style="width:100%; float:none">
                         <!-- 예약 정보 입력 s -->
                         <ul class="s21_detail_twrap_mod">
-                        	<form action="updateBooking" method="POST">
+                        	<form name="bookingInfo" action="updateBooking" method="POST">
                         		<input type="hidden" name="b_id" value="${b_info.b_id}">
                         		<input type="hidden" name="h_id" value="${h_booking.h_id}">
 	                            <input type="hidden" name="m_id" value="${b_info.m_id}">
@@ -112,9 +116,9 @@
                                 </dl>
                             </li>
 								<c:if test="${h_booking.h_id ne null}">
-	                            	<input class="bbtn" type="submit" value="수정하기">
+	                            	<button class="bbtn" type="button" onclick="return checkBookingInfo(this)" name="modBtn">수정하기</button>
                             	</c:if>
-                            	<input class="bbtn" type="button" value="돌아가기" onclick="location.href='bookingList'">
+                            	<button class="bbtn" type="button" onclick="location.href='bookingListM'">돌아가기</button>
                             </form>
                         </ul>
                         <!-- 예약 정보 입력 e -->

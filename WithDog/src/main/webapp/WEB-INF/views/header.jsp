@@ -5,7 +5,7 @@
 	<div id="headerInnerWrap">
 		<div id="headerTop">
 			<div class="area">
-				<p class="top_text">반려견과 함께 하트독에 오신것을 환영 합니다.</p>
+				<p class="top_text">반려동물과 함께 위드독에 오신것을 환영 합니다.</p>
 					<ul>
 						<li class="line">|</li>
 						<c:choose>

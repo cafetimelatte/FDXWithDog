@@ -23,18 +23,17 @@
 
     <script src="js/jquery.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
+	<script src="js/verification.js"></script>
+	
     <title>관리자 - 예약 정보 수정</title>
-    <script type="text/javascript">
-    	function noH_id{
-    		var h_id = ${h_}
-    	}
-    </script>
     <style>
     	.bbtn{
     		height: 40px;
     		width:200px;
     		margin: 50px;
     		font-size: 15px;
+    		border: 1px solid black;
+    		background-color: #D5D5D5;
     	}
     </style>
 </head>
@@ -46,7 +45,7 @@
         <div class="sContainer">
             <!-- sub m top -->
             <div class="s21_tour_de_top">
-                <form action="updateBookingM" method="POST">
+                <form name="bookingInfo" action="updateBookingM" method="POST">
                 <h3 class="area" style="height:60px">관리자 / 숙소 예약 수정 [예약번호 : RWSKWDIFDK]
                 	<span>예약상태 : 
                 		<select name="b_state" style="text-align:center;height:24px;padding:2px">
@@ -122,9 +121,9 @@
                                 </dl>
                             </li>
                             	<c:if test="${h_booking.h_id ne null}">
-	                            	<input class="bbtn" type="submit" value="수정하기">
+	                            	<button class="bbtn" type="button" onclick="return checkBookingInfo(this)" name="modBtn">수정하기</button>
                             	</c:if>
-                            	<input class="bbtn" type="button" value="돌아가기" onclick="location.href='bookingListM'">
+                            	<button class="bbtn" type="button" onclick="location.href='bookingListM'">돌아가기</button>
                         </ul>
                         <!-- 예약 정보 입력 e -->
                     </div>

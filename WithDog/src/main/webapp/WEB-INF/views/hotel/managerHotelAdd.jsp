@@ -196,7 +196,7 @@
                         <div class="s21_tabcontent_rightbox">
                             <!-- 숙소 등록 button s -->
                             <div class="s21_tabcontent_rbtn">
-                                <button type="button" onclick="return checkHotelInfo();" class="bg_orange">숙소 등록</button>
+                                <button type="button" onclick="return checkHotelInfo(this);" name="addBtn" class="bg_orange">숙소 등록</button>
                             </div>
                             <!-- 숙소 등록 button e\
                             <!-- 공통주의사항 s -->
