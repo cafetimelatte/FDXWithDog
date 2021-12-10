@@ -17,11 +17,6 @@ import com.withdog.dto.HotelDto;
 public class HotelService implements IHotelService {
 	@Autowired
 	IHotelDao dao;
-	
-	@Override
-	public List<HotelDto> getHotelList() {
-		return dao.getHotelList();
-	}
 
 	@Override
 	public HotelDto getHotelDetail(int h_id) {
@@ -29,26 +24,19 @@ public class HotelService implements IHotelService {
 	}
 
 	@Override
-	public int getHotelCount() {
-		return dao.getHotelCount();
-	}
-
-	@Override
 	public void deleteHotel(int h_id) {
-		//파일 및 폴더 삭제
 		String path = "D:/git/FDXWithDog/WithDog/src/main/webapp/resources/upload/hotel/" + h_id + "/";
 		deleteHotel(path);
 		dao.deleteHotel(h_id);
 	}
-	
-	@Override
+
 	public void deleteHotel(String path) {
 		File folder = new File(path);
 		while(folder.exists()) {
 			File[] fileList = folder.listFiles();
 			for (int i = 0; i < fileList.length; i++) {
 				if(fileList[i].isFile()) {
-					fileList[i].delete();					
+					fileList[i].delete();
 				} else{
 					deleteHotel(fileList[i].getPath());
 				}
@@ -56,117 +44,69 @@ public class HotelService implements IHotelService {
 			}
 			folder.delete();
 		}
-		
 	}
 	
 	@Override
-	public void updateHotel(HotelDto dto) {
+	public void updateHotel(HotelDto dto, MultipartFile[] files, String[] del_files, String type) {
+		String path = "D:/git/FDXWithDog/WithDog/src/main/webapp/resources/upload/hotel/" + dto.getH_id() + "/" + type + "/";
+		if(type.equals("h_img")) {
+			dto.setH_img(deleteImage(dto.getH_id(), path, del_files));
+			if(!files[0].getOriginalFilename().equals("")) {
+				dto.setH_img(updateImage(dto.getH_id(), path, files));
+			}
+		} else if(type.equals("h_detail")) {
+			dto.setH_detail(deleteImage(dto.getH_id(), path, del_files));
+			if(!files[0].getOriginalFilename().equals("")) {
+				dto.setH_detail(updateImage(dto.getH_id(), path, files));
+			}
+		}
 		dao.updateHotel(dto);
+		
 	}
 
-	@Override
-	public void deleteImage(int h_id, String type, String del_img) {
-		String path = "D:/git/FDXWithDog/WithDog/src/main/webapp/resources/upload/hotel/" + h_id + "/" + type + "/";
+	public String deleteImage(int h_id, String path, String[] del_img) {
 		File dir = new File(path);
 		File[] fileList = dir.listFiles();
-		String img = "";
 		for (int i = 0; i < fileList.length; i++) {
-			File file = fileList[i];
-			if(file.getName().equals(del_img)) {
-				file.delete();
-			} else {
-				if(img.equals("")) {
-					img += file.getName();
-				} else {
-					img += "," + file.getName();
+			for (int j = 0; j < del_img.length; j++) {
+				if(fileList[i].getName().equals(del_img[j])) {
+					fileList[i].delete();
+					break;
 				}
 			}
 		}
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("h_id", h_id);
-		map.put("img", img);			
-		if(type.equals("h_img")) {
-			map.put("h_img", type);
-		} else if(type.equals("h_detail")){
-			map.put("h_detail", type);
-		}
-		dao.updateImage(map);
+		return rename(path,dir.listFiles());
 	}
 
-	@Override
-	public void updateImage(int h_id, String type, MultipartFile file) {
-		String uploadPath = "D:/git/FDXWithDog/WithDog/src/main/webapp/resources/upload/hotel/" + h_id + "/"+ type + "/";
-        String saveName = file.getOriginalFilename();
-		File saveFile = new File(uploadPath, saveName);
-        
-        try {
-			file.transferTo(saveFile);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-        
-        File dir = new File(uploadPath);
+	public String updateImage(int h_id, String uploadPath, MultipartFile[] files) {
+		upload(files, uploadPath);
+		File dir = new File(uploadPath);
 		File[] fileList = dir.listFiles();
-		String img = "";
-		for (int i = 0; i < fileList.length; i++) {
-			if(img.equals("")) {
-				img += fileList[i].getName();
-			} else {
-				img += "," + fileList[i].getName();
-			}
-		}
-		
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("h_id", h_id);
-		map.put("img", img);
-		if(type.equals("h_img")) {
-			map.put("h_img", type);
-		} else if(type.equals("h_detail")){
-			map.put("h_detail", type);
-		}
-		dao.updateImage(map);
-        
+		return rename(uploadPath,fileList);
 	}
 
 	@Override
 	public void insertHotel(HotelDto dto, MultipartFile[] filesI, MultipartFile[] filesD) {
 		//h_id nextval 가져오기
 		int nextVal = dao.selectNextVal();
-		HashMap<Integer,String> map = new HashMap<Integer,String>();
+		String[] types = new String[]{"/h_img/","/h_detail/"};
+		String[] dbIns = new String[]{"",""};
 		HashMap<Integer,MultipartFile[]> files = new HashMap<Integer,MultipartFile[]>();
-		HashMap<Integer,String> img = new HashMap<Integer,String>();
-		map.put(0, "/h_img/");
-		map.put(1, "/h_detail/");
 		files.put(0, filesI);
 		files.put(1, filesD);
-		img.put(0, "");
-		img.put(1, "");
 		//nextVal값으로 폴더 생성, 파일 저장, 파일 경로 가져오기
-		for (int i = 0; i < map.size(); i++) {
-			String path = "D:/git/FDXWithDog/WithDog/src/main/webapp/resources/upload/hotel/" + nextVal + map.get(i);
+		for (int i = 0; i < types.length; i++) {
+			String path = "D:/git/FDXWithDog/WithDog/src/main/webapp/resources/upload/hotel/" + nextVal + types[i];
 			File file = new File(path);
 			file.mkdirs();
-			for (int j = 0; j < files.get(i).length; j++) {
-				try {
-					files.get(i)[j].transferTo(new File(path,files.get(i)[j].getOriginalFilename()));
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
+			upload(files.get(i),path);
 			File[] fileList = file.listFiles();
-			for (int j = 0; j < fileList.length; j++) {
-				if(img.get(i).equals("")) {
-					img.put(i, fileList[j].getName());
-				} else {
-					img.put(i, img.get(i) + "," + fileList[j].getName());
-				}
-			}
+			dbIns[i] = rename(path,fileList);
 		}
 		dto.setH_id(nextVal);
-		dto.setH_img(img.get(0));
-		dto.setH_detail(img.get(1));
+		dto.setH_img(dbIns[0]);
+		dto.setH_detail(dbIns[1]);
 		dao.insertHotel(dto);
-		
 	}
 
 	@Override
@@ -181,6 +121,29 @@ public class HotelService implements IHotelService {
 		map.put("category", category);
 		return dao.getHotelCount(map);
 	}
-
+	
+	public String rename(String path, File[] fileList) {
+		String dbIn = "";
+		for (int i = 0; i < fileList.length; i++) {
+			File renameFile = new File(path, (i+1)+fileList[i].getName().substring(fileList[i].getName().lastIndexOf(".")));
+			fileList[i].renameTo(renameFile);
+			if(dbIn.equals("")) {
+				dbIn += renameFile.getName();
+			} else {
+				dbIn += "," + renameFile.getName();
+			}
+		}
+		return dbIn;
+	}
+	
+	public void upload(MultipartFile[] files, String path) {
+		for (int i = 0; i < files.length; i++) {
+			try {
+				files[i].transferTo(new File(path,"temp" + files[i].getOriginalFilename()));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }
 

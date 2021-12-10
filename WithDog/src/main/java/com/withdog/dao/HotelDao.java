@@ -15,20 +15,10 @@ public class HotelDao implements IHotelDao {
 
 	@Autowired
 	SqlSession sqlSession;
-	
-	@Override
-	public List<HotelDto> getHotelList() {
-		return sqlSession.selectList("com.withdog.mapper.hotelMapper.getHotelList");
-	}
 
 	@Override
 	public HotelDto getHotelDetail(int h_id) {
 		return sqlSession.selectOne("com.withdog.mapper.hotelMapper.getHotelDetail", h_id);
-	}
-
-	@Override
-	public int getHotelCount() {
-		return (int)sqlSession.selectOne("com.withdog.mapper.hotelMapper.getHotelCount");
 	}
 
 	@Override
@@ -39,11 +29,6 @@ public class HotelDao implements IHotelDao {
 	@Override
 	public void updateHotel(HotelDto dto) {
 		sqlSession.update("com.withdog.mapper.hotelMapper.updateHotel", dto);
-	}
-
-	@Override
-	public void updateImage(HashMap<String, Object> map) {
-		sqlSession.update("com.withdog.mapper.hotelMapper.updateImage", map);
 	}
 
 	@Override

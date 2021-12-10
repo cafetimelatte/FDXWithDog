@@ -293,38 +293,77 @@
                 <!--// 리뷰 e -->
 
                 <script>
-                    function openCity(evt, cityName) {
-                        var i, tabcontent, tablinks;
-                        tabcontent = document.getElementsByClassName("s21_tabcontent");
-                        for (i = 0; i < tabcontent.length; i++) {
-                            tabcontent[i].style.display = "none";
-                        }
-                        tablinks = document.getElementsByClassName("tablinks");
-                        for (i = 0; i < tablinks.length; i++) {
-                            tablinks[i].className = tablinks[i].className.replace(" active", "");
-                        }
-                        document.getElementById(cityName).style.display = "block";
-                        evt.currentTarget.className += " active";
-                        if (cityName == "map_info") {
-                            kakaomap_init();
-                        }
 
-                        if ($(".s21_tab").position().top == 0) { //상단메뉴탭 탑이동 후 다른 탭 클릭시 컨텐츠 첫부분 보이게 수정 
-                            if (cityName == "info") {
-                                class_position = ".s21_de_food_img_st";
-                            } else if (cityName == "map_info") {
-                                class_position = ".s21_map_twrap";
-                            } else {
-                                class_position = ".s21_review_tit";
-                            }
-                            $('html').animate({
-                                scrollTop: $(class_position).position().top + 40
-                            }, 0);
-                        }
-                    }
-                    // Get the element with id="defaultOpen" and click on it
-                    document.getElementById("defaultOpen").click();
-                </script>
+				var swiper_main = new Swiper('.swiper-container', {
+					loop: true,
+					autoplay: {
+				        delay: 5000,
+				        disableOnInteraction: false,
+				     },
+					pagination: {
+				        el: '.swiper-pagination4',
+				        type: 'fraction',
+				      },
+					navigation: {
+						prevEl: '.button_prev',
+						nextEl: '.button_next',	
+					},threshold : 20,//터치거리 px
+
+				});
+				
+
+				/**이벤트 발생 (크롬,파이어폭스,사파이어 OK!) **/
+				function eventOccur(evEle, evType){
+					if (evEle.fireEvent) {
+						evEle.fireEvent('on' + evType);
+					} else {
+						//MouseEvents가 포인트 그냥 Events는 안됨~ ??
+						var mouseEvent = document.createEvent('MouseEvents');
+						/* API문서 initEvent(type,bubbles,cancelable) */
+						mouseEvent.initEvent(evType, true, false);
+						var transCheck = evEle.dispatchEvent(mouseEvent);
+						if (!transCheck) {
+							//만약 이벤트에 실패했다면
+							//console.log("클릭 이벤트 발생 실패!");
+						}
+					}
+				}
+				function viewImgSlide(review_idx,n){
+					window.open("?m1Code=ar_info&m2Code=ar_img&mode=view&bidx=8898&review_idx="+review_idx+"&img_key="+n);
+				}
+
+	                    function openCity(evt, cityName) {
+	                        var i, tabcontent, tablinks;
+	                        tabcontent = document.getElementsByClassName("s21_tabcontent");
+	                        for (i = 0; i < tabcontent.length; i++) {
+	                            tabcontent[i].style.display = "none";
+	                        }
+	                        tablinks = document.getElementsByClassName("tablinks");
+	                        for (i = 0; i < tablinks.length; i++) {
+	                            tablinks[i].className = tablinks[i].className.replace(" active", "");
+	                        }
+	                        document.getElementById(cityName).style.display = "block";
+	                        evt.currentTarget.className += " active";
+	                        if (cityName == "map_info") {
+	                            kakaomap_init();
+	                        }
+	
+	                        if ($(".s21_tab").position().top == 0) { //상단메뉴탭 탑이동 후 다른 탭 클릭시 컨텐츠 첫부분 보이게 수정 
+	                            if (cityName == "info") {
+	                                class_position = ".s21_de_food_img_st";
+	                            } else if (cityName == "map_info") {
+	                                class_position = ".s21_map_twrap";
+	                            } else {
+	                                class_position = ".s21_review_tit";
+	                            }
+	                            $('html').animate({
+	                                scrollTop: $(class_position).position().top + 40
+	                            }, 0);
+	                        }
+	                    }
+	                    // Get the element with id="defaultOpen" and click on it
+	                    document.getElementById("defaultOpen").click();
+	                </script>
             </div>
             <!--// sub m btm -->
         </div>

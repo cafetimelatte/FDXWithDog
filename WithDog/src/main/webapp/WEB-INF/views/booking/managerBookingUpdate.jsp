@@ -23,18 +23,17 @@
 
     <script src="js/jquery.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
+	<script src="js/verification.js"></script>
+	
     <title>관리자 - 예약 정보 수정</title>
-    <script type="text/javascript">
-    	function noH_id{
-    		var h_id = ${h_}
-    	}
-    </script>
     <style>
     	.bbtn{
     		height: 40px;
     		width:200px;
     		margin: 50px;
     		font-size: 15px;
+    		border: 1px solid black;
+    		background-color: #D5D5D5;
     	}
     </style>
 </head>
@@ -46,7 +45,7 @@
         <div class="sContainer">
             <!-- sub m top -->
             <div class="s21_tour_de_top">
-                <form action="updateBookingM" method="POST">
+                <form name="bookingInfo" action="updateBookingM" method="POST">
                 <h3 class="area" style="height:60px">관리자 / 숙소 예약 수정 [예약번호 : RWSKWDIFDK]
                 	<span>예약상태 : 
                 		<select name="b_state" style="text-align:center;height:24px;padding:2px">
@@ -66,7 +65,7 @@
                         <ul class="s21_detail_twrap_mod">
                         		<input type="hidden" name="b_id" value="${b_info.b_id}">
                         		<input type="hidden" name="h_id" value="${h_booking.h_id}">
-	                            <input type="hidden" name="m_id" value="ASDF">
+	                            <input type="hidden" name="m_id" value="${b_info.m_id}">
 	                            <input type="hidden" name="b_name" value="${b_info.b_name}">
 	                            <input type="hidden" name="b_price" value="${h_booking.h_price}">
                         	
@@ -75,7 +74,7 @@
                                     <dt>숙소명</dt>
                                     <dd>${b_info.b_name}</dd>
                                     <dt>예약자</dt>
-                                    <dd>멤버 들어오면 아이디 받아서 닉네임 가져올 예정</dd>
+                                    <dd>${b_info.m_id}</dd>
                                 </dl>
                             </li>
                             <li>
@@ -103,9 +102,10 @@
                                     <dt>숙박인원</dt>
                                     <dd>
 	                                    <select name="b_humanNum" style="text-align:center;height:24px;width:10%"" >
-                                    		<option value="0" <c:if test="${b_info.b_humanNum eq 0}">selected</c:if>>0</option>
                                     		<option value="1" <c:if test="${b_info.b_humanNum eq 1}">selected</c:if>>1</option>
                                     		<option value="2" <c:if test="${b_info.b_humanNum eq 2}">selected</c:if>>2</option>
+                                    		<option value="3" <c:if test="${b_info.b_humanNum eq 3}">selected</c:if>>3</option>
+                                    		<option value="4" <c:if test="${b_info.b_humanNum eq 4}">selected</c:if>>4</option>
                                     	</select>명
                                     </dd>
                                     <dt>반려동물</dt>
@@ -114,14 +114,16 @@
                                     		<option value="0" <c:if test="${b_info.b_petNum eq 0}">selected</c:if>>0</option>
                                     		<option value="1" <c:if test="${b_info.b_petNum eq 1}">selected</c:if>>1</option>
                                     		<option value="2" <c:if test="${b_info.b_petNum eq 2}">selected</c:if>>2</option>
+                                    		<option value="3" <c:if test="${b_info.b_petNum eq 3}">selected</c:if>>3</option>
+                                    		<option value="4" <c:if test="${b_info.b_petNum eq 4}">selected</c:if>>4</option>
                                     	</select>마리
                                     </dd>
                                 </dl>
                             </li>
                             	<c:if test="${h_booking.h_id ne null}">
-	                            	<input class="bbtn" type="submit" value="수정하기">
+	                            	<button class="bbtn" type="button" onclick="return checkBookingInfo(this)" name="modBtn">수정하기</button>
                             	</c:if>
-                            	<input class="bbtn" type="button" value="돌아가기" onclick="location.href='bookingListM'">
+                            	<button class="bbtn" type="button" onclick="location.href='bookingListM'">돌아가기</button>
                         </ul>
                         <!-- 예약 정보 입력 e -->
                     </div>
