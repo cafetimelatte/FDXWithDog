@@ -29,66 +29,9 @@
 </head>
 <body>
 
-	<!-- header-->
-	<header id="header" class="pr">
-	<div id="headerInnerWrap">
-		<div id="headerTop">
-			<div class="area">
-				<p class="top_text">반려견과 함께 WithDog에 오신것을 환영 합니다.</p>
-				<c:choose>
-					<c:when test="${loginRs == 1}">
-						<ul>
-							<li class="line">|</li>
-							<li class=""><a onclick="location.href='logout'">로그아웃 </a></li>
-							<li class="line">|</li>
-							<li class="">${loginEmail}</li>
-							<li class="line">|</li>
-							<li class=""><a onclick="location.href='myPage'">마이페이지</a></li>
-							<li class="line">|</li>
-							<li class=""><a onclick="location.href='myPage'">고객센터</a></li>
-						</ul>
-					</c:when>
-				</c:choose>
-			</div>
-		</div>
-		<div id="headerInner" class="clearfix">
-			<div class="area">
-				<h1 class="logo">
-					<a
-						onclick="Store.clear(); top.location.href='http://hatdog.co.kr/pc_hatdog/';">
-						<img
-						src="http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/logo.png"
-						alt="하트독">
-					</a>
-				</h1>
-				<div class="s21_w1422 pr">
-					<a
-						onclick="Store.clear(); top.location.href='http://hatdog.co.kr/pc_hatdog/';"></a>
-					<div class="s_search">
-						<input type="text" class="SearchInput" name="h_sch_text"
-							id="h_sch_text" placeholder="어디에서 무엇을 하고 싶으세요?" title="">
-						<span class="j21_btn_search" onclick="Store.clear();go_arinfo();"><a><img
-								src="http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/ico_search.png"
-								alt="검색"></a></span>
-					</div>
-				</div>
-			</div>
-		</div>
-		<nav id="gnb">
-		<h2 class="blind">주메뉴</h2>
-		<div class="gnb-wrapper area">
-			<ul class="clearfix">
-				<li class="" onclick="Store.clear()"><a
-					onclick="top.location.href='http://hatdog.co.kr/pc_hatdog/?m1Code=ar_info&amp;m2Code=ar_info';"><span>전체보기</span></a></li>
-				<li class="" onclick="Store.clear()"><a
-					onclick="top.location.href='http://hatdog.co.kr/pc_hatdog/?m1Code=tip&amp;m2Code=tip';"><span>숙소</span></a></li>
-				<li class="" onclick="Store.clear()"><a
-					onclick="top.location.href='http://hatdog.co.kr/pc_hatdog/?m1Code=cmm&amp;m2Code=cmm';"><span>후기게시판</span></a></li>
-			</ul>
-		</div>
-		</nav>
-	</div>
-	</header>
+	<!-- header -->
+	<jsp:include page="./header.jsp"/>
+	<!-- //header -->
 	
 	<div class="sContainer">
 		<!-- sub m top -->
@@ -172,29 +115,8 @@
 		</div>
 	</div>
 	<!-- footer -->
-	<footer style="margin-bottom: auto;">
-	<div id="footer">
-		<div class="footerBottom area">
-			<div class="footerBottom_left">
-				<p>
-					(주)여름엔 크림빵과 코코아 주소 : 서울 서초구 강남대로27길 15-5 3층 (케이티전주지사3층) 대표이사 : 여름이
-					| 사업자등록번호: 123-45-78987<br> 이메일 : summer@summer.com
-				</p>
-
-				<address>Copyright STYLE II. All rights reserved.</address>
-			</div>
-			<ul class="footerBottom_right">
-				<li><a
-					href="http://hatdog.co.kr/pc_hatdog/?m1Code=etc&m2Code=policy"
-					target="_top">이용약관</a></li>
-				<li><a
-					href="http://hatdog.co.kr/pc_hatdog/?m1Code=etc&m2Code=policy2"
-					target="_top">개인정보처리방침</a></li>
-			</ul>
-		</div>
-	</div>
-	</footer>
-	<!-- footer -->
+    <jsp:include page="./footer.jsp"/>
+	<!-- //footer -->
 
 </body>
 </html>
