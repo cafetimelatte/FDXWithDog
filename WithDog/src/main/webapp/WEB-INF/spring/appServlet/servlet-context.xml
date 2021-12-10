@@ -32,6 +32,8 @@
          <beans:property name="maxUploadSize" value="52428800"/>
          <beans:property name="maxInMemorySize" value="10485760"/>
     </beans:bean>
+    
+    
 	
 	<!-- 계정확인 인터셉터 -->
 	<interceptors>

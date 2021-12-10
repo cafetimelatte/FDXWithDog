@@ -21,7 +21,10 @@
 
 <script src="./resources/js/jquery.js"></script>
 <script src="./resources/js/swiper-bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
 
+</script>
 </head>
 
 <body>
@@ -79,7 +82,7 @@
 			</nav>
 		</div>
 	</header>
-	<form action="serchUserID" method="post">
+	<form action="serchUserID" method="post"> 
     <div class="s21_event_m_top pr" style="height:800px">
 		<div class="h21_top_cbox pr area">
 			<h3 class="" style="height:230px">아이디 찾기</h3>
@@ -98,7 +101,7 @@
 					<input type="text" name="nick" id="nick" placeholder="닉네임을 입력하세요"/>
 				</div>
 				<div class="join">
-					<input type="submit" name="submit" onclick="location.href='serchUserID'"  value="아이디찾기"/>
+					<button type="submit" name="findBtn" id="findBtn" onclick="findCk()">아이디 찾기</button>
 					<input type="reset" name="cancel" value="취소"/>
 				</div>
 			</div>
