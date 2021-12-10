@@ -11,11 +11,11 @@ public interface IBookingDao {
 	
 	HotelDto getHotelInfo(int h_id);
 	void addBooking(BookingDto dto);
-	List<BookingDto> getBookingList();
 	BookingDto getBookingInfo(String b_id);
 	void updateBooking(BookingDto dto);
 	void deleteBooking(String b_id);
 	int getBookingCount(HashMap<String, Object> map);
-	List<BookingDto> getBookingList(CriteriaDto cDto);
+	List<BookingDto> getBookingListM(CriteriaDto cDto);
+	List<BookingDto> getBookingList(String m_id);
 	
 }

@@ -27,7 +27,7 @@ public class CriteriaDto {
 		this.category = category;
 		this.order = order;
 		this.startNum = page-(page-1)%5;
-		this.lastNum = (int)Math.ceil(this.count/this.amount);
+		this.lastNum = (int)Math.ceil((double)this.count/this.amount);
 		this.prev = this.startNum == 1?false:true;
 		this.next = this.lastNum <= (this.startNum+4)?false:true;
 		this.pageStart = (this.page-1)*this.amount+1;

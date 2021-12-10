@@ -21,6 +21,7 @@
 
     <script src="js/jquery.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
+	<script src="js/verification.js"></script>
     <title>Manager-HotelList</title>
 </head>
 <body>
@@ -31,13 +32,13 @@
         <!-- 순 -->
         <div class="s21_tour_sun" style="margin-top:30px">
         	<div style="float:left">
-			    <form action="hotelListM" method="post">
+			    <form name="search" action="hotelListM" method="post">
 		    		<select name="category" style="text-align:center;height:25px;width:60px">
 		    			<option <c:if test="${h_crit.category == 'h_name'}">selected</c:if> value="h_name">숙소명</option>
 		    			<option <c:if test="${h_crit.category == 'add'}">selected</c:if> value="add">주소명</option>
 		    		</select>
 		    		<input name="field" value="${h_crit.field}" type="text">
-		    		<input type="submit" value="검색">
+		    		<button type="button" style="border:1px solid black;background-color:#EAEAEA;height:25px;width:40px" onclick="return checkSearch(this)">검색</button>
 	    			<span style="display:inline-block;width:100px"></span>
 	    			<a style="border:solid;background-color: green;font-size: 13px; color:white; padding:5px" type="button" href="addHotelM">숙소 추가</a>
 				</form>        	
