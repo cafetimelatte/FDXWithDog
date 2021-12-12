@@ -22,11 +22,63 @@
 
 <script src="js/jquery.js"></script>
 <script src="js/swiper-bundle.min.js"></script>
+<script src="js/verification.js"></script>
+<script src="js/filePreview.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 <title>Manager-HotelUpdate</title>
+	<style>
+    	.pv{
+    		border:solid 1px blue;
+    		display:inline-block;
+    		padding:5px
+    	}
+    	.pv img{
+    		min-height: 0;
+    		max-height: 80px;
+    	}
+    	.pv button{
+    		border:solid;
+    		background-color: red;
+    		font-size: 13px;
+    		color:white;
+    		padding:5px;
+    	}
+    	.uploadedImg{
+    		border:solid 1px blue;
+    		display:inline-block;
+    		padding:5px;
+    	}
+    	.uploadedImg img{
+    		min-height:0;
+    		max-height:80px;
+    	}
+    	.uploadedImg button{
+    		border:solid;
+    		background-color:red;
+    		font-size:13px;
+    		color:white;
+    		padding:5px;
+    	}
+    	.fileSelect{
+    		margin-top: 50px;
+    	}
+    	.fileSelect label{
+    		background-color: green;
+    		font-size: 15px;
+    		color: white;
+    		padding: 10px;
+    	}
+    	.fileSelect input{
+    		display: none;
+    	}
+    	.fileSelect span{
+    		font-size:10px;
+    		color: gray;
+    	}
+    </style>
 </head>
 <body>
 	<!-- header -->
@@ -35,7 +87,7 @@
 	<!-- container -->
 	<div id="Container">
 		<div class="sContainer">
-			<form action="updateHotelM" id="hotelInfo" method="post">
+			<form action="updateHotelM" name="hotelInfo" id="hotelInfo" enctype="multipart/form-data" method="post">
 				<input type="hidden" name="h_id" id="h_id" value="${h_detail.h_id}">
 				<input type="hidden" name="h_img" value="${h_detail.h_img}">
 				<input type="hidden" name="h_detail" value="${h_detail.h_detail}">
@@ -182,33 +234,33 @@
 						</div>
 					</div>
 				</div>
-			</form>
+			
 		<!--// sub m top -->
-			<form action="updateImg" enctype="multipart/form-data" method="post">
-				<div>
+			<div class="imgContainer">
+				<div class="uploadedImgs"> 현재 이미지 : &nbsp;
 					<c:forTokens var="h_i" items="${h_detail.h_img}" delims="," varStatus="st">
-						<div style="border:solid 1px blue;display:inline-block;padding:5px">
-							<img style="min-height: 0; max-height: 80px"
-								src="hotel/${h_detail.h_id}/h_img/${h_i}" alt="${h_detail.h_name}">
-							<a style="border:solid;background-color: red;font-size: 13px; color:white; padding:5px" type="button" href="updateImg?h_id=${h_detail.h_id}&type=h_img&del_img=${h_i}">삭제</a>
+						<div class="uploadedImg">
+							<img title="${h_i}" src="hotel/${h_detail.h_id}/h_img/${h_i}" alt="${h_detail.h_name}">
+							<button type="button" onclick="exclude(this);" >제외</button>
 						</div>
 					</c:forTokens>
 				</div>
-				<div style="margin-top: 50px">
-					<input type="hidden" name="type" value="h_img">
-					<input type="hidden" name="h_id" value="${h_detail.h_id}">
-					<input type="file" name="files" id="files" multiple>
-					<input style="display:none" type="submit" id="imgUp">
-					<label style="background-color: green; font-size: 15px; color: white; padding: 10px;" for="imgUp">이미지 업로드</label>
+				<hr>
+				<div class="selectedImg">
 				</div>
-			</form>
+				<div class="fileSelect">
+					<label for="filesI">숙소 이미지 선택</label>
+					<input onchange="uploadPreview(this);" type="file" name="filesI" id="filesI" accept="image/*" multiple>
+					<span>※첨부파일은 최대 5개까지 등록이 가능합니다.</span>
+				</div>
+			</div>
 
 			<!-- sub m btm -->
 			<div class="s21_tour_de_btm area">
 				<div class="s21_tab">
-					<button class="tablinks" onclick="openCity(event, 'info')"
+					<button type="button" class="tablinks" onclick="openCity(event, 'info')"
 						id="defaultOpen">기본정보</button>
-					<button class="tablinks" id="reviewOpen"
+					<button type="button" class="tablinks" id="reviewOpen"
 						onclick="openCity(event, 'review')">리뷰</button>
 				</div>
 	
@@ -230,10 +282,9 @@
 	
 							<!-- 숙박예약 있을시에 button s -->
 							<div class="s21_tabcontent_rbtn">
-								<button type="submit" form="hotelInfo" class="bg_orange">숙소
-									업로드</button>
-								<button type="button" class="bg_red"
-									onclick="location.href='deleteHotelM?h_id=${h_detail.h_id}'">숙소
+								<button type="button" onclick="return checkHotelInfo(this);" name="upBtn" class="bg_orange">숙소 업로드</button>
+								<button type="button" class="bg_red" name="delBtn"
+									onclick="if(validate(this)){location.href='deleteHotelM?h_id=${h_detail.h_id}'}">숙소
 									삭제</button>
 							</div>
 							<!--// 숙박예약 있을시에 button e -->
@@ -265,30 +316,24 @@
 	                            요청배너 e
 	 -->
 							<div class="s21_tabcontent_more">
-								<div style="padding-top: 10px; text-align: center">
-									<label
-										style="display: block; background-color: green; font-size: 15px; color: white; padding: 20px;"
-										for="upload">상세페이지 업로드</label><input style="display: none"
-										type="file" name="img" id="upload">
-								</div>
-								<form style="margin-top: 10px" action="updateImg" enctype="multipart/form-data" method="post">
-									<div>
+								<div class="imgContainer">
+									<div class="uploadedImgs">
 										<c:forTokens var="h_d" items="${h_detail.h_detail}" delims="," varStatus="st">
-											<div style="border:solid 1px blue;display:inline-block;padding:5px">
-												<img style="min-height: 0; max-height: 80px"
-													src="hotel/${h_detail.h_id}/h_detail/${h_d}" alt="${h_detail.h_name}">
-												<a style="border:solid;background-color: red;font-size: 13px; color:white; padding:5px" type="button" href="updateImg?h_id=${h_detail.h_id}&type=h_detail&del_img=${h_d}">삭제</a>
+											<div class="uploadedImg">
+												<img title="${h_d}" src="hotel/${h_detail.h_id}/h_detail/${h_d}" alt="${h_detail.h_name}">
+												<button type="button" onclick="exclude(this);" >제외</button>
 											</div>
 										</c:forTokens>
 									</div>
-									<div style="margin-top: 50px">
-										<input type="hidden" name="type" value="h_detail">
-										<input type="hidden" name="h_id" value="${h_detail.h_id}">
-										<input type="file" name="files" id="files" multiple>
-										<input style="display: none" type="submit" id="detailUp">
-										<label style="background-color: green; font-size: 15px; color: white; padding: 10px;" for="detailUp">이미지 업로드</label>
+									<hr>
+									<div class="selectedImg">
 									</div>
-								</form>
+									<div class="fileSelect">
+										<label for="filesD">상세페이지 이미지 선택</label>
+										<input onchange="uploadPreview(this);" type="file" name="filesD" id="filesD" accept="image/*" multiple>
+										<span>※첨부파일은 최대 5개까지 등록이 가능합니다.</span>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -333,38 +378,7 @@
 							<span
 								onclick="document.getElementById('id01').style.display='none'; "
 								class="close" title="Close Modal">×</span>
-							<form class="modal-content" id="checkForm" name="checkForm">
-								<input type="hidden" name="m1Code" value="ar_info"> <input
-									type="hidden" name="m2Code" value="ar_info"> <input
-									type="hidden" name="bcode" id="bcode" value="review"> <input
-									type="hidden" name="idx" value="8892"> <input
-									type="hidden" id="r_idx" name="r_idx"> <input
-									type="hidden" id="r_mode" name="mode" value="in">
-								<div class="s21_review_writeform">
-									<h1>리뷰 작성</h1>
-	
-									<textarea class="textarea3" name="contents" id="contents"
-										placeholder="리뷰 내용을 입력해 주세요."></textarea>
-									<!-- <div class="s21_form_photo">
-										<img
-											src="http://appdata.hungryapp.co.kr/images/hatdog/img/common/icon_photo_l.png"
-											alt="photo" onclick="check();">
-									</div>
-									<form id="imgForm" name="imgForm">
-										<div class="s21_upload_img" id="imgupload"></div>
-										<input type="file" id="upload_file" name="upload_file"
-											style="display: none;" accept="image/*" />
-									</form> -->
-									<div class="clearfix">
-										<button type="button" id="mul_input_submit"
-											onclick="document.getElementById('id01').style.display='none'"
-											class="deletebtn">확인</button>
-										<button type="button"
-											onclick="$('html').css('overflow','scroll');document.getElementById('id01').style.display='none'"
-											class="cancelbtn">취소</button>
-									</div>
-								</div>
-							</form>
+							
 						</div>
 						<script>
 	                            // Get the modal
@@ -384,10 +398,9 @@
 						<div class="s21_tabcontent_rightbox">
 							<!-- 숙박예약 있을시에 button s -->
 							<div class="s21_tabcontent_rbtn">
-								<button type="button" class="bg_orange" form="hotelInfo">숙소
-									업로드</button>
-								<button type="button" class="bg_red"
-									onclick="location.href='deleteHotelM?h_id=${h_detail.h_id}'">숙소
+								<button type="button" onclick="return checkHotelInfo(this);" name="upBtn" class="bg_orange">숙소 업로드</button>
+								<button type="button" class="bg_red" name="delBtn"
+									onclick="if(validate(this)){location.href='deleteHotelM?h_id=${h_detail.h_id}'}">숙소
 									삭제</button>
 							</div>
 							<!--// 숙박예약 있을시에 button e -->
@@ -495,6 +508,7 @@
 	                </script>
 			</div>
 			<!--// sub m btm -->
+			</form>
 		</div>
 	</div>
 	<!-- //container -->

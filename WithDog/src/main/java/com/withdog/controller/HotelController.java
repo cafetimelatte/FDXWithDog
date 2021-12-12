@@ -63,24 +63,15 @@ public class HotelController {
 	}
 	
 	@RequestMapping(value="/updateHotelM", method=RequestMethod.POST)
-	public String hotelUpdateM(HotelDto dto, Model model) {
-		hotelService.updateHotel(dto);
+	public String hotelUpdateM(HotelDto dto,
+			@RequestParam MultipartFile[] filesI,
+			@RequestParam MultipartFile[] filesD,
+			@RequestParam(value="del_filesI", required=false, defaultValue="") String[] del_filesI,
+			@RequestParam(value="del_filesD", required=false, defaultValue="") String[] del_filesD,
+			Model model) {
+		hotelService.updateHotel(dto, filesI, del_filesI, "h_img");
+		hotelService.updateHotel(dto, filesD, del_filesD, "h_detail");
 		return "redirect:/hotelListM";
-	}
-
-	@RequestMapping(value="/updateImg", method=RequestMethod.GET)
-	public String updateImg(int h_id, String type, String del_img, Model model) {
-		hotelService.deleteImage(h_id, type, del_img);
-		return "redirect:/updateHotelM?h_id="+h_id;
-	}
-	
-	@RequestMapping(value="/updateImg", method=RequestMethod.POST)
-	public String updateImg(@RequestParam(value="dir", required=false, defaultValue="/") String dir,
-			@RequestParam MultipartFile[] files, String type, int h_id, Model model) {
-		for (int i = 0; i < files.length; i++) {
-			hotelService.updateImage(h_id, type, files[i]);
-		}
-		return "redirect:/updateHotelM?h_id="+h_id;
 	}
 	
 	@RequestMapping(value="/deleteHotelM", method=RequestMethod.GET)
@@ -105,5 +96,9 @@ public class HotelController {
 		return "hotel/hotelApply";
 	}
 	
+	@RequestMapping(value="/applyHotel", method=RequestMethod.POST)
+	public String hotelApply(Model model) {
+		return "redirect:/hotelList";
+	}
 	
 }

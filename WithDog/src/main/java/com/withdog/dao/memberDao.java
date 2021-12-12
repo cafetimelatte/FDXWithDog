@@ -11,5 +11,7 @@ public interface memberDao {
 	int login(String email, String pw);
 	List<MemberDto> userInfo(String userEmail);
 	List<MemberDto> findId(String userId, String userNick);
+	int checkId(String id);
+	void changePw(String changePw, String id);
 
 }

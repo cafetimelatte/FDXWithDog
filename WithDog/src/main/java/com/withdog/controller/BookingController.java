@@ -1,5 +1,12 @@
 package com.withdog.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +28,6 @@ public class BookingController {
 	@RequestMapping(value="/booking", method=RequestMethod.GET)
 	public String booking(int h_id, Model model) {
 		model.addAttribute("h_booking",bookingService.getHotelInfo(h_id));
-//		model.addAttribute("h_booking",hotelService.getMemberInfo(m_id));
 		return "booking/bookingAdd";
 	}
 	
@@ -32,8 +38,10 @@ public class BookingController {
 	}
 	
 	@RequestMapping("/bookingList")
-	public String bookingList(Model model) {
-		model.addAttribute("b_info",bookingService.getBookingList());
+	public String bookingList(HttpServletRequest request, Model model) throws IOException {
+		HttpSession session = request.getSession();
+		String m_id = (String)session.getAttribute("loginEmail");
+		model.addAttribute("b_info",bookingService.getBookingList(m_id));
 		return "booking/bookingList";
 	}
 	
@@ -68,7 +76,7 @@ public class BookingController {
 			field = field.toUpperCase();
 		}
 		CriteriaDto cDto = new CriteriaDto(page,6,bookingService.getBookingCount(field, category), field, category, order);
-		model.addAttribute("b_info",bookingService.getBookingList(cDto));
+		model.addAttribute("b_info",bookingService.getBookingListM(cDto));
 		model.addAttribute("b_crit",cDto);
 		return "booking/managerBookingList";
 	}
@@ -80,7 +88,7 @@ public class BookingController {
 		}
 		CriteriaDto cDto = new CriteriaDto(1,6,bookingService.getBookingCount(field, category), field, category, "recent");
 		System.out.println(cDto);
-		model.addAttribute("b_info",bookingService.getBookingList(cDto));
+		model.addAttribute("b_info",bookingService.getBookingListM(cDto));
 		model.addAttribute("b_crit",cDto);
 		return "booking/managerBookingList";
 	}

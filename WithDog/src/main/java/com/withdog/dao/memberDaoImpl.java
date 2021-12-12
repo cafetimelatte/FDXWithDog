@@ -8,7 +8,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.sun.mail.imap.protocol.Namespaces.Namespace;
 import com.withdog.dto.MemberDto;
+
 
 @Component
 public class memberDaoImpl implements memberDao {
@@ -47,10 +49,32 @@ public class memberDaoImpl implements memberDao {
 		Map<String, String>find = new HashMap<String, String>();
 		find.put("userid", userId);
 		find.put("usernick", userNick);
-		return sqlSession.selectList("com.test.mapper.memberMapper.findId",find);
+		return sqlSession.selectList("com.withdog.mapper.memberMapper.findId",find);
 	}
 
-
+	@Override
+	public int checkId(String id) {
+		String user_id = null;
+		int result = 0;
+		user_id= sqlSession.selectOne("com.withdog.mapper.memberMapper.check_id", id);
+				if(user_id.equals(id)) { 
+					result=-1;
+				}else {
+					result=1;
+			}
+		return result;
+	}
+	@Override
+	public void changePw(String changePw, String id) {
+		HashMap map=new HashMap();
+		map.put("changePw", changePw);
+		map.put("id", id);
+		try {
+			sqlSession.update("com.withdog.mapper.memberMapper.changePw",map);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }
 

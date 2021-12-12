@@ -19,23 +19,48 @@
 
     <script src="js/jquery.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/verification.js"></script>
+    <script src="js/filePreview.js"></script>
     <title>관리자 - 숙소 등록</title>
     
+    <style>
+    	.pv{
+    		border:solid 1px blue;
+    		display:inline-block;
+    		padding:5px
+    	}
+    	.pv img{
+    		min-height: 0;
+    		max-height: 80px;
+    	}
+    	.pv button{
+    		border:solid;
+    		background-color: red;
+    		font-size: 13px;
+    		color:white;
+    		padding:5px;
+    	}
+    	.fileSelect{
+    		margin-top: 50px;
+    	}
+    	.fileSelect label{
+    		background-color: green;
+    		font-size: 15px;
+    		color: white;
+    		padding: 10px;
+    	}
+    	.fileSelect input{
+    		display: none;
+    	}
+    	.fileSelect span{
+    		font-size:10px;
+    		color: gray;
+    	}
+    </style>
     <script type="text/javascript">
-    	/* function readURL(input){
-    		if (input.files&&input.files[0]) {
-    			var reader = new FileReader();
-    			reader.onload = function(e) {
-    				document.getElementById('preview').src = e.target.result;
-    			};
-    			reader.readAsDataURL(input.files[0]);
-    		} else {
-    			document.getElementById('preview').src = "";
-    		}
-    	} */
+    
     </script>
 </head>
-
 <body>
 	<!-- header -->
 	<jsp:include page="../header.jsp"/>
@@ -43,7 +68,7 @@
     <!-- container -->
     <div id="Container">
         <div class="sContainer">
-        <form action="addHotelM" id="hotelInfo" enctype="multipart/form-data" method="post">
+        <form action="addHotelM" name="hotelInfo" id="hotelInfo" enctype="multipart/form-data" method="post">
             <!-- sub m top -->
             <div class="s21_tour_de_top">
                 <h3 class="area" style="height:60px">
@@ -53,12 +78,10 @@
                 <div class="s21_detail_box area pr">
                     <div class="s21_detail_img swiper-container ">
                         <div class="swiper-wrapper">
-                            <p class="swiper-slide"><img id="preview" alt="사진"></p>
                         </div>
                     </div>
-                    <!-- 	
-                    배너 이동 조작
-						<div class="s21_today_arrow pa" style="z-index: 9">
+                    <!-- 배너 이동 조작 -->
+						<!-- <div class="s21_today_arrow pa" style="z-index: 9">
 							<button type="button" class="button_stop"
 								onclick="$(this).hide();$('.button_start').show();swiper_main.autoplay.stop();">정지</button>
 							<button type="button" class="button_start"
@@ -70,10 +93,8 @@
 								<button type="button" class="button_prev">이전</button>
 								<button type="button" class="button_next">다음</button>
 							</div>
-						</div>
-						// 배너 이동 조작
-                     -->
-
+						</div> -->
+						<!-- // 배너 이동 조작 -->
                     <div class="s21_detail_tbox">
                         <!-- 우측 정보 s -->
                         <ul class="s21_detail_twrap">
@@ -81,9 +102,9 @@
                                 <dl>
                                     <dt>주소</dt>
                                     <dd>
-                                    	<input style="width: 126px" type="text" name="h_add1">
-                                    	<input style="width: 126px" type="text" name="h_add2">
-                                    	<input style="width: 126px" type="text" name="h_add3">
+                                    	<input style="width: 126px" type="text" name="h_add1" placeholder="도/시">
+                                    	<input style="width: 126px" type="text" name="h_add2" placeholder="시/군/구">
+                                    	<input style="width: 126px" type="text" name="h_add3" placeholder="상세주소">
                                     </dd>
                                 </dl>
                             </li>
@@ -91,7 +112,7 @@
                                 <dl>
                                     <dt>연락처</dt>
                                     <dd>
-										<input style="width: 400px" type="text" name="h_phone">
+										<input style="width: 400px" type="text" name="h_phone" placeholder="'-' 제외">
 									</dd>
                                 </dl>
                             </li>
@@ -107,8 +128,8 @@
                                 <dl>
                                     <dt>영업시간</dt>
                                     <dd title="">
-										<input style="width: 189px" name="h_chkInTime" type="text"> ~ 
-										<input style="width: 189px" name="h_chkOutTime" type="text">
+										<input style="width: 189px" name="h_chkInTime" type="text" placeholder="체크인 ex) 15:00"> ~ 
+										<input style="width: 189px" name="h_chkOutTime" type="text" placeholder="체크아웃 ex) 11:00">
 									</dd>
                                 </dl>
                             </li>
@@ -131,18 +152,19 @@
                             </dl>
                             <dl>
                                 <dt>
-                                    <img src="http://appdata.hungryapp.co.kr/images/hatdog/img/travel/icon_dog_line.png?ver=2" /></dt>
+                                    <img src="http://appdata.hungryapp.co.kr/images/hatdog/img/travel/icon_dog_line.png?ver=2" />
+								</dt>
                                 <dd>
-									<input style="width: 50px" type="text" name="h_petSize">
-											</dd>
+									<input style="width: 50px" type="text" name="h_petSize" placeholder="ex)소형">
+								</dd>
                             </dl>
                             <dl>
                                 <dt><img src="http://appdata.hungryapp.co.kr/images/hatdog/img/travel/icon_scale_line.png?ver=2" alt="숙소" /></dt>
-                                <dd><input style="width:50px" type="text" name="h_petWeight"></dd>
+                                <dd><input style="width:50px" type="text" name="h_petWeight" placeholder="ex) 5kg"></dd>
                             </dl>
                             <dl class="mgr_0">
                                 <dt><img src="http://appdata.hungryapp.co.kr/images/hatdog/img/travel/icon_moneyadd_line.png?ver=2" alt="숙소" /></dt>
-                                <dd><input style="width:50px" type="text" name="h_price"></dd>
+                                <dd><input style="width:50px" type="text" name="h_price" placeholder="ex)15000"></dd>
                             </dl>
                         </div>
                         <!--// 하단 분류 e -->
@@ -151,36 +173,32 @@
             </div>
             <!--// sub m top -->
 			<div>
-				<label style="background-color: green; font-size: 15px; color: white; padding: 10px;">숙소 이미지 업로드</label>
-				<input type="file" name="filesI" id="filesI" multiple>
+				<div class="imgContainer">
+					<div class="selectedImg">
+					</div>
+					<div class="fileSelect">
+						<label for="filesI">숙소 이미지 선택</label>
+						<input onchange="uploadPreview(this);" type="file" name="filesI" id="filesI" accept="image/*" multiple>
+						<span>※첨부파일은 최대 5개까지 등록이 가능합니다.</span>
+					</div>
+				</div>
             </div>
             <!-- sub m btm -->
             <div class="s21_tour_de_btm area">
                 <div class="s21_tab">
                     <button type="button" class="tablinks" onclick="openCity(event, 'info')" id="defaultOpen">기본정보</button>
                 </div>
-
                 <!-- 기본정보 s -->
                 <div id="info" class="s21_tabcontent">
-                    <div class="s21_tabcontent_left">
-                        <!-- <div class="">
-                            <img src="http://appdata.hungryapp.co.kr/images/hatdog/upload/202111/M163705024257736193.jpg" style="max-width: 100%; image-orientation: from-image" alt="" />
-                            <img src="http://appdata.hungryapp.co.kr/images/hatdog/upload/202111/M163705024616715193.jpg" style="max-width: 100%; image-orientation: from-image" alt="" /><br />
-                            <img src="http://appdata.hungryapp.co.kr/images/hatdog/upload/202111/M163705025735263193.jpg" style="max-width: 100%; image-orientation: from-image" alt="" /><br />
-                            <img src="http://appdata.hungryapp.co.kr/images/hatdog/upload/202111/M163705026259957193.jpg" style="max-width: 100%; image-orientation: from-image" alt="" /><br />
-                            <br />
-                        </div> -->
-                    </div>
-
+                    <div class="s21_tabcontent_left"></div>
                     <!-- 오른쪽 내용들 s-->
                     <div class="s21_tabcontent_right">
                         <div class="s21_tabcontent_rightbox">
-
-                            <!-- 숙박예약 있을시에 button s -->
+                            <!-- 숙소 등록 button s -->
                             <div class="s21_tabcontent_rbtn">
-                                <button type="submit" form="hotelInfo" class="bg_orange">숙소 등록</button>
+                                <button type="button" onclick="return checkHotelInfo(this);" name="addBtn" class="bg_orange">숙소 등록</button>
                             </div>
-                            <!--// 숙박예약 있을시에 button e\
+                            <!-- 숙소 등록 button e\
                             <!-- 공통주의사항 s -->
                             <div class="s21_tabcontent_more">
                                 <div class="s21_tabcontent_more_tit">
@@ -191,30 +209,24 @@
                                     <br><span>따라서, 방문 전 꼭 전화로 확인 부탁드립니다.</span>
                                 </p>
                             </div>
-                            <!--// 공통주의사항 e -->
-<!-- 
-                            요청배너 s
-                            <div class="s21_tabcontent_rbtn_btm">
-                                <button type="button" class="bg_mgray" onclick="alert('로그인 후 이용해주세요.');return;//location.href='?m1Code=etc&m2Code=join'; location.replace('?m1Code=ar_info&m2Code=shop_add&shopadd_tab=0&ar_idx=8892')">장소 및 업체 추가 요청</button>
-                            </div>
-                            요청배너 e
- -->						
                             <div class="s21_tabcontent_more">
-								<label style="background-color: green; font-size: 15px; color: white; padding: 10px;">상세페이지 업로드</label>
-	                            <input type="file" name="filesD" id="filesD" multiple>
+                            	<div class="imgContainer">
+	                	            <div class="selectedImg">
+									</div>
+									<div class="fileSelect">
+										<label for="filesD">상세페이지 이미지 선택</label>
+			                            <input onchange="uploadPreview(this);" type="file" name="filesD" id="filesD" accept="image/*" multiple>
+										<span>※첨부파일은 최대 5개까지 등록이 가능합니다.</span>
+									</div>
+                            	</div>
 							</div>
                         </div>
                     </div>
-
                     <!-- 오른쪽 내용들 e-->
-
                 </div>
-                
                 <!--// 기본정보 e -->
-
                 <script>
-
-				var swiper_main = new Swiper('.swiper-container', {
+				/* var swiper_main = new Swiper('.swiper-container', {
 					loop: true,
 					autoplay: {
 				        delay: 5000,
@@ -230,7 +242,7 @@
 					},threshold : 20,//터치거리 px
 
 				});
-				
+				 */
 
 				/**이벤트 발생 (크롬,파이어폭스,사파이어 OK!) **/
 				function eventOccur(evEle, evType){
