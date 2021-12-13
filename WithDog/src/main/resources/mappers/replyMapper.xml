@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.mapper.reply">
+
+<!-- 댓글 조회 -->
+<select id="replyList" parameterType="int" resultType="com.test.dto.ReplyDTO">
+	select mbre_id, mbre_content, mbre_regidate, m_id, mb_id
+	from mbreply where mb_id = #{mb_id}	order by mbre_id desc 	
+</select>
+
+<!-- 댓글 작성 -->
+<insert id="replyWrite" parameterType="com.test.dto.ReplyDTO">
+	insert into mbreply(mbre_id, mbre_content, mbre_regidate, mb_id)
+		values(mbreply_seq.nextval, #{mbre_content}, sysdate, #{mb_id})
+</insert>
+	
+<!-- 댓글 수정 -->
+<update id="replyUpdate" parameterType="com.test.dto.ReplyDTO">
+	update mbreply set mbre_content = #{mbre_content}
+	where mbre_id = #{mbre_id}
+</update>
+
+<!-- 댓글 삭제 -->
+<delete id="replyDelete" parameterType="com.test.dto.ReplyDTO">
+	delete from mbreply where mbre_id = #{mbre_id}
+</delete>
+
+</mapper>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.mapper.boardMapper">
+
+	<insert id="write" parameterType="com.test.dto.boardDTO">
+		 insert into mainboard (mb_id, mb_title, mb_content, mb_img, mb_hit, mb_regidate)
+		 	VALUES (mainboard_seq.nextval, #{mb_title}, #{mb_content}, #{mb_img}, #{mb_hit}, sysdate)
+	</insert>
+	
+	<update id="hitboard" parameterType="int">
+		update mainboard set mb_hit = mb_hit+1
+			where mb_id = #{mb_id}
+	</update>
+	
+	<select id="detailboard" resultType="com.test.dto.boardDTO">
+		select * from mainboard where mb_id = #{mb_id}
+	</select>
+	
+	<update id="update" parameterType="com.test.dto.boardDTO">
+		update mainboard set mb_title = #{mb_title}, mb_content = #{mb_content}
+		 	where mb_id = #{mb_id}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from mainboard where mb_id = #{mb_id}
+	</delete>
+	
+	<!-- 게시물 총 갯수 -->
+	<select id="count" resultType="int">
+	    select count(mb_id) from mainboard
+	    
+	</select>
+	
+	<!-- 게시물 목록 + 페이징 -->
+	<select id="listPage" parameterType="hashMap" resultType="com.test.dto.boardDTO">
+	    select * from (select row_number() over(order by mb_id desc) num, a.*
+	    from mainboard a order by mb_id desc)
+ 	    where num between #{displayPost} and #{postNum}
+	</select>
+	
+</mapper>
