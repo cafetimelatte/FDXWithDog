@@ -41,7 +41,7 @@
 		<div id="headerInner" class="clearfix">
 			<div class="area">
 				<h1 class="logo">
-					<a onclick="location.href=''">
+					<a onclick="location.href='/WithDog'">
 						<img src="http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/logo.png"
 						alt="하트독">
 					</a>
@@ -68,7 +68,7 @@
 			<div class="gnb-wrapper area">
 				<ul class="clearfix">
 					<li class="" onclick="Store.clear()"><a
-						onclick="top.location.href='http://hatdog.co.kr/pc_hatdog/?m1Code=ar_info&amp;m2Code=ar_info';"><span>전체보기</span></a></li>
+						onclick="top.location.href='/WithDog';"><span>전체보기</span></a></li>
 					<li class="" onclick="Store.clear()"><a
 						onclick="top.location.href='hotelList';"><span>숙소</span></a></li>
 					<li class="" onclick="Store.clear()"><a

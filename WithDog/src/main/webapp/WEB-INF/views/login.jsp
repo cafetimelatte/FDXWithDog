@@ -39,7 +39,6 @@
 				url: 'login.do',
 				data: {'email': user_email, 'pw' : user_pw},
 			    type: 'post',
-			    dataType : 'text',
 			    success: function(loginRs) {
 			   		if (loginRs == -2 || loginRs== 0) {
 						alert("이메일(아이디)또는 비밀번호가 일치하지 않습니다.");
