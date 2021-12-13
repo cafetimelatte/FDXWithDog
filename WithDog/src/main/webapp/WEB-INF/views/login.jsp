@@ -39,7 +39,9 @@
 				url: 'login.do',
 				data: {'email': user_email, 'pw' : user_pw},
 			    type: 'post',
+			    dataType : 'text',
 			    success: function(loginRs) {
+			    	
 			   		if (loginRs == -2 || loginRs== 0) {
 						alert("이메일(아이디)또는 비밀번호가 일치하지 않습니다.");
 					}else{
@@ -57,60 +59,9 @@
 </head>
 
 <body>
-	<header id="header" class="pr">
-		<div id="headerInnerWrap">
-			<!-- ****************** 헤더상단 ********************** -->
-			<div id="headerTop">
-				<div class="area">
-					<p class="top_text">반려견과 함께 위드독에 오신것을 환영 합니다.</p>
-					<ul>
-						<li class="line">|</li>
-						<li class=""><a onclick="location.href='login'">로그인 </a></li>
-						<li class="line">|</li>
-						<li class=""><a onclick="">공지사항</a></li>
-						<li class="line">|</li>
-						<li class=""><a onclick="location.href=''">고객센터</a></li>
-					</ul>
-				</div>
-			</div>
-			<div id="headerInner" class="clearfix">
-				<div class="area">
-					<h1 class="logo">
-						<a
-							onclick="location.href='/WithDog/'">
-							<img
-							src="http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/logo.png"
-							alt="위드독">
-						</a>
-					</h1>
-					<div class="s21_w1422 pr">
-						<a
-							onclick="Store.clear(); top.location.href='http://hatdog.co.kr/pc_hatdog/';"></a>
-						<div class="s_search">
-							<input type="text" class="SearchInput" name="h_sch_text"
-								id="h_sch_text" placeholder="어디에서 무엇을 하고 싶으세요?" title="">
-							<span class="j21_btn_search" onclick="Store.clear();go_arinfo();"><a><img
-									src="http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/ico_search.png"
-									alt="검색"></a></span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<nav id="gnb">
-				<h2 class="blind">주메뉴</h2>
-				<div class="gnb-wrapper area">
-					<ul class="clearfix">
-						<li class="" onclick="Store.clear()"><a
-							onclick="top.location.href='http://hatdog.co.kr/pc_hatdog/?m1Code=ar_info&amp;m2Code=ar_info';"><span>전체보기</span></a></li>
-						<li class="" onclick="Store.clear()"><a
-							onclick="top.location.href='http://hatdog.co.kr/pc_hatdog/?m1Code=tip&amp;m2Code=tip';"><span>숙소</span></a></li>
-						<li class="" onclick="Store.clear()"><a
-							onclick="top.location.href='http://hatdog.co.kr/pc_hatdog/?m1Code=cmm&amp;m2Code=cmm';"><span>후기게시판</span></a></li>
-					</ul>
-				</div>
-			</nav>
-		</div>
-	</header>
+	<!-- header -->
+	<jsp:include page="./header.jsp"/>
+	<!-- //header -->
 
 	<!-- <form action="login.do" method="post" name="loginform"> -->
 		<div class="h21_community_m_top pr" style="height: 500px">
@@ -139,26 +90,7 @@
 	<!-- </form> -->
 
 	<!-- footer -->
-	<div id="footer">
-		<div class="footerBottom area">
-			<div class="footerBottom_left">
-				<p>
-					(주)스마트나우 전주지사 주소 : 전라북도 전주시 완산구 현무1길 9 (케이티전주지사3층) 대표이사 : 송현두 |
-					사업자등록번호: 402-85-34440<br> 이메일 : dju@smartnow.co.kr
-				</p>
-
-				<address>Copyright STYLE II. All rights reserved.</address>
-			</div>
-			<ul class="footerBottom_right">
-				<li><a
-					href="http://hatdog.co.kr/pc_hatdog/?m1Code=etc&m2Code=policy"
-					target="_top">이용약관</a></li>
-				<li><a
-					href="http://hatdog.co.kr/pc_hatdog/?m1Code=etc&m2Code=policy2"
-					target="_top">개인정보처리방침</a></li>
-			</ul>
-		</div>
-	</div>
-
+    <jsp:include page="./footer.jsp"/>
+	<!-- //footer -->
 </body>
 </html>
