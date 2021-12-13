@@ -45,8 +45,9 @@ public class MemberController {
 		return "login";
 	}
 	
+	@ResponseBody
 	@RequestMapping(value = "login.do", method = RequestMethod.POST)
-	public String loginAction(HttpServletRequest requset, HttpServletResponse response) throws IOException {
+	public int loginAction(HttpServletRequest requset, HttpServletResponse response) throws IOException {
 		requset.setCharacterEncoding("UTF-8");
 		String email = requset.getParameter("email");
 		String pw = requset.getParameter("pw");
@@ -55,12 +56,9 @@ public class MemberController {
 		session.setAttribute("loginRs", loginRs);
 		if(loginRs==1) {
 			session.setAttribute("loginEmail", email);
-			
 		}
 		System.out.println(loginRs);
-		String msg = "123";
-		response.getWriter().write(msg);
-		return "mainTemplate";
+		return loginRs;
 	}
 	
 	@RequestMapping("logout")
