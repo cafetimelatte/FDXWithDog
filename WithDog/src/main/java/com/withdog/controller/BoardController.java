@@ -28,8 +28,7 @@ public class BoardController {
 	@Autowired 
 	private ReplyService replyService;
 	
-	@Autowired 
-	private boardDTO dto;
+	//private boardDTO dto;
 	
 	@Resource(name="uploadPath")
 	private String uploadPath;
@@ -91,9 +90,6 @@ public class BoardController {
 		 boolean prev = startPageNum == 1 ? false : true;
 		 boolean next = endPageNum * pageNum_cnt >= count ? false : true;
 
-
-
-
 		 List<boardDTO> list = null; 
 		 list = boardService.listPage(displayPost, postNum);
 		 model.addAttribute("list", list);   
@@ -136,7 +132,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "updatePro", method = RequestMethod.POST) 
-	public String postupdate(HttpServletRequest request){ 
+	public String postupdate(boardDTO dto, HttpServletRequest request){ 
 		dto.setMb_id(Integer.parseInt(request.getParameter("mb_id")));
 		dto.setM_id(request.getParameter("m_id"));
 		dto.setMb_title(request.getParameter("mb_title"));

@@ -58,6 +58,11 @@
 		</interceptor> -->
 	</interceptors>
 	
-	<context:component-scan base-package="com.withdog.controller" />
+		<!-- 업로드 패스 설정 --> 
+	<beans:bean class="java.lang.String" id="uploadPath">
+ 	<beans:constructor-arg value="C:\Users\KOREAIT\Documents\workspace-sts-3.9.14.RELEASE\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\WithDog\resources" />
+	</beans:bean>
+	
+	<context:component-scan base-package="com.withdog.controller"/>
 	
 </beans:beans>
