@@ -42,6 +42,7 @@
 			<mapping path="/booking"/>
 			<mapping path="/updateBooking"/>
 			<mapping path="/hotelApply"/>
+			<mapping path="/myPage"/>
 			<beans:bean class="com.withdog.interceptor.IdCheckInterceptor"/>
 		</interceptor>
 		<!-- <interceptor>
