@@ -30,7 +30,7 @@
 <body>
 
 	<!-- header -->
-	<jsp:include page="./header.jsp"/>
+	<jsp:include page="../header.jsp"/>
 	<!-- //header -->
 	
 	<div class="sContainer">
@@ -54,10 +54,16 @@
 					</div>
 				</div>
 				<div class="h21_top_tbox_right pr">
-					<div class="h21_mymenu_box_s">
-						<p class="h21_top_left_box_s">
+					<div class="h21_mymenu_box_s" style="display:inline-flex; overflow: hidden; float:right; width:90%; text-align:right;">
+						<p class="h21_top_left_box_s" style="">
 							<a onclick="location.href='logout'" class="code_view h21Btn1">
 								<span class="lb">로그아웃</span> <i class="ico-arr2"></i>
+							</a>
+						</p>
+						<p class="h21_top_left_box_s">
+							<a onclick="location.href='chPw'"
+								class="code_view h21Btn1"> <span class="lb">비밀번호수정</span> <i
+								class="ico-arr2"></i>
 							</a>
 						</p>
 						<p class="h21_top_left_box_s">
@@ -115,7 +121,7 @@
 		</div>
 	</div>
 	<!-- footer -->
-    <jsp:include page="./footer.jsp"/>
+    <jsp:include page="../footer.jsp"/>
 	<!-- //footer -->
 
 </body>

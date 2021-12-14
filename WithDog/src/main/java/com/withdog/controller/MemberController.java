@@ -99,7 +99,7 @@ public class MemberController {
 		List<MemberDto> list = memberService.userInfo(userEmail);
 		request.setAttribute("userList", list); 
 		session.setAttribute("loginRs", loginRs);
-		return "myPage";
+		return "MyPage/myPage";
 	}
 	
 	@RequestMapping("serchUser")
@@ -122,6 +122,18 @@ public class MemberController {
 			}
 		}
 		return "home";
+	}
+	@RequestMapping("chPw")
+	public String chPw() {
+		return "chPw";
+	}
+	@RequestMapping(value = "chPw.do", method = RequestMethod.POST)
+	@ResponseBody
+	public int chPwdo(HttpServletRequest request) throws Exception {
+		String pwd = request.getParameter("pwd");
+		String msg = "";
+		int pwdCh = memberService.changePw(pwd);
+		return pwdCh;
 	}
 	
 	@RequestMapping(value = "serchUserPw", method = RequestMethod.POST)
