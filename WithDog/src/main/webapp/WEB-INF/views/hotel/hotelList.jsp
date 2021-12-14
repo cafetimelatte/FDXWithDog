@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
 	"http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -36,8 +35,8 @@
         <!-- 순 -->
         <div class="s21_tour_sun" style="margin-top:30px">
             <!-- 검색란 체크시 출력-->
-            <a id="dtDesc" href="?p=1&f=${h_crit.field}&c=${h_crit.category}&o=recent" class=<c:if test="${h_crit.order eq 'recent'}">'s21_sun_checked'</c:if>>최신순</a>
-            <a id="cntReview" href="?p=1&f=${h_crit.field}&c=${h_crit.category}&o=review" class=<c:if test="${h_crit.order eq 'review'}">'s21_sun_checked'</c:if>>리뷰순</a>
+            <a id="recent" class="s21_sun_checked" onclick="listOrder('recent')">최신순</a>
+            <a id="review" class="" onclick="listOrder('review')">리뷰순</a>
         </div>
         <!--// 순 -->
         <!-- 리스트 시작 -->
