@@ -23,16 +23,20 @@ public class HotelController {
 	@Autowired
 	IHotelService hotelService;
 	
-	@RequestMapping("/hotelList")
-	public String hotelList(@RequestParam(value="p", required=false, defaultValue="1") int page,
-			@RequestParam(value="f", required=false, defaultValue="") String field,
-			@RequestParam(value="c", required=false, defaultValue="h_name") String category,
-			@RequestParam(value="o", required=false, defaultValue="recent") String order,
+	@RequestMapping(value="/hotelList", method=RequestMethod.GET)
+	public String hotelList(@RequestParam(value="f", required=false, defaultValue="") String h_field,
 			Model model) {
-		CriteriaDto cDto = new CriteriaDto(page,6,hotelService.getHotelCount(field, category), field, category, order);
-		model.addAttribute("h_list",hotelService.getHotelList(cDto));
-		model.addAttribute("h_crit",cDto);
+		model.addAttribute("h_field",h_field);
 		return "hotel/hotelList";
+	}
+	
+	@RequestMapping(value="/hotelList", method=RequestMethod.POST)
+	public @ResponseBody Map<String, Object> hotelList(@RequestBody CriteriaDto datas){
+		CriteriaDto cDto = new CriteriaDto(datas.getPage(),6,hotelService.getHotelCount(datas.getField(),datas.getCategory()), datas.getField(),datas.getCategory(), datas.getOrder());
+		Map<String, Object> maps = new HashMap<String, Object>();
+		maps.put("h_list",hotelService.getHotelList(cDto));
+		maps.put("h_crit", cDto);
+		return maps;
 	}
 	
 	@RequestMapping("/hotelDetail")
@@ -43,25 +47,9 @@ public class HotelController {
 	
 	@RequestMapping(value="/hotelListM", method=RequestMethod.GET)
 	public String hotelListM(Model model) {
-		CriteriaDto cDto = new CriteriaDto(1,6,hotelService.getHotelCount("", "h_name"), "", "h_name", "recent");
-		model.addAttribute("h_list",hotelService.getHotelList(cDto));
-		model.addAttribute("h_crit",cDto);
 		return "hotel/managerHotelList";	
 	}
-	
-//	
-//	@RequestMapping(value="/hotelListM", method=RequestMethod.GET)
-//	public String hotelListM(@RequestParam(value="p", required=false, defaultValue="1") int page,
-//			@RequestParam(value="f", required=false, defaultValue="") String field,
-//			@RequestParam(value="c", required=false, defaultValue="h_name") String category,
-//			@RequestParam(value="o", required=false, defaultValue="recent") String order,
-//			Model model) {
-//		CriteriaDto cDto = new CriteriaDto(page,6,hotelService.getHotelCount(field, category), field, category, order);
-//		model.addAttribute("h_list",hotelService.getHotelList(cDto));
-//		model.addAttribute("h_crit",cDto);
-//		return "hotel/managerHotelList";	
-//	}
-//	
+
 	@RequestMapping(value="/hotelListM", method=RequestMethod.POST)
 	public @ResponseBody Map<String, Object> hotelListM(@RequestBody CriteriaDto datas) {
 		CriteriaDto cDto = new CriteriaDto(datas.getPage(),6,hotelService.getHotelCount(datas.getField(),datas.getCategory()), datas.getField(),datas.getCategory(), datas.getOrder());
