@@ -19,10 +19,54 @@
     <link rel="stylesheet" href="css/shot.css">
     <link rel="stylesheet" href="css/swiper-bundle.min.css">
 
-    <script src="js/jquery.js"></script>
+    <!-- <script src="js/jquery.js"></script> -->
     <script src="js/swiper-bundle.min.js"></script>
 	<script src="js/verification.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
     <title>Manager-HotelList</title>
+    
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$("#ajaxTest").click(function(){
+    			
+    			var page = "1";
+    			var field = "그랜드";
+    			var category = "h_name";
+    			var order = "recent";
+    			
+    			$.ajax({
+    				type: 'POST',
+    				url: 'hotelListM',
+    				headers:{
+    					'Accept' : 'application/json',
+    					'Content-Type' : 'application/json'
+    				},
+    				data: JSON.stringify({'page':page, 'field':field, 'category':category, 'order':order}),
+    				success: function(maps){
+    					console.log(maps);
+    					var arr = maps.h_list;
+    					var list = "";
+    					for(i = 0;i < arr.length; i++){
+    						list = list +
+    						"<a href='updateHotelM?h_id=" + arr[i].h_id +
+    						"'><div class='s21_tour_list_conts mgr_0 pr'><span class='s21_reser_ok_btn pa'><img src='http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/icon_New2.png'></span><dl class='s21_tour_list_photo'><dt><img src='hotel/"+
+    						arr[i].h_id +"/h_img/" + arr[i].h_img + "' alt='바라던바다 onerror=' noimage(this);'=''></dt><div class='s21_tour_list_tbox'><h4 class='s21_tour_accommodation'>"+arr[i].h_name+
+    						"</h4><p class='s21_tour_list_text'>"+arr[i].h_info+
+    						"</p><div class='s21_desc' onclick=''><div class='s21_d_comment'><p class='icon_comment'>댓글</p>0</div></div></div></div></a>"
+    					}
+    					$(".s21_tour_list_box").empty();
+    					$(".s21_tour_list_box").append(list);
+    				}, error: function(error){
+    					console.log(error);
+    				}
+    			})
+    		})
+    		
+    		
+    	})
+    </script>
+    
 </head>
 <body>
 	<!-- header -->
@@ -32,16 +76,17 @@
         <!-- 순 -->
         <div class="s21_tour_sun" style="margin-top:30px">
         	<div style="float:left">
-			    <form name="search" action="hotelListM" method="post">
-		    		<select name="category" style="text-align:center;height:25px;width:60px">
-		    			<option <c:if test="${h_crit.category == 'h_name'}">selected</c:if> value="h_name">숙소명</option>
-		    			<option <c:if test="${h_crit.category == 'add'}">selected</c:if> value="add">주소명</option>
+			    <form name="search" action="hotelListM" method="get">
+		    		<select name="c" style="text-align:center;height:25px;width:60px">
+		    			<option ${(h_crit.category == 'h_name')?"selected":""} value="h_name">숙소명</option>
+		    			<option ${(h_crit.category == 'add')?"selected":""} value="add">주소명</option>
 		    		</select>
-		    		<input name="field" value="${h_crit.field}" type="text">
+		    		<input name="f" value="${h_crit.field}" type="text">
 		    		<button type="button" style="border:1px solid black;background-color:#EAEAEA;height:25px;width:40px" onclick="return checkSearch(this)">검색</button>
 	    			<span style="display:inline-block;width:100px"></span>
 	    			<a style="border:solid;background-color: green;font-size: 13px; color:white; padding:5px" type="button" href="addHotelM">숙소 추가</a>
-				</form>        	
+					<button type="button" id="ajaxTest" >ajaxTest</button> 	
+				</form>       
 	    	</div>
             <!-- 검색란 체크시 출력-->
             <a id="dtDesc" href="?p=1&f=${h_crit.field}&c=${h_crit.category}&o=recent" class=<c:if test="${h_crit.order eq 'recent'}">'s21_sun_checked'</c:if>>최신순</a>
