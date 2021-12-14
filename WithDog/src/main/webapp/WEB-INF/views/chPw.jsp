@@ -39,7 +39,9 @@
 				data: {'pwd':pwd},
 				type: 'post',
 				success: function(pwdCh){
-					alert(pwdCh);
+					if(pwdCh == 0){
+						
+					}
 				}, error: function(){
 					alert('서버오류입니다 관리자에게 문의하세요.');
 				}
