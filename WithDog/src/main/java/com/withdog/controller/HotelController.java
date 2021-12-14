@@ -116,14 +116,4 @@ public class HotelController {
 		return "redirect:/hotelList";
 	}
 	
-	@RequestMapping(value="/reviewHotel", method=RequestMethod.POST)
-	public @ResponseBody Map<String, Object> hotelReview(List<Map<String, Object>> datas) {
-		
-		System.out.println(datas.size());
-		Map<String, Object> test = new HashMap<String, Object>();
-		test.put("asdf", 1234);
-		test.put("result", 1);
-		return test;
-	}
-	
 }
