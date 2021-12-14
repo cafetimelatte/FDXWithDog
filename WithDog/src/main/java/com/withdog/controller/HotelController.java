@@ -1,10 +1,6 @@
 package com.withdog.controller;
 
 import java.util.HashMap;
-<<<<<<< HEAD
-import java.util.List;
-=======
->>>>>>> branch 'main' of https://github.com/cafetimelatte/FDXWithDog.git
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
