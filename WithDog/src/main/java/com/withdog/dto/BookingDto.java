@@ -2,10 +2,14 @@ package com.withdog.dto;
 
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class BookingDto {
 	
 	private String b_id;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
 	private Date b_chkInDate;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
 	private Date b_chkOutDate;
 	private int b_price;
 	private int b_humanNum;
@@ -14,6 +18,7 @@ public class BookingDto {
 	private String m_id;
 	private String h_id;
 	private String b_name;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
 	private Date b_regiDate;
 	
 	public BookingDto() {

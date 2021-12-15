@@ -33,13 +33,16 @@ public class HotelController {
 	@RequestMapping(value="/hotelList", method=RequestMethod.POST)
 	public @ResponseBody Map<String, Object> hotelList(@RequestBody CriteriaDto datas){
 		CriteriaDto cDto = new CriteriaDto(datas.getPage(),6,hotelService.getHotelCount(datas.getField(),datas.getCategory()), datas.getField(),datas.getCategory(), datas.getOrder());
-		Map<String, Object> map = new HashMap<String, Object>(){{put("h_list",hotelService.getHotelList(cDto));put("crit", cDto);}};
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("h_list",hotelService.getHotelList(cDto));
+		map.put("crit", cDto);
 		return map;
 	}
 	
 	@RequestMapping("/hotelDetail")
 	public String detailInfo(int h_id, Model model) {
 		model.addAttribute("h_detail",hotelService.getHotelDetail(h_id));
+		model.addAttribute("h_review",hotelService.getHotelReview(h_id));
 		return "hotel/hotelDetail";
 	}
 	
@@ -51,13 +54,16 @@ public class HotelController {
 	@RequestMapping(value="/hotelListM", method=RequestMethod.POST)
 	public @ResponseBody Map<String, Object> hotelListM(@RequestBody CriteriaDto datas) {
 		CriteriaDto cDto = new CriteriaDto(datas.getPage(),6,hotelService.getHotelCount(datas.getField(),datas.getCategory()), datas.getField(),datas.getCategory(), datas.getOrder());
-		Map<String, Object> map = new HashMap<String, Object>(){{put("h_list",hotelService.getHotelList(cDto));put("crit", cDto);}};
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("h_list",hotelService.getHotelList(cDto));
+		map.put("crit", cDto);
 		return map;	
 	}
 	
 	@RequestMapping(value="/updateHotelM", method=RequestMethod.GET)
 	public String hotelUpdateM(int h_id, Model model) {
 		model.addAttribute("h_detail",hotelService.getHotelDetail(h_id));
+		model.addAttribute("h_review",hotelService.getHotelReview(h_id));
 		return "hotel/managerHotelUpdate";
 	}
 	

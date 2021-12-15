@@ -54,36 +54,14 @@
 		               	<button type="button" style="border:1px solid black;background-color:#EAEAEA;height:25px;width:40px" id="search">검색</button>
 	               	</form>
                 </h3>
+				<!-- 예약 정보 s -->
                 <div class="s21_detail_box area pr">
                     <div class="s21_detail_tbox" style="width:100%; float:none">
                         <ul class="s21_detail_twrap_mod">
-                        <!-- 예약 정보 입력 s -->
-							<c:forEach var="b" items="${b_info}">
-								<li class="reserved">
-									<dl>
-										<dd style="text-align:center;width:8%;padding:0 3px 0 3px">${b.b_id}</dd>
-										<dd style="text-align:center;width:8%;padding:0 3px 0 3px">${b.m_id}</dd>
-										<dd style="text-align:center;width:13%;padding:0 3px 0 3px">${b.b_name}</dd>
-										<dd style="text-align:center;width:6%;padding:0 3px 0 3px">${b.b_humanNum}</dd>
-										<dd style="text-align:center;width:6%;padding:0 3px 0 3px">${b.b_petNum}</dd>
-										<dd style="text-align:center;width:8%;padding:0 3px 0 3px">${b.b_chkInDate}</dd>
-										<dd style="text-align:center;width:8%;padding:0 3px 0 3px">${b.b_chkOutDate}</dd>
-										<dd style="text-align:center;width:8%;padding:0 3px 0 3px">
-											<fmt:parseNumber value="${b.b_chkInDate.time / (1000*60*60*24)}" integerOnly="true" var="inDate"></fmt:parseNumber>
-											<fmt:parseNumber value="${b.b_chkOutDate.time / (1000*60*60*24)}" integerOnly="true" var="outDate"></fmt:parseNumber>
-											${outDate - inDate}
-										</dd>
-	                                    <dd style="text-align:center;width:8%;padding:0 3px 0 3px">${b.b_price * (outDate - inDate)}원</dd>
-	                                    <dd style="text-align:center;width:6%;padding:0 3px 0 3px">${b.b_state}</dd>
-	                                    <dd style="text-align:center;width:8%;padding:0 3px 0 3px">${b.b_regiDate}</dd>
-	                                    <dd style="text-align:center;width:6%;padding:0 3px 0 3px"><a href="updateBookingM?b_id=${b.b_id}&h_id=${b.h_id}">수정</a> | <a name="delBtn" onclick="if(validate(this)){location.href='deleteBookingM?b_id=${b.b_id}'}">삭제</a></dd>
-	                                </dl>
-	                            </li>
-                            </c:forEach>
-                        <!-- 예약 정보 입력 e -->
                         </ul>
                     </div>
                 </div>
+				<!-- 예약 정보 e -->
 		        <!-- paging s -->
 				<div class="s21_page">
 					<div class="s21_pagination jquery-paging" style="margin-left: 410px;" id="PageNav">

@@ -5,6 +5,7 @@ var field = "";
 var category = "h_name";
 var startNum;
 var lastNum;
+var today = new Date();
 if(document.URL.indexOf("bookingListM")!=-1){
 	url = 'bookingListM';
 	category = 'b_id';
@@ -57,26 +58,38 @@ function setHotelList(h_list){
 	for(var i = 0; i < h_list.length; i++){
 		var cnt = i+1;
 		var imgs = h_list[i].h_img.split(",");
-		list += "<a href='updateHotelM?h_id=" + h_list[i].h_id + "'>";
+		if(document.URL.indexOf("hotelListM")!=-1){
+			list += "<a href='updateHotelM?h_id=" + h_list[i].h_id + "'>";
+		} else{
+			list += "<a href='hotelDetail?h_id=" + h_list[i].h_id + "'>";
+		}
 		if(cnt % 3 == 0){
 			list += "<div class='s21_tour_list_conts mgr_0 pr'>";
 		} else{
 			list += "<div class='s21_tour_list_conts pr'>";
 		}
-		list += "<span class='s21_reser_ok_btn pa'><img src='http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/icon_New2.png'></span><dl class='s21_tour_list_photo'>";
+		list += "<span class='s21_reser_ok_btn pa'>";
+		var h_regi = new Date(h_list[i].h_regiDate);
+		if((today-h_regi)/(1000*60*60*24*14)<1){
+			list += "<img src='http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/icon_New2.png'>";
+		}
+		list += "</span><dl class='s21_tour_list_photo'>";
 		for(var j = 0; j < imgs.length; j++){
 			if(j == 0){
-				list += "<dt><img src='hotel/"+ h_list[i].h_id +"/h_img/" + imgs[j] + "' alt='" + h_list[i].h_name + "'></dt>";
+				list += "<dt><img src='hotel/"+ h_list[i].h_id +"/h_img/"
+				list += imgs[j] + "' alt='" + h_list[i].h_name + "'></dt>";
 			} else if(j == 3){
 				break;
 			}	else{
-				list += "<dd><img src='hotel/"+ h_list[i].h_id +"/h_img/" + imgs[j] + "' alt='" + h_list[i].h_name + "'></dd>";
+				list += "<dd><img src='hotel/"+ h_list[i].h_id +"/h_img/"
+				list += imgs[j] + "' alt='" + h_list[i].h_name + "'></dd>";
 			}
 		}
 		list += "</dl><div class='s21_tour_list_tbox'>";
 		list += "<h4 class='s21_tour_accommodation'>" + h_list[i].h_name + "</h4>";
 		list += "<p class='s21_tour_list_text'>"+h_list[i].h_info+"</p>";
-		list += "<div class='s21_desc' onclick=''><div class='s21_d_comment'><p class='icon_comment'>댓글</p>0</div></div></div></div></a>";
+		list += "<div class='s21_desc' onclick=''><div class='s21_d_comment'>";
+		list += "<p class='icon_comment'>댓글</p>" + h_list[i].h_mbCnt + "</div></div></div></div></a>";
 	}
 	$(".s21_tour_list_box").empty();
 	$(".s21_tour_list_box").append(list);
@@ -99,22 +112,25 @@ function setBookingList(b_info){
 	info += "</dl></li>";
 	
 	for(var i = 0; i < b_info.length; i++){
+		var chkOut = new Date(b_info[i].b_chkOutDate);
+		var chkIn = new Date(b_info[i].b_chkInDate);
+		var dateCal = (chkOut-chkIn)/(1000*60*60*24);
 		info += "<li class='reserved'><dl>";
-		info += "<dd style='text-align:center;width:8%;padding:0 3px 0 3px'>" + b_info.b_id + "</dd>";
-		info += "<dd style='text-align:center;width:8%;padding:0 3px 0 3px'>" + b_info.m_id + "</dd>";
-		info += "<dd style='text-align:center;width:13%;padding:0 3px 0 3px'>" + b_info.b_name + "</dd>";
-		info += "<dd style='text-align:center;width:6%;padding:0 3px 0 3px'>" + b_info.b_humanNum + "</dd>";
-		info += "<dd style='text-align:center;width:6%;padding:0 3px 0 3px'>" + b_info.b_petNum + "</dd>";
-		info += "<dd style='text-align:center;width:8%;padding:0 3px 0 3px'>" + b_info.b_chkInDate + "</dd>";
-		info += "<dd style='text-align:center;width:8%;padding:0 3px 0 3px'>" + b_info.b_chkOutDate + "</dd>";
-		info += "<dd style='text-align:center;width:8%;padding:0 3px 0 3px'>";
-		info += "<fmt:parseNumber value='${b_info.b_chkInDate.time / (1000*60*60*24)}' integerOnly='true' var='inDate'></fmt:parseNumber>";
-		info += "<fmt:parseNumber value='${b_info.b_chkOutDate.time / (1000*60*60*24)}' integerOnly='true' var='outDate'></fmt:parseNumber>";
-		info += "${outDate - inDate}</dd>";
-		info += "<dd style='text-align:center;width:8%;padding:0 3px 0 3px'>" + b_info.b_price * (outDate - inDate) + "원</dd>";
-		info += "<dd style='text-align:center;width:6%;padding:0 3px 0 3px'>" + b_info.b_state + "</dd>";
-		info += "<dd style='text-align:center;width:8%;padding:0 3px 0 3px'>" + b_info.b_regiDate + "</dd>";
-		info += "<dd style='text-align:center;width:6%;padding:0 3px 0 3px'><a href='updateBookingM?b_id=" + b_info.b_id + "&h_id=" + b_info.h_id + "'>수정</a> | <a name='delBtn' onclick='if(validate(this)){location.href='deleteBookingM?b_id=" + b_info.b_id + "'}'>삭제</a></dd>";
+		info += "<dd style='text-align:center;width:8%;padding:0 3px 0 3px'>" + b_info[i].b_id + "</dd>";
+		info += "<dd style='text-align:center;width:8%;padding:0 3px 0 3px'>" + b_info[i].m_id + "</dd>";
+		info += "<dd style='text-align:center;width:13%;padding:0 3px 0 3px'>" + b_info[i].b_name + "</dd>";
+		info += "<dd style='text-align:center;width:6%;padding:0 3px 0 3px'>" + b_info[i].b_humanNum + "</dd>";
+		info += "<dd style='text-align:center;width:6%;padding:0 3px 0 3px'>" + b_info[i].b_petNum + "</dd>";
+		info += "<dd style='text-align:center;width:8%;padding:0 3px 0 3px'>" + b_info[i].b_chkInDate + "</dd>";
+		info += "<dd style='text-align:center;width:8%;padding:0 3px 0 3px'>" + b_info[i].b_chkOutDate + "</dd>";
+		info += "<dd style='text-align:center;width:8%;padding:0 3px 0 3px'>" + dateCal + "</dd>";
+		info += "<dd style='text-align:center;width:8%;padding:0 3px 0 3px'>" + (b_info[i].b_price * dateCal) + "원</dd>";
+		info += "<dd style='text-align:center;width:6%;padding:0 3px 0 3px'>" + b_info[i].b_state + "</dd>";
+		info += "<dd style='text-align:center;width:8%;padding:0 3px 0 3px'>" + b_info[i].b_regiDate + "</dd>";
+		info += "<dd style='text-align:center;width:6%;padding:0 3px 0 3px'>"
+		info += "<a href='updateBookingM?b_id=" + b_info[i].b_id + "&h_id=" + b_info[i].h_id + "'>수정</a> | "
+		info += "<a name='delBtn' onclick='if(validate(this)){location.href='deleteBookingM?b_id="
+		info += b_info[i].b_id + "'}'>삭제</a></dd>";
 		info += "</dl></li>";
 	}
 	$(".s21_detail_twrap_mod").empty();
