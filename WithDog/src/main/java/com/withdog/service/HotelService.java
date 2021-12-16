@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.withdog.dao.IHotelDao;
 import com.withdog.dto.CriteriaDto;
 import com.withdog.dto.HotelDto;
+import com.withdog.dto.boardDTO;
 
 @Service
 public class HotelService implements IHotelService {
@@ -144,6 +145,16 @@ public class HotelService implements IHotelService {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	@Override
+	public List<boardDTO> getHotelReview(int h_id) {
+		return dao.getHotelReview(h_id);
+	}
+
+	@Override
+	public List<HotelDto> getRecentHotel() {
+		return dao.getRecentHotel();
 	}
 }
 

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.withdog.dto.CriteriaDto;
 import com.withdog.dto.HotelDto;
+import com.withdog.dto.boardDTO;
 
 @Repository
 public class HotelDao implements IHotelDao {
@@ -49,6 +50,16 @@ public class HotelDao implements IHotelDao {
 	@Override
 	public int getHotelCount(HashMap<String, Object> map) {
 		return (int)sqlSession.selectOne("com.withdog.mapper.hotelMapper.getHotelCount", map);
+	}
+
+	@Override
+	public List<boardDTO> getHotelReview(int h_id) {
+		return sqlSession.selectList("com.withdog.mapper.hotelMapper.getHotelReview",h_id);
+	}
+
+	@Override
+	public List<HotelDto> getRecentHotel() {
+		return sqlSession.selectList("com.withdog.mapper.hotelMapper.getRecentHotel");
 	}
 
 

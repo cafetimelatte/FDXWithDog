@@ -124,13 +124,17 @@ function checkBookingInfo(event){
 
 function checkSearch(event){
 	var s = document.search;
+	var capitalChk = /[A-Z]/;
 	
 	if(!s.field.value){
 		alert("검색어를 입력해주세요.");
-		return;
+		return false;
 	}
-	
-	s.submit();
+	if(s.category.value == 'b_id' && !capitalChk.test(s.field.value)){
+		alert("예약번호는 영문 대문자로 입력해주세요.");
+		return false;
+	}
+	return true;
 }
 
 function validate(event){

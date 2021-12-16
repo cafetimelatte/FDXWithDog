@@ -48,11 +48,10 @@
 				</h1>
 				<div class="s21_w1422 pr">
 					<div class="s_search">
-						<form id="search" action="hotelList" method="get">
-							<input type="hidden" name="c" value="h_name">
+						<form id="h_search" action="hotelList" method="get">
 							<input type="text" class="SearchInput" name="f"
 								placeholder="어디에서 무엇을 하고 싶으세요?" title="">
-							<button class="j21_btn_search" type="submit" form="search">
+							<button class="j21_btn_search" type="submit" form="h_search">
 								<a>
 									<img src="http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/ico_search.png"
 									alt="검색">

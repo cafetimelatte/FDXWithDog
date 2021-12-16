@@ -288,13 +288,7 @@
 									삭제</button>
 							</div>
 							<!--// 숙박예약 있을시에 button e -->
-	
-							<!-- 숙박예약 있을시에 button s
-								<div class="s21_tabcontent_rbtn">
-									<button type="button" class="bg_mgray">수정요청</button>
-								</div>
-								// 숙박예약 있을시에 button e -->
-	
+
 							<!-- 공통주의사항 s -->
 							<div class="s21_tabcontent_more">
 								<div class="s21_tabcontent_more_tit">
@@ -308,13 +302,7 @@
 								</p>
 							</div>
 							<!--// 공통주의사항 e -->
-							<!-- 
-	                            요청배너 s
-	                            <div class="s21_tabcontent_rbtn_btm">
-	                                <button type="button" class="bg_mgray" onclick="alert('로그인 후 이용해주세요.');return;//location.href='?m1Code=etc&m2Code=join'; location.replace('?m1Code=ar_info&m2Code=shop_add&shopadd_tab=0&ar_idx=8892')">장소 및 업체 추가 요청</button>
-	                            </div>
-	                            요청배너 e
-	 -->
+							
 							<div class="s21_tabcontent_more">
 								<div class="imgContainer">
 									<div class="uploadedImgs">
@@ -352,46 +340,37 @@
 					<div class="s21_tabcontent_left">
 	
 						<!-- 유저리뷰s -->
-	
 						<div class="s21_review_box">
 							<div class="s21_review_tit pr">
-								<h5>
-									유저리뷰 <span id="review_total">20</span>
-								</h5>
-								<button type="button" class="s21_review_wbtn pa"
-									onclick="alert('로그인 후 이용해주세요.');return;//location.href='?m1Code=etc&m2Code=join';review_set('in','')">리뷰작성</button>
+								<h5>유저리뷰 <span id="review_total"><c:forEach items="${h_review}" varStatus="rvCnt">${rvCnt.last?rvCnt.count:''}</c:forEach></span></h5>
+								<button type="button" class="s21_review_wbtn pa" onclick="review_set('in','')">리뷰작성 →</button>
 							</div>
-							<div class="s21_review_listb" id="review_list"></div>
-	
-							<!-- more btn s -->
-							<span class="addreview_1"><a id="addreview">
-									<p class="s21_review_more">+ 더보기</p>
-							</a></span>
-							<!--// more btn e -->
-	
-						</div>
-	
-						<!--// 유저리뷰e -->
-	
-						<!-- 리뷰작성 팝업 s -->
-						<div id="id01" class="modal">
-							<span
-								onclick="document.getElementById('id01').style.display='none'; "
-								class="close" title="Close Modal">×</span>
 							
+							<div class="s21_review_listb" id="review_list">
+							
+								<c:forEach items="${h_review}" var="rv">
+								<div class="s21_review_list">
+									<a href="detailReviewPage?mb_id=${rv.mb_id}">
+									<p><img src="http://appdata.hungryapp.co.kr/images/hatdog/img/common/login_logoutimg.jpg/hungryapp/resize/200x200"></p>
+									<dl>
+										<dt class="pr">${rv.m_id}<span>${rv.mb_regidate}</span></dt>
+										<dd>${rv.mb_content}</dd>
+									</dl>
+									</a>
+								</div>
+								</c:forEach>
+							</div>
+
+							<!-- more btn s -->
+							<span class="addreview_1">
+								<a id="addreview">
+									<p class="s21_review_more">+ 더보기</p>
+								</a>
+							</span>
+							<!--// more btn e -->
+
 						</div>
-						<script>
-	                            // Get the modal
-	                            var modal = document.getElementById('id01');
-	
-	                            // When the user clicks anywhere outside of the modal, close it
-	                            window.onclick = function(event) {
-	                                if (event.target == modal) {
-	                                    modal.style.display = "none";
-	                                }
-	                            }
-	                        </script>
-						<!--// 리뷰작성 팝업 e -->
+						<!--// 유저리뷰e -->
 					</div>
 					<!-- 오른쪽 내용들 s-->
 					<div class="s21_tabcontent_right">
@@ -404,11 +383,7 @@
 									삭제</button>
 							</div>
 							<!--// 숙박예약 있을시에 button e -->
-							<!-- 숙박예약 있을시에 button s
-								<div class="s21_tabcontent_rbtn">
-								<button type="button" class="bg_mgray">수정요청</button>
-								</div>
-								// 숙박예약 있을시에 button e -->
+
 							<!-- 공통주의사항 s -->
 							<div class="s21_tabcontent_more">
 								<div class="s21_tabcontent_more_tit">
@@ -422,13 +397,6 @@
 								</p>
 							</div>
 							<!--// 공통주의사항 e -->
-							<!-- 
-	                            요청배너 s
-	                            <div class="s21_tabcontent_rbtn_btm">
-	                                <button type="button" class="bg_mgray" onclick="alert('로그인 후 이용해주세요.');return;//location.href='?m1Code=etc&m2Code=join'; location.replace('?m1Code=ar_info&m2Code=shop_add&shopadd_tab=0&ar_idx=8892')">장소 및 업체 추가 요청</button>
-	                            </div>
-	                            요청배너 e
-	 -->
 						</div>
 					</div>
 					<!-- 오른쪽 내용들 e-->

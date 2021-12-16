@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.withdog.dto.CriteriaDto;
 import com.withdog.dto.HotelDto;
+import com.withdog.dto.boardDTO;
 
 public interface IHotelDao {
 	HotelDto getHotelDetail(int h_id);
@@ -14,5 +15,7 @@ public interface IHotelDao {
 	int selectNextVal();
 	List<HotelDto> getHotelList(CriteriaDto cDto);
 	int getHotelCount(HashMap<String, Object> map);
+	List<boardDTO> getHotelReview(int h_id);
+	List<HotelDto> getRecentHotel();
 	
 }

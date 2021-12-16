@@ -6,36 +6,78 @@
 
 	<select resultType="com.withdog.dto.HotelDto" id="getHotelList" parameterType="com.withdog.dto.CriteriaDto">
 		<choose>
-		<when test="order == 'recent'">
-			select h_id, h_name, h_info, h_img
-from (select rownum num, h.*
-from (select * from hotel<choose><when test="category == 'h_name'">where h_name like '%'||#{field}||'%'</when><when test="category == 'add'">where h_add1 like '%'||#{field}||'%' or h_add2 like '%'||#{field}||'%' or h_add3 like '%'||#{field}||'%'</when></choose>order by h_regiDate desc) h) where num between #{pageStart} and #{pageEnd}
-		</when>
-		<when test="order == 'review'">
-			select h.h_id h_id, h.h_name h_name, h.h_info h_info, h.h_img h_img
-from (select rownum num, h1.h_id h_id, h1.h_name h_name, h1.h_info h_info, h1.h_img h_img
-from (select mb.h_id h_id, sum(case when r.mbre_id is null then 0
-else 1
-end) as repNum
-from mainBoard mb left join mbreply r
-on mb.mb_id = r.mb_id
-group by mb.h_id
-order by repNum desc) rnk right join hotel h1
-on rnk.h_id = h1.h_id<choose><when test="category == 'h_name'">where h_name like '%'||#{field}||'%'</when><when test="category == 'add'">where h_add1 like '%'||#{field}||'%' or h_add2 like '%'||#{field}||'%' or h_add3 like '%'||#{field}||'%'</when></choose>) h where h.num between #{pageStart} and #{pageEnd}
+			<when test="order == 'recent'">
+				select nvl(mb.cnt,0) h_mbCnt, h.*
+				from (select rownum num, h.*
+				        from (select h_id, h_name, h_info, h_img, h_regiDate
+				                from hotel
+				                <choose>
+									<when test="category == 'h_name'">
+										where h_name like '%'||#{field}||'%'
+									</when>
+									<when test="category == 'add'">
+										where h_add1 like '%'||#{field}||'%'
+										or h_add2 like '%'||#{field}||'%'
+										or h_add3 like '%'||#{field}||'%'
+									</when>
+								</choose>
+				                order by h_regidate desc)h) h left join (select h_id, count(h_id) cnt
+				                                                    from mainboard
+				                                                    group by h_id) mb
+				on h.h_id = mb.h_id
+				where num between #{pageStart} and #{pageEnd}
+				order by num
+										
+			</when>
+			<when test="order == 'review'">
+				select *
+				from(select rownum num, h.*
+					from(select nvl(mb.cnt,0) h_mbCnt, h.h_id, h.h_name, h.h_info, h.h_img, h.h_regiDate
+						from (select h_id, count(h_id) cnt
+						        from mainboard
+						        group by h_id) mb right join hotel h
+						on mb.h_id = h.h_id
+						<choose>
+							<when test="category == 'h_name'">
+								where h_name like '%'||#{field}||'%'
+							</when>
+							<when test="category == 'add'">
+								where h_add1 like '%'||#{field}||'%'
+								or h_add2 like '%'||#{field}||'%'
+								or h_add3 like '%'||#{field}||'%'
+							</when>
+						</choose>
+					order by h_mbCnt desc, h.h_regidate desc) h)
+				where num between #{pageStart} and #{pageEnd}
 			</when>
 		</choose>
 	</select>
 	
 	<select resultType="com.withdog.dto.HotelDto" id="getHotelDetail" parameterType="int">
-		select * from hotel where h_id = #{h_id}
+		select *
+		from hotel
+		where h_id = #{h_id}
 	</select>
 
 	<select resultType="int" id="getHotelCount" parameterType="map">
-		select count(h_id) from hotel<choose><when test="category == 'add'">where h_add1 like '%'||#{field}||'%' or h_add2 like '%'||#{field}||'%' or h_add3 like '%'||#{field}||'%'</when><when test="category == 'h_name'">where h_name like '%'||#{field}||'%'</when></choose>
+		select count(h_id)
+		from hotel
+		<choose>
+			<when test="category == 'add'">
+				where h_add1 like '%'||#{field}||'%'
+				or h_add2 like '%'||#{field}||'%'
+				or h_add3 like '%'||#{field}||'%'
+			</when>
+			<when test="category == 'h_name'">
+				where h_name like '%'||#{field}||'%'
+			</when>
+		</choose>
 	</select>
 	
 	<delete id="deleteHotel" parameterType="int">
-		delete from hotel where h_id = #{h_id}
+		delete
+		from hotel
+		where h_id = #{h_id}
 	</delete>
 	
 	<update id="updateHotel" parameterType="com.withdog.dto.HotelDto">
@@ -45,12 +87,27 @@ on rnk.h_id = h1.h_id<choose><when test="category == 'h_name'">where h_name like
 	</update>
 	
 	<select id="selectNextVal" resultType="int">
-		select h_seq.nextval from dual
+		select h_seq.nextval
+		from dual
 	</select>
 	
 	<insert id="insertHotel" parameterType="com.withdog.dto.HotelDto">
 		insert into hotel
 		values (#{h_id}, #{h_name}, #{h_info}, #{h_detail}, #{h_phone}, #{h_web}, #{h_chkInTime}, #{h_chkOutTime}, #{h_add1}, #{h_add2}, #{h_add3}, #{h_img}, #{h_price}, default, #{h_petSize}, #{h_petWeight}, #{h_etc})
 	</insert>
+	
+	<select id="getHotelReview" parameterType="int" resultType="com.withdog.dto.boardDTO">
+		select *
+		from mainboard
+		where h_id = #{h_id}
+	</select>
+	
+	<select id="getRecentHotel" resultType="com.withdog.dto.HotelDto">
+		select rownum, h.*
+		from(select *
+			from hotel
+			order by h_regidate desc)h
+		where rownum between 1 and 4
+	</select>
 
 </mapper>

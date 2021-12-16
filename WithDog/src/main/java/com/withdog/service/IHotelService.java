@@ -6,6 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.withdog.dto.CriteriaDto;
 import com.withdog.dto.HotelDto;
+import com.withdog.dto.boardDTO;
 
 public interface IHotelService {
 	List<HotelDto> getHotelList(CriteriaDto cDto);
@@ -14,4 +15,6 @@ public interface IHotelService {
 	void insertHotel(HotelDto dto, MultipartFile[] filesI, MultipartFile[] filesD);
 	int getHotelCount(String field, String category);
 	void updateHotel(HotelDto dto, MultipartFile[] files, String[] del_files, String type);
+	List<boardDTO> getHotelReview(int h_id);
+	List<HotelDto> getRecentHotel();
 }
