@@ -1,4 +1,4 @@
-package com.withdog.interceptor;
+package com.withdog.utils;
 
 import java.io.File;
 import java.text.DecimalFormat;
@@ -54,7 +54,7 @@ public class UploadFileUtils {
 			File dirPath = new File(uploadPath + path);
 
 			if (!dirPath.exists()) {
-				dirPath.mkdir();
+				dirPath.mkdirs();
 			}
 		}
 	}

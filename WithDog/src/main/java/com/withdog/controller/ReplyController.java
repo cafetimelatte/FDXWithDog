@@ -1,15 +1,21 @@
 package com.withdog.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.withdog.dto.ReplyDTO;
+import com.withdog.service.MemberService;
 import com.withdog.service.ReplyService;
 
 @Controller
 public class ReplyController {
+	@Autowired
+	MemberService memberSerivce;
 	
 	@Autowired
 	private ReplyService replyService;
@@ -28,20 +34,26 @@ public class ReplyController {
 	}
 	
 	 //댓글 수정
-    @RequestMapping(value = "replyUpdate")  
-    public String replyUpdate (int mbre_id, String mbre_content, ReplyDTO dto) {
+	@ResponseBody
+    @RequestMapping(value="ReplyUpdate", method = RequestMethod.POST)
+    public String replyUpdate (HttpServletRequest request, ReplyDTO dto) {
+        String mbre_content = request.getParameter("mbre_content");
+        int mbre_id = Integer.parseInt(request.getParameter("mbre_id"));
+        System.out.println(mbre_content);
+        System.out.println(mbre_id);
         
-        dto.setMbre_id(mbre_id);
-        dto.setMbre_content(mbre_content);
- 
-        replyService.update(dto);
+
+		replyService.update(mbre_id, mbre_content);
+		
         
         return "board/detailReviewPage";
     }
     
     //댓글 삭제
-    @RequestMapping(value = "replyDelete" , method = {RequestMethod.GET, RequestMethod.POST} ) //세부적인 url pattern
-    public String replyDelete(int mbre_id, ReplyDTO dto) {
+	@ResponseBody
+    @RequestMapping(value = "ReplyDelete" , method = RequestMethod.POST)
+    public String replyDelete(HttpServletRequest request, int mbre_id) {
+        System.out.println(mbre_id);
         
     	replyService.delete(mbre_id);
     	

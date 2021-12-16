@@ -69,7 +69,7 @@
                                     <dt>숙소명</dt>
                                     <dd>${b_info.b_name}</dd>
                                     <dt>예약자</dt>
-                                    <dd>${b_info.m_id}</dd>
+                                    <dd>${b_info.m_nick}</dd>
                                 </dl>
                             </li>
                             <li>

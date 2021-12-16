@@ -30,9 +30,9 @@ public class ReplyServiceImpl implements ReplyService{
 	}
 
 	@Override
-	public int update(ReplyDTO dto) {
+	public int update(int mbre_id, String mbre_content) {
 		// 댓글 수정
-		return dao.update(dto);
+		return dao.update(mbre_id, mbre_content);
 	}
 
 	@Override

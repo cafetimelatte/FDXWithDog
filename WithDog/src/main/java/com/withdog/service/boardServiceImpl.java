@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.withdog.dao.boardDAO;
+import com.withdog.dto.BookingDto;
 import com.withdog.dto.boardDTO;
 
 @Service
@@ -56,5 +57,17 @@ public class boardServiceImpl implements boardService{
 	@Override
 	public List<boardDTO> listPage(int displayPost, int postNum) throws Exception {
 	 return dao.listPage(displayPost, postNum);
+	}
+
+	//홈화면 인기 게시글 목록
+	@Override
+	public List<boardDTO> getHotReview() {
+		return dao.getHotReview();
+	}
+
+	// 예약내역 가져오기
+	@Override
+	public List<BookingDto> getBookingList(String m_id) {
+		return dao.getBookingList(m_id);
 	}
 }

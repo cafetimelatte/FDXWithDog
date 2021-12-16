@@ -2,6 +2,7 @@ package com.withdog.dao;
 
 import java.util.List;
 
+import com.withdog.dto.BookingDto;
 import com.withdog.dto.boardDTO;
 
 public interface boardDAO {
@@ -29,4 +30,10 @@ public interface boardDAO {
 	
 	// 게시물 목록 + 페이징
 	public List<boardDTO> listPage(int displayPost, int postNum) throws Exception;
+
+	// 홈화면 인기 게시글 목록
+	List<boardDTO> getHotReview();
+
+	// 예약내역 가져오기
+	List<BookingDto> getBookingList(String m_id);
 }

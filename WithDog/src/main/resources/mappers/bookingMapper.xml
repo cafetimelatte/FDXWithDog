@@ -16,8 +16,9 @@
 	</insert>
 
 	<select resultType="com.withdog.dto.BookingDto" id="getBookingInfo" parameterType="String">
-		select *
-		from booking
+		select m.m_nick, b.*
+		from booking b left join member m
+		on b.m_id = m.m_id
 		where 
 		<if test="b_id != null">
 			b_id = #{b_id}
@@ -30,8 +31,9 @@
 	<select resultType="com.withdog.dto.BookingDto" id="getBookingListM" parameterType="com.withdog.dto.CriteriaDto">
 		select *
 		from (select rownum num, b.*
-				from (select *
-						from booking
+				from (select m.m_nick, b.*
+						from booking b left join member m
+						on b.m_id = m.m_id
 						where
 						<if test="category == 'b_id'">
 							b_id like '%'||#{field}||'%'
@@ -51,9 +53,10 @@
 	</select>
 	
 	<select resultType="com.withdog.dto.BookingDto" id="getBookingList" parameterType="String">
-		select *
-		from booking
-		where m_id = #{m_id}
+		select m.m_nick, b.*
+		from booking b left join member m
+		on b.m_id = m.m_id
+		where b.m_id = #{m_id}
 		and b_state = '예약대기'
 		order by b_regiDate desc
 	</select>
@@ -82,6 +85,12 @@
 				where b_name like '%'||#{field}||'%'
 			</when>
 		</choose>
+	</select>
+	
+	<select resultType="com.withdog.dto.MemberDto" id="getMemberInfo" parameterType="String">
+		select m_nick
+		from member
+		where m_id = #{m_id}
 	</select>
 	
 </mapper>

@@ -8,9 +8,9 @@ public class boardDTO {
 	private String mb_img;
 	private int mb_hit;
 	private String mb_regidate;
-	private String m_id;
 	private int h_id;
-	
+	private String m_id;
+	private String m_nick;
 
 	public boardDTO() {
 	}
@@ -79,10 +79,19 @@ public class boardDTO {
 		this.h_id = h_id;
 	}
 
+	public String getM_nick() {
+		return m_nick;
+	}
+
+	public void setM_nick(String m_nick) {
+		this.m_nick = m_nick;
+	}
+
 	@Override
 	public String toString() {
 		return "boardDTO [mb_id=" + mb_id + ", mb_title=" + mb_title + ", mb_content=" + mb_content + ", mb_img="
-				+ mb_img + ", mb_hit=" + mb_hit + ", mb_regidate=" + mb_regidate + ", m_id=" + m_id + ", h_id=" + h_id
-				+ "]";
+				+ mb_img + ", mb_hit=" + mb_hit + ", mb_regidate=" + mb_regidate + ", h_id=" + h_id + ", m_id=" + m_id
+				+ ", m_nick=" + m_nick + "]";
 	}
+
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,26 +16,31 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.withdog.dto.ReplyDTO;
 import com.withdog.dto.boardDTO;
-import com.withdog.interceptor.UploadFileUtils;
+import com.withdog.service.MemberService;
 import com.withdog.service.ReplyService;
 import com.withdog.service.boardService;
+import com.withdog.utils.UploadFileUtils;
 
 @Controller
 public class BoardController {
-
+	
+	@Autowired
+	MemberService memberService;
+	
 	@Autowired
 	private boardService boardService;
 	
 	@Autowired 
 	private ReplyService replyService;
 	
-	//private boardDTO dto;
-	
 	@Resource(name="uploadPath")
 	private String uploadPath;
 	
 	@RequestMapping(value = "writeReview", method = RequestMethod.GET)
-	public String getwrite() throws Exception{
+	public String getwrite(HttpServletRequest request, Model model) throws Exception{
+		HttpSession session = request.getSession();
+		String m_id = (String)session.getAttribute("loginEmail");
+		model.addAttribute("bookingList", boardService.getBookingList(m_id));
 		return "board/writeReview";
 	}
 	
@@ -50,8 +56,7 @@ public class BoardController {
 			fileName = uploadPath + File.separator + "images" + File.separator + "none.png";
 		}
 
-		dto.setMb_img(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
-		//dto.setGdsThumbImg(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
+		dto.setMb_img("imgUpload" + ymdPath + File.separator + fileName);
 		boardService.write(dto);
 		
 		return "board/writeReviewpro";
@@ -119,7 +124,7 @@ public class BoardController {
 		// 댓글 조회
 		List<ReplyDTO> reply = replyService.list(mb_id);
 		model.addAttribute("reply", reply);
-
+		
 		return "board/detailReviewPage"; // 상세보기 위드독
 	}
 	
@@ -134,19 +139,16 @@ public class BoardController {
 	@RequestMapping(value = "updatePro", method = RequestMethod.POST) 
 	public String postupdate(boardDTO dto, HttpServletRequest request){ 
 		dto.setMb_id(Integer.parseInt(request.getParameter("mb_id")));
-		dto.setM_id(request.getParameter("m_id"));
 		dto.setMb_title(request.getParameter("mb_title"));
 		dto.setMb_content(request.getParameter("mb_content"));
-	//	dto.setImg(request.getParameter("mb_img"));
-	//	dto.setH_id(request.getParameter("h_id"));
-		dto.setMb_hit(Integer.parseInt(request.getParameter("mb_hit")));
+	//  dto.setMb_img(request.getParameter("mb_img"));
 		
 		boardService.update(dto);
 
 		return "board/updatePro"; 
 	  }
 	
-	@RequestMapping(value = "delete", method = RequestMethod.GET) 
+	@RequestMapping(value = "delete", method = RequestMethod.POST) 
 	public String delete(int mb_id) { 
 		boardService.delete(mb_id); 
 		

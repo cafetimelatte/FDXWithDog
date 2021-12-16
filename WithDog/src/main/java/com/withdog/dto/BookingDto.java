@@ -20,13 +20,14 @@ public class BookingDto {
 	private String b_name;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
 	private Date b_regiDate;
+	private String m_nick;
 	
 	public BookingDto() {
 		
 	}
-
+	
 	public BookingDto(String b_id, Date b_chkInDate, Date b_chkOutDate, int b_price, int b_humanNum, int b_petNum,
-			String b_state, String m_id, String h_id, String b_name, Date b_regiDate) {
+			String b_state, String m_id, String h_id, String b_name, Date b_regiDate, String m_nick) {
 		super();
 		this.b_id = b_id;
 		this.b_chkInDate = b_chkInDate;
@@ -39,7 +40,10 @@ public class BookingDto {
 		this.h_id = h_id;
 		this.b_name = b_name;
 		this.b_regiDate = b_regiDate;
+		this.m_nick = m_nick;
 	}
+
+
 
 	public String getB_id() {
 		return b_id;
@@ -129,12 +133,20 @@ public class BookingDto {
 		this.b_regiDate = b_regiDate;
 	}
 
+	public String getM_nick() {
+		return m_nick;
+	}
+
+	public void setM_nick(String m_nick) {
+		this.m_nick = m_nick;
+	}
+
 	@Override
 	public String toString() {
 		return "BookingDto [b_id=" + b_id + ", b_chkInDate=" + b_chkInDate + ", b_chkOutDate=" + b_chkOutDate
 				+ ", b_price=" + b_price + ", b_humanNum=" + b_humanNum + ", b_petNum=" + b_petNum + ", b_state="
 				+ b_state + ", m_id=" + m_id + ", h_id=" + h_id + ", b_name=" + b_name + ", b_regiDate=" + b_regiDate
-				+ "]";
+				+ ", m_nick=" + m_nick + "]";
 	}
-	
+
 }

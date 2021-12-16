@@ -5,6 +5,7 @@ import java.util.List;
 import com.withdog.dto.BookingDto;
 import com.withdog.dto.CriteriaDto;
 import com.withdog.dto.HotelDto;
+import com.withdog.dto.MemberDto;
 
 public interface IBookingService {
 
@@ -17,5 +18,6 @@ public interface IBookingService {
 	void deleteBooking(String b_id);
 	int getBookingCount(String field, String category);
 	List<BookingDto> getBookingListM(CriteriaDto cDto);
+	MemberDto getMemberInfo(String m_id);
 	
 }

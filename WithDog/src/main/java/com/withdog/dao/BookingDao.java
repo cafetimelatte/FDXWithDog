@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.withdog.dto.BookingDto;
 import com.withdog.dto.CriteriaDto;
 import com.withdog.dto.HotelDto;
+import com.withdog.dto.MemberDto;
 
 @Repository
 public class BookingDao implements IBookingDao {
@@ -55,6 +56,11 @@ public class BookingDao implements IBookingDao {
 	@Override
 	public List<BookingDto> getBookingListM(CriteriaDto cDto) {
 		return sqlSession.selectList("com.withdog.mapper.bookingMapper.getBookingListM", cDto);
+	}
+
+	@Override
+	public MemberDto getMemberInfo(String m_id) {
+		return sqlSession.selectOne("com.withdog.mapper.bookingMapper.getMemberInfo", m_id);
 	}
 
 }

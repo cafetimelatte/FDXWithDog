@@ -5,9 +5,9 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
+import com.withdog.dto.BookingDto;
 import com.withdog.dto.boardDTO;
 
 @Repository
@@ -68,5 +68,17 @@ public class boardDAOImpl implements boardDAO{
 		 data.put("postNum", postNum);
 		  
 		 return sqlSession.selectList("com.withdog.mappers.boardMapper" + ".listPage", data);
+	}
+
+	//홈화면 인기 게시글 목록
+	@Override
+	public List<boardDTO> getHotReview() {
+		return sqlSession.selectList("com.withdog.mappers.boardMapper.getHotReview");
+	}
+
+	// 예약내역 가져오기
+	@Override
+	public List<BookingDto> getBookingList(String m_id) {
+		return sqlSession.selectList("com.withdog.mappers.boardMapper.getBookingList", m_id);
 	}
 }

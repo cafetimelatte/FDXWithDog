@@ -1,6 +1,8 @@
 package com.withdog.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +32,13 @@ public class ReplyDAOImpl implements ReplyDAO{
 	}
 
 	@Override
-	public int update(ReplyDTO dto) {
-		// 댓글 수정
-		return sqlSession.update(namespace + ".replyModify", dto);
+	public int update(int mbre_id, String mbre_content) {
+		Map<Object, Object>mbre = new HashMap<Object, Object>();
+		mbre.put("mbre_id", mbre_id);
+		mbre.put("mbre_content", mbre_content);
+
+		return	sqlSession.update(namespace + ".replyUpdate", mbre);
+				
 	}
 
 	@Override
