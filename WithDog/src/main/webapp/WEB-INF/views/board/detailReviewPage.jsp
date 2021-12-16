@@ -110,7 +110,7 @@
 					<a href="${path}delete?mb_id=${detail.mb_id}" role="button">삭제</a>
 						
 					<span class="button_report" style="margin: auto;"> 
-						<a href="${path}ReviewPage?num=1">신고</a>
+						<a href="${path}CslistPage">신고</a>
 					</span>
 				</div>
 			</div>
@@ -210,29 +210,22 @@
 				    //댓글 삭제 버튼
 				    $(".btn_reply_Delete").click(function(){
 				    	
-				    	var mbre_id = this.closest('.s21_review_list').querySelector(".mbre_id").value;
-					  	var ip = document.createElement('input');
-					  	var par = sp.parentElement;
-					  	par.insertBefore(ip,sp);
-					  	var pt = sp.children[0].textContent;
-					  	ip.append(sp.children[0]);
-					  	ip.value = pt;
-					  	sp.remove();
-					  	this.textContent = "완료";
-					  	ip.name = "reply_reply";
-					  	
-				    $.ajax({
-						url: "ReplyDelete",
-						type: "post",
-						data: {"mbre_id" : r_id},
-						success: function(){
-							alert("삭제가 완료되었습니다.");
-							location.replace(location.href);
-
+				    var mbre_id = this.closest('.s21_review_list').querySelector(".mbre_id").value;
+				    console.log(mbre_id);
+					
+					this.addEventListener("click", function(){
+					    $.ajax({
+							url: 'ReplyDelete',
+							type: 'post',
+							data: {'mbre_id' : mbre_id},
+							success: function(){
+								alert("삭제가 완료되었습니다.");
+								location.replace(location.href);
 							}
-					});//end ajax
-				  });  
-			}); 
+						});//end ajax 
+			  	},false) 	
+			 });  
+		    }); 
 			</script>
 		</div>
 	</div>

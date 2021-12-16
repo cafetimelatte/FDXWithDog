@@ -44,6 +44,7 @@
 			<mapping path="/hotelApply"/>
 			<mapping path="/myPage"/>
 			<mapping path="/writeReview"/>
+			<mapping path="/CslistPage"/>
 			<mapping path="/writeReviewpro"/>
 			<beans:bean class="com.withdog.interceptor.IdCheckInterceptor"/>
 		</interceptor>

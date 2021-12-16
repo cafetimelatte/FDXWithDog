@@ -76,6 +76,7 @@
 				</li>
 			</ul>
 		</div>
+<<<<<<< HEAD
 	</div>
 	<script>
 		function go_link(link){ location.href=link; } 
@@ -92,9 +93,35 @@
 					<div class="c_info pr">
 						<span class="com_division">
 							여행후기
+=======
+<script>
+function go_link(link){ location.href=link; } 
+</script>
+		<div class="h21_community pr area">
+			<div class="h21_com_btn_prev">
+				<a href="${path}ReviewPage?num=1">
+					<img src="http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/community/btn_prev.png" alt="뒤로">
+				</a>
+			</div>
+			<form name="writeReview" method="POST" action="${path}writeReviewpro" enctype="multipart/form-data">
+				<div class="h21_width800px">
+					<div class="h21_community_view_stop">
+						<div class="c_info pr">
+							<span class="com_division">
+								여행후기
+							</span> 
+						</div>
+					</div>
+					<div class="h21_community_view">
+						<span class = "h21_write_input last_bottom_line">
+							<h5>제목</h5>
+							<input type="text" name="mb_title" id="mb_title" placeholder="제목을 입력해주세요." />
+							<input type="hidden" name="m_id" value="${loginEmail}"/>
+>>>>>>> branch 'main' of https://github.com/cafetimelatte/FDXWithDog.git
 						</span>
 					</div>
 				</div>
+<<<<<<< HEAD
 				<div class="h21_community_view">
 					<span class = "h21_write_input last_bottom_line">
 						<h5>제목</h5>
@@ -143,5 +170,10 @@
 	<!-- footer -->
 	<jsp:include page="../footer.jsp"/>
 	<!-- //footer -->
+=======
+			</div>
+		</form>
+	</div>
+>>>>>>> branch 'main' of https://github.com/cafetimelatte/FDXWithDog.git
 </body>
 </html>

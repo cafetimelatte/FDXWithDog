@@ -52,8 +52,9 @@ public class ReplyController {
     //댓글 삭제
 	@ResponseBody
     @RequestMapping(value = "ReplyDelete" , method = RequestMethod.POST)
-    public String replyDelete(int mbre_id) {
+    public String replyDelete(HttpServletRequest request, int mbre_id) {
         System.out.println(mbre_id);
+        
     	replyService.delete(mbre_id);
     	
     	return "board/detailReviewPage";

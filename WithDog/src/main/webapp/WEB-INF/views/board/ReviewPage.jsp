@@ -85,12 +85,7 @@
                 			<span class="span_h3_ttl">공개앨범</span>
                 		</h3>
             	</div>
-            <!-- 리스트 시작 -->
-	            <form id="frmSetData" name="frmSetData" method="POST" onsubmit="return false;">
-	                <input type="hidden" id="m2Code" name="m2Code" value="album">
-	                <input type="hidden" id="mode" name="mode" value="mainlist">
-	                <input type="hidden" id="page" name="page" value="0">
-	            </form>
+          
 	            <div class="s21_tour_list_box">
 	            	<c:forEach var="ReviewPage" items="${list}" varStatus="st">
 	            		<a href="${path}detailReviewPage?mb_id=${ReviewPage.mb_id}">
@@ -98,16 +93,7 @@
 	                        	<dl class="s21_tour_list_photo">
 	                            	<dt>
 	                                	<img src="${ReviewPage.mb_img}" alt="">
-	                                   		<%-- ${listReview.img} 첫번째 이미지--%>
 	                                </dt>
-	                                   <!--  <dd>
-	                                    	<img src="resources/${ReviewPage.mb_img}" alt="">
-	                                   		<%-- ${listReview.img} 두번째 이미지--%>
-	                                    </dd>
-	                                    <dd>
-	                                    	<img src="resources/${ReviewPage.mb_img}" alt="">
-	                                    	<%-- ${listReview.img} 세번째 이미지--%>
-	                                    </dd> -->
 	                        	</dl>
 								<div class="s21_tour_list_tbox">
 									<h4 class="s21_best_tip">${ReviewPage.mb_title}</h4>
