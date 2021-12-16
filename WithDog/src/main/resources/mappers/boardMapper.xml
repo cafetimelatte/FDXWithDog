@@ -62,4 +62,29 @@
 		from booking
 		where m_id = #{m_id}
 	</select>
+	
+	<select id="getList" resultType="com.withdog.dto.boardDTO" parameterType="map">
+		select *
+		from (select row_number() over(order by mb_id desc) num, m.m_nick, a.*
+	    		from mainboard a left join member m
+				on a.m_id = m.m_id
+				<if test="category == 'm_id'">
+					where a.m_id like '%'||#{field}||'%'
+				</if>
+				<if test="category == 'mb_id'">
+					where a.mb_id like '%'||#{field}||'%'
+				</if>
+				<if test="category == 'm_nick'">
+					where m.m_nick like '%'||#{field}||'%'
+				</if>
+				<if test="category == 'mb_title'">
+					where a.mb_title like '%'||#{field}||'%'
+				</if>
+				<if test="category == 'mb_content'">
+					where a.mb_content like '%'||#{field}||'%'
+				</if>
+				order by mb_id desc)
+ 	    where num between #{displayPost} and #{postNum}
+	</select>
+	
 </mapper>

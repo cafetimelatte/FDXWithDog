@@ -2,6 +2,7 @@ package com.withdog.dao;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,5 +81,15 @@ public class boardDAOImpl implements boardDAO{
 	@Override
 	public List<BookingDto> getBookingList(String m_id) {
 		return sqlSession.selectList("com.withdog.mappers.boardMapper.getBookingList", m_id);
+	}
+
+	@Override
+	public List<boardDTO> listPage(int displayPost, int postNum, String field, String category) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("displayPost", displayPost);
+		map.put("postNum", postNum);
+		map.put("field", field);
+		map.put("category", category);
+		return sqlSession.selectList("com.withdog.mappers.boardMapper.getList", map);
 	}
 }

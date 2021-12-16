@@ -471,6 +471,11 @@
                     <h2 class="m_box_ttl"><span>최신</span> 여행숙소</h2>
                     <p><a class="m_box_more" onclick="location.href='hotelList';">+ 더보기</a></p>
                 </div>
+                <c:if test="${empty h_list}">
+					<li>
+						<h1 style="margin:40px 0 40px 0;">등록된 숙소가 없습니다.</h1>
+					</li>
+				</c:if>
                 <div class="m_album_note_wrap">
                 	<c:forEach items="${h_list}" var="h_info" varStatus="st">
 	                    <div class=${st.count % 2 == 0?"'m_album_box mgr_0'":"'m_album_box mgl_0'"} onclick="location.href='hotelDetail?h_id=${h_info.h_id}'">
@@ -497,6 +502,11 @@
                     <h2 class="m_box_ttl"><span>BEST</span> 여행앨범</h2>
                     <p><a class="m_box_more" onclick="location.href='ReviewPage?num=1';">+ 더보기</a></p>
                 </div>
+                <c:if test="${empty mb_list}">
+					<li>
+						<h1 style="margin:40px 0 40px 0;">등록된 앨범이 없습니다.</h1>
+					</li>
+				</c:if>
                 <div class="m_album_note_wrap">
                 	<c:forEach items="${mb_list}" var="mb_info" varStatus="st">
                 		<div class=${st.count % 2 == 0?"'m_album_box mgr_0'":"'m_album_box mgl_0'"} onclick="location.href='detailReviewPage?mb_id=${mb_info.mb_id}'">

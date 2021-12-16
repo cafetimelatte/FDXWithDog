@@ -57,6 +57,8 @@
 			<mapping path="/bookingListM"/>
 			<mapping path="/updateBookingM"/>
 			<mapping path="/deleteBookingM"/>
+			<mapping path="/deleteReviewM"/>
+			<mapping path="/ReviewPageM"/>
 			<beans:bean class="com.withdog.interceptor.AdminInterceptor"/>
 		</interceptor> -->
 	</interceptors>

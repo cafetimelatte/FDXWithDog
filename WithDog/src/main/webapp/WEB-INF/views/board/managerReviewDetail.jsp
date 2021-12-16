@@ -50,13 +50,13 @@
 			<div class="h21_com_sm_tab pa">
 				<ul>
 					<li id="taball">
-						<a onclick="go_link('ReviewPage?num=1')">전체목록</a>
+						<a onclick="go_link('ReviewPageM?num=1')">전체목록</a>
 					</li>
 					<li id="tabbest">
 						<a onclick="storeDel()">베스트글</a>
 					</li>
 					<li id="tabreview">
-						<a onclick="go_link('ReviewPage?num=1')">여행후기</a>
+						<a onclick="go_link('ReviewPageM?num=1')">여행후기</a>
 					</li>
 				</ul>
 			</div>
@@ -110,9 +110,9 @@
 					<span class="button_list"> 
 						<a href="${path}ReviewPage?num=1">목록</a>
 					</span>
-					<c:if test="${loginEmail eq detail.m_id}">
-						<a href="${path}update?mb_id=${detail.mb_id}" role="button" onclick="return confirm('수정 하시겠습니까?');">수정</a> | 
-						<a href="${path}delete?mb_id=${detail.mb_id}" role="button" onclick="return confirm('삭제 하시겠습니까?');">삭제</a>
+					<c:if test="${loginEmail eq 'admin@gmail.com'}">
+						<a href="${path}updateM?mb_id=${detail.mb_id}" onclick="return confirm('수정 하시겠습니까?');" role="button">수정</a> | 
+						<a href="${path}deleteM?mb_id=${detail.mb_id}" onclick="return confirm('삭제 하시겠습니까?');" role="button">삭제</a>
 					</c:if>
 						
 					<span class="button_report" style="margin: auto;"> 
@@ -161,7 +161,7 @@
 									</dd>
 
 								</dl>
-								<c:if test="${loginEmail eq detail.m_id}">
+								<c:if test="${loginEmail eq 'admin@gmail.com'}">
 									<div class="s21_review_ico pa">
 										<button type="button" name="btn_reply_Update"
 											class="btn_reply_Update">수정</button> | 

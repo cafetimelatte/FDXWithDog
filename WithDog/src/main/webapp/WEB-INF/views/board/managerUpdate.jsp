@@ -74,7 +74,7 @@
 				<img src="http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/community/btn_prev.png" alt="뒤로">
 			</a>
 		</div>
-		<form name="update" method="POST" action="${path}updatePro" enctype="multipart/form-data">
+		<form name="update" method="POST" action="${path}updateProM" enctype="multipart/form-data">
 			<div class="h21_width800px">
 				<div class="h21_community_view_stop">
 					<div class="c_info pr">

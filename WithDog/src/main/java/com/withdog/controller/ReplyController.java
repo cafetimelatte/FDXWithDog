@@ -1,6 +1,7 @@
 package com.withdog.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,13 +23,18 @@ public class ReplyController {
 	
 	// 댓글 작성
 	@RequestMapping(value = "replywrite", method = RequestMethod.POST)
-	public String posttWirte(ReplyDTO dto, int mb_id, String mbre_content) {
+	public String posttWirte(ReplyDTO dto, int mb_id, String mbre_content, HttpServletRequest request) {
 		ReplyDTO replyDTO = new ReplyDTO();
 		replyDTO.setMbre_content(mbre_content);
 		replyDTO.setMb_id(mb_id);
 		System.out.println(mb_id + mbre_content);
+		HttpSession session = request.getSession();
+		String m_id = (String)session.getAttribute("loginEmail");
 		
 		replyService.write(dto);
+		if(m_id.equals("admin@gmail.com")) {
+			return "redirect:detailReviewPageM?mb_id="+mb_id;
+		}
 		String redirect_url = "redirect:detailReviewPage?mb_id="+Integer.toString(mb_id);
 		return redirect_url;
 	}

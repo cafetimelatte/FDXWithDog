@@ -8,12 +8,8 @@ public class ReplyDTO {
 	private String m_id;
 	private int mb_id;
 	private int h_id;
+	private String m_nick;
 	
-	@Override
-	public String toString() {
-		return "ReplyDTO [mbre_id=" + mbre_id + ", mbre_content=" + mbre_content + ", mbre_regidate=" + mbre_regidate
-				+ ", m_id=" + m_id + ", mb_id=" + mb_id + ", h_id=" + h_id + "]";
-	}
 	public int getMbre_id() {
 		return mbre_id;
 	}
@@ -49,6 +45,17 @@ public class ReplyDTO {
 	}
 	public void setH_id(int h_id) {
 		this.h_id = h_id;
+	}
+	public String getM_nick() {
+		return m_nick;
+	}
+	public void setM_nick(String m_nick) {
+		this.m_nick = m_nick;
+	}
+	@Override
+	public String toString() {
+		return "ReplyDTO [mbre_id=" + mbre_id + ", mbre_content=" + mbre_content + ", mbre_regidate=" + mbre_regidate
+				+ ", m_id=" + m_id + ", mb_id=" + mb_id + ", h_id=" + h_id + ", m_nick=" + m_nick + "]";
 	}
 	
 

@@ -16,7 +16,7 @@ public class AdminInterceptor extends HandlerInterceptorAdapter{
 		
 		HttpSession session = request.getSession(false);
 		String auth = (String)session.getAttribute("loginEmail");
-		if( auth!= null && auth.equals("admin")) {
+		if( auth!= null && auth.equals("admin@gmail.com")) {
 			return true;
 		} else {
 			response.setContentType("text/html; charset=UTF-8");

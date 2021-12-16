@@ -36,4 +36,6 @@ public interface boardDAO {
 
 	// 예약내역 가져오기
 	List<BookingDto> getBookingList(String m_id);
+
+	List<boardDTO> listPage(int displayPost, int postNum, String field, String category);
 }

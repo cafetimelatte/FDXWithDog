@@ -10,7 +10,7 @@
 						<li class="line">|</li>
 						<c:choose>
 							<c:when test="${loginRs eq 1}">
-								<c:if test="${loginEmail eq 'admin'}">
+								<c:if test="${loginEmail eq 'admin@gmail.com'}">
 									<li class=""><a onclick="location.href='logout'">로그아웃 </a></li>
 									<li class="line">|</li>
 									<li class="">${loginEmail}</li>
@@ -18,8 +18,10 @@
 									<li class=""><a onclick="location.href='hotelListM'">숙소관리</a></li>
 									<li class="line">|</li>
 									<li class=""><a onclick="location.href='bookingListM'">예약관리</a></li>
+									<li class="line">|</li>
+									<li class=""><a onclick="location.href='ReviewPageM?num=1'">앨범관리</a></li>
 								</c:if>
-								<c:if test="${loginEmail ne 'admin'}">
+								<c:if test="${loginEmail ne 'admin@gmail.com'}">
 									<li class=""><a onclick="location.href='logout'">로그아웃 </a></li>
 									<li class="line">|</li>
 									<li class="">${loginEmail}</li>
