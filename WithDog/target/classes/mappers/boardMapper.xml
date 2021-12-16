@@ -5,8 +5,8 @@
 <mapper namespace="com.withdog.mappers.boardMapper">
 
 	<insert id="write" parameterType="com.withdog.dto.boardDTO">
-		 insert into mainboard (mb_id, mb_title, mb_content, mb_img, mb_hit, mb_regidate)
-		 	VALUES (mainboard_seq.nextval, #{mb_title}, #{mb_content}, #{mb_img}, #{mb_hit}, sysdate)
+		 insert into mainboard (mb_id, mb_title, mb_content, mb_img, mb_hit, mb_regidate, h_id, m_id)
+		 	VALUES (mainboard_seq.nextval, #{mb_title}, #{mb_content}, #{mb_img}, #{mb_hit}, sysdate, #{h_id}, #{m_id, jdbcType=VARCHAR})
 	</insert>
 	
 	<update id="hitboard" parameterType="int">

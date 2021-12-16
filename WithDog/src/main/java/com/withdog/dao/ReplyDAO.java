@@ -13,7 +13,7 @@ public interface ReplyDAO {
 		  int write(ReplyDTO dto);
 	  
 	  // 댓글 수정
-		  int update(ReplyDTO dto);
+		  int update(int mbre_id, String mbre_content);
 	  
 	  // 댓글 삭제
 		  int delete(int mbre_id); 

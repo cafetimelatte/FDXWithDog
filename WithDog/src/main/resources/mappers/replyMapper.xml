@@ -17,7 +17,7 @@
 </insert>
 	
 <!-- 댓글 수정 -->
-<update id="replyUpdate" parameterType="com.withdog.dto.ReplyDTO">
+<update id="replyUpdate"  parameterType="java.util.HashMap">
 	update mbreply set mbre_content = #{mbre_content}
 	where mbre_id = #{mbre_id}
 </update>

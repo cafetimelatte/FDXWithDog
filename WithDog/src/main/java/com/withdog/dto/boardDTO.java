@@ -8,8 +8,8 @@ public class boardDTO {
 	private String mb_img;
 	private int mb_hit;
 	private String mb_regidate;
-	private String m_id;
 	private int h_id;
+	private String m_id;
 	
 
 	public boardDTO() {
