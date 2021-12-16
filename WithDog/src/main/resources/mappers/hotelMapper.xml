@@ -21,33 +21,34 @@
 										or h_add3 like '%'||#{field}||'%'
 									</when>
 								</choose>
-				                order by h_regidate desc)h
-				        where rownum between 1 and 6) h left join (select h_id, count(h_id) cnt
+				                order by h_regidate desc)h) h left join (select h_id, count(h_id) cnt
 				                                                    from mainboard
 				                                                    group by h_id) mb
 				on h.h_id = mb.h_id
+				where num between #{pageStart} and #{pageEnd}
 				order by num
 										
 			</when>
 			<when test="order == 'review'">
-				select rownum, h.*
-				from(select nvl(mb.cnt,0) h_mbCnt, h.h_id, h.h_name, h.h_info, h.h_img, h.h_regiDate
-				from (select h_id, count(h_id) cnt
-				        from mainboard
-				        group by h_id) mb right join hotel h
-				on mb.h_id = h.h_id
-				<choose>
-					<when test="category == 'h_name'">
-						where h_name like '%'||#{field}||'%'
-					</when>
-					<when test="category == 'add'">
-						where h_add1 like '%'||#{field}||'%'
-						or h_add2 like '%'||#{field}||'%'
-						or h_add3 like '%'||#{field}||'%'
-					</when>
-				</choose>
-				order by h_mbCnt desc, h.h_regidate desc) h
-				where rownum between 1 and 6
+				select *
+				from(select rownum num, h.*
+					from(select nvl(mb.cnt,0) h_mbCnt, h.h_id, h.h_name, h.h_info, h.h_img, h.h_regiDate
+						from (select h_id, count(h_id) cnt
+						        from mainboard
+						        group by h_id) mb right join hotel h
+						on mb.h_id = h.h_id
+						<choose>
+							<when test="category == 'h_name'">
+								where h_name like '%'||#{field}||'%'
+							</when>
+							<when test="category == 'add'">
+								where h_add1 like '%'||#{field}||'%'
+								or h_add2 like '%'||#{field}||'%'
+								or h_add3 like '%'||#{field}||'%'
+							</when>
+						</choose>
+					order by h_mbCnt desc, h.h_regidate desc) h)
+				where num between #{pageStart} and #{pageEnd}
 			</when>
 		</choose>
 	</select>
