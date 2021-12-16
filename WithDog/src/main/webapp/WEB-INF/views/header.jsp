@@ -71,7 +71,7 @@
 					<li class="" onclick="Store.clear()"><a
 						onclick="top.location.href='hotelList';"><span>숙소</span></a></li>
 					<li class="" onclick="Store.clear()"><a
-						onclick="top.location.href='ReviewPage?num=1';"><span>후기게시판</span></a></li>
+						onclick="top.location.href='ReviewPage?num=1';"><span>여행앨범</span></a></li>
 				</ul>
 			</div>
 		</nav>

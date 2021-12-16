@@ -54,7 +54,7 @@ public class UploadFileUtils {
 			File dirPath = new File(uploadPath + path);
 
 			if (!dirPath.exists()) {
-				dirPath.mkdir();
+				dirPath.mkdirs();
 			}
 		}
 	}

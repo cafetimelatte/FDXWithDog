@@ -62,7 +62,7 @@
 	                                    <dt>숙소명</dt>
 	                                    <dd>${h_booking.h_name}</dd>
 	                                    <dt>예약자</dt>
-	                                    <dd>${loginEmail}</dd>
+	                                    <dd>${m_info.m_nick}</dd>
 	                                </dl>
 	                            </li>
 	                            <li>

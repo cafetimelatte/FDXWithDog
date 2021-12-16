@@ -27,66 +27,70 @@
 	<jsp:include page="../header.jsp"/>
 	<!-- //header -->
 	
-		<div class="h21_community_s_top pr">
-			<div class="h21_top_cbox pr area">
-				<h3 class="">
-					위드독<span> 여행후기</span>
-				</h3>
-				<p class="h21_h3_line_c"></p>
-				<p class="h21_h3_text_c">위드독에서 우리 반려견에 대한 이야기를 공유해보세요.</p>
-			</div>
+	<div class="h21_community_s_top pr">
+		<div class="h21_top_cbox pr area">
+			<h3 class="">
+				위드독<span> 여행후기</span>
+			</h3>
+			<p class="h21_h3_line_c"></p>
+			<p class="h21_h3_text_c">위드독에서 우리 반려견에 대한 이야기를 공유해보세요.</p>
 		</div>
-		<div class="s21_sm_search_box area pr">
-			<div class="h21_com_sm_tab pa">
-				<ul>
-					<li id="taball">
-						<a onclick="go_link('ReviewPage?num=1')">전체목록</a>
-					</li>
-					<li id="tabbest">
-						<a onclick="storeDel()">베스트글</a>
-					</li>
-					<li id="tabreview">
-						<a onclick="go_link('ReviewPage?num=1')">여행후기</a>
-					</li>
-				</ul>
-			</div>
+	</div>
+	<div class="s21_sm_search_box area pr">
+		<div class="h21_com_sm_tab pa">
+			<ul>
+				<li id="taball">
+					<a onclick="go_link('ReviewPage?num=1')">전체목록</a>
+				</li>
+				<li id="tabbest">
+					<a onclick="storeDel()">베스트글</a>
+				</li>
+				<li id="tabreview">
+					<a onclick="go_link('ReviewPage?num=1')">여행후기</a>
+				</li>
+			</ul>
 		</div>
-<script>
-function go_link(link){ location.href=link; } 
-</script>
-		<div class="h21_community pr area">
-			<div class="h21_com_btn_prev">
-				<a href="${path}ReviewPage?num=1">
-					<img src="http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/community/btn_prev.png" alt="뒤로">
-				</a>
-			</div>
-			<form name = "update" method = "POST" action ="${path}updatePro" enctype="multipart/form-data">
-				<div class="h21_width800px">
-					<div class="h21_community_view_stop">
-						<div class="c_info pr">
-							<span class="com_division">
-								여행후기
-							</span> 
-						</div>
+	</div>
+	<script>
+		function go_link(link){ location.href=link; } 
+	</script>
+	<div class="h21_community pr area">
+		<div class="h21_com_btn_prev">
+			<a href="${path}ReviewPage?num=1">
+				<img src="http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/community/btn_prev.png" alt="뒤로">
+			</a>
+		</div>
+		<form name = "update" method = "POST" action ="${path}updatePro" enctype="multipart/form-data">
+			<div class="h21_width800px">
+				<div class="h21_community_view_stop">
+					<div class="c_info pr">
+						<span class="com_division">
+							여행후기
+						</span> 
 					</div>
-					<div class="h21_community_view">
-						<span class = "h21_write_input last_bottom_line">
-							<h5>제목</h5>
-							<input type="text" name="mb_title" id="mb_title" placeholder="${detail.mb_title}" />
-						</span>
-						
-						<input type="hidden" name="mb_id" value="${detail.mb_id}"/>
-						
-						<span class="h21_write_textarea">
-							<textarea id="mb_content" name="mb_content" style="" class="s21_je_textarea" placeholder="${detail.mb_content}"></textarea>
-						</span>
-						
-						<div class="h21_write_btn">
-							<div class="h21_btn_cancel"><a href="${path}ReviewPage?num=1">취소</a></div>
-							<div class="h21_btn_write"><button type="submit"><a>등록</a></button></div>
-					    </div>
-				  </div>
-			</form>
-		</div>
+				</div>
+				<div class="h21_community_view">
+					<span class = "h21_write_input last_bottom_line">
+						<h5>제목</h5>
+						<input type="text" name="mb_title" id="mb_title" placeholder="${detail.mb_title}" />
+					</span>
+					
+					<input type="hidden" name="mb_id" value="${detail.mb_id}"/>
+					
+					<span class="h21_write_textarea">
+						<textarea id="mb_content" name="mb_content" style="" class="s21_je_textarea" placeholder="${detail.mb_content}"></textarea>
+					</span>
+					
+					<div class="h21_write_btn">
+						<div class="h21_btn_cancel"><a href="${path}ReviewPage?num=1">취소</a></div>
+						<div class="h21_btn_write"><button type="submit"><a>등록</a></button></div>
+				    </div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<!-- footer -->
+	<jsp:include page="../footer.jsp"/>
+	<!-- //footer -->
 </body>
 </html>

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,7 +37,10 @@ public class BoardController {
 	private String uploadPath;
 	
 	@RequestMapping(value = "writeReview", method = RequestMethod.GET)
-	public String getwrite() throws Exception{
+	public String getwrite(HttpServletRequest request, Model model) throws Exception{
+		HttpSession session = request.getSession();
+		String m_id = (String)session.getAttribute("loginEmail");
+		model.addAttribute("bookingList", boardService.getBookingList(m_id));
 		return "board/writeReview";
 	}
 	
@@ -52,7 +56,7 @@ public class BoardController {
 			fileName = uploadPath + File.separator + "images" + File.separator + "none.png";
 		}
 
-		dto.setMb_img(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
+		dto.setMb_img("imgUpload" + ymdPath + File.separator + fileName);
 		boardService.write(dto);
 		
 		return "board/writeReviewpro";

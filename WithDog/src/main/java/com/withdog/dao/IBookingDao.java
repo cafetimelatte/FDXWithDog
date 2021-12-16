@@ -6,6 +6,7 @@ import java.util.List;
 import com.withdog.dto.BookingDto;
 import com.withdog.dto.CriteriaDto;
 import com.withdog.dto.HotelDto;
+import com.withdog.dto.MemberDto;
 
 public interface IBookingDao {
 	
@@ -17,5 +18,6 @@ public interface IBookingDao {
 	int getBookingCount(HashMap<String, Object> map);
 	List<BookingDto> getBookingListM(CriteriaDto cDto);
 	List<BookingDto> getBookingList(String m_id);
+	MemberDto getMemberInfo(String m_id);
 	
 }

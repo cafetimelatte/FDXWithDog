@@ -463,9 +463,9 @@
             <!--// 이벤트배너 -->
         </div>
 
-        <!-- m06 여행앨범/여행노트 -->
+        <!-- 최신숙소/인기게시글 -->
         <div class="m_box6 area aos-init" data-aos="fade-up">
-            <!-- 여행앨범 -->
+            <!-- 최신숙소 -->
             <div class="m_box6_album">
                 <div class="m_box_ttlbox">
                     <h2 class="m_box_ttl"><span>최신</span> 여행숙소</h2>
@@ -490,56 +490,29 @@
                 	</c:forEach>
                 </div>
             </div>
-            <!--// 여행앨범 -->
-            <!-- 여행노트 -->
+            <!--// 최신숙소 -->
+            <!-- 인기여행앨범 -->
             <div class="m_box6_note">
                 <div class="m_box_ttlbox">
-                    <h2 class="m_box_ttl"><span>BEST</span> 여행노트</h2>
-                    <p><a class="m_box_more" onclick="page_move('http://hatdog.co.kr/pc_hatdog/?m1Code=note&amp;m2Code=note', 'H');">+ 더보기</a></p>
+                    <h2 class="m_box_ttl"><span>BEST</span> 여행앨범</h2>
+                    <p><a class="m_box_more" onclick="location.href='ReviewPage?num=1';">+ 더보기</a></p>
                 </div>
                 <div class="m_album_note_wrap">
-                    <div class="m_album_box mgl_0" onclick="page_move('http://hatdog.co.kr/pc_hatdog/?m1Code=note&amp;m2Code=note&amp;mode=view&amp;note_idx=556', 'H');">
-                        <p class="m_album_listimg"><a><img src="http://appdata.hungryapp.co.kr/images/hatdog/note/202107/M16258852318706090.jpg/hungryapp/resize/290" alt=""></a></p>
-                        <div class="m_album_profile">
-                            <p> <img src="http://appdata.hungryapp.co.kr/images/hatdog/upload/202107/M16258856687949490.jpg/hungryapp/resize/50x50" alt=""> </p>
-                            <dl>
-                                <dt>첫생일파티</dt>
-                                <dd>지혀니이</dd>
-                            </dl>
-                        </div>
-                    </div>
-                    <div class="m_album_box mgr_0" onclick="page_move('http://hatdog.co.kr/pc_hatdog/?m1Code=note&amp;m2Code=note&amp;mode=view&amp;note_idx=563', 'H');">
-                        <p class="m_album_listimg"><a><img src="http://appdata.hungryapp.co.kr/images/hatdog/note/202107/M16270010211649110.jpg/hungryapp/resize/290" alt=""></a></p>
-                        <div class="m_album_profile">
-                            <p> <img src="http://appdata.hungryapp.co.kr/images/hatdog/upload/202104/M161864582375040241.jpg/hungryapp/resize/50x50" alt=""> </p>
-                            <dl>
-                                <dt>연천 위드독펜션 2박3일</dt>
-                                <dd>기린짱츄</dd>
-                            </dl>
-                        </div>
-                    </div>
-                    <div class="m_album_box mgl_0" onclick="page_move('http://hatdog.co.kr/pc_hatdog/?m1Code=note&amp;m2Code=note&amp;mode=view&amp;note_idx=557', 'H');">
-                        <p class="m_album_listimg"><a><img src="http://appdata.hungryapp.co.kr/images/hatdog/note/202107/M16259757634888352.jpg/hungryapp/resize/290" alt=""></a></p>
-                        <div class="m_album_profile">
-                            <p> <img src="http://appdata.hungryapp.co.kr/images/hatdog/img/common/login_logoutimg.jpg/hungryapp/resize/50x50" alt=""> </p>
-                            <dl>
-                                <dt>카페 넘 좋았어요.</dt>
-                                <dd>겁보까미의성장일</dd>
-                            </dl>
-                        </div>
-                    </div>
-                    <div class="m_album_box mgr_0" onclick="page_move('http://hatdog.co.kr/pc_hatdog/?m1Code=note&amp;m2Code=note&amp;mode=view&amp;note_idx=569', 'H');">
-                        <p class="m_album_listimg"><a><img src="http://appdata.hungryapp.co.kr/images/hatdog/note/202108/M16280456440390059.jpg/hungryapp/resize/290" alt=""></a></p>
-                        <div class="m_album_profile">
-                            <p> <img src="http://appdata.hungryapp.co.kr/images/hatdog/upload/202107/M16262285655791315.jpg/hungryapp/resize/50x50" alt=""> </p>
-                            <dl>
-                                <dt>우비의 통영여행</dt>
-                                <dd>코코우비</dd>
-                            </dl>
-                        </div>
-                    </div>
+                	<c:forEach items="${mb_list}" var="mb_info" varStatus="st">
+                		<div class=${st.count % 2 == 0?"'m_album_box mgr_0'":"'m_album_box mgl_0'"} onclick="location.href='detailReviewPage?mb_id=${mb_info.mb_id}'">
+	                        <p class="m_album_listimg"><a><img src="http://appdata.hungryapp.co.kr/images/hatdog/note/202107/M16258852318706090.jpg/hungryapp/resize/290" alt=""></a></p>
+	                        <div class="m_album_profile">
+	                            <p> <img src="http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/main/icon_tourism_line.png?ver=2" alt="${mb_info.mb_title}"> </p>
+	                            <dl>
+	                                <dt>${mb_info.mb_title}</dt>
+	                                <dd>${mb_info.m_nick}</dd>
+	                            </dl>
+	                        </div>
+                		</div>
+                	</c:forEach>
                 </div>
             </div>
+            <!-- //인기여행앨범 -->
         </div>
     </div>
 

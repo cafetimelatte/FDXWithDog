@@ -30,7 +30,10 @@ public class BookingController {
 	IBookingService bookingService;
 	
 	@RequestMapping(value="/booking", method=RequestMethod.GET)
-	public String booking(int h_id, Model model) {
+	public String booking(int h_id, HttpServletRequest request, Model model) {
+		HttpSession session = request.getSession();
+		String m_id = (String)session.getAttribute("loginEmail");
+		model.addAttribute("m_info", bookingService.getMemberInfo(m_id));
 		model.addAttribute("h_booking",bookingService.getHotelInfo(h_id));
 		return "booking/bookingAdd";
 	}

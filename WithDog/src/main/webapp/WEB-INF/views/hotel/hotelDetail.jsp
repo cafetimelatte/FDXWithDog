@@ -187,7 +187,7 @@
 						<div class="s21_review_box">
 							<div class="s21_review_tit pr">
 								<h5>유저리뷰 <span id="review_total"><c:forEach items="${h_review}" varStatus="rvCnt">${rvCnt.last?rvCnt.count:''}</c:forEach></span></h5>
-								<button type="button" class="s21_review_wbtn pa" onclick="review_set('in','')">리뷰작성 →</button>
+								<button type="button" class="s21_review_wbtn pa" onclick="location.href='writeReview'">리뷰작성 →</button>
 							</div>
 							
 							<div class="s21_review_listb" id="review_list">
@@ -197,7 +197,7 @@
 									<a href="detailReviewPage?mb_id=${rv.mb_id}">
 									<p><img src="http://appdata.hungryapp.co.kr/images/hatdog/img/common/login_logoutimg.jpg/hungryapp/resize/200x200"></p>
 									<dl>
-										<dt class="pr">${rv.m_id}<span>${rv.mb_regidate}</span></dt>
+										<dt class="pr">${rv.m_nick}<span>${rv.mb_regidate}</span></dt>
 										<dd>${rv.mb_content}</dd>
 									</dl>
 									</a>

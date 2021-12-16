@@ -353,7 +353,7 @@
 									<a href="detailReviewPage?mb_id=${rv.mb_id}">
 									<p><img src="http://appdata.hungryapp.co.kr/images/hatdog/img/common/login_logoutimg.jpg/hungryapp/resize/200x200"></p>
 									<dl>
-										<dt class="pr">${rv.m_id}<span>${rv.mb_regidate}</span></dt>
+										<dt class="pr">${rv.m_nick}<span>${rv.mb_regidate}</span></dt>
 										<dd>${rv.mb_content}</dd>
 									</dl>
 									</a>

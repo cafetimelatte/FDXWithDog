@@ -79,7 +79,7 @@
 							</span> 
 							<span class="d_name"> 
 								<span class="d_level"> </span>
-								${detail.m_id}
+								${detail.m_nick}
 							</span> 
 							<span class="d_date">ㅣ ${detail.mb_regidate}</span> 
 							<span class="d_hit">ㅣ 조회 

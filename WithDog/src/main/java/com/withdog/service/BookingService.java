@@ -10,6 +10,7 @@ import com.withdog.dao.IBookingDao;
 import com.withdog.dto.BookingDto;
 import com.withdog.dto.CriteriaDto;
 import com.withdog.dto.HotelDto;
+import com.withdog.dto.MemberDto;
 
 @Service
 public class BookingService implements IBookingService {
@@ -62,6 +63,11 @@ public class BookingService implements IBookingService {
 	@Override
 	public List<BookingDto> getBookingListM(CriteriaDto cDto) {
 		return dao.getBookingListM(cDto);
+	}
+
+	@Override
+	public MemberDto getMemberInfo(String m_id) {
+		return dao.getMemberInfo(m_id);
 	}
 
 

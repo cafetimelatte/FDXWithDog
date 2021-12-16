@@ -97,8 +97,9 @@
 	</insert>
 	
 	<select id="getHotelReview" parameterType="int" resultType="com.withdog.dto.boardDTO">
-		select *
-		from mainboard
+		select m.m_nick, mb.*
+		from mainboard mb left join member m
+		on mb.m_id = m.m_id
 		where h_id = #{h_id}
 	</select>
 	

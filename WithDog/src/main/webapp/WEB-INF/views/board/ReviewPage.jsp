@@ -70,7 +70,7 @@
 						</a>
 					</div>
 					<script>
-					function go_link(link){ location.href=link; } 
+						function go_link(link){ location.href=link; } 
 					</script>
 				</div>
         	</div>
@@ -92,12 +92,12 @@
 	                <input type="hidden" id="page" name="page" value="0">
 	            </form>
 	            <div class="s21_tour_list_box">
-	            	<c:forEach var="ReviewPage" items="${list}">
-	            		<a onclick="Store.set('ab_m_scroll',document.documentElement.scrollTop)" href="${path}detailReviewPage?mb_id=${ReviewPage.mb_id}">
-	                    	<div class="s21_tour_list_conts pr ">
+	            	<c:forEach var="ReviewPage" items="${list}" varStatus="st">
+	            		<a href="${path}detailReviewPage?mb_id=${ReviewPage.mb_id}">
+	                    	<div class=${st.count % 3 == 0?"'s21_tour_list_conts pr mgr_0'":"'s21_tour_list_conts pr'"} >
 	                        	<dl class="s21_tour_list_photo">
 	                            	<dt>
-	                                	<img src="resources/${ReviewPage.mb_img}" alt="">
+	                                	<img src="${ReviewPage.mb_img}" alt="">
 	                                   		<%-- ${listReview.img} 첫번째 이미지--%>
 	                                </dt>
 	                                   <!--  <dd>
@@ -109,23 +109,21 @@
 	                                    	<%-- ${listReview.img} 세번째 이미지--%>
 	                                    </dd> -->
 	                        	</dl>
-	                                <div class="s21_tour_list_tbox">
-	                                    <h4 class="s21_best_tip">
-	                                    	<a href="${path}detailReviewPage?mb_id=${ReviewPage.mb_id}">${ReviewPage.mb_title}</a>
-	                                    </h4>
-	                                    <div class="s21_album_desc" onclick="">
-	                                        <div class="s21_album_desc_bx pr">
-	                                            <p>
-	                                            	<img src="http://appdata.hungryapp.co.kr/images/hatdog/img/common/login_logoutimg.jpg/hungryapp/resize/200" alt="">
-	                                            </p>
-	                                            <dl>
-	                                                <dt>${ReviewPage.mb_title}</dt>
-	                                                <dd>${ReviewPage.mb_regidate}</dd>
-	                                            </dl>
-	                                        </div>
-	                                   </div>
-	                             </div>
-	                    	</div>
+								<div class="s21_tour_list_tbox">
+									<h4 class="s21_best_tip">${ReviewPage.mb_title}</h4>
+									<div class="s21_album_desc" onclick="">
+										<div class="s21_album_desc_bx pr">
+											<p>
+												<img src="http://appdata.hungryapp.co.kr/images/hatdog/img/common/login_logoutimg.jpg/hungryapp/resize/200" alt="">
+											</p>
+											<dl>
+												<dt>${ReviewPage.m_nick}</dt>
+												<dd>${ReviewPage.mb_regidate}</dd>
+											</dl>
+										</div>
+									</div>
+								</div>
+							</div>
 	                    </a>
 	            	</c:forEach>
 	            </div>
