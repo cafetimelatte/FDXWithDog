@@ -74,6 +74,7 @@ function go_link(link){ location.href=link; }
 						<span class = "h21_write_input last_bottom_line">
 							<h5>제목</h5>
 							<input type="text" name="mb_title" id="mb_title" placeholder="제목을 입력해주세요." />
+							<input type="hidden" name="m_id" value="${loginEmail}"/>
 						</span>
 						<span class = "h21_write_input last_bottom_line">
 							<h5>호텔번호</h5>
@@ -106,7 +107,8 @@ function go_link(link){ location.href=link; }
 						<div class="h21_btn_write"><button type="submit"><a>등록</a></button></div>
 					</div>
 				</div>
-			</form>
-		</div>
+			</div>
+		</form>
+	</div>
 </body>
 </html>

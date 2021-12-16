@@ -34,7 +34,7 @@
 							</c:otherwise>
 						</c:choose>
 					<li class="line">|</li>
-					<li class=""><a onclick="location.href=''">고객센터</a></li>
+					<li class=""><a onclick="location.href='CslistPage'">고객센터</a></li>
 				</ul>		
 			</div>
 		</div>
