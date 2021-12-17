@@ -132,7 +132,6 @@ public class MemberController {
 				return "forward:/login";
 			}else {
 				msg = userId + "는 가입이되지않거나/닉네임이 틀렸습니다";
-				
 			}
 			request.setAttribute("msg", msg);
 		}
