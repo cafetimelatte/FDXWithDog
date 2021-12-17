@@ -46,6 +46,7 @@
 			<mapping path="/writeReview"/>
 			<mapping path="/CslistPage"/>
 			<mapping path="/writeReviewpro"/>
+			<mapping path="/replywrite"/>
 			<beans:bean class="com.withdog.interceptor.IdCheckInterceptor"/>
 		</interceptor>
 		<!-- <interceptor>
