@@ -107,17 +107,26 @@
 							<img id="icon_like10386" src="http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/community/icon_like_off.png" alt="좋아요">
 						</a>
 					</span> 
-					<span class="button_list"> 
-						<a href="${path}ReviewPage?num=1">목록</a>
-					</span>
-					<c:if test="${loginEmail eq detail.m_id}">
-						<a href="${path}update?mb_id=${detail.mb_id}" role="button" onclick="return confirm('수정 하시겠습니까?');">수정</a> | 
-						<a href="${path}delete?mb_id=${detail.mb_id}" role="button" onclick="return confirm('삭제 하시겠습니까?');">삭제</a>
-					</c:if>
-						
-					<span class="button_report" style="margin: auto;"> 
-						<a href="${path}CslistPage">신고</a>
-					</span>
+					<c:choose>
+						<c:when test="${loginRs == 1}">
+								<span class="button_list"> 
+									<a href="${path}update?mb_id=${detail.mb_id}" role="button" 
+										onclick="return confirm('수정 하시겠습니까?');">수정</a>
+								</span>
+								<span class="button_report" style="margin: auto;">
+									<a href="${path}delete?mb_id=${detail.mb_id}" role="button" 
+										onclick="return confirm('삭제 하시겠습니까?');">삭제</a>	
+								</span>	
+						</c:when>
+						<c:otherwise>
+							<span class="button_list"> 
+								<a href="${path}ReviewPage?num=1">목록</a>
+							</span>
+							<span class="button_report" style="margin: auto;"> 
+								<a href="${path}CslistPage">신고</a>
+							</span>							
+						</c:otherwise>
+					</c:choose>
 				</div>
 			</div>
 			
