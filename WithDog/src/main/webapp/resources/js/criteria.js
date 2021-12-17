@@ -55,6 +55,10 @@ $(document).on('click','#search',function(){
 
 function setHotelList(h_list){
 	var list = "";
+	$(".s21_tour_list_box").empty();
+	if (h_list.length == 0){
+		list += "<li><h1 style='margin:40px 0 40px 0;'>등록된 숙소가 없습니다.</h1></li>";
+	}
 	for(var i = 0; i < h_list.length; i++){
 		var cnt = i+1;
 		var imgs = h_list[i].h_img.split(",");
@@ -91,7 +95,7 @@ function setHotelList(h_list){
 		list += "<div class='s21_desc' onclick=''><div class='s21_d_comment'>";
 		list += "<p class='icon_comment'>댓글</p>" + h_list[i].h_mbCnt + "</div></div></div></div></a>";
 	}
-	$(".s21_tour_list_box").empty();
+
 	$(".s21_tour_list_box").append(list);
 }
 

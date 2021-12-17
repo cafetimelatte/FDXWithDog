@@ -122,6 +122,71 @@ function checkBookingInfo(event){
 	b.submit();
 }
 
+function checkBoardInfo(event){
+	var w = document.writeReview;
+	
+	if(!w.mb_title.value){
+		alert("제목을 입력해주세요.");
+		w.mb_title.focus();
+		return;
+	}
+	if(!w.h_id.value || w.h_id.value == ''){
+		alert("숙박하신 숙소를 선택해주세요.");
+		w.h_id.focus();
+		return;
+	}
+	if(!w.mb_content.value || w.mb_content.value.trim() == ''){
+		alert("내용을 입력해주세요.");
+		w.mb_content.focus();
+		return;
+	}
+	if(!w.mb_img.value){
+		alert("이미지를 선택해주세요.");
+		return;
+	}
+	w.submit();
+}
+
+function checkCsInfo(event){
+	var c = document.CslistPage;
+	
+	if(!c.cs_title.value){
+		alert("제목을 입력해주세요.");
+		c.cs_title.focus();
+		return;
+	}
+	if(!c.cs_content.value || c.cs_content.value.trim() == ''){
+		alert("내용을 입력해주세요.");
+		c.cs_content.focus();
+		return;
+	}
+	c.submit();
+}
+
+function checkReplyInfo(event){
+	var r = document.comment;
+	if(!r.mbre_content.value || r.mbre_content.value.trim() == ''){
+		alert("내용을 입력해주세요.");
+		r.mbre_content.focus();
+		return false;
+	}
+}
+
+function checkUpdateInfo(event){
+	var u = document.update;
+	if(!u.mb_title.value){
+		alert("제목을 입력해주세요.");
+		u.mb_title.focus();
+		return;
+	}
+	if(!u.mb_content.value || u.mb_content.value.trim() == ''){
+		alert("내용을 입력해주세요.");
+		u.mb_content.focus();
+		return;
+	}
+	u.submit();
+}
+
 function checkSearch(event){
 	var s = document.search;
 	var capitalChk = /[A-Z]/;
@@ -135,6 +200,22 @@ function checkSearch(event){
 		return false;
 	}
 	return true;
+}
+
+function checkReviewSearch(event){
+	var rs = document.search;
+	var numChk = /^[0-9]/g;
+	
+	if(!rs.f.value){
+		alert("검색어를 입력해주세요.");
+		rs.f.focus();
+		return;
+	}
+	if(rs.c.value == 'mb_id' && !numChk.test(rs.f.value)){
+		alert("게시글번호는 숫자로 입력해주세요.");
+		return;
+	}
+	rs.submit();
 }
 
 function validate(event){

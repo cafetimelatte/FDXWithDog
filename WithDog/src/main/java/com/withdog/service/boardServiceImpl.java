@@ -70,4 +70,16 @@ public class boardServiceImpl implements boardService{
 	public List<BookingDto> getBookingList(String m_id) {
 		return dao.getBookingList(m_id);
 	}
+
+	@Override
+	public List<boardDTO> listPage(int displayPost, int postNum, String field, String category) {
+		return dao.listPage(displayPost, postNum, field, category);
+	}
+
+	@Override
+	public void deleteReviewM(int[] mb_id) {
+		for (int i = 0; i < mb_id.length; i++) {
+			dao.delete(mb_id[i]);
+		}
+	}
 }
