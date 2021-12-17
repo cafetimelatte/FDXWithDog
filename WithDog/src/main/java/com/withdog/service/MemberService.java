@@ -17,4 +17,5 @@ public interface MemberService {
 	String encryptionPw(String pw); 
 	int changePw(String userEmail) throws EmailException;
 	int checkId(String id);
+	boolean deleteMember(String m_id, String m_pw);
 }

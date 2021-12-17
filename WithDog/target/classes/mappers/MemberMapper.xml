@@ -31,4 +31,8 @@
  	<update id="changePw" parameterType="map">
  		update member set m_pw=#{changePw} where m_id=#{id}
  	</update>
+
+ 	<delete id="deleteMember" parameterType="map">
+ 		delete member where m_id = #{m_id} and m_pw = #{m_pw}
+ 	</delete>
 </mapper>

@@ -104,24 +104,33 @@ public class MemberController {
 	
 	@RequestMapping("serchUser")
 	public String serchUser() {
-		return "serchID";
+		return "MyPage/serchID";
 	}
 	
 	@RequestMapping(value = "serchUserID", method = RequestMethod.POST)
-	public String serchUserID(HttpServletRequest request) throws UnsupportedEncodingException {
-		
+	public String serchUserID(HttpServletRequest request) throws Exception {	
 		request.setCharacterEncoding("UTF-8");	
 		String userId = request.getParameter("email") + request.getParameter("last_email");
 		String userNick = request.getParameter("nick");
+		String msg = "";
 		int fidnUser = memberService.checkId(userId);
 		System.out.println(fidnUser);
 		List<MemberDto> findReslut = memberService.findId(userId, userNick);
 		for(MemberDto dto : findReslut) {
 			if(userId.equals(dto.getM_id()) && userNick.equals(dto.getM_nick())) {
-				request.setAttribute("findList", findReslut);				
+				int emailResult = memberService.changePw(userId);
+				msg = userId + "로 메일을 전송했습니다";
+				System.out.println(emailResult);
+				request.setAttribute("findList", findReslut);
+				request.setAttribute("msg", msg);
+				return "forward:/login";
+			}else {
+				msg = userId + "는 가입이되지않거나/닉네임이 틀렸습니다";
+				
 			}
+			request.setAttribute("msg", msg);
 		}
-		return "home";
+		return "login";
 	}
 	@RequestMapping("chPw")
 	public String chPw() {
@@ -131,7 +140,6 @@ public class MemberController {
 	@ResponseBody
 	public int chPwdo(HttpServletRequest request) throws Exception {
 		String pwd = request.getParameter("pwd");
-		String msg = "";
 		int pwdCh = memberService.changePw(pwd);
 		return pwdCh;
 	}
@@ -144,7 +152,19 @@ public class MemberController {
 		request.setAttribute("searchPw", searchPw);
 		return "home";
 	}
-
 	
+	@RequestMapping(value = "Withdrawal", method = RequestMethod.POST)
+	@ResponseBody
+	public boolean deletMemeber(HttpServletRequest request, HttpSession session)throws Exception {
+		String m_id = request.getParameter("email");
+		String m_pw = request.getParameter("pwd");
+		boolean result = false;
+		result = memberService.deleteMember(m_id, m_pw);
+		if(result) {
+			session.invalidate();
+			return result;			
+		}
+		return result;
+	}
 	
 }

@@ -13,5 +13,6 @@ public interface memberDao {
 	List<MemberDto> findId(String userId, String userNick);
 	int checkId(String id);
 	void changePw(String changePw, String id);
+	boolean deleteMember(String m_id, String m_pw);
 
 }

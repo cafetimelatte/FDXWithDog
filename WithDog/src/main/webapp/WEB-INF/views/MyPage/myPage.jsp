@@ -23,7 +23,30 @@
 <script src="./resources/js/jquery.js"></script>
 <script src="./resources/js/swiper-bundle.min.js"></script>
 <script>
-
+	$(function(){
+		$('#WithdrawalBtn').click(function(){		
+			var email = '<%=session.getAttribute("loginEmail")%>';
+			if(confirm('삭제하시겠습니까?')){
+			var pwd = prompt('비밀번호를 한번더 입력해주세요.','');
+			}else{
+				location.reload();
+			}
+			$.ajax({
+				url : 'Withdrawal',
+				data: {'email' : email,'pwd':pwd},
+				type: 'post',
+				success: function(result){
+					if(result==1){						
+					alert('삭제되었습니다');
+					location.href='/WithDog/';
+					}
+				}, error : function(){
+					
+				}			
+			});
+		});
+	});
+	
 </script>
 <title>MyPage</title>
 </head>
@@ -67,10 +90,10 @@
 							</a>
 						</p>
 						<p class="h21_top_left_box_s">
-							<a href="?m1Code=mem&amp;m2Code=m_withdrawal"
-								class="code_view h21Btn1"> <span class="lb">회원탈퇴</span> <i
-								class="ico-arr2"></i>
-							</a>
+							<button type="submit" id="WithdrawalBtn" name="WithdrawalBtn" onclick="" class="code_view h21Btn1"> 
+								<span class="lb">회원탈퇴</span> 
+									<i class="ico-arr2"></i>
+							</button>
 						</p>
 					</div>
 				</div>

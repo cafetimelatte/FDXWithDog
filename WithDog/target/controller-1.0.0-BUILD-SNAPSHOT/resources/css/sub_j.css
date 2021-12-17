@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+/****** 커뮤니티 ***********/
+/*2020.01.20 김주희: sub.css의 -> .s21_review_list dd img{} 이걸 적용받아서 스타일 추가*/
+/*댓글 */
+.s21_review_list dd .imoticon_img img{display: block; width: 120px; max-height: 120px; min-width: 120px; min-height: 120px; margin:10px 0 5px 0;}
+.s21_je_form_btn .btn_emoticon img{max-width: 33px; max-height: 33px; min-width: 33px; min-height: 33px; margin: 0;}
+.s21_je_form_btn .btn_addimage img{max-width: 33px; max-height: 33px; min-width: 33px; min-height: 33px; margin: 0;}
+.h21_uploadimg_w ul li img{max-width: 129px; max-height: 90px; min-width: 129px; min-height: 90px; margin: 0;}
+.h21_mainemoticon img{max-width: 150px !important; max-height: 150px !important;min-width: 150px !important; min-height: 150px !important; margin: 0 25px !important;}
+.h21_emoticon_w ul li img{max-width: 75px !important; max-height: 75px !important;min-width: 75px !important; min-height: 75px !important; xmargin: 0 25px !important;}
+
+/*댓글 등록순 최신순 on */
+.s21_event_review_wbtn_on{border-radius:60px !important;background:#ff7700 !important;}
+
+/*2021.01.07 김주희 추가 여행지보기 > 스크롤시 탭메뉴 넓이*/
+.sticky {position: fixed;top: 0;margin: 0;z-index: 9999; min-width: 1260px;}
+
+/*2020.01.22 김주희: 오른쪽 퀵메뉴 z-index추가*/
+#quick{z-index:1}
+
+/*여행지정보 > 업체,장소추가요청에 이미지 첨부*/
+.upload_img_style{overflow: hidden; float:left; width:90px; height:60px; padding:0; border:1px solid #e5e5e5; margin:0 5px;}
+
+
+
+/*default.css에 색 지정 추가*/
+.f_tk{color:#ad7a00 ! important}/* 장소추천 김주희추가 */
+.f_pink{color:#fe3463 ! important}/* 여행후기 */
+.f_pink2{color:#d65baf ! important}/* 여행문의 */
+.f_purple{color:#6468f4 ! important}/* 맛집추천 */
+.f_orange2{color:#f98d3c ! important}/* 내반려견 */
+
+
+/*2020.01.26: 여행앨범 > 사진보기 > 브라우져 높이 값에 따라 이미지 높이가 달라져서 추가*/
+.s21_mainPopImg{max-height:100%}
+.s21_mainPop_text {z-index:1}
+.s21_ab_prev,.s21_ab_next{z-index:1}/*2020.01.27: 여행앨범 > 사진보기 > 뒤에 가려져 클릭이 안되어 줌*/
+
+
+
+/*커뮤니티 > 글보기*/
+.dot_tk{background:#ad7a00 ! important}/* 장소추천 김주희추가 */
+.dot_pink{background:#fe3463 ! important}/* 여행후기 */
+.dot_pink2{background:#d65baf ! important}/* 여행문의 */
+.dot_purple{background:#6468f4 ! important}/* 맛집추천 */
+.dot_orange2{background:#f98d3c ! important}/* 내반려견 */
+
+.h21_community_view p > iframe{width:100% !important}/*2021.01.18 김주희: 게시글보기 > 유튜브가 들어갈 경우 넓이값 100%주기 위해 추가*/
+.h21_community_view div{xxpadding:10px 0 10px 0; font-size: 18px; color:#a6a6a6; font-weight:300; line-height: 28px;}/*2021.01.04 김주희: 게시글보기 > 컨텐츠  div 태그로 되어 있어서 추가함*/
+
+
+.swiper-slide{cursor:pointer;}/*메인 팝업 손가락 표시*/
+
+
+/*일정관리 > 달력목록 > 이벤트 icon*/
+.s21_calendar_icons{text-align:center !important; margin:0px auto !important; width: 90% !important;}
+.s21_calendar_icons p{text-align:center !important;width:8px !important;height:8px !important; border-radius:100% !important; display:inline-block !important; margin:3px 4px !important ;z-index:9999;}
+
+/*일정관리 > 달력 > 일정등록 날짜 input 타입 추가*/
+.s21_write_select input{float:left;width:450px;font-size:16px;color:#000;font-weight:600;border:none; cursor:pointer}
+.s21_write_select select {cursor:pointer}/*일정등록 폼 */
+
+
+.btn_register_del a{padding:7px 12px !important; font-size:13px; background:#808080 !important; border:1px solid #808080 !important;}/*이벤트 > 댓글 > 내 댓글 삭제 버튼*/
+.s21_review_list dd {overflow:hidden;}/*이벤트 > 댓글 > 길경우 쭉 나와서 모바일과 같이 히든 처리*/
+
+.j21_win_placeholder{width:94%;margin:1% 20px;border-radius:25px;border:1px solid #efefef;padding:10px;background: #fafafa; color:#555; font-size: 15px;}/*이벤트 > 당첨자정보 등록 > 주의사항*/
+
+/*상단 검색버튼*/
+.j21_btn_search{position:absolute; right:5px; top:15px;}
+
+/*여행지정보 > gps 온*/
+.s21_position_btn_on{width:50px;height:68px;background:url('http://appdata.hungryapp.co.kr/images/hatdog/img/common/hd_T_location_on.png')  top center no-repeat ;background-size:90%;font-size:0px;}
+
+/* 커뮤니티 메인 */
+.h21_community_humor li{cursor: pointer;}
+
+/* 동물병원 검색 input */
+.s21_hos_SearchInput{width: 43% !important;}
+.s21_hospital_search{height: 80px !important;}
+
+/* 커뮤니티 메인 썸네일 이미지 길 경우 찌그러짐 막기 위해*/
+.h21_community_alllist ul li .thmb_photo, .h21_community_adminlist ul li .thmb_photo {width:240px; height:180px; overflow:hidden}
+.h21_community_alllist ul li .thmb_photo img {height:auto !important;}

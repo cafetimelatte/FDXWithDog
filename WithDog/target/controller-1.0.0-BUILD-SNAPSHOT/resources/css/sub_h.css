@@ -1,0 +1,620 @@
+@charset "utf-8";
+
+.h21_width800px{width:800px; margin:0 auto;}
+
+/****** 커뮤니티 ***********/
+.h21_community_m_top{width:100%; background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/community/top_bgr.jpg') top center no-repeat; min-height:300px; background-size:100%;}
+.h21_community_s_top{width:100%; background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/community/top_bgr.jpg') top center no-repeat; min-height:220px; background-size:100%;}
+/* top box*/
+.h21_top_cbox{margin:0px auto;}
+.h21_top_cbox h3{width:100%; text-align:center; color:#fff; font-size:45px; font-weight:300; padding:50px 0 0 0px; letter-spacing:-0.03em;}
+.h21_top_cbox h3 span{color:#fff; font-size:45px; font-weight:600;}
+.h21_top_cbox h3.h21_calculator_Tbg{}
+.h21_h3_line_c{width:30px; height:3px; background:#fff; text-align:center; margin:15px auto;}
+.h21_h3_line_l{width:30px; height:3px; background:#fff; text-align:left; margin:15px 0;}
+.h21_h3_text_c{font-size:16px; color:#fff; font-weight:200; opacity:0.7; text-align:center; line-height:26px; padding-left:10px;}
+.h21_top_center_box{width:25%; padding:15px 0 12px 0; margin:18px 37.5%; border-style:solid; border-width:1px; border-color: rgba(255, 255, 255, 0.2);}
+.h21_top_center_box:hover{border-color: rgba(255, 255, 255, 0.7);}
+.h21_com_t_left{top:0; left:0;}
+.h21_com_t_right{top:0; right:0;}
+.h21_community{width:100%; margin:0 auto; display:inline-block; padding:5px 0 0 0;}
+.h21_tab {float:left; width:100%; margin:40px 0 45px 0; overflow: hidden; border-top: 1px solid #e0e0e0; border-left: 1px solid #e0e0e0;}
+.h21_tab button, .h21_tab_ss button {background-color: #fff; float: left; border: none; outline: none; cursor: pointer; padding: 14px 0px; transition: 0.3s; font-size: 17px; border-bottom: 1px solid #e0e0e0; border-right: 1px solid #e0e0e0;}
+.h21_tab button:hover, .h21_tab_ss button:hover {background-color: #f9f7f2;}
+.h21_tab button.active, .h21_tab_ss button.active {background-color: #999; color:#fff}
+.h21_tab_ss {margin:0 30px 10px 30px; overflow: hidden; border-top: 1px solid #e0e0e0; border-left: 1px solid #e0e0e0;}
+.h21_tab_community button{width:11.11%;}
+.h21_tab_mypage button{width:14.285%;}
+.h21_tab_3col button{width:33.3%;}
+.h21_tab_4col_C button{width:25%;}
+.h21_tab_4col {float:left; width:98%; margin:10px 1% 30px 1%; overflow: hidden; border-top: 1px solid #e0e0e0; border-left: 1px solid #e0e0e0;  -webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+.h21_tab_4col button{width:25%; background-color: #fff; float: left; border: none; outline: none; cursor: pointer; padding: 14px 0px; transition: 0.3s; font-size: 17px; border-bottom: 1px solid #e0e0e0; border-right: 1px solid #e0e0e0;}
+.h21_tab_4col button:hover{background-color: #e4f8fa;}
+.h21_tab_4col button.active{background-color: #70daec; color:#fff}
+
+/* main top*/
+.h21_com_TW{margin:0px auto;}
+.h21_com_Msearch{float:left; width:19%; text-align:left;}
+.h21_com_pettogenic{float:left; width:25%; margin-right:4%; background: #fff5c5; height:650px;}
+.h21_com_recommend{float:left; width:52%;}
+.h21_com_Msearch h3{color:#414141; font-size:31px; font-weight:200; padding:0px 0 15px 0; letter-spacing:-0.1em;}
+.h21_com_Msearch span{display:block; color:#ff8f34; font-weight:600; padding:10px 0 0 0;}
+.h21_h3_line_lb{width:30px; height:3px; background:#414141; text-align:left; margin:10px 2px;}
+.h21_h3_line_cb{width:30px; height:3px; background:#414141; text-align:center; margin:10px auto;}
+.h21_h3_line_cg{width:1px; height:20px; background:#e9e9e9; text-align:center; margin:0 auto;}
+.h21_txt_SP{color:#5c5c5c; font-size:17px; font-weight:200; letter-spacing:-0.1em; padding:10px 0 22px 0;}
+.h21_com_Msearch button {display:block; background-color: #fff; outline: none; cursor: pointer; margin:7px 0; padding: 9px 12px; transition: 0.3s; font-size: 15px; border: 1px solid #e0e0e0; -webkit-border-radius: 100px; -moz-border-radius: 100px; -o-border-radius: 100px; border-radius: 100px;}
+.h21_com_Msearch button:hover {background-color: #f9f7f2;}
+.h21_com_pettogenic:hover{background: #fff0a8; animation-name: ani_hart; animation-duration: 2s;}
+.h21_com_pettogenic h3{color:#414141; font-size:18px; font-weight:200; padding:38px 0 15px 0; letter-spacing:-0.1em;}
+.h21_com_pettogenic .h21_Tspan{display:block; color:#ff8f34; font-size:31px; font-weight:600; padding:10px 0 0 0;}
+.h21_com_petto{display:block; width:100%;}
+
+.h21_com_petto_photo{ width:230px; height:230px; margin:0 0 0 42px;}
+.h21_com_petto_photo img{opacity: 0.9; width:100%; height:100%; -webkit-transition: all .5s; -moz-transition: all .5s; -o-transition: all .5s; transition: all .5s; -webkit-border-radius: 300px; -moz-border-radius: 300px; -o-border-radius: 300px; border-radius: 300px;}
+.h21_com_petto_photo:hover img{opacity: 1.0; -ms-transform: scale(1.05); -moz-transform: scale(1.05); -webkit-transform: scale(1.05); -o-transform: scale(1.05); transform: scale(1.05); -webkit-border-radius: 300px; -moz-border-radius: 300px; -o-border-radius: 300px; border-radius: 300px;}
+.h21_com_desc_box{top:205px; left:0; margin:0 auto;}
+.h21_com_desc_box p{width:50px; height:50px; margin:0 0 0 132px;}
+.h21_com_desc_box p img{width:100%; height:100%; -webkit-border-radius: 300px; -moz-border-radius: 300px; -o-border-radius: 300px; border-radius: 300px;}
+.h21_com_desc_box dl{display:block; width:315px; margin:0 auto;}
+.h21_com_desc_box dl dt{color:#727272; font-size:15px; padding:10px 10% 0 10%; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; word-wrap: break-word; -webkit-box-orient: vertical; -webkit-line-clamp: 1;}
+
+.h21_com_tbox{display:block; padding:65px 10% 0 10%;}
+.h21_com_tbox dt{padding:10px 0 0 0; color:#383838; font-size:20px; font-weight:400; display: block; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; word-wrap: break-word; -webkit-box-orient: vertical; -webkit-line-clamp: 1;}
+.h21_com_tbox dd{padding:10px 0 0px 0; color:#696969; font-size:16px; font-weight:400; line-height:22px; display: block; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; word-wrap: break-word; -webkit-box-orient: vertical; -webkit-line-clamp: 2;}
+.h21_com_re_tourfood{background: #f9f6f2; height:305px;}
+.h21_com_re_tourfood h3, .h21_com_re_review h3{color:#414141; font-size:18px; font-weight:200; padding:38px 0 15px 0; letter-spacing:-0.1em;}
+.h21_com_re_tourfood .h21_Tspan, .h21_com_re_review .h21_Tspan{color:#ff8f34; font-size:31px; font-weight:600; padding:10px 0 0 0;}
+.h21_com_re_tourfood ul{margin:0 5%;}
+.h21_com_re_tourfood ul li{position:relative; float:left; width:44%; margin:10px 3%;}
+.h21_com_re_tourfood ul li a{color:#ffffff; font-size:19px;}
+.h21_com_re_tourfood ul li .h21_com_re_photo, .h21_com_re_review ul li .h21_com_re_photo{width:100%;}
+.h21_com_re_tourfood ul li .h21_com_re_photo img, .h21_com_re_review ul li .h21_com_re_photo img{width:100%; height:160px;}
+.h21_com_re_tourfood ul li .h21_com_re_title1, .h21_com_re_tourfood ul li .h21_com_re_title2{top:88%; left:10%; right:10%; padding:5px 0; -webkit-border-radius: 100px; -moz-border-radius: 100px; -o-border-radius: 100px; border-radius: 100px;}
+.h21_com_re_tourfood ul li .h21_com_re_title1{background:#6468f4;}
+.h21_com_re_tourfood ul li .h21_com_re_title2{background:#ed8130;}
+.h21_com_re_tourfood ul li .h21_com_re_title1 img, .h21_com_re_tourfood ul li .h21_com_re_title2 img{width:13%; vertical-align:-7px;}
+.h21_com_re_tourfood ul li .h21_com_re_title1:hover {background-color: #2b30df;}
+.h21_com_re_tourfood ul li .h21_com_re_title2:hover {background-color: #e4590d;}
+.h21_com_re_review{background: #f5efe9; height:345px;}
+.h21_com_re_review ul{margin:0 5%;}
+.h21_com_re_review ul li{float:left; width:44%; margin:10px 3%; text-align:left;}
+.h21_com_re_review ul li a{color:#ffffff; font-size:19px;}
+.h21_com_re_review ul li .h21_com_re_desc{position:relative; width:100%;}
+.h21_com_re_review ul li .h21_com_re_desc p{float:left; width:25%; margin:15px 0;}
+.h21_com_re_review ul li .h21_com_re_desc img{width:50px; height:50px; -webkit-border-radius: 100px; -moz-border-radius: 100px; -o-border-radius: 100px; border-radius: 100px;}
+.h21_com_re_review ul li .h21_com_re_desc dl{float:left; width:75%; margin-top:10px;}
+.h21_com_re_review ul li .h21_com_re_desc dl dt{color:#323232; font-size:18px; padding:5px 0; line-height:25px; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; word-wrap: break-word; -webkit-box-orient: vertical; -webkit-line-clamp: 1;}
+.h21_com_re_review ul li .h21_com_re_desc dl dd{color:#727272; font-size:14px; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; word-wrap: break-word; -webkit-box-orient: vertical; -webkit-line-clamp: 1;}
+.h21_com_re_tourfood ul li .h21_com_re_photo img:hover, .h21_com_re_review ul li .h21_com_re_photo img:hover{animation-name: ani_hart; animation-duration: 2s;}
+
+/* event */
+.h21_community_event1{margin:30px auto 10px auto;}
+.h21_community_event2{margin:20px auto 10px auto;}
+.h21_community_event2 ul{display:block; width:100%;}
+.h21_community_event2 li{float:left; width:48%; margin:40px 0 0 0;}
+.h21_community_event2 li:first-child{margin:40px 4% 0 0;}
+.h21_community_event2 li img{width:100%;}
+
+/* humor */
+.h21_community_humor{display:block; padding:0 0 20px 0;}
+.h21_community_humor h3{color:#414141; font-size:31px; font-weight:200; padding:35px 0 25px 0; letter-spacing:-0.1em;}
+.h21_community_humor .h21_Tspan{color:#ff8f34; font-size:31px; font-weight:600; padding:10px 0 0 0;}
+.h21_community_humor li{float:left; width:30.5%; margin:10px 0 0 4%; border:1px solid #e9e9e9; box-shadow: 5px 5px 22px rgba(233, 233, 233, 0.5);}
+.h21_community_humor li:first-child{margin:10px 0 0 0;}
+.h21_community_humor li:hover{border:1px solid #ff9e05;}
+.h21_community_humor li .h21_f_blue, .h21_community_humor li .h21_f_orange{width:30%; margin:0 auto 15px auto; padding:7px 0; color:#ffffff; -webkit-border-radius: 100px; -moz-border-radius: 100px; -o-border-radius: 100px; border-radius: 100px;}
+.h21_community_humor li .h21_f_blue{background:#1d84e3;}
+.h21_community_humor li .h21_f_orange{background:#ff8401;}
+.h21_community_humor li .h21_com_humor_photo img{width:100%; height:230px;}
+.h21_community_humor li .h21_com_humor_title{height:45px; color:#525252; font-size:17px; margin:15px 0 18px 0; padding:5px 7%; line-height:25px; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; word-wrap: break-word; -webkit-box-orient: vertical; -webkit-line-clamp: 2;}
+.h21_community_humor ul li .h21_com_humor_desc{display:block; text-align:left; border-top: 1px solid #e9e9e9;}
+.h21_community_humor ul li .h21_com_humor_desc p{float:left; width:14%; margin:4% 0 4% 5%;}
+.h21_community_humor ul li .h21_com_humor_desc img{width:40px; height:40px; -webkit-border-radius: 100px; -moz-border-radius: 100px; -o-border-radius: 100px; border-radius: 100px;}
+.h21_community_humor ul li .h21_com_humor_desc dl{float:left; width:81%; margin-top:27px;}
+.h21_community_humor ul li .h21_com_humor_desc dl dt{float:left; width:60%; color:#909090; font-size:14px; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; word-wrap: break-word; -webkit-box-orient: vertical; -webkit-line-clamp: 1;}
+.h21_community_humor ul li .h21_com_humor_desc dl dd{float:right; width:35%; color:#c4c4c4; font-size:12px; margin:0 5% 0 0; text-align:right;}
+
+/* community_list */
+.h21_com_listw{float:left; width:30.66%; margin:50px 0 0 4%; text-align:left;}
+.h21_com_listw:first-child{margin:50px 0 0 0;}
+.h21_com_ttl{position:relative; width:100%; height:50px; border-bottom:3px solid #e97723;}
+.h21_com_ttl h3{float:left; color:#414141; font-size:25px; font-weight:200; letter-spacing:-0.1em;}
+.h21_com_ttl .h21_Tspan{color:#ff8f34; font-size:28px; font-weight:600;}
+.h21_com_ttl p{float:right; margin-top:13px;}
+.h21_com_list{width:100%; padding:10px 0 12px 0;}
+.h21_com_list ul{width:100%;}
+.h21_com_list li{font-size:15px; color:#7a7a7a; text-align:left; line-height:30px; border-bottom:1px solid #e7e6e5; padding:8px 0 8px 15px; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; word-wrap: break-word; -webkit-box-orient: vertical; -webkit-line-clamp: 1; background:url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/board_ico.png')  left 19px no-repeat;}
+.h21_com_list li:first-child{-webkit-line-clamp: 3;}
+.h21_com_list li:last-child{border-bottom:2px solid #dbdbdb;}
+.h21_com_list dl{padding:0;}
+.h21_com_list dt{font-size:18px; margin-bottom:7px; color:#525252; text-align:left; line-height:25px; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; word-wrap: break-word; -webkit-box-orient: vertical; -webkit-line-clamp: 1;}
+.h21_com_list dd{font-size:15px; height:54px; color:#8c8c8c; text-align:left; line-height:25px; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; word-wrap: break-word; -webkit-box-orient: vertical; -webkit-line-clamp: 2;}
+
+/** tabm **/
+.h21_com_sm_tab{top:-40px; width:100%; background:#fff; border-radius:40px; box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6); -webkit-box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6); -moz-box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6);}
+.h21_com_sm_tab ul{display:block; overflow: hidden; margin:2% 5%;}
+.h21_com_sm_tab ul li{float:left; width:16.666%; margin:12px 0 12px 0; text-align:left;}
+.h21_com_sm_tab ul li a{color:#858585; font-size:19px; font-weight:400;}
+.h21_com_sm_tab ul li .list_allnb{font-size:13px; margin-left:3px; vertical-align:4px; font-weight:200;}
+.h21_com_sm_tab ul li.h21_com_sm_menu_on a{color:#000000; font-size:19px; font-weight:600; padding-bottom:5px; border-bottom:3px solid #000000;}
+.h21_com_sm_tab ul li a:hover {color:#000000;}
+.h21_community_stop{display:block; overflow: hidden; margin-top:110px;}
+.h21_com_allnb_name{color:#000000; font-size:35px; font-weight:400;}
+.h21_com_allnb_name .h21_com_allnb{color:#e97723;}
+.h21_com_searchw{display:block; overflow: hidden; margin:30px 0 40px 0;}
+.h21_com_searchw .s_search{position:relative; float:left; overflow: hidden; width:37%; margin:9px 10px 0 25%; border: 1px solid #ddd; border-radius:60px;}
+.h21_com_searchw .SearchInput{float:left; width: 56%; font-size: 14px; padding: 14px 45px 14px 15px; border: 0px solid #ddd; border-left: 1px solid #dcdcdc; cursor:pointer;}
+.h21_btn_search{position:absolute; right:7px; top:7px;}
+.h21_com_searchw .s_search select{float:left; padding:14px 10px 12px 20px; width:30%; color:#666666; font-size: 14px; font-weight: 200; line-height: 20px; border: 0px solid #ddd; background-image: url("https://appdata.hungryapp.co.kr/images/goodbyedog/img/pc/gbdog/icon_expound.png"); background-repeat: no-repeat; background-size:18px; background-position: 100px center; -webkit-appearance: none; -moz-appearance: none; -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box; -webkit-border-radius: 50px; -moz-border-radius: 50px; -o-border-radius: 50px; border-radius: 50px;}
+.h21_com_write_button{float:left; margin-top:9px; border-radius:60px; padding:10px 40px 11px 40px; background:#e97723; color:#fff; font-size:20px; margin-right:5px;}
+.h21_com_write_button:hover{background:#e55e15;}
+
+/** community_list **/
+.h21_community_adminlist{display:block; overflow: hidden; margin:0 30px; border-top:3px solid #e97623; background-color: #fdfcf3;}
+.h21_community_adminlist:hover{background-color: #fdfbe6;}
+.h21_community_adminlist ul li{position:relative; display:block; overflow: hidden; padding:25px 0; text-align:left;}
+.h21_community_adminlist ul li .thmb_photo img{width:180px; padding:0 20px 0 40px;}
+.h21_community_adminlist .desc2{position:relative; float:right; display:block; padding:40px 30px 0 0; color:#a9a9a9; font-size: 13px; font-weight:200;}
+.h21_community_adminlist .desc2 .bg_icon{overflow:hidden; line-height:50000; font-size:0; display:inline-block;}
+.h21_community_adminlist .desc2 .icon_commen{vertical-align:-4px; background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/travel/icon_comment.png') no-repeat; background-size:20px 20px; width:28px; line-height:18px; text-indent:-999999999999px;}
+.h21_community_adminlist .desc2 .d_hit{padding-left:15px;}
+.h21_community_adminlist .desc2 .icon_hit{vertical-align:-4px; background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/community/icon_hit.png') no-repeat; background-size:22px 22px; width:28px; line-height:18px; text-indent:-999999999999px;}
+.h21_community_adminlist .desc2 .list_fixed{position:absolute; right:30px; top:9px;}
+.h21_community_adminlist .desc2 .list_fixed img{width:25px;}
+.h21_community_alllist ul{display:block; overflow: hidden; margin:0 30px; border-top:1px solid #dbdbdb;}
+.h21_community_alllist ul li{position:relative; display:block; overflow: hidden; padding:25px 0; border-bottom:1px solid #ebebeb; text-align:left;}
+.h21_community_alllist ul li:hover{background-color: #f9f9f9;}
+.h21_community_alllist ul li .thmb_photo, .h21_community_adminlist ul li .thmb_photo{float:left;}
+.h21_community_alllist ul li .thmb_photo img{width:240px; height:165px;}
+.h21_community_alllist ul li .r_info, .h21_community_adminlist ul li .r_info{float:left; width:55%; margin:8px 0 0 50px; padding-top:1px; border-right:1px solid #ebebeb;}
+.h21_community_alllist ul li .r_info .r_title, .h21_community_adminlist ul li .r_info .r_title{position:relative; display: block; overflow: hidden; width:100%;}
+.h21_community_alllist ul li .r_info .thmb_img, .h21_community_adminlist ul li .r_info .thmb_img{position:absolute; left:0; top:2px;}
+.h21_community_alllist ul li .r_info .thmb_img img, .h21_community_adminlist ul li .r_info .thmb_img img{width:50px; height:50px; border:1px solid #fdfcf3; -webkit-border-radius: 50px; -moz-border-radius: 50px; -o-border-radius: 50px; border-radius: 50px;}
+.h21_community_alllist ul li .r_info .com_division, .h21_community_adminlist ul li .r_info .com_division{margin:2px 3px 0 0; padding:1px 7px 1px 7px; font-size: 15px; line-height:25px; vertical-align:1px; font-weight:400; border:1px solid #e9e9e9; background-color: #ffffff; -webkit-border-radius: 25px; -moz-border-radius: 25px; -o-border-radius: 25px; border-radius: 25px;}
+.h21_community_alllist ul li .r_info .h3_title, .h21_community_adminlist ul li .r_info .h3_title{margin:1px 25px 0 60px; font-size: 20px; color:#585858; font-weight:400; line-height: 25px; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; word-wrap: break-word; -webkit-box-orient: vertical; -webkit-line-clamp: 1;}
+.h21_community_alllist ul li .r_info .desc, .h21_community_adminlist ul li .r_info .desc{position:relative; display: block; overflow: hidden; padding:4px 0 11px 60px; line-height: 22px; font-weight:200;}
+.h21_community_alllist ul li .r_info .desc .d_name, .h21_community_adminlist ul li .r_info .desc .d_name{font-size: 15px; color:#727272; font-weight:400;}
+.h21_community_alllist ul li .r_info .desc .d_date, .h21_community_adminlist ul li .r_info .desc .d_date{font-size: 15px; color:#a9a9a9; margin-left:1px;}
+.h21_community_alllist ul li .r_info .desc .d_name .d_level img, .h21_community_adminlist ul li .r_info .desc .d_name .d_level img{width:15px; padding-right:5px; vertical-align:-2px;}
+.h21_community_alllist ul li .r_info .r_stitle{height:48px; margin:5px 25px 0 0; font-size: 15px; color:#8a8a8a; font-weight:300; line-height: 22px; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; word-wrap: break-word; -webkit-box-orient: vertical; -webkit-line-clamp: 2;}
+.h21_community_alllist .r_info .desc2{display:block; padding:7px 0; color:#a9a9a9; font-size: 13px; font-weight:200;}
+.h21_community_alllist .r_info .desc2 .bg_icon{overflow:hidden; line-height:50000; font-size:0; display:inline-block;}
+.h21_community_alllist .r_info .desc2 .icon_commen{vertical-align:-4px; background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/travel/icon_comment.png') no-repeat; background-size:20px 20px; width:28px; line-height:18px; text-indent:-999999999999px;}
+.h21_community_alllist .r_info .desc2 .d_hit{padding-left:15px;}
+.h21_community_alllist .r_info .desc2 .icon_hit{vertical-align:-2px; background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/community/icon_hit.png') no-repeat; background-size:22px 22px; width:28px; line-height:18px; text-indent:-999999999999px;}
+.h21_community_alllist ul li .r_Like{float:right; width:19%; text-align:center;}
+.h21_community_alllist ul li .r_Like .like_nb{display:block; overflow:hidden; color:#727272; font-size: 17px; font-weight:300;}
+.h21_community_alllist ul li .r_Like .like_nb img{width:30px; padding-right:5px;}
+.button_like_on, .button_like_off{display:block; overflow:hidden; padding:27px 0 10px 0;}
+.button_like_on a img{border: 1px solid #f98d3c; background: #f98d3c; -webkit-border-radius: 100px; -moz-border-radius: 100px; -o-border-radius: 100px; border-radius: 100px;}
+.button_like_on a img:hover{border: 1px solid #f4731d;background: #f4731d; animation-name: ani_cate; animation-duration: 1s;}
+.button_like_off a img{border: 1px solid #ebebeb; background: #ffffff; -webkit-border-radius: 100px; -moz-border-radius: 100px; -o-border-radius: 100px; border-radius: 100px;}
+.button_like_off a img:hover{border: 1px solid #ebebeb;background: #ffffff; animation-name: ani_cate; animation-duration: 1s;}
+
+/** community_view **/
+.h21_com_btn_prev{position:absolute; left:8%; top:120px; opacity: 0.6;}
+.h21_com_btn_prev_s{position:absolute; left:8%; top:20px; opacity: 0.6;}
+.h21_com_btn_prev:hover{opacity: 1.0;}
+.h21_community_view_stop{display:block; overflow: hidden; margin-top:103px;}
+.h21_community_view_stop .c_info{display:block; overflow: hidden; padding:10px 0; border-bottom:1px solid #646361;}
+.h21_community_view_stop .c_info .com_division{float:left; padding:8px 0 12px 0; color:#000000; font-size: 20px; font-weight:300;}
+.h21_community_view_stop .c_info .desc{float:right; font-size: 15px;}
+.h21_community_view_stop .c_info .desc .thmb_img img{width:35px; height:35px; vertical-align:-14px; border:1px solid #fdfcf3; -webkit-border-radius: 50px; -moz-border-radius: 50px; -o-border-radius: 50px; border-radius: 50px;}
+.h21_community_view_stop .c_info .desc .d_name{color:#727272; font-weight:400;}
+.h21_community_view_stop .c_info .desc .d_level img{width:25px;padding-right:5px; vertical-align:-6px;}
+.h21_community_view_stop .c_info .desc .d_date{color:#a9a9a9; margin-left:1px;}
+.h21_community_view_stop .c_info .desc .d_hit{color:#a9a9a9; margin-left:1px;}
+.h21_community_view{display:block; overflow: hidden; text-align:left; padding-bottom:25px; margin-bottom:15px; border-bottom:1px solid #ebebeb;}
+.h21_community_view h4{padding:30px 0 20px 0; font-size: 30px; color:#000000; font-weight:400; line-height: 40px;}
+.h21_community_view p{padding:10px 0 10px 0; font-size: 18px; color:#a6a6a6; font-weight:300; line-height: 28px;}
+.h21_community_view img{width:100%; padding:10px 0;}
+.dot_div{float:right; width:10px; height:10px; margin:5px 0 0 5px; -webkit-border-radius: 100px; -moz-border-radius: 100px; -o-border-radius: 100px; border-radius: 100px;}
+.h21_community_btn{display:block; overflow: hidden;}
+.button_list{position:absolute; left:0; top:54px;}
+.button_report{position:absolute; right:0; top:54px;}
+.h21_community_btn .button_list a, .h21_community_btn .button_report a{color:#474747; font-size: 18px; font-weight:400; padding:5px 20px; border:1px solid #474747; -webkit-border-radius: 25px; -moz-border-radius: 25px; -o-border-radius: 25px; border-radius: 25px;}
+.button_list a:hover, .button_report a:hover{color:#ffffff; background: #474747; padding:5px 20px; border:1px solid #474747; -webkit-border-radius: 25px; -moz-border-radius: 25px; -o-border-radius: 25px; border-radius: 25px;}
+.h21_event_write{background:#f7f7f7; padding:15px; border-bottom:1px solid #e8e8e8;}
+.h21_je_textarea {width: 94%; height: 40px; padding: 3%; font-size: 14px; border: 1px solid #f6f3ec; border-radius:10px;}
+.h21_je_textarea textarea::-webkit-textarea-placeholder {color:#000 ! important}
+.s21_je_form_btn .btn_emoticon{position:absolute; left:0; top:11px; text-align:center;}
+.s21_je_form_btn .btn_emoticon a{padding:8px 2px 10px 2px; margin-left:5px; font-size: 0.75em; color:#ffffff; line-height: 1.3; font-weight:600; border:1px solid #f98d3c; background-color: #f98d3c; -webkit-border-radius: 4px; -moz-border-radius: 4px; -o-border-radius: 4px; border-radius: 4px;}
+.s21_je_form_btn .btn_emoticon img{width:33px;}
+.s21_je_form_btn .h21_je_btn_secret{margin-right:0px; padding:0 0 3px 0; text-align:center;}
+.s21_je_form_btn .h21_je_btn_secret a{padding:7px 12px; margin-left:5px; font-size: 13px; color:#ffffff; line-height: 1.3; font-weight:600; border:1px solid #9a9a9a; background-color: #9a9a9a; -webkit-border-radius: 4px; -moz-border-radius: 4px; -o-border-radius: 4px; border-radius: 4px;}
+.h21_review_emoticon{display:block; overflow: hidden; margin-top:20px; padding:15px; background:#fafafa; border:1px solid #e8e8e8; -webkit-border-radius: 10px; -moz-border-radius: 10px; -o-border-radius: 10px; border-radius: 10px;}
+.h21_mainemoticon{display:inline-block; overflow: hidden; width:28%; height:180px; vertical-align:0px; border-right:1px solid #e8e8e8;}
+.h21_mainemoticon img{width:150px;}
+
+
+/* 2021.02.04 이미지 첨부 S */
+.s21_je_form_btn .btn_addimage{position:absolute; left:53px; top:11px; text-align:center;}
+.s21_je_form_btn .btn_addimage a{padding:8px 2px 10px 2px; margin-left:5px; font-size: 0.75em; color:#ffffff; line-height: 1.3; font-weight:600; border:1px solid #f98d3c; background-color: #f98d3c; -webkit-border-radius: 4px; -moz-border-radius: 4px; -o-border-radius: 4px; border-radius: 4px;}
+.s21_je_form_btn .btn_addimage img{width:33px;}
+.h21_uploadimg_w{display:inline-block; overflow: hidden; width:100%;}
+.h21_uploadimg_w ul li{position:relative; float: left; margin:5px 5px; text-align:center; border-top:0px solid #f0f0f0;}
+.h21_uploadimg_w ul li img{width:129px; height:90px;}
+.h21_ab_photo_img_del{position:absolute; top:5px; left:45px; border:0px; outline:0px; margin-top:20px; border-radius:100%; background:#454545 url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/album/top_ico_del.png') center center no-repeat; background-size:25px; height:40px; width:40px; font-size:0;}
+.s21_review_list .addimage_list{display:block; overflow: hidden; width:100%; margin:0 0 0 0; text-align:left;}
+.s21_review_list .addimage_list img{width:129px; height:90px; margin:5px 7px 5px 0;}
+/* 2021.02.04 이미지 첨부 E */
+
+
+.h21_emoticon_w{display:inline-block; overflow: hidden; width:70%; height:180px; overflow: auto;  white-space: nowrap;}
+.h21_emoticon_w ul li{float: left; width:20%;  text-align:center; border-top:0px solid #f0f0f0;}
+.h21_emoticon_w ul li img{width:75px;}
+.h21_review_ico{bottom:20px; left:12%;}
+.h21_review_ico a{border:1px solid #ddd;border-radius:4px;padding:3px 8px;font-size:13px; margin-left:5px;}
+.h21_review_ico a:hover{border:1px solid #555;background:#555;color:#fff;border-radius:4px;padding:3px 8px;font-size:13px; margin-left:5px;}
+.h21_community_fleamarket{display:block; overflow: hidden; border:1px solid #e8e8e8; -webkit-border-radius: 10px; -moz-border-radius: 10px; -o-border-radius: 10px; border-radius: 10px;}
+.h21_community_fleamarket dl{overflow: hidden; float: left; width:33.3%; text-align:center; border-left:1px solid #e8e8e8; border-bottom:1px solid #e8e8e8; -webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+.h21_community_fleamarket dl:first-child{border-left:0px solid #e8e8e8;}
+.h21_community_fleamarket dl dt{padding:15px 10px; color:#000000; font-size:17px; font-weight:500; background: #fdfcf3;}
+.h21_community_fleamarket dl dd{padding:15px 10px; color:#666666;  font-size:16px; font-weight:300;}
+.h21_fleamarket_care{display:block; overflow: hidden; width:94%; padding:1% 3%; background: #fafafa;}
+.h21_fleamarket_care .com_write_btm{margin-top:5px; padding:0 10px 0 25px; background:url("http://appdata.hungryapp.co.kr/images/hatdog/img/community/com_write_btmico.png")0px 11px no-repeat; background-size:20px; font-weight:500; color:#fe7e1e; font-size:16px;}
+.h21_fleamarket_care .com_write_btm_p{margin-bottom:5px; padding:0px; color:#a6a6a6; font-size:14px; line-height: 22px; font-weight:300;}
+.h21_fleamarket_care2{display:block; overflow: hidden; margin:10px 0 10px 0; padding:2% 3%; text-align:left; background: #fafafa; border:1px solid #e8e8e8; -webkit-border-radius: 10px; -moz-border-radius: 10px; -o-border-radius: 10px; border-radius: 10px;}
+.h21_fleamarket_care2 .com_write_btm{margin-top:5px; padding:3px 10px 10px 25px; background:url("http://appdata.hungryapp.co.kr/images/hatdog/img/community/com_write_btmico.png")0px 2px no-repeat; background-size:20px; font-weight:500; color:#fe7e1e; font-size:16px;}
+.h21_fleamarket_care2 .com_write_btm_p{margin-bottom:5px; padding:0px; color:#a6a6a6; font-size:14px; line-height: 22px; font-weight:300;}
+
+/** community_write **/
+.h21_com_mg131{display:block; overflow: hidden; margin-top:131px;}
+.h21_com_mg30{display:block; overflow: hidden; margin-top:30px;}
+.h21_community_write{display:block; overflow: hidden; border-top:1px solid #646361;}
+.h21_community_write .h21_write_divline{display:block; overflow: hidden; border-bottom:1px solid #ebebeb;}
+.h21_community_write .h21_write_select{display:block; overflow: hidden;}
+.h21_community_write .h21_write_select select{width:100%; padding:15px 0 15px 0; color:#000000; font-size:16px; font-weight:500; border:none; background-image: url("https://appdata.hungryapp.co.kr/images/goodbyedog/img/pc/gbdog/icon_expound.png"); background-repeat: no-repeat; background-size:18px; background-position: right center; -webkit-appearance: none; -moz-appearance: none;}
+.h21_write_input{display:block; overflow: hidden; text-align:left;}
+.h21_write_input h5{width:16%; float: left;overflow: hidden; margin:17px 2% 10px 0; border-right:1px solid #ebebeb; color:#000000; font-size:17px; font-weight:500;}
+.h21_write_input input{width:78%; float: left; overflow: hidden; margin-left:1%; padding:13px 10px 13px 10px; font-size:16px; font-weight:300; border:none;}
+.h21_write_input input::-webkit-textarea-placeholder {color:#000 ! important}
+.h21_write_textarea{display:block; overflow: hidden; border:1px solid #ebebeb; -webkit-border-radius: 10px; -moz-border-radius: 10px; -o-border-radius: 10px; border-radius: 10px;}
+.h21_write_textarea textarea{width:100%; height:500px; text-align:left; border:none; padding:20px; font-size:16px; font-weight:300;}
+.h21_write_textarea textarea::-webkit-textarea-placeholder {color:#000 ! important}
+.h21_write_btn{display:block; overflow: hidden; margin:20px auto;}
+.h21_write_btn .h21_btn_cancel{display:inline-block; margin-top:9px; border-radius:60px; width:130px; padding:10px 0 10px 0; background:#808080; margin-right:5px;}
+.h21_write_btn .h21_btn_write{display:inline-block; margin-top:9px; border-radius:60px; width:130px; padding:10px 0 10px 0; background:#e97723; margin-right:5px;}
+.h21_write_btn .h21_btn_write a, .h21_write_btn .h21_btn_cancel a{color:#fff; font-size:20px;}
+.h21_write_btn .h21_btn_write:hover{background:#e55e15;}
+.h21_write_btn .h21_btn_cancel:hover{background:#616161;}
+
+/****** member ***********/
+/** login **/
+.h21_login_m_top{width:100%; background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/member/top_bgr.jpg') top center no-repeat; min-height:254px; background-size:100%;}
+.h21_sm_login_box, .h21_sm_login_box2{top:-40px; width:800px; margin:0 auto; padding:40px 0; background:#fff; border-radius:40px; box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6); -webkit-box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6); -moz-box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6);}
+.h21_sm_login_box{top:-40px; height:300px;}
+.h21_sm_login_box2{top:0px; height:340px;}
+.h21_mem_sns{display:block; overflow: hidden; width:100%; margin:0 auto; text-align:center;}
+.h21_mem_sns h3{color:#414141; font-size:31px; font-weight:200; padding:0px 0 15px 0; letter-spacing:-0.1em;}
+.h21_mem_sns .h21_Tspan{color:#ff8f34; font-weight:600; padding:0;}
+.h21_mem_sns .sns_login_list{display: block; overflow: hidden; margin:5px 10px 11px 10px;}
+.h21_mem_sns .sns_login_list ul{display: block; overflow: hidden; padding:0 10%;}
+.h21_mem_sns .sns_login_list ul li{float:left; width:21%; margin:10px 2% 7px 2%; padding:10px 0; font-size:20px; font-weight:500;}
+.sns_Ig, .sns_If, .sns_In, .sns_Ik, .sns_Io{display: block; overflow: hidden; margin:0 5.5%; -webkit-border-radius: 100px; -moz-border-radius: 100px; -o-border-radius: 100px; border-radius: 100px;}
+.sns_Ig{border: 1px solid #ff8a7c; background:#e16758;}
+.sns_If{border: 1px solid #7190dd; background:#5f78b4;}
+.sns_In{border: 1px solid #15e44b; background:#00d037;}
+.sns_Ik{border: 1px solid #ffed50; background:#fae100;}
+.sns_Io{border: 1px solid #dddddd; background:#cdcdcd;}
+.sns_Ia{border: 1px solid #5a5a5a; background:#010101;}
+.sns_Tg_txt{display: block; overflow: hidden; margin-top:15px; color:#ee6a53;}
+.sns_Tf_txt{display: block; overflow: hidden; margin-top:15px; color:#587ac3;}
+.sns_Tn_txt{display: block; overflow: hidden; margin-top:15px; color:#1dc800;}
+.sns_Tk_txt{display: block; overflow: hidden; margin-top:15px; color:#ad7a00;}
+.sns_To_txt{display: block; overflow: hidden; margin-top:15px; color:#c0c0c0;}
+.sns_Ta_txt{display: block; overflow: hidden; margin-top:15px; color:#000000;}
+.sns_login_list p{display: block; margin:15px 10% 0 10%; padding:15px 0; font-size:16px; color:#7e7e7e; line-height:22px; background:#fafafa; -webkit-border-radius: 100px; -moz-border-radius: 100px; -o-border-radius: 100px; border-radius: 100px;}
+.sns_login_list ul li img{width:110px; height:110px;}
+.sns_Ig:hover, .sns_If:hover, .sns_In:hover, .sns_Ik:hover, .sns_Io:hover{animation-name: ani_cate; animation-duration: 1s;}
+
+/* h21_login */
+.h21_login-box{display: block; overflow: hidden;}
+.h21_login-box .nickname_w{display: block; overflow: hidden; padding:10px 6% 2px 6%;}
+.h21_login-box .nickname_m{display: block; overflow: hidden; border:1px solid #ebebeb; -webkit-border-radius: 5px; -moz-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px;}
+.h21_login-box .nickname_m .nickname{float:left; width: 87%; margin:4px 2% 3px 0; padding:11px 5px 8px 5px; overflow: hidden; margin-left:1%; padding:13px 10px 13px 10px; font-size:16px; font-weight:300; border:none;}
+.h21_login-box .btn_overlap {width: 20px; height: 20px; display: block; position: absolute; top: 13.8%; right: 11%; z-index: 2;}
+.h21_login-box .txt_deep{display: block; padding:20px 0; font-size:16px; color:#a2a2a2; font-weight:300; text-align:left;}
+.h21_login-box .login-checklist{display:block; overflow:hidden; padding:6px 10px 9px 10px; letter-spacing:-1px; background:#fafafa;}
+.h21_login-box .login-checklist ul{display: block; overflow: hidden; padding:10px 5% 2px 5%;}
+.h21_login-box .login-checklist li{position:relative; display:block; overflow:hidden; width:100%; padding-bottom:3px;}
+.h21_login-box .login-checklist li .checklist{float:left; width:67%; padding:4px 0;}
+.h21_login-box label.image_checkbox {float:left; width:25px; height:25px; background:url('http://appdata.hungryapp.co.kr/images/hatdog/img/login/login_checkbox_off.png') no-repeat; background-size:25px 25px;}
+.h21_login-box input[type="checkbox"]:checked.image_checkbox + label.image_checkbox {background:url('http://appdata.hungryapp.co.kr/images/hatdog/img/login/login_checkbox_on.png') no-repeat; background-size:25px 25px;}
+.h21_login-box .checklist_txt{float:left; font-size: 17px; color:#636363; font-weight:400; line-height: 1.4; padding:0 0 0 10px;}
+.h21_login-box .login-checklist li .checklist_link{position:absolute; right:0; top:6px; font-size: 17px; color:#6b6b6b; font-weight:400; padding-right:18px;}
+.h21_login_okbt{display: block; overflow: hidden; width:150px; margin:30px 36% 50px 36%; border-radius:60px; padding:15px 40px 16px 40px; background:#e97723;}
+.h21_login_okbt a{color:#fff; font-size:20px;}
+.h21_login_okbt:hover{background:#e55e15;}
+.h21_login-box .more_icon{position:absolute; right:0px; top:-3px; width:16px; height:24px; vertical-align:-7px; background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/common/icon_more.png') no-repeat; background-size:16px 24px;}
+.h21_login-box .bg_icon{overflow:hidden; line-height:50000; font-size:0; display:inline-block;}
+
+/* h21_mypage */
+/* 서브메뉴 */
+.h21_sm_mymenu_box{width:100%;margin:0 auto;text-align:center;height:70px}
+.h21_sm_tab{top:-35px;width:100%;background:#fff;border-top-left-radius:40px;border-top-right-radius:40px;height:80px;box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6)  ; -webkit-box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6)  ; -moz-box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6)  ; }
+.h21_sm_tab button{background-color: #fff;float: left; border: none;outline: none;cursor: pointer; padding: 26px 0px;transition: 0.3s;font-size: 20px;border-right: 1px solid #f7e8e7;width:20%;}
+.h21_sm_tab button:hover {  background-color: #ffead8;}
+.h21_sm_tab button.active { background-color: #ffc38f;color:#fff;border-right: 0px ! important;}
+.h21_sm_tab_left{border-top-left-radius:40px;}
+.h21_sm_tab_right{border-top-right-radius:40px;border-right: 0px ! important;}
+
+.h21_member_m_top{width:100%; background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/member/top_bgr.jpg') top center no-repeat; min-height:320px; background-size:100%;}
+.h21_member_s_top{width:100%; background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/member/top_bgr.jpg') top center no-repeat; min-height:200px; background-size:100%;}
+.h21_mypage_m{display:block; overflow: hidden; width:100%; margin:0 auto; text-align:left;}
+.h21_top_tbox_left{float:left; width:50%;}
+.h21_top_tbox_right{float:left; width:50%;}
+.h21_myinfo_box{display:block; overflow: hidden; width:100%;}
+.h21_myimg_box{float:left; width:22%;}
+.h21_nickname_box{float:left; width:78%;}
+.h21_myimg_box{float:left; padding:30px 0;}
+.h21_myimg_box .login_myimg{display: inline-block; overflow: hidden;}
+.h21_myimg_box .login_myimg img{width:110px; height:110px; -webkit-border-radius: 100px; -moz-border-radius: 100px; -o-border-radius: 100px; border-radius: 100px;}
+.h21_myimg_box .icon_photo{position:absolute; left:70px; top:100px;}
+.h21_myimg_box .icon_photo_m{position:absolute; left:70px; top:110px;}
+.h21_myimg_box .icon_photo img, .h21_myimg_box .icon_photo_m img{width:40px; height:40px;}
+.h21_nickname_box h3{width:100%; color:#fff; font-size:45px; font-weight:600; padding:40px 0 0 0px; letter-spacing:-0.03em;}
+.h21_nickname_box .h21_mynickname{color : #ffffff; font-size:26px; font-weight:300; line-height:30px;}
+.h21_nickname_box .h21_mynickname_s{margin-top:70px; color : #ffffff; font-size:26px; font-weight:300; line-height:30px;}
+.h21_mymenu_box{display:block; overflow: hidden; width:100%;}
+.h21_mymenu_box_s{display:block; overflow: hidden; float:right; width:70%; text-align:right;}
+.h21_top_left_box{float:left; width:30%; text-align:center; padding:15px 0 12px 0; margin:10px 5% 18px 0; border-style:solid; border-width:1px; border-color: rgba(255, 255, 255, 0.2);}
+.h21_top_left_box_s{float:left; width:44%; text-align:center; padding:15px 0 12px 0; margin:53px 0 18px 5%; border-style:solid; border-width:1px; border-color: rgba(255, 255, 255, 0.2);}
+.h21_top_left_box:hover, .h21_top_left_box_s:hover{border-color: rgba(255, 255, 255, 0.7);}
+.h21_top_cal{float:left; width:97%; margin:18px 0 0 3%;}
+.h21_top_cal_box{float:left; width:42.5%;padding:30px 0;margin:18px 0 18px 7%; text-align:center; border-style:solid;border-width:1px;border-color: rgba(255, 255, 255, 0.2);}
+.h21_top_cal_box:hover{border-color: rgba(255, 255, 255, 0.7);}
+.h21_top_cal_box p{float:left;width:100%; text-align:center;}
+.h21_top_cal_box p img{max-width:70px; text-align:center;}
+.h21_top_cal_box p img:hover{animation-name: ani_cate; animation-duration: 1s;}
+.h21_top_cal_box h4{display:block; overflow: hidden; width:100%; padding-bottom:20px; color:#fff; font-size:20px; font-weight:400;}
+.h21_top_cal_box .my_top_txt{display:block; overflow: hidden; width:100%; padding-top:20px; color:#fff; font-size:30px; letter-spacing:-0.07em;}
+.h21_my_mc_2{display:block; width:100%; margin:0 auto;}
+.h21_my_mc_3{display:block; overflow: hidden; width:100%; margin:0 auto; border-top:1px solid #ebebeb; border-bottom:1px solid #ebebeb;}
+.h21_my_mc_2 .h21_my_mc_l{float:left; width:50%; padding-right:4%; border-right:1px solid #ebebeb; -webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+.h21_my_mc_2 .h21_my_mc_r{float:right; width:50%; padding-left:4%; -webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+.h21_my_mc_3 .h21_my_mc_l{float:left; width:33.3%; padding-right:4%; border-right:1px solid #ebebeb; -webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+.h21_my_mc_3 .h21_my_mc_c{float:left; width:33.3%; padding:0 4%; border-right:1px solid #ebebeb; -webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+.h21_my_mc_3 .h21_my_mc_r{float:right; width:33.3%; padding-left:4%; -webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+.mg_m23{margin-top:-23px;}
+.h21_my_plist{width:100%; padding:40px 0;}
+.h21_my_title{display:block; overflow: hidden; width:100%; text-align:center; padding:0 0 30px 0;}
+.h21_my_title .h12_my_icon{display:block; overflow: hidden; padding-bottom:5px;}
+.h21_my_title h3{color:#414141; font-size:25px; font-weight:200; letter-spacing:-0.1em;}
+.h21_my_title .h21_Tspan{color:#ff8f34; font-weight:600;}
+.h21_my_plist ul li{float:left; width:47.5%; margin-left:5%;}
+.h21_my_plist ul li:first-child{width:47.5%; margin-left:0%;}
+.h21_my_plist ul li .h21_my_photo{width:100%;}
+.h21_my_plist ul li .h21_my_photo img{width:100%; height:160px;}
+.h21_my_plist ul li .h21_my_photo img:hover{animation-name: ani_hart; animation-duration: 2s;}
+.h21_my_plist ul li .h21_my_stitle{display:block; margin:20px 0; color:#525252; font-size:19px; font-weight:400; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; word-wrap: break-word; -webkit-box-orient: vertical; -webkit-line-clamp: 1;}
+.h21_my_blist{width:100%; padding:40px 0;}
+.h21_my_blist dl{display:block; overflow: hidden; width:100%; padding:10px 0 11px 0; text-align:left; border-bottom:1px solid #eaeaea;}
+.h21_my_blist dl:first-child{border-top:1px solid #e98943;}
+.h21_my_blist dl dt{float:left; margin:2px 3px 0 0; padding:1px 7px 1px 7px; font-size: 13px; line-height:20px; vertical-align:1px; font-weight:400; border:1px solid #e9e9e9; background-color: #ffffff; -webkit-border-radius: 25px; -moz-border-radius: 25px; -o-border-radius: 25px; border-radius: 25px;}
+.h21_my_blist dl dd{margin:5px 0 0 5px; color:#7a7a7a; font-size:16px; font-weight:400; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; word-wrap: break-word; -webkit-box-orient: vertical; -webkit-line-clamp: 1;}
+.h21_my_more{display:block; overflow: hidden; width:100%; margin:20px auto 0 auto;}
+.h21_my_more .h12_my_moretxt{padding:8px 15px; color:#e97723; font-size:17px; font-weight:400; line-height: 47px; text-align:center; border:2px solid #e97723; -webkit-border-radius: 100px; -moz-border-radius: 100px; -o-border-radius: 100px; border-radius: 100px;}
+.h21_my_more .h12_my_moretxt:hover{color:#ffffff; border:2px solid #e97723; background:#e97723;}
+.h21_my_p_nodata{display:block; overflow: hidden; width:100%; height:90px; margin:0 auto 59px auto; padding-top:70px; color:#8c8c8c; font-size:18px; font-weight:300; background:#f8f8f8;}
+.h21_my_b_nodata{display:block; overflow: hidden; width:100%; height:82px; margin:0 auto 0px auto; padding-top:63px; color:#8c8c8c; font-size:18px; font-weight:300; background:#f8f8f8;}
+.h21_my_mc_w_cal{overflow: hidden; width:100%; border-top:1px solid #ebebeb;}
+.h21_my_title_cal{display:block; overflow: hidden; width:100%; margin-top:50px; text-align:center;}
+.h21_my_title_cal h3{color:#414141; font-size:25px; font-weight:200; letter-spacing:-0.1em;}
+.h21_my_title_cal .h21_Tspan{color:#ff8f34; font-weight:600;}
+.h21_my_mc_w2 .h21_com_allnb_name{padding:25px 0 0 0;}
+
+/* 게시판기본 */
+.h21_blist, .h21_blist_event{width:100%; border-top: 2px solid #878787;}
+.h21_blist th, .h21_blist_event th{padding: 25px 20px; font-size:16px; color:#000000; font-weight:400; border-bottom: 1px solid #dbdbdb;}
+.h21_blist tr{padding: 25px 20px; border-bottom: 1px solid #ebebeb;}
+.h21_blist td{font-size:16px; color:#a6a6a6; font-weight:300;}
+.h21_blist .tb_menu, .h21_blist_event .tb_menu{color:#e97723; font-weight:400;}
+.h21_blist .tb_tit{overflow: hidden; color:#000000; text-align:left; font-weight:400; margin:30px 0 30px 0; display: -webkit-box; text-overflow: ellipsis; word-wrap: break-word; -webkit-box-orient: vertical; -webkit-line-clamp: 1;}
+.h21_blist .tb_tit_on{overflow: hidden; color:#ff8f34; text-align:left; line-height:24px; font-weight:500; padding:26px 0 26px 0;}
+.h21_blist .tb_div{overflow: hidden; color:#696969; text-align:left; font-weight:400; margin:30px 20px 30px 0; display: -webkit-box; text-overflow: ellipsis; word-wrap: break-word; -webkit-box-orient: vertical; -webkit-line-clamp: 1;}
+.h21_blist tbody tr:hover, .h21_blist_event tbody tr:hover{background:#f9f9f9; cursor:pointer; transition: all 0.1s;}
+.h21_blist tbody tr.h21_list_notice_a{width:100%; background:#fdfcf3; cursor:default; transition: all 0.1s; text-align:left;}
+.h21_list_notice_info{padding:30px 65px; color:#777777; font-size:16px; text-align:left; line-height:22px; font-weight:300;}
+.h21_list_notice_info img{display:block; overflow: hidden; padding:20px 0; }
+.h21_blist td .h21_tb_iconud img{width:25px;}
+.h21_blist_event tr{padding: 0 20px 0 20px; border-bottom: 1px solid #ebebeb;}
+.h21_blist_event td{font-size:16px; line-height:16px; color:#a6a6a6; font-weight:300;}
+.h21_blist_event .tb_tit{overflow: hidden; color:#000000; text-align:left; font-weight:400; margin:30px 0 30px 0; line-height:40px; display: -webkit-box; text-overflow: ellipsis; word-wrap: break-word; -webkit-box-orient: vertical; -webkit-line-clamp: 1;}
+.tb_result_o, .tb_result_g, .tb_result_p{display: inline-block; overflow: hidden; margin-top:1px; width:68px; height:68px; color:#ffffff; line-height:68px; font-weight:400; -webkit-border-radius: 100px; -moz-border-radius: 100px; -o-border-radius: 100px; border-radius: 100px;}
+.tb_result_o{background:#f98d3c;}
+.tb_result_g{background:#9e9e9e;}
+.tb_result_p{background:#ae73e0;}
+.h21_write_stxt{display:block; overflow: hidden; padding:50px; color:#545454; font-size: 23px; line-height:20px; font-weight:300;}
+.h21_blist td.tb_P{color:#e97723; font-weight:500;}
+.h21_blist td.tb_M{color:#ff0000; font-weight:500;}
+
+/****** calculator ***********/
+/** cal_age **/
+.h21_calculator_m_top{width:100%; background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/calculator/top_bgr.jpg') top center no-repeat; min-height:255px; background-size:100%;}
+.h21_calculator_Tbg{width:100%; background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/calculator/top_center_img.png') top center no-repeat; min-height:255px;}
+.h21_sm_cal_box, .h21_sm_cal_box2{width:800px; overflow: hidden; margin:0 auto; background:#fff; border-radius:40px; box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6); -webkit-box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6); -moz-box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6);}
+.h21_sm_cal_box{top:-40px;}
+.h21_sm_cal_box2{top:0px;}
+.h21_sm_cal_menu li{width:33.333%; background-color: #fff; float: left; border: none; outline: none; cursor: pointer; padding: 20px 0px; transition: 0.3s; font-size: 20px; border-right: 1px solid #f7e8e7; -webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+.h21_sm_cal_menu li:last-child{border-right: 0px solid #f7e8e7;}
+.h21_sm_cal_menu li .cal_icon{display:block; overflow: hidden;}
+.h21_sm_cal_menu li .cal_icon img{widht:50px;}
+.h21_sm_cal_menu li .cal_txt{display:block; overflow: hidden; padding-top:5px;}
+.h21_sm_cal_menu li:hover {background-color: #fdf5ef;}
+.h21_sm_cal_menu li.active {background-color: #e97723;}
+.h21_sm_cal_menu li.active a{color:#fff;}
+.h21_cal_title{display:block; overflow: hidden; width:100%; background:#fff9ef;}
+.h21_cal_title img{float:left; height:180px; margin:2% 0 2% 8%;}
+.h21_cal_title .h21_cal_t01{float:left; padding:70px 0; color:#102b58; font-size:30px; text-align:center; font-weight:400; letter-spacing:-0.07em;}
+.h21_cal_title .h21_cal_t01 .h21_cal_t02{display:block; overflow: hidden; padding-top:5px; color:#ea6210; font-size:40px; font-weight:400;}
+.h21_cal_write{margin:5%;}
+.h21_cal_choice{overflow: hidden; height:42px; text-align:left; margin-top:8px; padding-left:10px; border:0px solid #000;}
+.h21_cal_choice a{overflow: hidden; margin:0 5px; border-radius:100px; height:35px; line-height:35px; font-size:15px; text-align:center; color:#909090; background:#e8e8e8; padding:6px 18px;}
+.h21_cal_choice a:hover{color:#fff; background:#c1c1c1;}
+.h21_cal_choice .h21_cal_checked{color:#fff; background:#ff9c00;}
+.h21_cal_choice .h21_cal_checked:hover{color:#fff; background:#e55e15;}
+.h21_cal_btn{display:block; overflow: hidden; width:100%; background-color: #fafafa;}
+.h21_cal_result{display: block; overflow: hidden; width:150px; margin:30px 36% 30px 36%; border-radius:60px; padding:15px 40px 16px 40px; background:#e97723;}
+.h21_cal_result a{color:#fff; font-size:20px;}
+.h21_cal_result:hover{background:#e55e15;}
+.h21_cal_again{display: block; overflow: hidden; width:150px; margin:30px 36% 30px 36%; border-radius:60px; padding:15px 40px 16px 40px; background:#6ea0f3;}
+.h21_cal_again a{color:#fff; font-size:20px;}
+.h21_cal_again:hover{background:#3f7bdd;}
+.h21_calculator_sns{margin:0px auto;}
+.h21_con_sns{display: block; overflow: hidden; width:800px; margin:2% auto 0 auto;}
+.h21_con_sns h4{padding:15px 15px 15px 10px; text-align:left; font-size: 20px; color:#6b6b6b; font-weight:300;}
+.h21_con_sns h4 img{width:18px; vertical-align:-3px; padding-right:3px;}
+.h21_con_sns ul{position:absolute; right:10px;top:8px}
+.h21_con_sns ul li{float:left; padding-left:5px;}
+.h21_con_sns ul li img{width:35px;}
+
+/* h21_result */
+.h21_cal_result_age{display: block; overflow: hidden; text-align:center; margin:5% auto; padding-top:7px;}
+.h21_age_circle{display: inline-block; width:120px; height:120px; background: #ffb901; -webkit-border-radius: 100px; -moz-border-radius: 100px; -o-border-radius: 100px; border-radius: 100px;}
+.h21_age_circle .Cc_age_img{display: block; text-align:center; padding-top:16px;}
+.h21_age_circle .Cc_age_img img{width:42%;}
+.h21_age_circle .Cc_age_number{display: block; padding-top:2px; font-size: 26px; color:#ffffff; font-weight:500;}
+.h21_cal_result_age .Cc_age_same{display: inline-block; width:50px;}
+.h21_cal_result_age .Cc_age_same img{width:100%; vertical-align:2px;}
+.h21_cal_result_age .Cc_age_lifecycle{display: block; padding:2% 0 0 0; font-size: 26px; color:#8c5600; font-weight:500;}
+.h21_result_calorie{display: block; overflow: hidden; text-align:center; margin:5% auto; padding-top:7px;}
+.h21_result_cal{display: inline-block; margin-bottom:10px; padding:0 50px;}
+.h21_result_cal:first-child{border-right:1px solid #f2f2f2;}
+.h21_result_cal dl{display: block;}
+.h21_result_cal dl dt{padding:10px 0 5px 0; font-size: 20px; color:#656565; font-weight:400;}
+.h21_result_cal dl dd{font-size: 32px; color:#ffb901; font-weight:600;}
+.h21_cal_img{display: inline-block; width:46px; height:46px; background: #ffb901; -webkit-border-radius: 100px; -moz-border-radius: 100px; -o-border-radius: 100px; border-radius: 100px;}
+.h21_cal_img img{width:30px; margin:8px;}
+.h21_result_calorie .h21_cal_txt{display: block; margin:20px 5% 0 5%; padding-top:20px; font-size: 16px; color:#b3945b; font-weight:100; line-height: 28px; text-align:center; border-top :1px solid #f2f2f2;}
+.h21_result_calorie .h21_cal_txt .h21_ob_txt_b{font-weight:600;}
+.h21_BCS{display: block; overflow: hidden; width:100%; margin:0 0 2% 0;}
+.h21_BCS li{float:left; width:32%; margin:2% 0 0 2%; border:1px solid #ececec; background: #fafafa; -webkit-border-radius: 10px; -moz-border-radius: 10px; -o-border-radius: 10px; border-radius: 10px; -webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+.h21_BCS li:first-child{margin:2% 0 0 0;}
+.h21_BCS li:nth-child(4n+0){margin:2% 0 0 0;}
+.h21_BCS li:nth-child(7n+0){margin:2% 2% 0 0;}
+.h21_BCS li:hover{border:1px solid #d9d9d9; background: #f5f5f5;}
+.h21_BCS li.Cc_BCS_on{border:1px solid #ffb901;}
+.h21_BCS li a img{width:100%; -webkit-filter: grayscale(100%); filter: grayscale(100%); opacity: 0.6;}
+.h21_BCS li.Cc_BCS_on img{-webkit-filter: grayscale(0%); filter: grayscale(0%); opacity: 1.0;}
+.h21_BCS li.Cc_BCS_on:hover{border:1px solid #ffb310; background: #fff9ef;}
+.h21_result_obesity{display: block; overflow: hidden; text-align:center; margin:5% auto; padding-top:7px;}
+.h21_ob_img img{width:30px}
+.h21_result_ob dt{padding:5px 0 5px 0; font-size: 32px; color:#ffb901; font-weight:500;}
+.h21_result_ob dd{display: block; padding:5px 0 15px 0; font-size: 20px; color:#8c5600; font-weight:300;}
+.h21_result_ob p{padding:5px 30px; font-size: 18px; color:#656565; font-weight:300; line-height: 1.6em;}
+.h21_result_ob .h21_ob_txt{display: block; margin:20px 5% 0 5%; padding-top:20px; font-size: 16px; color:#b3945b; font-weight:100; line-height: 28px; text-align:center; border-top :1px solid #f2f2f2;}
+
+/****** pointshop ***********/
+/** h21_pointshop **/
+.h21_pointshop_m_top{width:100%; background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/pointshop/top_bgr.jpg') top center no-repeat; min-height:289px; background-size:100%;}
+/* 서브메뉴 */
+.h21_sm_pointshop_box{width:100%; margin:0 auto; text-align:center; height:70px}
+.h21_pointshop_tab{top:-35px;width:100%;background:#fff;border-top-left-radius:40px;border-top-right-radius:40px;height:80px;box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6)  ; -webkit-box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6)  ; -moz-box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6)  ; }
+.h21_pointshop_tab button{background-color: #fff;float: left; border: none;outline: none;cursor: pointer; padding: 26px 0px;transition: 0.3s;font-size: 20px;border-right: 1px solid #96f3f8;width:25%;}
+.h21_pointshop_tab button:hover {background-color: #e8fafb;}
+.h21_pointshop_tab button.active {background-color: #4de9f3;color:#fff}
+.h21_h3_text_c2{font-size:18px; color:#fff; font-weight:400; text-align:center; line-height:26px; margin:10px 30% 0 30%; padding:5px; background: #0090db; -webkit-border-radius: 100px; -moz-border-radius: 100px; -o-border-radius: 100px; border-radius: 100px;}
+.h21_h3_text_c2 span{color:#fcff00;}
+
+.h21_sm_ps_box{top:0px; width:500px; overflow: hidden; margin:20px auto 0 auto; padding:20px; background:#fff; border-radius:40px; box-shadow: 0 10px 20px 0 rgba(207, 207, 207, 0.2), 0 20px 20px 0 rgba(207, 207, 207, 0.2); -webkit-box-shadow: 0 10px 20px 0 rgba(207, 207, 207, 0.2), 0 20px 20px 0 rgba(207, 207, 207, 0.2); -moz-box-shadow: 0 10px 20px 0 rgba(207, 207, 207, 0.2), 0 20px 20px 0 rgba(207, 207, 207, 0.2);}
+.h21_mypoint_txt{font-size: 32px; color:#000; font-weight:300;}
+.h21_mypoint_txt_b{color:#e97723; font-weight:600;}
+.h21_mypoint_txt img{vertical-align:-10px;}
+.h21_pointshop_list{display: block; overflow: hidden; width:100%; padding:2% 0;}
+.h21_pointshop_list .PE_l_list{display: block; overflow: hidden; margin:0; padding:0 10px 0 10px; background: #ffffff;}
+.h21_pointshop_list .PE_l_list li{position:relative; float:left; width:48.5%; height:230px; background: #fcf9da; webkit-border-radius: 10px; -moz-border-radius: 10px; -o-border-radius: 10px; border-radius: 10px;}
+.h21_pointshop_list .PE_l_list li:nth-child(odd){margin:10px 1.5% 2.5% 0%;}
+.h21_pointshop_list .PE_l_list li:nth-child(even){margin:10px 0% 2.5% 1.5%;}
+.h21_pointshop_list .PE_l_list li .PE_linfo{position:relative; display: block; overflow: hidden; padding:5%; text-align: left;}
+.h21_pointshop_list .PE_l_list li .PE_linfo .l_draw{display: inline-block; overflow: hidden; width:90px; padding:5px; color:#f98d3c; font-size:16px; text-align: center; font-weight:400; border:1px solid #f98d3c; -webkit-border-radius: 100px; -moz-border-radius: 100px; -o-border-radius: 100px; border-radius: 100px;}
+.h21_pointshop_list .PE_l_list li .PE_linfo .l_brand{display: inline-block; overflow: hidden; min-width:75px; margin-left:5px; padding:6px 15px; color:#fff; font-size:16px; text-align: center; font-weight:400; background: #f98d3c; -webkit-border-radius: 100px; -moz-border-radius: 100px; -o-border-radius: 100px; border-radius: 100px;}
+.h21_pointshop_list .PE_l_list li .PE_linfo .l_product{display: block; overflow: hidden; padding:10px 0; color:#000000; font-size:20px; line-height: 24px; font-weight:600; width:70%;}
+.h21_pointshop_list .PE_l_list li .PE_linfo .l_period{display: block; overflow: hidden; color:#9d964f; font-size:16px; font-weight:300;}
+.h21_pointshop_list .PE_l_list li .PE_linfo .l_img{position:absolute; right:5%; top:3%; width:140px;}
+.h21_pointshop_list .PE_l_list li .PE_linfo .l_img img{width:100%;}
+.h21_pointshop_list .PE_l_list li .PE_entry{position:absolute; left:0%; bottom:0%; width:90%; text-align: center; margin:1% 5% 5% 5%; background: #ffffff; webkit-border-radius: 5px; -moz-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px; box-shadow: 0 2px 3px 0 rgba(249,141,60,0.1), 0 2px 3px 0 rgba(249,141,60,0.1);}
+.h21_pointshop_list .PE_l_list li .PE_entry .l_number{float:left; width:50%; padding:11px 0 9px 0;}
+.h21_pointshop_list .PE_l_list li .PE_entry .l_number .l_title{color:#7b7b7b; font-size:18px;}
+.h21_pointshop_list .PE_l_list li .PE_entry .l_number .l_title img{width:26px; padding-top:0px; vertical-align:-6px;}
+.h21_pointshop_list .PE_l_list li .PE_entry .l_number .l_nb{color:#f98d3c; font-size:18px; font-weight:600;}
+.h21_pointshop_list .PE_l_list li .PE_entry .btn_entry{float:left; width:50%; background: #f98d3c; padding: 12px 0 11px 0; webkit-border-radius: 0 5px 5px 0; -moz-border-radius: 0 5px 5px 0; -o-border-radius: 0 5px 5px 0; border-radius: 0 5px 5px 0;}
+.h21_pointshop_list .PE_l_list li .PE_entry .btn_entry a{color:#ffffff; font-size:18px; font-weight:600;}
+.h21_pointshop_list .PE_l_list li .PE_entry .btn_entry img{width:14px; padding-top:1px; vertical-align:-5px;}
+.h21_pointshop_list .PE_l_list li .PE_entry .btn_entry:hover, .h21_pointshop_list .PE_l_list li .PE_entry .y_prize:hover{background:#e55e15;}
+.h21_pointshop_list .PE_l_list li .PE_entry .number_entry, .h21_pointshop_list .PE_l_list li .PE_entry .n_prize, .h21_pointshop_list .PE_l_list li .PE_entry .y_prize{display: block; overflow: hidden; width:100%; color:#ffffff; font-size:18px; font-weight:600; webkit-border-radius: 5px; -moz-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px;}
+.h21_pointshop_list .PE_l_list li .PE_entry .number_entry{height:32px; padding-top:13px; background: #a450c3;}
+.h21_pointshop_list .PE_l_list li .PE_entry .n_prize {height:32px; padding-top:13px; background: #525252;}
+.h21_pointshop_list .PE_l_list li .PE_entry .y_prize {padding:12px 0 11px 0; background: #f98d3c;}
+.h21_pointshop_list .PE_l_list li .PE_entry .y_prize img{width:14px; padding-top:0px; vertical-align:-5px;}
+.h21_pointshop_list .PE_l_list li .PE_entry .y_prize a{color:#ffffff; font-size:18px; font-weight:600;}
+.h21_pointshop_method{display: block; overflow: hidden; width:100%; padding:2.5% 0; margin:0 auto;}
+.h21_ps_method{display: block; overflow: hidden; margin:0 auto; width:800px; padding:4%; background: #fdfcf3; webkit-border-radius: 10px; -moz-border-radius: 10px; -o-border-radius: 10px; border-radius: 10px;}
+.h21_ps_method h4{color:#000000; font-size:30px; font-weight:400;}
+.h21_method_list{padding:3% 10% 2% 10%;}
+.h21_method_list li{position:relative; float:left; width:29.3%; margin:2%; border:1px solid #e0e0e0; background: #ffffff; webkit-border-radius: 10px; -moz-border-radius: 10px; -o-border-radius: 10px; border-radius: 10px; -webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+.h21_method_list li .method_icon{display: block; overflow: hidden; padding-top:15px;}
+.h21_method_list li .method_title{display: block; overflow: hidden; padding:10px 0 15px 0; color:#000000; font-size:20px; font-weight:600;}
+.h21_method_list li .method_point{display: block; overflow: hidden; padding:15px 0; color:#ffffff; font-size:28px; font-weight:600; background: #f98d3c; webkit-border-radius: 0 0 10px 10px; -moz-border-radius: 0 0 10px 10px; -o-border-radius: 0 0 10px 10px; border-radius: 0 0 10px 10px;}
+.h21_ps_caution{display: block; overflow: hidden; width:100%; padding:15px 0; color:#8d8d8d; font-size:18px; font-weight:300;}
+.h21_ps_caution .caution_star{display: block; overflow: hidden; width:100%; padding-bottom:15px; color:#f98d3c; font-size:35px; font-weight:500;}
+.h21_hp_btm{display: block; overflow: hidden; padding:20px 25px;font-size:15px;color:#555;letter-spacing:-0.03em;line-height:22px;text-align:left;border-bottom:1px solid #111;}
+.h21_hp_sign{display: block; overflow: hidden; padding:0 0 10px 15px;}
+
+/****** notice ***********/
+.h21_notice_m_top{width:100%; background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/notice/top_bgr.jpg') top center no-repeat; min-height:190px; background-size:100%;}
+.h21_com_allnb_name2{display: block; overflow: hidden; padding:50px 0; color:#000000; font-size:35px; font-weight:400;}
+.h21_com_allnb_name2 .h21_com_allnb{color:#e97723;}
+
+.h21_policy_m_top{width:100%; background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/notice/top_bgr.jpg') top center no-repeat; min-height:220px; background-size:100%;}
+/* 서브메뉴 */
+.h21_sm_policy_box{width:100%; margin:0 auto; text-align:center; height:70px}
+.h21_policy_tab{top:-35px;width:100%;background:#fff;border-top-left-radius:40px;border-top-right-radius:40px;height:80px;box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6)  ; -webkit-box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6)  ; -moz-box-shadow: 5px 5px 48px rgba(207, 207, 207, 0.6)  ; }
+.h21_policy_tab button{background-color: #fff;float: left; border: none;outline: none;cursor: pointer; padding: 26px 0px;transition: 0.3s;font-size: 20px;border-right: 1px solid #f7ffe3;width:50%;}
+.h21_policy_tab button:hover {background-color: #f7ffe3;}
+.h21_policy_tab button.active {background-color: #c2e074;color:#fff}
+
+.h21_policy_info{display: block; overflow: hidden; width:100%; padding:2% 0; text-align: left;}
+/* con_description */
+.con_description{display: block; overflow: hidden; padding:0 30px;}
+.con_description h4{display: block; overflow: hidden; margin-top:30px; padding:10px 10px 0 10px; font-size: 20px; color:#000000; line-height: 22px; font-weight:600;}
+.con_description p{padding:15px 10px; font-size: 16px; color:#696969; line-height: 22px; font-weight:300;}
+
+.h21_txt_y{color:#fcff00;}
+
+/* 커뮤니티 팝업이미지 */
+.s21_mainPop_photo_h .s21_mainPopImg{height: 85%;}
+
+/*dot_color*/
+.dot_red{background:#cd1212 ! important}
+.dot_yellow{background:#ffd801 ! important}
+.dot_orange{background:#ff8401 ! important}
+.dot_blue{background:#1d84e3 ! important}
+.dot_green{background:#82c720 ! important}
+.dot_pink{background:#f36ae8 ! important}
+.dot_violet{background:#a16af3 ! important}
+.dot_gray{background:#f1f1f1 ! important}
+.dot_darkgray{background:#3a3a3a ! important}
+
+/*** animation button ***/
+.h21Btn1 {display: inline-block; min-width: 80%; margin: auto; padding: 1px 0; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; transition: padding .4s cubic-bezier(0.45,-0.11, 0, 0.8);
+	 -webkit-transition: padding .4s cubic-bezier(0.45,-0.11, 0, 0.8); -moz-transition: padding .4s cubic-bezier(0.45,-0.11, 0, 0.8); text-transform: uppercase; text-decoration: none;}
+.h21Btn1:before {content: ''; display: block; clear:both;}
+.h21Btn1 .lb {display: block; float: left; font-size: 20px; color:#fff; font-weight: 400; margin-top:5px;}
+.h21Btn1 .ico-arr2 {display: block; float: right; width: 30px; height: 30px; margin-top: 0px; background: url('http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/go_more_circle.png') no-repeat left top;}
+.h21Btn1:hover {padding: 1px 17px;}
+
+/*** 배너이동조작 ***/
+.h21_arrow_box{bottom:5%; right:12%; left:12%;}
+.h21_arrow_box div{float:left; display:inline-block; padding-left:10px; margin-left:10px; background:#000; border-radius:100px; width:65px; height:40px; opacity:0.5; font-size:14px; color:#fff; text-align:center;}
+.h21_arrow_box div button{margin:8px 0px; opacity:0.5;}
+.h21_arrow_box div button:hover{opacity:1;}
+.h21_arrow_box p{float:left; display:inline-block; margin-left:10px; background:#000; border-radius:100px; width:90px; height:40px; opacity:0.5; line-height:40px; font-size:15px; color:#fff; text-align:center;}
+.h21_arrow_box p span{padding:0 5px;}
+
+/*** animation img community ***/
+.slide-in-blurred-left{-webkit-animation:slide-in-blurred-left .6s cubic-bezier(.23,1.000,.32,1.000) both;animation:slide-in-blurred-left .6s cubic-bezier(.23,1.000,.32,1.000) both}
+.slide-in-blurred-right{-webkit-animation:slide-in-blurred-right .8s cubic-bezier(.93,1.000,.32,1.000) both;animation:slide-in-blurred-right .8s cubic-bezier(.93,1.000,.32,1.000) both}
+@-webkit-keyframes slide-in-blurred-left{0%{-webkit-transform:translateX(-1000px) scaleX(2.5) scaleY(.2);transform:translateX(-1000px) scaleX(2.5) scaleY(.2);-webkit-transform-origin:100% 50%;transform-origin:100% 50%;opacity:0}100%{-webkit-transform:translateX(0) scaleY(1) scaleX(1);transform:translateX(0) scaleY(1) scaleX(1);-webkit-transform-origin:50% 50%;transform-origin:50% 50%;opacity:1}}@keyframes slide-in-blurred-left{0%{-webkit-transform:translateX(-1000px) scaleX(2.5) scaleY(.2);transform:translateX(-1000px) scaleX(2.5) scaleY(.2);-webkit-transform-origin:100% 50%;transform-origin:100% 50%;opacity:0}100%{-webkit-transform:translateX(0) scaleY(1) scaleX(1);transform:translateX(0) scaleY(1) scaleX(1);-webkit-transform-origin:50% 50%;transform-origin:50% 50%;opacity:1}}
+@-webkit-keyframes slide-in-blurred-right{0%{-webkit-transform:translateX(1000px) scaleX(2.5) scaleY(.2);transform:translateX(1000px) scaleX(2.5) scaleY(.2);-webkit-transform-origin:0 50%;transform-origin:0 50%;opacity:0}100%{-webkit-transform:translateX(0) scaleY(1) scaleX(1);transform:translateX(0) scaleY(1) scaleX(1);-webkit-transform-origin:50% 50%;transform-origin:50% 50%;opacity:1}}@keyframes slide-in-blurred-right{0%{-webkit-transform:translateX(1000px) scaleX(2.5) scaleY(.2);transform:translateX(1000px) scaleX(2.5) scaleY(.2);-webkit-transform-origin:0 50%;transform-origin:0 50%;opacity:0}100%{-webkit-transform:translateX(0) scaleY(1) scaleX(1);transform:translateX(0) scaleY(1) scaleX(1);-webkit-transform-origin:50% 50%;transform-origin:50% 50%;opacity:1}}
