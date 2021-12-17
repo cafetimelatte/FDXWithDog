@@ -70,8 +70,8 @@ public class MemberController {
 	@RequestMapping("logout")
 	public String logout(HttpServletRequest requset) {
 		HttpSession session = requset.getSession();
-		session.invalidate();	
-		return "mainTemplate";
+		session.invalidate();
+		return "redirect:/";
 	}
 	
 	@RequestMapping("join")
