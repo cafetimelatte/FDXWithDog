@@ -57,6 +57,11 @@ public class memberServiceImpl implements MemberService {
 	}
 	
 	@Override
+	public boolean deleteMember(String m_id, String m_pw) {
+		return dao.deleteMember(m_id, encryptionPw(m_pw));
+	}
+	
+	@Override
 	public int checkId(String id) {
 		int a = dao.checkId(id);
 		return a;
@@ -222,6 +227,7 @@ public class memberServiceImpl implements MemberService {
 			throw new RuntimeException();
 		}
 	}
+
 	
 }
 

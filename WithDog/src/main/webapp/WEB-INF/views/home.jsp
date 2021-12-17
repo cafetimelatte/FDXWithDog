@@ -21,6 +21,7 @@
 	<c:forEach items="${findList}" var="findList">
 	${findList.m_id}<br/>
 	${findList.m_nick}
+	${msg}
 	</c:forEach>
 	
 	<p>${searchPw}</p>

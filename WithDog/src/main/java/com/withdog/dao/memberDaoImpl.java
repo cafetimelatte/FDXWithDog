@@ -77,5 +77,21 @@ public class memberDaoImpl implements memberDao {
 		}
 	}
 
+	@Override
+	public boolean deleteMember(String m_id, String m_pw) {
+		boolean result = false;
+		Map<String, String> map = new HashMap<String, String>();
+		System.out.println(m_id);
+		System.out.println(m_pw);
+		map.put("m_id", m_id);
+		map.put("m_pw", m_pw);
+		int cnt = sqlSession.delete("com.withdog.mapper.memberMapper.deleteMember", map);
+		System.out.println(cnt);
+		if(cnt == 1) {
+			result =true;
+		}
+		return result;
+	}
+
 }
 
