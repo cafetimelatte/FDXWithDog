@@ -55,10 +55,15 @@ public class MemberController {
 	@RequestMapping(value = "login.do", method = RequestMethod.POST)
 	public int loginAction(HttpServletRequest requset, HttpServletResponse response) throws IOException {
 		requset.setCharacterEncoding("UTF-8");
+		HttpSession session = requset.getSession();
 		String email = requset.getParameter("email");
 		String pw = requset.getParameter("pw");
 		int loginRs= memberService.login(email, memberService.encryptionPw(pw));
-		HttpSession session = requset.getSession();
+		List<MemberDto> list = memberService.userInfo(email);
+		for(MemberDto dto : list) {
+			String nick = dto.getM_nick();
+			session.setAttribute("nick", nick);
+		}
 		session.setAttribute("loginRs", loginRs);
 		if(loginRs==1) {
 			session.setAttribute("loginEmail", email);
