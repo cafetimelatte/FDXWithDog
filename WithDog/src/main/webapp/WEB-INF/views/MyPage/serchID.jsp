@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="./resources/css/layout.css">
 <link rel="stylesheet" href="./resources/css/shot.css">
 <link rel="stylesheet" href="./resources/css/swiper-bundle.min.css">
+<link rel="stylesheet" href="./resources/css/input.css">
 
 
 <script src="./resources/js/jquery.js"></script>
@@ -34,30 +35,24 @@
 	<form action="serchUserID" method="post"> 
     <div class="s21_event_m_top pr" style="height:800px">
 		<div class="h21_top_cbox pr area">
-			<h3 class="" style="height:230px">아이디 찾기</h3>
+			<h3 class="" style="height:230px">비밀번호 찾기</h3>
 			<p class="s21_h3_line"></p>
 			<p class="s21_h3_text">
-			<div style="margin-left: 540px;">
+			<div style="margin-left: 500px;">
 				<div class="join">
-					<label>이메일</label>
-  					<input type="text" name="email" id="email" placeholder="이메일을 입력하세요"/> @ 
-	  				<select name="last_email">
-		                <option value="@gmail.com">gmail.com</option><option value="@naver.com">naver.com</option>
-		            </select>		
+  					<input type="text" name="email" id="email" placeholder="ex) example@gmail.com"> 
 				</div>
 				<div class="join">
-					<label>닉네임</label>
 					<input type="text" name="nick" id="nick" placeholder="닉네임을 입력하세요"/>
 				</div>
 				<div class="join">
-					<button type="submit" name="findBtn" id="findBtn" onclick="findCk()">아이디 찾기</button>
-					<input type="reset" name="cancel" value="취소"/>
+					<button type="submit" class="btn btn--orange" name="findBtn" id="findBtn" onclick="findCk()">&nbsp;&nbsp; 비밀번호 찾기 &nbsp;&nbsp;</button>
+					<button type="reset"  class="btn btn--orange" name="cancel">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 취소 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</button>
 				</div>
 			</div>
 		</div>
 	</div>
 	</form>
-	
 	<!-- footer -->
     <jsp:include page="../footer.jsp"/>
 	<!-- //footer -->

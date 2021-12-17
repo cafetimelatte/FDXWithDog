@@ -22,6 +22,41 @@
     <script src="./resources/js/swiper-bundle.min.js"></script>
     
 	<style>
+	.btn--orange {
+    border: 2px solid #f28e0a;
+    color: #f28e0a;
+	}
+	.btn {
+    display: inline-block;
+    padding: 1em 1.6em;
+    border-radius: 3px;
+    margin-top: 2rem;
+    font-weight: bold;
+    font-size: 0.8rem;
+    width : 260px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 250ms ease;
+	}
+	.btn--orange:after {
+    background-color: #f28e0a;
+	}
+	.btn:after {
+    content: "";
+    z-index: -1;
+    width: 150%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    animation-name: bgout;
+    animation-duration: 400ms;
+    transform: skew(-45deg) translate(-150%);
+	}
 		.join{
 			margin-bottom: 10px;
 			margin-left: 450px;
@@ -125,8 +160,8 @@
 					<input type="text" name="addr3" id="addr3"/>
 				</div>
 				<div class="join">
-					<input type="submit" name="submit" onclick="location.href='home'"  value="가입"/>
-					<input type="reset" name="cancel" value="취소"/>
+					<button type="submit" class="btn btn--orange" name="submit" onclick="location.href='home'"  value="가입">가입</button>
+					<button type="reset" class="btn btn--orange" name="cancel" value="취소">취소</button>
 				</div>
 		</div>
 	</div>

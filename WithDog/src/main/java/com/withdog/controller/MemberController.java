@@ -121,7 +121,7 @@ public class MemberController {
 	@RequestMapping(value = "serchUserID", method = RequestMethod.POST)
 	public String serchUserID(HttpServletRequest request) throws Exception {	
 		request.setCharacterEncoding("UTF-8");	
-		String userId = request.getParameter("email") + request.getParameter("last_email");
+		String userId = request.getParameter("email");
 		String userNick = request.getParameter("nick");
 		String msg = "";
 		int fidnUser = memberService.checkId(userId);
