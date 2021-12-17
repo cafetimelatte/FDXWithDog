@@ -221,11 +221,12 @@
                     <div class="s21_tabcontent_right">
                         <div class="s21_tabcontent_rightbox">
 
+							
                             <!-- 숙박예약 있을시에 button s -->
                             <div class="s21_tabcontent_rbtn">
-								<button type="button" class="bg_orange" onclick="location.href='/booking?h_id=${h_detail.h_id}'">숙박예약</button>
-								<!-- <button type="button" class="bg_orange" onclick="alert('로그인 후 이용해주세요.');return;//location.href='?m1Code=etc&m2Code=join';;location.href='?m1Code=ar_info&m2Code=inquiry&idx=8892&inquiry_tab=2'">숙박예약</button> -->
+								<button type="button" class="bg_orange" onclick="location.href='booking?h_id=${h_detail.h_id}'">숙박예약</button>
                             </div>
+                            
                             <!--// 숙박예약 있을시에 button e -->
                             <!-- 공통주의사항 s -->
                             <div class="s21_tabcontent_more">
