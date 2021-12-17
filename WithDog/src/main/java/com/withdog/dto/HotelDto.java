@@ -2,6 +2,8 @@ package com.withdog.dto;
 
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class HotelDto {
 	private int h_id;
 	private String h_name;
@@ -16,17 +18,18 @@ public class HotelDto {
 	private String h_add3;
 	private String h_img;
 	private int h_price;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
 	private Date h_regiDate;
 	private String h_petSize;
 	private String h_petWeight;
 	private String h_etc;
+	private int h_mbCnt;
 	
 	public HotelDto() {}
-
+	
 	public HotelDto(int h_id, String h_name, String h_info, String h_detail, String h_phone, String h_web,
 			String h_chkInTime, String h_chkOutTime, String h_add1, String h_add2, String h_add3, String h_img,
-			int h_price, Date h_regiDate, String h_petSize, String h_petWeight, String h_etc) {
-		super();
+			int h_price, Date h_regiDate, String h_petSize, String h_petWeight, String h_etc, int h_mbCnt) {
 		this.h_id = h_id;
 		this.h_name = h_name;
 		this.h_info = h_info;
@@ -44,6 +47,7 @@ public class HotelDto {
 		this.h_petSize = h_petSize;
 		this.h_petWeight = h_petWeight;
 		this.h_etc = h_etc;
+		this.h_mbCnt = h_mbCnt;
 	}
 
 	public int getH_id() {
@@ -182,13 +186,21 @@ public class HotelDto {
 		this.h_etc = h_etc;
 	}
 
+	public int getH_mbCnt() {
+		return h_mbCnt;
+	}
+
+	public void setH_mbCnt(int h_mbCnt) {
+		this.h_mbCnt = h_mbCnt;
+	}
+
 	@Override
 	public String toString() {
 		return "HotelDto [h_id=" + h_id + ", h_name=" + h_name + ", h_info=" + h_info + ", h_detail=" + h_detail
 				+ ", h_phone=" + h_phone + ", h_web=" + h_web + ", h_chkInTime=" + h_chkInTime + ", h_chkOutTime="
 				+ h_chkOutTime + ", h_add1=" + h_add1 + ", h_add2=" + h_add2 + ", h_add3=" + h_add3 + ", h_img=" + h_img
 				+ ", h_price=" + h_price + ", h_regiDate=" + h_regiDate + ", h_petSize=" + h_petSize + ", h_petWeight="
-				+ h_petWeight + ", h_etc=" + h_etc + "]";
+				+ h_petWeight + ", h_etc=" + h_etc + ", h_mbCnt=" + h_mbCnt + "]";
 	}
-	
+
 }

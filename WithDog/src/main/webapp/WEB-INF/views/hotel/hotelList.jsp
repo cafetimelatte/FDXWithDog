@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
 	"http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -21,9 +20,14 @@
 
     <script src="js/jquery.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/criteria.js"></script>
+
     <title>Hotel-List</title>
 </head>
 <body>
+	<input type="hidden" id="executeAjax">
+	<input type="hidden" name="h_field" value="${h_field}" id="h_field">
 	<!-- header -->
 	<jsp:include page="../header.jsp"/>
 	<!-- //header -->
@@ -31,65 +35,18 @@
         <!-- 순 -->
         <div class="s21_tour_sun" style="margin-top:30px">
             <!-- 검색란 체크시 출력-->
-            <a id="dtDesc" href="?p=1&f=${h_crit.field}&c=${h_crit.category}&o=recent" class=<c:if test="${h_crit.order eq 'recent'}">'s21_sun_checked'</c:if>>최신순</a>
-            <a id="cntReview" href="?p=1&f=${h_crit.field}&c=${h_crit.category}&o=review" class=<c:if test="${h_crit.order eq 'review'}">'s21_sun_checked'</c:if>>리뷰순</a>
+            <a id="recent" class="s21_sun_checked" onclick="listOrder('recent')">최신순</a>
+            <a id="review" class="" onclick="listOrder('review')">리뷰순</a>
         </div>
-        <!--// 순 -->.
+        <!--// 순 -->
         <!-- 리스트 시작 -->
         <div class="s21_tour_list_box">
-        	<c:forEach var="h" items="${h_list}" varStatus="h_cnt">
-				<a href="hotelDetail?h_id=${h.h_id}">
-		        	<c:choose>
-		        		<c:when test="${h_cnt.count % 3 eq 0}">
-							<div class="s21_tour_list_conts mgr_0 pr">     			
-		        		</c:when>
-		        		<c:otherwise>
-	                        <div class="s21_tour_list_conts pr">
-		        		</c:otherwise>
-		        	</c:choose>
-                    	<span class="s21_reser_ok_btn pa"><img src="http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/icon_New2.png"></span>
-						<dl class="s21_tour_list_photo">
-                        	<c:forTokens var="h_img" items="${h.h_img}" delims="," begin="0" end="2" varStatus="img">
-	                           	<c:choose>
-	                           		<c:when test="${img.count eq 1}">
-	                               		<dt><img src="hotel/${h.h_id}/h_img/${h_img}" alt="바라던바다 onerror=" noimage(this);"=""></dt>
-	                           		</c:when>
-	                           		<c:otherwise>
-	                              	 		<dd><img src="hotel/${h.h_id}/h_img/${h_img}" alt="바라던바다" onerror="noimage(this);"></dd>                            	
-	                           		</c:otherwise>
-	                           	</c:choose>
-                            </c:forTokens>
-                        </dl>
-                        <div class="s21_tour_list_tbox">
-                        	<h4 class="s21_tour_accommodation">${h.h_name}</h4>
-                            <p class="s21_tour_list_text">${h.h_info}</p>
-                            <div class="s21_desc" onclick="">
-                            	<div class="s21_d_comment"><p class="icon_comment">댓글</p>0</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-        	</c:forEach>
+        </div>
         <!--// 리스트 끝 -->
 
         <!-- paging s -->
         <div class="s21_page">
             <div class="s21_pagination jquery-paging" style="margin-left: 410px;" id="PageNav">
-            	<c:if test="${h_crit.prev}">
-	            	<a href="?p=1&f=${h_crit.field}&c=${h_crit.category}&o=${h_crit.order}" class="">«</a>
-	            	<a href="?p=${h_crit.startNum - 5}&f=${h_crit.field}&c=${h_crit.category}&o=${h_crit.order}" class="PageNavPrev">←</a>
-            	</c:if>
-            	
-            	<c:forEach var="i" begin="0" end="4">
-	            	<c:if test="${(h_crit.startNum + i) <= h_crit.lastNum}">
-		            	<a href="?p=${h_crit.startNum + i}&f=${h_crit.field}&c=${h_crit.category}&o=${h_crit.order}" class="${(h_crit.page == h_crit.startNum + i)?'active':''}">${h_crit.startNum + i}</a>
-	            	</c:if>
-            	</c:forEach>
-            	
-            	<c:if test="${h_crit.next}">
-	            	<a href="?p=${h_crit.startNum + 5}&f=${h_crit.field}&c=${h_crit.category}&o=${h_crit.order}" class="PageNavNext">→</a>
-	            	<a href="?p=${h_crit.lastNum}&f=${h_crit.field}&c=${h_crit.category}&o=${h_crit.order}" class="">»</a>
-            	</c:if>
             </div>
         </div>
         <!--// paging e -->

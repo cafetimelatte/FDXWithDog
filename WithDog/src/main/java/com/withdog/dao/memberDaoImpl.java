@@ -51,7 +51,8 @@ public class memberDaoImpl implements memberDao {
 		find.put("usernick", userNick);
 		return sqlSession.selectList("com.withdog.mapper.memberMapper.findId",find);
 	}
-
+	
+	
 	@Override
 	public int checkId(String id) {
 		String user_id = null;

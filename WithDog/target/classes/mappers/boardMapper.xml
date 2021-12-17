@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.withdog.mappers.boardMapper">
+
+	<insert id="write" parameterType="com.withdog.dto.boardDTO">
+		 insert into mainboard (mb_id, mb_title, mb_content, mb_img, mb_hit, mb_regidate, h_id, m_id)
+		 VALUES (MB_SEQ.nextval, #{mb_title}, #{mb_content}, #{mb_img}, #{mb_hit}, default, #{h_id}, #{m_id})
+	</insert>
+	
+	<update id="hitboard" parameterType="int">
+		update mainboard set mb_hit = mb_hit+1
+			where mb_id = #{mb_id}
+	</update>
+	
+	<select id="detailboard" resultType="com.withdog.dto.boardDTO">
+		select m.m_nick, mb.*
+		from mainboard mb left join member m
+		on mb.m_id = m.m_id
+		where mb_id = #{mb_id}
+		
+	</select>
+	
+	<update id="update" parameterType="com.withdog.dto.boardDTO">
+		update mainboard set mb_title = #{mb_title}, mb_content = #{mb_content}
+		 	where mb_id = #{mb_id}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from mainboard where mb_id = #{mb_id}
+	</delete>
+	
+	<!-- 게시물 총 갯수 -->
+	<select id="count" resultType="int">
+	    select count(mb_id) from mainboard
+	    
+	</select>
+	
+	<!-- 게시물 목록 + 페이징 -->
+	<select id="listPage" parameterType="hashMap" resultType="com.withdog.dto.boardDTO">
+	    select * from (select row_number() over(order by mb_id desc) num, m.m_nick, a.*
+	    from mainboard a left join member m
+		on a.m_id = m.m_id
+		order by mb_id desc)
+ 	    where num between #{displayPost} and #{postNum}
+	</select>
+	
+	<!-- 홈화면 인기 게시물 목록 -->
+	<select id="getHotReview" resultType="com.withdog.dto.boardDTO">
+		select *
+		from(select m.m_nick, mb.*
+			from mainboard mb left join member m
+			on mb.m_id = m.m_id
+			order by mb_hit desc)
+		where rownum between 1 and 4
+	</select>
+	
+	<!-- 예약내역 가져오기 -->
+	<select id="getBookingList" resultType="com.withdog.dto.BookingDto" parameterType="String">
+		select *
+		from booking
+		where m_id = #{m_id}
+	</select>
+	
+	<select id="getList" resultType="com.withdog.dto.boardDTO" parameterType="map">
+		select *
+		from (select row_number() over(order by mb_id desc) num, m.m_nick, a.*
+	    		from mainboard a left join member m
+				on a.m_id = m.m_id
+				<if test="category == 'm_id'">
+					where a.m_id like '%'||#{field}||'%'
+				</if>
+				<if test="category == 'mb_id'">
+					where a.mb_id like '%'||#{field}||'%'
+				</if>
+				<if test="category == 'm_nick'">
+					where m.m_nick like '%'||#{field}||'%'
+				</if>
+				<if test="category == 'mb_title'">
+					where a.mb_title like '%'||#{field}||'%'
+				</if>
+				<if test="category == 'mb_content'">
+					where a.mb_content like '%'||#{field}||'%'
+				</if>
+				order by mb_id desc)
+ 	    where num between #{displayPost} and #{postNum}
+	</select>
+	
+</mapper>

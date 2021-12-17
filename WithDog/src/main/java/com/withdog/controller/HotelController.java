@@ -1,11 +1,16 @@
 package com.withdog.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.withdog.dto.CriteriaDto;
@@ -18,47 +23,47 @@ public class HotelController {
 	@Autowired
 	IHotelService hotelService;
 	
-	@RequestMapping("/hotelList")
-	public String hotelList(@RequestParam(value="p", required=false, defaultValue="1") int page,
-			@RequestParam(value="f", required=false, defaultValue="") String field,
-			@RequestParam(value="c", required=false, defaultValue="h_name") String category,
-			@RequestParam(value="o", required=false, defaultValue="recent") String order,
+	@RequestMapping(value="/hotelList", method=RequestMethod.GET)
+	public String hotelList(@RequestParam(value="f", required=false, defaultValue="") String h_field,
 			Model model) {
-		CriteriaDto cDto = new CriteriaDto(page,6,hotelService.getHotelCount(field, category), field, category, order);
-		model.addAttribute("h_list",hotelService.getHotelList(cDto));
-		model.addAttribute("h_crit",cDto);
+		model.addAttribute("h_field",h_field);
 		return "hotel/hotelList";
+	}
+	
+	@RequestMapping(value="/hotelList", method=RequestMethod.POST)
+	public @ResponseBody Map<String, Object> hotelList(@RequestBody CriteriaDto datas){
+		CriteriaDto cDto = new CriteriaDto(datas.getPage(),6,hotelService.getHotelCount(datas.getField(),datas.getCategory()), datas.getField(),datas.getCategory(), datas.getOrder());
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("h_list",hotelService.getHotelList(cDto));
+		map.put("crit", cDto);
+		return map;
 	}
 	
 	@RequestMapping("/hotelDetail")
 	public String detailInfo(int h_id, Model model) {
 		model.addAttribute("h_detail",hotelService.getHotelDetail(h_id));
+		model.addAttribute("h_review",hotelService.getHotelReview(h_id));
 		return "hotel/hotelDetail";
 	}
 	
 	@RequestMapping(value="/hotelListM", method=RequestMethod.GET)
-	public String hotelListM(@RequestParam(value="p", required=false, defaultValue="1") int page,
-			@RequestParam(value="f", required=false, defaultValue="") String field,
-			@RequestParam(value="c", required=false, defaultValue="h_name") String category,
-			@RequestParam(value="o", required=false, defaultValue="recent") String order,
-			Model model) {
-		CriteriaDto cDto = new CriteriaDto(page,6,hotelService.getHotelCount(field, category), field, category, order);
-		model.addAttribute("h_list",hotelService.getHotelList(cDto));
-		model.addAttribute("h_crit",cDto);
+	public String hotelListM(Model model) {
 		return "hotel/managerHotelList";	
 	}
-	
+
 	@RequestMapping(value="/hotelListM", method=RequestMethod.POST)
-	public String hotelListM(String field, String category, Model model) {
-		CriteriaDto cDto = new CriteriaDto(1,6,hotelService.getHotelCount(field, category), field, category, "recent");
-		model.addAttribute("h_list",hotelService.getHotelList(cDto));
-		model.addAttribute("h_crit",cDto);
-		return "hotel/managerHotelList";
+	public @ResponseBody Map<String, Object> hotelListM(@RequestBody CriteriaDto datas) {
+		CriteriaDto cDto = new CriteriaDto(datas.getPage(),6,hotelService.getHotelCount(datas.getField(),datas.getCategory()), datas.getField(),datas.getCategory(), datas.getOrder());
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("h_list",hotelService.getHotelList(cDto));
+		map.put("crit", cDto);
+		return map;	
 	}
 	
 	@RequestMapping(value="/updateHotelM", method=RequestMethod.GET)
 	public String hotelUpdateM(int h_id, Model model) {
 		model.addAttribute("h_detail",hotelService.getHotelDetail(h_id));
+		model.addAttribute("h_review",hotelService.getHotelReview(h_id));
 		return "hotel/managerHotelUpdate";
 	}
 	

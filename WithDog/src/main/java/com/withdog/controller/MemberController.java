@@ -23,7 +23,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.withdog.dao.memberDao;
 import com.withdog.dto.MemberDto;
+import com.withdog.service.IHotelService;
 import com.withdog.service.MemberService;
+import com.withdog.service.boardService;
 
 
 
@@ -32,11 +34,15 @@ public class MemberController {
 	
 	@Autowired
 	MemberService memberService;
-
+	@Autowired
+	IHotelService hotelService;
+	@Autowired
+	boardService boardService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		
+		model.addAttribute("h_list", hotelService.getRecentHotel());
+		model.addAttribute("mb_list", boardService.getHotReview());
 		return "mainTemplate";
 	}
 	

@@ -21,6 +21,12 @@
 
     <script src="js/jquery.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/functions.js?ver=3"></script>
+	<script type="text/javascript" src="js/jquery.fileupload.js"></script>
+	<script type="text/javascript" src="js/jquery.paging.js"></script>
+	
     <title>Document</title>
 </head>
 
@@ -140,16 +146,9 @@
                             <!-- 숙박예약 있을시에 button s -->
                             <div class="s21_tabcontent_rbtn">
                                 <button type="button" class="bg_orange" onclick="location.href='booking?h_id=${h_detail.h_id}'">숙박예약</button>
-
-<!--                                 <button type="button" class="bg_orange" onclick="alert('로그인 후 이용해주세요.');return;//location.href='?m1Code=etc&m2Code=join';;location.href='?m1Code=ar_info&m2Code=inquiry&idx=8892&inquiry_tab=2'">숙박예약</button> -->
                             </div>
                             <!--// 숙박예약 있을시에 button e -->
 
-                            <!-- 숙박예약 있을시에 button s
-							<div class="s21_tabcontent_rbtn">
-								<button type="button" class="bg_mgray">수정요청</button>
-							</div>
-							// 숙박예약 있을시에 button e -->
 
                             <!-- 공통주의사항 s -->
                             <div class="s21_tabcontent_more">
@@ -184,70 +183,39 @@
                     <input type="hidden" id="rpage" name="page" value="1" />
                     <input type="hidden" id="ppage" name="page" value="1" />
                     <div class="s21_tabcontent_left">
-                    
-                        <!-- 유저리뷰s -->
-                        
-                        <div class="s21_review_box">
-                            <div class="s21_review_tit pr">
-                                <h5>유저리뷰 <span id="review_total">20</span></h5>
-                                <button type="button" class="s21_review_wbtn pa" onclick="alert('로그인 후 이용해주세요.');return;//location.href='?m1Code=etc&m2Code=join';review_set('in','')">리뷰작성</button>
-                            </div>
-                            <div class="s21_review_listb" id="review_list">
-                            </div>
+						<!-- 유저리뷰s -->
+						<div class="s21_review_box">
+							<div class="s21_review_tit pr">
+								<h5>유저리뷰 <span id="review_total"><c:forEach items="${h_review}" varStatus="rvCnt">${rvCnt.last?rvCnt.count:''}</c:forEach></span></h5>
+								<button type="button" class="s21_review_wbtn pa" onclick="location.href='writeReview'">리뷰작성 →</button>
+							</div>
+							
+							<div class="s21_review_listb" id="review_list">
+							
+								<c:forEach items="${h_review}" var="rv">
+								<div class="s21_review_list">
+									<a href="detailReviewPage?mb_id=${rv.mb_id}">
+									<p><img src="http://appdata.hungryapp.co.kr/images/hatdog/img/common/login_logoutimg.jpg/hungryapp/resize/200x200"></p>
+									<dl>
+										<dt class="pr">${rv.m_nick}<span>${rv.mb_regidate}</span></dt>
+										<dd>${rv.mb_content}</dd>
+									</dl>
+									</a>
+								</div>
+								</c:forEach>
+							</div>
 
-                            <!-- more btn s -->
-                            <span class="addreview_1"><a id="addreview">
-                                    <p class="s21_review_more">+ 더보기</p>
-                                </a></span>
-                            <!--// more btn e -->
+							<!-- more btn s -->
+							<span class="addreview_1">
+								<a id="addreview">
+									<p class="s21_review_more">+ 더보기</p>
+								</a>
+							</span>
+							<!--// more btn e -->
 
-                        </div>
-                        
-                        <!--// 유저리뷰e -->
-
-                        <!-- 리뷰작성 팝업 s -->
-                        <div id="id01" class="modal">
-                            <span onclick="document.getElementById('id01').style.display='none'; " class="close" title="Close Modal">×</span>
-                            <form class="modal-content" id="checkForm" name="checkForm">
-                                <input type="hidden" name="m1Code" value="ar_info">
-                                <input type="hidden" name="m2Code" value="ar_info">
-                                <input type="hidden" name="bcode" id="bcode" value="review">
-                                <input type="hidden" name="idx" value="8892">
-                                <input type="hidden" id="r_idx" name="r_idx">
-                                <input type="hidden" id="r_mode" name="mode" value="in">
-                                <div class="s21_review_writeform">
-                                    <h1>리뷰 작성</h1>
-
-                                    <textarea class="textarea3" name="contents" id="contents" placeholder="리뷰 내용을 입력해 주세요."></textarea>
-                                    <div class="s21_form_photo"><img src="http://appdata.hungryapp.co.kr/images/hatdog/img/common/icon_photo_l.png" alt="photo" onclick="check();"></div>
-                                    <form id="imgForm" name="imgForm">
-                                        <div class="s21_upload_img" id="imgupload">
-                                        </div>
-                                        <input type="file" id="upload_file" name="upload_file" style="display:none;" accept="image/*" />
-                                    </form>
-                                    <div class="clearfix">
-                                        <button type="button" id="mul_input_submit" xonclick="document.getElementById('id01').style.display='none'" class="deletebtn">확인</button>
-                                        <button type="button" onclick="$('html').css('overflow','scroll');document.getElementById('id01').style.display='none'" class="cancelbtn">취소</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-
-                        <script>
-                            // Get the modal
-                            var modal = document.getElementById('id01');
-
-                            // When the user clicks anywhere outside of the modal, close it
-                            window.onclick = function(event) {
-                                if (event.target == modal) {
-                                    modal.style.display = "none";
-                                }
-                            }
-                        </script>
-                        
-                        <!--// 리뷰작성 팝업 e -->
-                        
-                    </div>
+						</div>
+						<!--// 유저리뷰e -->
+					</div>
 
                     <!-- 오른쪽 내용들 s-->
                     <div class="s21_tabcontent_right">
@@ -259,14 +227,6 @@
 								<!-- <button type="button" class="bg_orange" onclick="alert('로그인 후 이용해주세요.');return;//location.href='?m1Code=etc&m2Code=join';;location.href='?m1Code=ar_info&m2Code=inquiry&idx=8892&inquiry_tab=2'">숙박예약</button> -->
                             </div>
                             <!--// 숙박예약 있을시에 button e -->
-
-                            <!-- 숙박예약 있을시에 button s
-							<div class="s21_tabcontent_rbtn">
-							<button type="button" class="bg_mgray">수정요청</button>
-							</div>
-							// 숙박예약 있을시에 button e -->
-
-
                             <!-- 공통주의사항 s -->
                             <div class="s21_tabcontent_more">
                                 <div class="s21_tabcontent_more_tit">
@@ -293,7 +253,6 @@
                 <!--// 리뷰 e -->
 
                 <script>
-
 				var swiper_main = new Swiper('.swiper-container', {
 					loop: true,
 					autoplay: {
@@ -311,7 +270,6 @@
 
 				});
 				
-
 				/**이벤트 발생 (크롬,파이어폭스,사파이어 OK!) **/
 				function eventOccur(evEle, evType){
 					if (evEle.fireEvent) {
@@ -331,7 +289,6 @@
 				function viewImgSlide(review_idx,n){
 					window.open("?m1Code=ar_info&m2Code=ar_img&mode=view&bidx=8898&review_idx="+review_idx+"&img_key="+n);
 				}
-
 	                    function openCity(evt, cityName) {
 	                        var i, tabcontent, tablinks;
 	                        tabcontent = document.getElementsByClassName("s21_tabcontent");
@@ -347,7 +304,6 @@
 	                        if (cityName == "map_info") {
 	                            kakaomap_init();
 	                        }
-	
 	                        if ($(".s21_tab").position().top == 0) { //상단메뉴탭 탑이동 후 다른 탭 클릭시 컨텐츠 첫부분 보이게 수정 
 	                            if (cityName == "info") {
 	                                class_position = ".s21_de_food_img_st";
@@ -363,6 +319,145 @@
 	                    }
 	                    // Get the element with id="defaultOpen" and click on it
 	                    document.getElementById("defaultOpen").click();
+	                    
+	                    function check(){
+	                    	if($("input[class='imgupload']").length >= 3) { 
+	                    		alert('최대 3개만 첨부 가능합니다.');
+	                    		return false;
+	                    	}
+
+	                    	eventOccur(document.getElementById('upload_file'),'click');
+	                    }
+
+	                    $('#upload_file').fileupload({
+	                    		url : 'http://img.hungryapp.co.kr/image_upload.php',
+	                    		dataType : 'json',
+	                    		formData : {upload_path:"/images/hatdog/upload/202112/",max_width:1000},
+	                    		//replaceFileInput: false,
+	                    		sequentialUploads: true,
+	                    		add: function(e, data){
+	                    			
+	                    			$("#imgUploadWAIT").addClass("advice_on");  
+	                    			var uploadFile = data.files[0];
+
+	                    			if (!(/png|jpe?g|gif/i).test(uploadFile.name)){
+	                    				alert('png, jpg, gif 형식만 가능합니다');
+	                    				$("#imgUploadWAIT").removeClass("advice_on"); 
+	                    				return false;
+	                    			}else if (uploadFile.size > (5*1024*1024)) { // 5mb
+	                    				alert('파일 용량은 5MB를 초과할 수 없습니다.');
+	                                    $("#imgUploadWAIT").removeClass("advice_on"); 
+	                    				return false;
+	                    			}
+	                    			data.submit();
+	                    		},done: function (e, data){
+	                    			var result = data.result;
+	                    			if(!result){
+	                    				alert("오류 발생");
+	                    				return false;
+	                    			}
+
+	                    			if(result.result == 1){
+	                    				var tag = "";
+	                    				tag = "<div id=\""+result.path+"\" onclick=\"javascript:removeImg(this);\">";
+	                    				tag += "<a class=\"s21_img_del_btn\">삭제</a>";
+	                    				tag += "<img src='"+result.path+"' style='max-width:100%;image-orientation: from-image;'>";
+	                    				tag += "<input type=\"hidden\" class=\"s21_imgupload imgupload\" name=\"imgupload[]\"  value=\""+result.path+"\" > </div>";
+	                    				$("#imgupload").append(tag);
+	                    				$("#imgUploadWAIT").removeClass("advice_on"); 
+	                    			}else{
+	                    				alert(result.msg);
+	                    			}
+	                    		},fail: function(e, data) {
+	                    			alert(JSON.stringify(e));
+	                    			alert("업로드 중 오류가 발생했습니다.\n잠시 후에 다시 시도해주세요.");
+	                    			$("#imgUploadWAIT").removeClass("advice_on"); 
+	                    		}
+	                    	});
+	                            
+	                    	$("#mul_input_submit").click(function() {
+	                    		if(!$.trim($("#contents").val()).length){
+	                    			alert("리뷰 내용을 입력해 주세요.");
+	                    			$("#contents").focus();
+	                    			return;
+	                    		}
+	                            
+	                    		if ($(".imgupload").length == 0 ) {
+	                    			if (!confirm("이미지가 등록되지 않았습니다.\n그래도 등록 하시겠습니까?")) return;
+	                    		}
+
+	                    		formData = $("#checkForm").serialize();
+	                    		imgData = $("#imgForm").serialize();
+	                    		$.ajax({
+	                    				url: "reviewHotel",
+	                    				type: "POST",
+	                    				dataType: 'json',
+	                    				data: formData+"&"+imgData,
+	                    				success: function(r){
+	                    				//	alert(r.msg);
+	                    						console.log("success");
+	                    					if(!r.result){
+	                    						console.log(r);
+	                    						console.log(r.asdf);
+	                    						//alert(r.msg);
+	                    						//alert("서버와의 연결이 원활하지 않습니다.\n\n잠시 후에 다시 시도해주세요.");
+	                    					}else{
+	                    						Store.set("ar_tab","reviewOpen");
+	                    						location.reload();
+	                    					}
+	                    				},
+	                    				
+	                    				error: function(request,status,error){
+	                    						console.log("error");
+	                    				}
+	                    		});//end ajax
+	                                    
+	                    });
+	                    function removeImg(n){
+	                    	if (!confirm("삭제하시겠습니까?")) return;
+	                    	$(n).remove();
+	                    }
+	                    
+	                    function review_set(mode, r_idx){
+	                    	$("html").css("overflow","hidden");
+	                    	$("#id01").show();
+	                    	$('#r_mode').val(mode)
+	                    	$('#r_idx').val(r_idx)
+	                    	if (mode=="up"){
+	                    		$.ajax({
+	                    			url: "ajaxData_arinfo.php",
+	                    			type: "POST",
+	                    			dataType: 'json',
+	                    			data: "m2Code=ar_info&mode=review_get&r_idx="+r_idx,
+	                    			success: function(r){
+	                    				$("#contents").val(r.r_content);
+	                    				$("#imgupload").html(r.r_img_arr);
+	                    			},
+	                    			
+	                    			error: function(request,status,error){
+	                    			}
+	                    		});//end ajax
+	                    	}
+	                    }
+	                    function delReview(idx){
+	                        if (!confirm("리뷰를 삭제 하시겠습니까?")) return;
+	                        $.ajax({
+	                                url: "ajaxData_arinfo.php",
+	                                type: "POST",
+	                                dataType: 'json',
+	                                data: "idx=" + idx + "&mode=del&m2Code=ar_info",
+	                                success: function(r){
+	                                    if(!r.result){
+	                                        alert(r.msg);
+	                                    }else{
+	                                         Store.set("ar_tab","reviewOpen");
+	                    					location.reload();
+	                                    }
+	                                },
+	                                error: function(error){
+	                                }
+	                            });//end ajax
+	                    }
 	                </script>
             </div>
             <!--// sub m btm -->

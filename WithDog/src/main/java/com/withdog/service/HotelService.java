@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,12 +14,16 @@ import org.springframework.web.multipart.MultipartFile;
 import com.withdog.dao.IHotelDao;
 import com.withdog.dto.CriteriaDto;
 import com.withdog.dto.HotelDto;
+import com.withdog.dto.boardDTO;
 
 @Service
 public class HotelService implements IHotelService {
 	@Autowired
 	IHotelDao dao;
 
+	@Resource(name="uploadPath")
+	private String path_;
+	
 	@Override
 	public HotelDto getHotelDetail(int h_id) {
 		return dao.getHotelDetail(h_id);
@@ -25,7 +31,7 @@ public class HotelService implements IHotelService {
 
 	@Override
 	public void deleteHotel(int h_id) {
-		String path = "D:/git/FDXWithDog/WithDog/src/main/webapp/resources/upload/hotel/" + h_id + "/";
+		String path = path_ + "/hotel/" + h_id + "/";
 		deleteHotel(path);
 		dao.deleteHotel(h_id);
 	}
@@ -48,7 +54,7 @@ public class HotelService implements IHotelService {
 	
 	@Override
 	public void updateHotel(HotelDto dto, MultipartFile[] files, String[] del_files, String type) {
-		String path = "D:/git/FDXWithDog/WithDog/src/main/webapp/resources/upload/hotel/" + dto.getH_id() + "/" + type + "/";
+		String path = path_ + "/hotel/" + dto.getH_id() + "/" + type + "/";
 		if(type.equals("h_img")) {
 			dto.setH_img(deleteImage(dto.getH_id(), path, del_files));
 			if(!files[0].getOriginalFilename().equals("")) {
@@ -96,7 +102,7 @@ public class HotelService implements IHotelService {
 		files.put(1, filesD);
 		//nextVal값으로 폴더 생성, 파일 저장, 파일 경로 가져오기
 		for (int i = 0; i < types.length; i++) {
-			String path = "D:/git/FDXWithDog/WithDog/src/main/webapp/resources/upload/hotel/" + nextVal + types[i];
+			String path = path_ + "/hotel/" + nextVal + types[i];
 			File file = new File(path);
 			file.mkdirs();
 			upload(files.get(i),path);
@@ -144,6 +150,16 @@ public class HotelService implements IHotelService {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	@Override
+	public List<boardDTO> getHotelReview(int h_id) {
+		return dao.getHotelReview(h_id);
+	}
+
+	@Override
+	public List<HotelDto> getRecentHotel() {
+		return dao.getRecentHotel();
 	}
 }
 

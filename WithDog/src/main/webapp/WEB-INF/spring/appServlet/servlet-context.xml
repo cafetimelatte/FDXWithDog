@@ -13,12 +13,14 @@
 	<annotation-driven />
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-	<resources mapping="/resources/**" location="/resources/" />
+	<resources location="/resources/" mapping="/resources/**" />
 	
 	<resources location="/resources/upload/hotel/" mapping="/hotel/**" />
 	<resources location="/resources/images/" mapping="/images/**" />
 	<resources location="/resources/js/" mapping="/js/**" />
 	<resources location="/resources/css/" mapping="/css/**" />
+	<!-- 일반 파일 업로드 경로 -->
+	<resources location="/resources/upload/imgUpload/" mapping="/imgUpload/**" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -32,8 +34,6 @@
          <beans:property name="maxUploadSize" value="52428800"/>
          <beans:property name="maxInMemorySize" value="10485760"/>
     </beans:bean>
-    
-    
 	
 	<!-- 계정확인 인터셉터 -->
 	<interceptors>
@@ -43,6 +43,9 @@
 			<mapping path="/updateBooking"/>
 			<mapping path="/hotelApply"/>
 			<mapping path="/myPage"/>
+			<mapping path="/writeReview"/>
+			<mapping path="/CslistPage"/>
+			<mapping path="/writeReviewpro"/>
 			<beans:bean class="com.withdog.interceptor.IdCheckInterceptor"/>
 		</interceptor>
 		<!-- <interceptor>
@@ -54,10 +57,24 @@
 			<mapping path="/bookingListM"/>
 			<mapping path="/updateBookingM"/>
 			<mapping path="/deleteBookingM"/>
+			<mapping path="/deleteReviewM"/>
+			<mapping path="/ReviewPageM"/>
 			<beans:bean class="com.withdog.interceptor.AdminInterceptor"/>
 		</interceptor> -->
 	</interceptors>
 	
-	<context:component-scan base-package="com.withdog.controller" />
+	<!-- 업로드 패스 설정 --> 
+	<beans:bean class="java.lang.String" id="uploadPath">
+ 		<beans:constructor-arg value="D:/git/FDXWithDog/WithDog/src/main/webapp/resources/upload" />
+	</beans:bean>
+	
+	<context:component-scan base-package="com.withdog.controller"/>
+	<context:component-scan base-package="com.withdog.service"/>
+	<context:component-scan base-package="com.withdog.dao"/>
+	<context:component-scan base-package="com.withdog.utils"/>
+
+	<beans:bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolvers">
+		<beans:property name="maxUploadSize" value="10485760" />
+	</beans:bean>
 	
 </beans:beans>
