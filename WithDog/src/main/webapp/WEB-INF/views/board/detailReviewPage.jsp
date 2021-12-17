@@ -108,7 +108,7 @@
 						</a>
 					</span> 
 					<c:choose>
-						<c:when test="${loginRs == 1}">
+						<c:when test="${loginEmail == detail.m_id}">
 								<span class="button_list"> 
 									<a href="${path}update?mb_id=${detail.mb_id}" role="button" 
 										onclick="return confirm('수정 하시겠습니까?');">수정</a>
@@ -139,7 +139,7 @@
 				<form name="comment" action="replywrite" method="post" autocomplete="off">
 					<div class="h21_event_write">
 						<input type="hidden" name="mb_id" value="${detail.mb_id}">
-						<input type="hidden" name="m_id" value="${detail.m_id}">
+						<input type="hidden" name="m_id" value="${loginEmail}">
 						<input type="hidden" name="h_id" value="${detail.h_id}">
 						<textarea id="mbre_content" name="mbre_content" style="" class="s21_je_textarea" placeholder="댓글을 입력해주세요"></textarea>
 						<span class="s21_je_form_btn">
@@ -170,7 +170,7 @@
 									</dd>
 
 								</dl>
-								<c:if test="${loginEmail eq detail.m_id}">
+								<c:if test="${loginEmail eq reply.m_id}">
 									<div class="s21_review_ico pa">
 										<button type="button" name="btn_reply_Update"
 											class="btn_reply_Update">수정</button> | 

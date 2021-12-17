@@ -20,6 +20,8 @@
 									<li class=""><a onclick="location.href='bookingListM'">예약관리</a></li>
 									<li class="line">|</li>
 									<li class=""><a onclick="location.href='ReviewPageM?num=1'">앨범관리</a></li>
+									<li class="line">|</li>
+									<li class=""><a onclick="location.href='csmanageList'">고객센터</a></li>
 								</c:if>
 								<c:if test="${loginEmail ne 'admin@gmail.com'}">
 									<li class=""><a onclick="location.href='logout'">로그아웃 </a></li>
@@ -33,10 +35,10 @@
 									<li class=""><a onclick="location.href='login'">로그인 </a></li>
 									<li class="line">|</li>
 									<li class=""><a onclick="location.href='join'">회원가입</a></li>
+									<li class="line">|</li>
+									<li class=""><a onclick="location.href='CslistPage'">고객센터</a></li>
 							</c:otherwise>
 						</c:choose>
-					<li class="line">|</li>
-					<li class=""><a onclick="location.href='CslistPage'">고객센터</a></li>
 				</ul>		
 			</div>
 		</div>

@@ -108,7 +108,7 @@
 												<img src="http://appdata.hungryapp.co.kr/images/hatdog/img/common/login_logoutimg.jpg/hungryapp/resize/200" alt="">
 											</p>
 											<dl>
-												<dt>${ReviewPage.m_nick}</dt>
+												<dt>${nick}</dt>
 												<dd>${ReviewPage.mb_regidate}</dd>
 											</dl>
 										</div>
