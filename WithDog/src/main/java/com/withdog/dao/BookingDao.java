@@ -63,4 +63,9 @@ public class BookingDao implements IBookingDao {
 		return sqlSession.selectOne("com.withdog.mapper.bookingMapper.getMemberInfo", m_id);
 	}
 
+	@Override
+	public void completeBooking(String b_id) {
+		sqlSession.update("com.withdog.mapper.bookingMapper.completeBooking", b_id);
+	}
+
 }

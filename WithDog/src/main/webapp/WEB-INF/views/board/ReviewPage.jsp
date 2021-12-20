@@ -22,6 +22,7 @@
 
     <script src="./resources/js/jquery.js"></script>
     <script src="./resources/js/swiper-bundle.min.js"></script>
+    <script src="js/verification.js"></script>
 </head>
 <body>
    <!-- header-->
@@ -36,7 +37,7 @@
                     	<span>여행앨범</span>
                     </h3>
                     <p class="s21_h3_line_l"></p>
-                    <p class="s21_h3_text_l">사랑스런 반려견과 함께한 소중한 추억을 간직하는 현명한 방법!<br>위드독 여행앨범과 스마트한 여행되세요!</p>
+                    <p class="s21_h3_text_l">사랑스런 반려동물과 함께한 소중한 추억을 간직하는 현명한 방법!<br>위드독 여행앨범과 스마트한 여행되세요!</p>
                     <p class="s21_top_link">
                         <a href="javascript:$('html, body').css('overflow','hidden');$('#myModal').show();" class="code_view s21Btn1">
                              <span class="lb">여행앨범 가이드</span>
@@ -46,7 +47,7 @@
                 </div>
 	            <div class="s21_top_tbox_right">
 	                <div class="s21_top_cal" onclick="Store.clear()">
-						<a onclick="go_link('writeReview')">
+						<a onclick="loginCheck(${loginRs eq null?0:loginRs},'writeReview');">
 	   						<div class="s21_top_right_box">
 	       						<p>
 	       							<img src="http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/album/top_ico1.png" alt="">
@@ -57,7 +58,7 @@
 	        					</dl>
 	    					</div>
 						</a>
-						<a onclick="go_link('?m1Code=album&amp;m2Code=album_my')">
+						<a onclick="loginCheck(${loginRs eq null?0:loginRs},'myPage');">
 	    					<div class="s21_top_right_box">
 	        					<p>
 	        						<img src="http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/album/top_ico2.png" alt="">

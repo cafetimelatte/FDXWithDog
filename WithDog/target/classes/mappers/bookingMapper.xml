@@ -37,17 +37,13 @@
 						where
 						<if test="category == 'b_id'">
 							b_id like '%'||#{field}||'%'
-							and
 						</if>
 						<if test="category == 'b_name'">
 							b_name like '%'||#{field}||'%'
-							and
 						</if>
 						<if test="category == 'm_id'">
 							m_id like '%'||#{field}||'%'
-							and
 						</if>
-						b_state = '예약대기'
 						order by b_regiDate desc) b)
 		where num between #{pageStart} and #{pageEnd}
 	</select>
@@ -92,5 +88,11 @@
 		from member
 		where m_id = #{m_id}
 	</select>
+	
+	<update id="completeBooking" parameterType="String">
+		update booking
+		set b_state = '예약완료'
+		where b_id = #{b_id}
+	</update>
 	
 </mapper>

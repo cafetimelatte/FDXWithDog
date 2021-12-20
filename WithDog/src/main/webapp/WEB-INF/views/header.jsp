@@ -6,39 +6,36 @@
 		<div id="headerTop">
 			<div class="area">
 				<p class="top_text">반려동물과 함께 위드독에 오신것을 환영 합니다.</p>
-					<ul>
-						<li class="line">|</li>
-						<c:choose>
-							<c:when test="${loginRs eq 1}">
-								<c:if test="${loginEmail eq 'admin@gmail.com'}">
-									<li class=""><a onclick="location.href='logout'">로그아웃 </a></li>
-									<li class="line">|</li>
-									<li class="">${loginEmail}</li>
-									<li class="line">|</li>
-									<li class=""><a onclick="location.href='hotelListM'">숙소관리</a></li>
-									<li class="line">|</li>
-									<li class=""><a onclick="location.href='bookingListM'">예약관리</a></li>
-									<li class="line">|</li>
-									<li class=""><a onclick="location.href='ReviewPageM?num=1'">앨범관리</a></li>
-									<li class="line">|</li>
-									<li class=""><a onclick="location.href='csmanageList'">고객센터</a></li>
-								</c:if>
-								<c:if test="${loginEmail ne 'admin@gmail.com'}">
-									<li class=""><a onclick="location.href='logout'">로그아웃 </a></li>
-									<li class="line">|</li>
-									<li class="">${loginEmail}</li>
-									<li class="line">|</li>
-									<li class=""><a onclick="location.href='myPage'">마이페이지</a></li>
-								</c:if>
-							</c:when>
-							<c:otherwise>
-									<li class=""><a onclick="location.href='login'">로그인 </a></li>
-									<li class="line">|</li>
-									<li class=""><a onclick="location.href='join'">회원가입</a></li>
-									<li class="line">|</li>
-									<li class=""><a onclick="location.href='CslistPage'">고객센터</a></li>
-							</c:otherwise>
-						</c:choose>
+				<ul>
+					<li class="line">|</li>
+					<c:choose>
+						<c:when test="${loginRs eq 1}">
+							<li class=""><a onclick="location.href='logout'">로그아웃 </a></li>
+							<li class="line">|</li>
+							<li class="">${nick}님</li>
+							<li class="line">|</li>
+							<c:if test="${loginEmail eq 'admin@gmail.com'}">
+								<li class=""><a onclick="location.href='hotelListM'">숙소관리</a></li>
+								<li class="line">|</li>
+								<li class=""><a onclick="location.href='bookingListM'">예약관리</a></li>
+								<li class="line">|</li>
+								<li class=""><a onclick="location.href='ReviewPageM?num=1'">앨범관리</a></li>
+								<li class="line">|</li>
+								<li class=""><a onclick="location.href='csmanageList'">민원관리</a></li>
+							</c:if>
+							<c:if test="${loginEmail ne 'admin@gmail.com'}">
+								<li class=""><a onclick="location.href='myPage'">마이페이지</a></li>
+								<li class="line">|</li>
+								<li class=""><a onclick="location.href='CslistPage'">고객센터</a></li>
+							</c:if>
+						</c:when>
+						<c:otherwise>
+								<li class=""><a onclick="location.href='login'">로그인 </a></li>
+								<li class="line">|</li>
+								<li class=""><a onclick="location.href='join'">회원가입</a></li>
+								<li class="line">|</li>
+						</c:otherwise>
+					</c:choose>
 				</ul>		
 			</div>
 		</div>

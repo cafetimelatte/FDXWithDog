@@ -19,5 +19,6 @@ public interface IBookingService {
 	int getBookingCount(String field, String category);
 	List<BookingDto> getBookingListM(CriteriaDto cDto);
 	MemberDto getMemberInfo(String m_id);
+	void completeBooking(String[] b_id);
 	
 }

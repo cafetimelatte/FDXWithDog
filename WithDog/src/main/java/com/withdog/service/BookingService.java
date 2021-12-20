@@ -70,6 +70,13 @@ public class BookingService implements IBookingService {
 		return dao.getMemberInfo(m_id);
 	}
 
+	@Override
+	public void completeBooking(String[] b_id) {
+		for (int i = 0; i < b_id.length; i++) {
+			dao.completeBooking(b_id[i]);
+		}
+	}
+
 
 }
 

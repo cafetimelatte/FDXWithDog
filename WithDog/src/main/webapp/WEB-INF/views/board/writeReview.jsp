@@ -68,7 +68,7 @@
 		<div class="h21_top_cbox pr area">
 			<h3 class="">위드독<span> 여행후기</span></h3>
 			<p class="h21_h3_line_c"></p>
-			<p class="h21_h3_text_c">위드독에서 우리 반려견에 대한 이야기를 공유해보세요.</p>
+			<p class="h21_h3_text_c">위드독에서 우리 반려동물에 대한 이야기를 공유해보세요.</p>
 		</div>
 	</div>
 	<div class="s21_sm_search_box area pr">

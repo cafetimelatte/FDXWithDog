@@ -16,12 +16,12 @@ public class AdminInterceptor extends HandlerInterceptorAdapter{
 		
 		HttpSession session = request.getSession(false);
 		String auth = (String)session.getAttribute("loginEmail");
-		if( auth!= null && auth.equals("admin@gmail.com")) {
+		if(auth != null && auth.equals("admin@gmail.com")) {
 			return true;
 		} else {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
-			out.println("<script>alert('관리자 계정으로 로그인 후 이용해주세요.');location.href='login';</script>");
+			out.println("<script>alert('관리자 계정으로 로그인 후 이용해주세요.');location.href=history.go(-1);</script>");
 			out.flush();
 		}
 		return false;
