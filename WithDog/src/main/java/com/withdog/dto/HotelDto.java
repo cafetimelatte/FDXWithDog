@@ -24,31 +24,9 @@ public class HotelDto {
 	private String h_petWeight;
 	private String h_etc;
 	private int h_mbCnt;
+	private String h_state;
 	
 	public HotelDto() {}
-	
-	public HotelDto(int h_id, String h_name, String h_info, String h_detail, String h_phone, String h_web,
-			String h_chkInTime, String h_chkOutTime, String h_add1, String h_add2, String h_add3, String h_img,
-			int h_price, Date h_regiDate, String h_petSize, String h_petWeight, String h_etc, int h_mbCnt) {
-		this.h_id = h_id;
-		this.h_name = h_name;
-		this.h_info = h_info;
-		this.h_detail = h_detail;
-		this.h_phone = h_phone;
-		this.h_web = h_web;
-		this.h_chkInTime = h_chkInTime;
-		this.h_chkOutTime = h_chkOutTime;
-		this.h_add1 = h_add1;
-		this.h_add2 = h_add2;
-		this.h_add3 = h_add3;
-		this.h_img = h_img;
-		this.h_price = h_price;
-		this.h_regiDate = h_regiDate;
-		this.h_petSize = h_petSize;
-		this.h_petWeight = h_petWeight;
-		this.h_etc = h_etc;
-		this.h_mbCnt = h_mbCnt;
-	}
 
 	public int getH_id() {
 		return h_id;
@@ -194,13 +172,21 @@ public class HotelDto {
 		this.h_mbCnt = h_mbCnt;
 	}
 
+	public String getH_state() {
+		return h_state;
+	}
+
+	public void setH_state(String h_state) {
+		this.h_state = h_state;
+	}
+
 	@Override
 	public String toString() {
 		return "HotelDto [h_id=" + h_id + ", h_name=" + h_name + ", h_info=" + h_info + ", h_detail=" + h_detail
 				+ ", h_phone=" + h_phone + ", h_web=" + h_web + ", h_chkInTime=" + h_chkInTime + ", h_chkOutTime="
 				+ h_chkOutTime + ", h_add1=" + h_add1 + ", h_add2=" + h_add2 + ", h_add3=" + h_add3 + ", h_img=" + h_img
 				+ ", h_price=" + h_price + ", h_regiDate=" + h_regiDate + ", h_petSize=" + h_petSize + ", h_petWeight="
-				+ h_petWeight + ", h_etc=" + h_etc + ", h_mbCnt=" + h_mbCnt + "]";
+				+ h_petWeight + ", h_etc=" + h_etc + ", h_mbCnt=" + h_mbCnt + ", h_state=" + h_state + "]";
 	}
 
 }

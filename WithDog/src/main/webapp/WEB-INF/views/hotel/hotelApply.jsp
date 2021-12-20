@@ -21,6 +21,8 @@
 
     <script src="js/jquery.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/verification.js"></script>
+    
     <title>Document</title>
     
     <style>
@@ -29,6 +31,8 @@
     		width:200px;
     		margin: 50px;
     		font-size: 15px;
+    		border: 1px solid black;
+    		background-color: lightgray;
     	}
     	.applyInput{
     		height:25px;
@@ -54,34 +58,37 @@
                     <div class="s21_detail_tbox" style="width:100%; float:none">
                         <!-- 예약 정보 입력 s -->
                         <ul class="s21_detail_twrap_mod">
-                        	<form action="applyHotel" method="post">
+                        	<form action="applyHotel" method="post" name="hotelInfo">
 	                        	<input type="hidden" name="m_id" value="${loginEmail}">
 	                            <li>
 	                                <dl>
 	                                    <dt>숙소명</dt>
-	                                    <dd><input name="a_name" style="width:250px" type="text"></dd>
+	                                    <dd><input name="h_name" style="width:250px" type="text"></dd>
 	                                    <dt>전화번호</dt>
-	                                    <dd><input name="a_phoneNumber" style="width:250px" type="text" placeholder="'-' 제외"></dd>
+	                                    <dd><input name="h_phone" style="width:250px" type="text" placeholder="'-' 제외"></dd>
 	                                </dl>
 	                            </li>
 	                            <li>
 	                                <dl>
 	                                    <dt>주소</dt>
-	                                    <dd><input name="a_add1" style="width:115px;margin-right:10px" type="text"><input name="a_add2" style="width:115px" type="text"></dd>
+	                                    <dd>
+	                                    	<input name="h_add1" style="width:115px;margin-right:10px" type="text">
+	                                    	<input name="h_add2" style="width:115px" type="text">
+	                                    </dd>
 	                                    <dt>홈페이지</dt>
-	                                    <dd><input name="a_web" style="width:250px" type="text" placeholder="example@google.com"></dd>
+	                                    <dd><input name="h_web" style="width:250px" type="text" placeholder="example@google.com"></dd>
 	                                </dl>
 	                            </li>
 	                            <li>
 	                                <dl>
 	                                    <dt>상세주소</dt>
 	                                    <dd>
-	                                    	<input name="a_add3" style="width:250px" type="text">
+	                                    	<input name="h_add3" style="width:250px" type="text">
 	                                    </dd>
 	                                </dl>
 	                            </li>
-	                            	<input class="bbtn" type="submit" value="신청하기">
-	                            	<input class="bbtn" type="button" value="돌아가기" name="cancel" onclick="location.href='hotelList'">
+	                            	<button class="bbtn" type="submit" name="applyBtn" form="hotelInfo" onclick="return checkHotelInfo(this);">신청하기</button>
+	                            	<button class="bbtn" type="button" onclick="location.href='hotelList'">돌아가기</button>
                             </form>
                         </ul>
                         <!-- 예약 정보 입력 e -->

@@ -111,4 +111,20 @@
 		where rownum between 1 and 4
 	</select>
 
+	<insert id="insertApply" parameterType="map">
+		insert into hotelApply
+		values(a_seq.nextval, #{m_id}, #{h_name}, #{h_phone}, #{h_web}, #{h_add1}, #{h_add2}, #{h_add3}, default, default)
+	</insert>
+	
+	<select id="getApplyList" resultType="com.withdog.dto.ApplyDto">
+		select *
+		from hotelApply
+	</select>
+	
+	<update id="updateApply" parameterType="com.withdog.dto.ApplyDto">
+		update hotelApply
+		set a_state = #{a_state}
+		where a_id = #{a_id}
+	</update>
+	
 </mapper>
