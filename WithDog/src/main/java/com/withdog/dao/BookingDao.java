@@ -64,8 +64,13 @@ public class BookingDao implements IBookingDao {
 	}
 
 	@Override
+<<<<<<< HEAD
+	public int getBookingcnt(String userEmail) {
+		return sqlSession.selectOne("com.withdog.mapper.bookingMapper.BookingCnt",userEmail);
+=======
 	public void completeBooking(String b_id) {
 		sqlSession.update("com.withdog.mapper.bookingMapper.completeBooking", b_id);
+>>>>>>> branch 'main' of https://github.com/cafetimelatte/FDXWithDog.git
 	}
 
 }

@@ -74,7 +74,7 @@ public class memberServiceImpl implements MemberService {
 		    email.setHostName("smtp.gmail.com");
 		    email.setSmtpPort(465);
 		    email.addTo(id, "");
-		    email.setFrom("WithDog@admin.com", "");
+		    email.setFrom("WithDogAdmin@gmail.com", "");
 		    email.setAuthentication("gkswldn12@gmail.com", "gkswldn1");
 		    email.setTLS(true);
 		    email.setSSL(true);
@@ -226,6 +226,12 @@ public class memberServiceImpl implements MemberService {
 			e.printStackTrace();
 			throw new RuntimeException();
 		}
+	}
+
+	@Override
+	public int nickCk(String nick) {
+		int result = dao.nickCk(nick);
+		return result;
 	}
 
 	

@@ -14,5 +14,6 @@ public interface memberDao {
 	int checkId(String id);
 	void changePw(String changePw, String id);
 	boolean deleteMember(String m_id, String m_pw);
+	int nickCk(String nick);
 
 }

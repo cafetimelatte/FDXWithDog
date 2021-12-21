@@ -37,4 +37,6 @@ public interface boardService {
 	List<boardDTO> listPage(int displayPost, int postNum, String field, String category);
 
 	void deleteReviewM(int[] mb_id);
+
+	List<boardDTO> getBoardList(String m_id);
 }

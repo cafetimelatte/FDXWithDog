@@ -16,13 +16,17 @@ import org.apache.commons.mail.EmailException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.withdog.dao.memberDao;
+import com.withdog.dto.BookingDto;
 import com.withdog.dto.MemberDto;
+import com.withdog.dto.boardDTO;
+import com.withdog.service.BookingService;
 import com.withdog.service.IHotelService;
 import com.withdog.service.MemberService;
 import com.withdog.service.boardService;
@@ -38,6 +42,8 @@ public class MemberController {
 	IHotelService hotelService;
 	@Autowired
 	boardService boardService;
+	@Autowired
+	BookingService bookingService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -100,16 +106,24 @@ public class MemberController {
 	}
 	
 	@RequestMapping("myPage")
-	public String myPage(HttpSession session, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public String myPage(HttpSession session, HttpServletRequest request) throws Exception {
 		String userEmail = (String)session.getAttribute("loginEmail");
 		int loginRs = (int) session.getAttribute("loginRs");
-		response.getWriter().write(loginRs + "");
 		if(userEmail == null) {
 			return "mainTemplate";
 		}
 		List<MemberDto> list = memberService.userInfo(userEmail);
 		request.setAttribute("userList", list); 
 		session.setAttribute("loginRs", loginRs);
+		
+		int bookNum = bookingService.getBookingcnt(userEmail);
+		request.setAttribute("bookNum", bookNum);
+
+		List<BookingDto>memberBook = bookingService.getBookingList(userEmail);
+		request.setAttribute("memberBook", memberBook);
+		for(BookingDto dto : memberBook) {
+			System.out.println(dto);
+		}
 		return "MyPage/myPage";
 	}
 	
@@ -142,10 +156,12 @@ public class MemberController {
 		}
 		return "login";
 	}
+	
 	@RequestMapping("chPw")
 	public String chPw() {
-		return "chPw";
+		return "MyPage/chPw";
 	}
+	
 	@RequestMapping(value = "chPw.do", method = RequestMethod.POST)
 	@ResponseBody
 	public int chPwdo(HttpServletRequest request) throws Exception {
@@ -176,5 +192,17 @@ public class MemberController {
 		}
 		return result;
 	}
+	// 수정중
+	@RequestMapping(value = "nicknameCk", method = RequestMethod.POST)
+	@ResponseBody
+	public int nickCk(String nick) {
+		int result = memberService.nickCk(nick);
+		return result;
+	}
 	
+	@RequestMapping(value = "myReview")
+	public String myReview(String m_id, Model model) {
+		model.addAttribute("boardlist",  boardService.getBoardList(m_id));
+		return "board/MyPageboard";
+	}
 }

@@ -5,7 +5,9 @@
 <mapper namespace="com.withdog.mapper.bookingMapper">
 	
 	<select resultType="com.withdog.dto.HotelDto" id="getHotelInfo" parameterType="int">
-		select h_id, h_name, h_add1, h_add2, h_add3, h_price from hotel where h_id = #{h_id}
+		select h_id, h_name, h_add1, h_add2, h_add3, h_price
+		from hotel
+		where h_id = #{h_id}
 	</select>
 	
 	<insert id="addBooking" parameterType="com.withdog.dto.BookingDto">
@@ -14,7 +16,9 @@
 	</insert>
 
 	<select resultType="com.withdog.dto.BookingDto" id="getBookingInfo" parameterType="String">
-		select * from booking
+		select m.m_nick, b.*
+		from booking b left join member m
+		on b.m_id = m.m_id
 		where 
 		<if test="b_id != null">
 			b_id = #{b_id}
@@ -25,11 +29,36 @@
 	</select>
 	
 	<select resultType="com.withdog.dto.BookingDto" id="getBookingListM" parameterType="com.withdog.dto.CriteriaDto">
-		select * from (select rownum num, b.* from (select * from booking where<if test="category == 'b_id'">b_id like '%'||#{field}||'%' and</if><if test="category == 'b_name'">b_name like '%'||#{field}||'%' and</if><if test="category == 'm_id'">m_id like '%'||#{field}||'%' and</if>b_state = '예약대기' order by b_regiDate desc) b) where num between #{pageStart} and #{pageEnd}
+		select *
+		from (select rownum num, b.*
+				from (select m.m_nick, b.*
+						from booking b left join member m
+						on b.m_id = m.m_id
+						where
+						<if test="category == 'b_id'">
+							b_id like '%'||#{field}||'%'
+							and
+						</if>
+						<if test="category == 'b_name'">
+							b_name like '%'||#{field}||'%'
+							and
+						</if>
+						<if test="category == 'm_id'">
+							m_id like '%'||#{field}||'%'
+							and
+						</if>
+						b_state = '예약대기'
+						order by b_regiDate desc) b)
+		where num between #{pageStart} and #{pageEnd}
 	</select>
 	
 	<select resultType="com.withdog.dto.BookingDto" id="getBookingList" parameterType="String">
-		select * from booking where m_id = #{m_id} and b_state = '예약대기' order by b_regiDate desc
+		select m.m_nick, b.*
+		from booking b left join member m
+		on b.m_id = m.m_id
+		where b.m_id = #{m_id}
+		and b_state = '예약대기'
+		order by b_regiDate desc
 	</select>
 	
 	<update id="updateBookingInfo" parameterType="com.withdog.dto.BookingDto">
@@ -46,17 +75,22 @@
 	<select resultType="int" id="getBookingCount" parameterType="map">
 		select count(b_id) from booking
 		<choose>
-		<when test="category == 'b_id'">
-		where b_id like '%'||#{field}||'%'
-		</when>
-		<when test="category == 'm_id'">
-		where m_id like '%'||#{field}||'%'
-		</when>
-		<when test="category == 'b_name'">
-		where b_name like '%'||#{field}||'%'
-		</when>
+			<when test="category == 'b_id'">
+				where b_id like '%'||#{field}||'%'
+			</when>
+			<when test="category == 'm_id'">
+				where m_id like '%'||#{field}||'%'
+			</when>
+			<when test="category == 'b_name'">
+				where b_name like '%'||#{field}||'%'
+			</when>
 		</choose>
 	</select>
 	
-
+	<select resultType="com.withdog.dto.MemberDto" id="getMemberInfo" parameterType="String">
+		select m_nick
+		from member
+		where m_id = #{m_id}
+	</select>
+	
 </mapper>

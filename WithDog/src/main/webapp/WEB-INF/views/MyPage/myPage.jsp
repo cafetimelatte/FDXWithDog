@@ -46,7 +46,6 @@
 			});
 		});
 	});
-	
 </script>
 <title>MyPage</title>
 </head>
@@ -103,9 +102,9 @@
 		<div class="h21_sm_mymenu_box area pr">
 			<div class="h21_sm_tab pa">
 				<button class=""
-					onclick="Store.clear();location.href='?m1Code=etc&amp;m2Code=m_like'">MY예약</button>
+					onclick="location.href='bookingList'">MY예약</button>
 				<button class=""
-					onclick="Store.clear();location.href='?m1Code=etc&amp;m2Code=m_write'">MY작성글</button>
+					onclick="location.href='ReviewPage'">MY작성글</button>
 				<button class="h21_sm_tab_right "
 					"="" onclick="Store.clear();location.href='?m1Code=etc&amp;m2Code=m_comment'">MY댓글</button>
 			</div>
@@ -114,32 +113,64 @@
 			style="display: none;" accept="image/*">
 		<div class="h21_my_mc_w2 pr area">
 			<div class="h21_com_allnb_name">
-				여행지 즐겨찾기<span class="h21_com_allnb"> 0</span>
+				여행지 즐겨찾기<span class="h21_com_allnb">${bookNum}</span>
 			</div>
 			<div class="h21_tab h21_tab_mypage">
 				<button class="tablinks"
 					onclick="openCity(event, 'm_bookmark', 'H')" id="HOpen">숙소</button>
 			</div>
-			<!-- 하단 리스트 -->
-			<div class="s21_tour_list area">
-				<!-- 리스트 시작 -->
-				<div class="s21_tour_list_box">
-					<div class="s21_cal_btm_nolist">
-						<dl class="">
-							<dt>
-								<img
-									src="http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/pc_noimg.png">
-							</dt>
-							<dd>즐겨찾기한 목록이 없습니다.</dd>
-						</dl>
-					</div>
-				</div>
-				<!-- paging s -->
-				<div class="s21_page">
-					<div class="s21_pagination" id="PageNav" style="display: none;"></div>
-				</div>
-				<!--// paging e -->
-			</div>
+			<c:forEach items="${memberBook}" var="memberBook">
+			<table class="h21_blist" summary="No, 메뉴명, 이벤트명, 이벤트기간, 발표일, 당첨결과를 제공하는 리스트">
+					<caption>MY작성글 리스트</caption>
+					<colgroup>
+						<col width="5%">
+						<col width="12%">
+						<col width="20%">
+						<col width="53%">
+						<col width="10%">
+
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col">No</th>
+							<th scope="col">호텔명</th>
+							<th scope="col">구분</th>
+							<th scope="col">작성글</th>
+							<th scope="col">작성일</th>
+						</tr>
+					</thead>
+					<tbody><tr onclick="Store.set('bbs_bcode','review'); window.open('?m1Code=cmm&amp;m2Code=cmm&amp;mode=view&amp;bidx=10386')">
+							<td>1</td>
+							<td class="tb_menu"><a href="bookingList">${memberBook.b_name}</a></td>
+							<td><span class="tb_div">${memberBook.b_state}</span></td>
+							<td class="tb_tit">${memberBook.b_chkInDate} ~ ${memberBook.b_chkOutDate}</td>
+							<td>${memberBook.b_regiDate}</td>
+						</tr></tbody>
+				</table>
+			</c:forEach>
+			<!-- <!-- 하단 리스트 -->
+			<c:choose>
+				<c:when test="${bookNum eq 0}">
+					<div class="s21_tour_list area">
+						<div class="s21_tour_list_box">
+							<div class="s21_cal_btm_nolist">
+								<dl class="">
+									<dt>
+										<img
+											src="http://appdata.hungryapp.co.kr/images/hatdog/img/pc_img/common/pc_noimg.png">
+									</dt>
+									<dd>즐겨찾기한 목록이 없습니다.</dd>
+								</dl>
+							</div>
+						</div> 
+						<!-- paging s -->
+						<div class="s21_page">
+							<div class="s21_pagination" id="PageNav" style="display: none;"></div>
+						</div>
+						<!--// paging e -->
+					</div>	
+				</c:when>
+			</c:choose>
 			<!--// 하단 리스트 -->
 		</div>
 	</div>

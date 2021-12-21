@@ -38,4 +38,6 @@ public interface boardDAO {
 	List<BookingDto> getBookingList(String m_id);
 
 	List<boardDTO> listPage(int displayPost, int postNum, String field, String category);
+
+	List<boardDTO> getBoardList(String m_id);
 }

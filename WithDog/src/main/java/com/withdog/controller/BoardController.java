@@ -295,6 +295,12 @@ public class BoardController {
 		return "redirect:ReviewPage";  //삭제
 	}
 	
+	@RequestMapping(value = "delete", method = RequestMethod.GET) 
+	public String delete2(int mb_id) { 
+		boardService.delete(mb_id); 
+		return "redirect:myReview";  //삭제
+	}
+	
 	@RequestMapping(value = "deleteM", method = RequestMethod.GET) 
 	public String deleteM(int mb_id) { 
 		boardService.delete(mb_id); 

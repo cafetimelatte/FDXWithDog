@@ -93,5 +93,11 @@ public class memberDaoImpl implements memberDao {
 		return result;
 	}
 
+	@Override
+	public int nickCk(String nick) {
+		int result = sqlSession.selectOne("com.withdog.mapper.memberMapper.nickCk", nick);
+		return result;
+	}
+
 }
 
