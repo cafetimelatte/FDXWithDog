@@ -87,4 +87,8 @@
  	    where num between #{displayPost} and #{postNum}
 	</select>
 	
+	<select id="getBoardList" resultType="com.withdog.dto.boardDTO" parameterType="String">
+		select * from mainBoard where m_id = #{m_id}
+	</select>
+	
 </mapper>

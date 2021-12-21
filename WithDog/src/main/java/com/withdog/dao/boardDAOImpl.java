@@ -92,4 +92,9 @@ public class boardDAOImpl implements boardDAO{
 		map.put("category", category);
 		return sqlSession.selectList("com.withdog.mappers.boardMapper.getList", map);
 	}
+
+	@Override
+	public List<boardDTO> getBoardList(String m_id) {
+		return sqlSession.selectList("com.withdog.mappers.boardMapper.getBoardList",m_id);
+	}
 }

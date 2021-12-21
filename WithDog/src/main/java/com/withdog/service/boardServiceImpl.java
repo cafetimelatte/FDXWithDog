@@ -82,4 +82,9 @@ public class boardServiceImpl implements boardService{
 			dao.delete(mb_id[i]);
 		}
 	}
+
+	@Override
+	public List<boardDTO> getBoardList(String m_id) {
+		return dao.getBoardList(m_id);
+	}
 }

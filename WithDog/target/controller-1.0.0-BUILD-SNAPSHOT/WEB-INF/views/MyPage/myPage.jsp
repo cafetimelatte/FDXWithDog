@@ -26,19 +26,23 @@
 	$(function(){
 		$('#WithdrawalBtn').click(function(){		
 			var email = '<%=session.getAttribute("loginEmail")%>';
+			if(confirm('삭제하시겠습니까?')){
+			var pwd = prompt('비밀번호를 한번더 입력해주세요.','');
+			}else{
+				location.reload();
+			}
 			$.ajax({
 				url : 'Withdrawal',
-				data: {'email' : email},
+				data: {'email' : email,'pwd':pwd},
 				type: 'post',
 				success: function(result){
-					alert(result);
 					if(result==1){						
 					alert('삭제되었습니다');
 					location.href='/WithDog/';
 					}
 				}, error : function(){
 					
-				}
+				}			
 			});
 		});
 	});
@@ -99,9 +103,9 @@
 		<div class="h21_sm_mymenu_box area pr">
 			<div class="h21_sm_tab pa">
 				<button class=""
-					onclick="Store.clear();location.href='?m1Code=etc&amp;m2Code=m_like'">MY예약</button>
+					onclick="location.href='bookingList'">MY예약</button>
 				<button class=""
-					onclick="Store.clear();location.href='?m1Code=etc&amp;m2Code=m_write'">MY작성글</button>
+					onclick="location.href='ReviewPage'">MY작성글</button>
 				<button class="h21_sm_tab_right "
 					"="" onclick="Store.clear();location.href='?m1Code=etc&amp;m2Code=m_comment'">MY댓글</button>
 			</div>
@@ -110,7 +114,7 @@
 			style="display: none;" accept="image/*">
 		<div class="h21_my_mc_w2 pr area">
 			<div class="h21_com_allnb_name">
-				여행지 즐겨찾기<span class="h21_com_allnb"> 0</span>
+				여행지 즐겨찾기<span class="h21_com_allnb">0</span>
 			</div>
 			<div class="h21_tab h21_tab_mypage">
 				<button class="tablinks"

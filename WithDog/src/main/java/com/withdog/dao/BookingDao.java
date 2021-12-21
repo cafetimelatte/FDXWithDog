@@ -63,4 +63,9 @@ public class BookingDao implements IBookingDao {
 		return sqlSession.selectOne("com.withdog.mapper.bookingMapper.getMemberInfo", m_id);
 	}
 
+	@Override
+	public int getBookingcnt(String userEmail) {
+		return sqlSession.selectOne("com.withdog.mapper.bookingMapper.BookingCnt",userEmail);
+	}
+
 }

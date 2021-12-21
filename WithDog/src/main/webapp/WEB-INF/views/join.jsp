@@ -16,73 +16,35 @@
     <link rel="stylesheet" href="./resources/css/layout.css">
     <link rel="stylesheet" href="./resources/css/shot.css">
     <link rel="stylesheet" href="./resources/css/swiper-bundle.min.css">
-
+    <link rel="stylesheet" href="./resources/css/join.css">
+	
 
     <script src="./resources/js/jquery.js"></script>
+    <script src="./resources/js/area.js"></script>
     <script src="./resources/js/swiper-bundle.min.js"></script>
-    
-	<style>
-	.btn--orange {
-    border: 2px solid #f28e0a;
-    color: #f28e0a;
-	}
-	.btn {
-    display: inline-block;
-    padding: 1em 1.6em;
-    border-radius: 3px;
-    margin-top: 2rem;
-    font-weight: bold;
-    font-size: 0.8rem;
-    width : 260px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    transition: all 250ms ease;
-	}
-	.btn--orange:after {
-    background-color: #f28e0a;
-	}
-	.btn:after {
-    content: "";
-    z-index: -1;
-    width: 150%;
-    height: 100%;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    animation-name: bgout;
-    animation-duration: 400ms;
-    transform: skew(-45deg) translate(-150%);
-	}
-		.join{
-			margin-bottom: 10px;
-			margin-left: 450px;
-		}
-		.join label{
-			display: inline-block;
-			margin-bottom: 2px;
-			font-size: 15px;
-			width: 100px;
-			
-		}
-		.join input{
-			width:200px;
-			height:25px;
-			margin-bottom: 1px;
-		}
-		.join select{
-			width:100px;
-			height:30px;
-			text-align:right;
-			padding-right:10px;
-			margin-bottom: 1px;
-		}
-	</style>
 </head>
-
+<script>
+	
+	$(function(){
+		$('#nickCk').click(function(){
+			var nick = $('#nick').val();
+			 $.ajax({
+				url: 'nicknameCk',
+				data: {'nick': nick},
+			    type: 'post',
+			    success: function(result) {
+			   		if(result == 0){
+			   			alert('사용가능한 닉네임입니다.');
+			   		}else{
+			   			alert('이미 사용중인 닉네임입니다.');
+			   		}
+				}, error: function() {
+					alert('서버오류입니다 관리자에게 문의하세요.');
+				}
+			}); 
+		});
+	});
+</script>
 <body>
 	<!-- header -->
 	<jsp:include page="./header.jsp"/>
@@ -96,9 +58,9 @@
 			<p class="s21_h3_text">
 				<div class="join">
 					<label>이메일</label>
-  					<input type="text" name="email" placeholder="이메일을 입력하세요"> @ <select name="last_email">
-	                <option value="@gmail.com">gmail.com</option><option value="@naver.com">naver.com</option>
-	            </select>		
+  					<input type="text" name="email" placeholder="이메일을 입력하세요" autocomplete="off"> @ <select name="last_email">
+	                <option value="@gmail.com">gmail.com</option><option value="@naver.com">naver.com</option> 
+	            </select>
 				</div>
 				<div class="join">
 					<label>비밀번호</label>
@@ -110,15 +72,15 @@
 				</div>
 				<div class="join">
 					<label>닉네임</label>
-					<input type="text" name="nick" id="nick"/>
+					<input type="text" name="nick" id="nick" autocomplete="off"/> <button class="btn btn--orange" type="button" name="nickCk"  id="nickCk" onclick="nickCk()" value="중복확인"> 중복확인 </button>
 				</div>
 				<div class="join">
 					<label>성명</label>
-					<input type="text" name="name" id="name"/>
+					<input type="text" name="name" id="name" autocomplete="off"/>
 				</div>
 				<div class="join">
 					<label>생년월일</label>
-		            <input style="width:110px" type="text" name="brith" placeholder="년도 입력"/>
+		            <input style="width:110px" type="text" name="brith" autocomplete="off" placeholder="년도 입력"/>
 		            <select style="width:110px" name="mo">
 		                <option value="">월</option><option value="01">1</option><option value="02">2</option><option value="03">3</option><option value="04">4</option>
 		                <option value="05">5</option><option value="06">6</option><option value="07">7</option><option value="08">8</option><option value="09">9</option>
@@ -136,11 +98,11 @@
 				</div>
 				<div class="join">
 		            <label>전화번호</label>
-		            <input style="width:100px" type="text" name="phone1" placeholder="010"/> - <input style="width:100px" type="text" name="phone2"/> - <input style="width:100px" type="text" name="phone3"/>
+		            <input style="width:100px" type="text" name="phone1" autocomplete="off" placeholder="010"/> - <input style="width:100px" autocomplete="off" type="text" name="phone2"/> - <input style="width:100px" autocomplete="off" type="text" name="phone3"/>
 				</div>
 				<div class="join">
 					<label>주소</label>
-					<select name="addr1">
+					<!-- <select name="addr1">
 						<option value="">시</option>
 						<option value="서울시">서울시</option>
 						<option value="인천광역시">인천광역시</option>
@@ -153,15 +115,17 @@
 						<option value="성동구">성동구</option>
 						<option value="강남구">강남구</option>
 						<option value="영등포구">영등포구</option>
-					</select>
+					</select> -->
+					<select name="sido1" id="sido1"></select>
+					<select name="gugun1" id="gugun1"></select>
 				</div>
 				<div class="join">
 					<label>상세주소</label>
-					<input type="text" name="addr3" id="addr3"/>
+					<input type="text" name="addr3" id="addr3" autocomplete="off"/>
 				</div>
 				<div class="join">
-					<button type="submit" class="btn btn--orange" name="submit" onclick="location.href='home'"  value="가입">가입</button>
-					<button type="reset" class="btn btn--orange" name="cancel" value="취소">취소</button>
+					<button type="submit" class="btn btn--orange" style="width : 260px;" name="submit" onclick="location.href='home'"  value="가입">가입</button>
+					<button type="reset" class="btn btn--orange" style="width : 260px;" name="cancel" value="취소">취소</button>
 				</div>
 		</div>
 	</div>

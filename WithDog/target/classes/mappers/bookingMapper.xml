@@ -93,4 +93,8 @@
 		where m_id = #{m_id}
 	</select>
 	
+	<select id="BookingCnt" parameterType="String" resultType="int">
+		select count(*) from booking where m_id = #{userEmail}
+	</select>
+	
 </mapper>

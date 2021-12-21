@@ -31,6 +31,7 @@ public class ReplyController {
 		HttpSession session = request.getSession();
 		String m_id = (String)session.getAttribute("loginEmail");
 		
+		System.out.println(dto);
 		replyService.write(dto);
 		if(m_id.equals("admin@gmail.com")) {
 			return "redirect:detailReviewPageM?mb_id="+mb_id;

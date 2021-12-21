@@ -17,7 +17,7 @@
 .h21_top_center_box:hover{border-color: rgba(255, 255, 255, 0.7);}
 .h21_com_t_left{top:0; left:0;}
 .h21_com_t_right{top:0; right:0;}
-.h21_community{width:100%; margin:0 auto; display:inline-block; padding:5px 0 0 0;}
+.h21_community{width:100%; margin:0 auto; display:block; padding:5px 0 0 0;}
 .h21_tab {float:left; width:100%; margin:40px 0 45px 0; overflow: hidden; border-top: 1px solid #e0e0e0; border-left: 1px solid #e0e0e0;}
 .h21_tab button, .h21_tab_ss button {background-color: #fff; float: left; border: none; outline: none; cursor: pointer; padding: 14px 0px; transition: 0.3s; font-size: 17px; border-bottom: 1px solid #e0e0e0; border-right: 1px solid #e0e0e0;}
 .h21_tab button:hover, .h21_tab_ss button:hover {background-color: #f9f7f2;}
@@ -212,7 +212,7 @@
 .dot_div{float:right; width:10px; height:10px; margin:5px 0 0 5px; -webkit-border-radius: 100px; -moz-border-radius: 100px; -o-border-radius: 100px; border-radius: 100px;}
 .h21_community_btn{display:block; overflow: hidden;}
 .button_list{position:absolute; left:0; top:54px;}
-.button_report{position:absolute; right:0; top:54px;}
+.button_report{position:absolute; right:0%; top:54px;}
 .h21_community_btn .button_list a, .h21_community_btn .button_report a{color:#474747; font-size: 18px; font-weight:400; padding:5px 20px; border:1px solid #474747; -webkit-border-radius: 25px; -moz-border-radius: 25px; -o-border-radius: 25px; border-radius: 25px;}
 .button_list a:hover, .button_report a:hover{color:#ffffff; background: #474747; padding:5px 20px; border:1px solid #474747; -webkit-border-radius: 25px; -moz-border-radius: 25px; -o-border-radius: 25px; border-radius: 25px;}
 .h21_event_write{background:#f7f7f7; padding:15px; border-bottom:1px solid #e8e8e8;}

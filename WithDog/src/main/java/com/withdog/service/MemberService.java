@@ -18,4 +18,5 @@ public interface MemberService {
 	int changePw(String userEmail) throws EmailException;
 	int checkId(String id);
 	boolean deleteMember(String m_id, String m_pw);
+	int nickCk(String nick);
 }

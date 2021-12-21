@@ -70,6 +70,10 @@ public class BookingService implements IBookingService {
 		return dao.getMemberInfo(m_id);
 	}
 
+	public int getBookingcnt(String userEmail) {
+		return dao.getBookingcnt(userEmail);
+	}
+
 
 }
 

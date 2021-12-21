@@ -31,9 +31,12 @@
  	<update id="changePw" parameterType="map">
  		update member set m_pw=#{changePw} where m_id=#{id}
  	</update>
- 	<select id="" resultType=""></select>
- 	<delete id="" ></delete>
- 	<delete id="deleteMember" parameterType="String">
- 		delete member where m_id = #{email}
+
+ 	<delete id="deleteMember" parameterType="map">
+ 		delete member where m_id = #{m_id} and m_pw = #{m_pw}
  	</delete>
+ 	
+ 	<select id="nickCk" parameterType="String" resultType="int">
+ 	select count(*) from member where m_nick = #{nick}
+ 	</select>
 </mapper>

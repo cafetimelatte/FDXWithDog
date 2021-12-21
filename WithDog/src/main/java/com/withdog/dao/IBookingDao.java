@@ -19,5 +19,6 @@ public interface IBookingDao {
 	List<BookingDto> getBookingListM(CriteriaDto cDto);
 	List<BookingDto> getBookingList(String m_id);
 	MemberDto getMemberInfo(String m_id);
+	int getBookingcnt(String userEmail);
 	
 }

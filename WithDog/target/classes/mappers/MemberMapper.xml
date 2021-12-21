@@ -35,4 +35,8 @@
  	<delete id="deleteMember" parameterType="map">
  		delete member where m_id = #{m_id} and m_pw = #{m_pw}
  	</delete>
+ 	
+ 	<select id="nickCk" parameterType="String" resultType="int">
+ 	select count(*) from member where m_nick = #{nick}
+ 	</select>
 </mapper>
