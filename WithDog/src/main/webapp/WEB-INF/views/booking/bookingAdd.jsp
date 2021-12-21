@@ -109,7 +109,7 @@
 	                                </dl>
 	                            </li>
 	                            	<button class="bbtn" type="button" onclick="return checkBookingInfo(this)" name="bookBtn">예약하기</button>
-	                            	<button class="bbtn" type="button" onclick="location.href='bookingListM'">돌아가기</button>
+	                            	<button class="bbtn" type="button" onclick="location.href='hotelList'">돌아가기</button>
                             </form>
                         </ul>
                         <!-- 예약 정보 입력 e -->

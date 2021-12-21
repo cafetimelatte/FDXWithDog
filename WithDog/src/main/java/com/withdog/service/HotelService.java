@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.withdog.dao.IHotelDao;
+import com.withdog.dto.ApplyDto;
 import com.withdog.dto.CriteriaDto;
 import com.withdog.dto.HotelDto;
 import com.withdog.dto.boardDTO;
@@ -160,6 +161,29 @@ public class HotelService implements IHotelService {
 	@Override
 	public List<HotelDto> getRecentHotel() {
 		return dao.getRecentHotel();
+	}
+
+	@Override
+	public void insertApply(String m_id, HotelDto dto) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("m_id", m_id);
+		map.put("h_name",dto.getH_name());
+		map.put("h_add1",dto.getH_add1());
+		map.put("h_add2",dto.getH_add2());
+		map.put("h_add3",dto.getH_add3());
+		map.put("h_web",dto.getH_web());
+		map.put("h_phone",dto.getH_phone());
+		dao.insertApply(map);
+	}
+
+	@Override
+	public List<ApplyDto> getApplyList() {
+		return dao.getApplyList();
+	}
+
+	@Override
+	public void updateApply(ApplyDto dto) {
+		dao.updateApply(dto);
 	}
 }
 

@@ -33,6 +33,8 @@
     		width:200px;
     		margin: 50px;
     		font-size: 15px;
+    		border:1px solid black;
+    		background-color: lightgray;
     	}
     	.reserved:hover {
     		background-color: #FAED7D;
@@ -69,7 +71,9 @@
 									<dt style="text-align:center;width:8%;padding:0 3px 0 3px">비고</dt>
 								</dl>
 							</li>
+							<form action="pay" method="post" id="payForm">
 							<c:forEach var="b" items="${b_info}">
+							<input type="hidden" name="b_id" value="${b.b_id}" >
 							<li class="reserved">
 								<dl>
 									<dd style="text-align:center;width:8%;padding:0 3px 0 3px">${b.b_id}</dd>
@@ -89,14 +93,27 @@
 									<dd style="text-align:center;width:8%;padding:0 3px 0 3px"><a href="updateBooking?b_id=${b.b_id}&h_id=${b.h_id}">수정</a> | <a name="delBtn" onclick="if(validate(this)){location.href='deleteBooking?b_id=${b.b_id}'}">삭제</a></dd>
 								</dl>
 							</li>
+							<c:set var="total" value="${total + b.b_price*(outDate-inDate)}" />
 						</c:forEach>
+							</form>
+							<li class="summary">
+								<dl>
+									<dd style="text-align:center;width:64%;padding:0 3px 0 3px;color:gray;font-size:20px">합 계</dd>
+									<dd style="text-align:center;width:8%;padding:0 3px 0 3px;color:gray;font-size:20px">${total}원</dd>
+									<dd style="text-align:center;width:8%;padding:0 3px 0 3px"> </dd>
+									<dd style="text-align:center;width:8%;padding:0 3px 0 3px"> </dd>
+									<dd style="text-align:center;width:8%;padding:0 3px 0 3px"> </dd>
+								</dl>
+							</li>
 						<c:if test="${empty b_info}">
 							<li>
 								<h1 style="margin:40px 0 40px 0;">결제대기 예약이 없습니다.</h1>
 							</li>
 						</c:if>
-						<input class="bbtn" type="button" value="결제하기">
-						<input class="bbtn" type="button" value="돌아가기" onclick="location.href='hotelList';">
+						<c:if test="${!empty b_info}">
+							<button class="bbtn" name="payBtn" type="submit" form="payForm" onclick="return validate(this);">결제하기</button>
+						</c:if>
+						<button class="bbtn" type="button" onclick="location.href='hotelList';">돌아가기</button>
                         <!-- 예약 정보 입력 e -->
 						</ul>
 					</div>

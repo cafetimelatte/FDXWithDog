@@ -7,10 +7,12 @@ function checkHotelInfo(event){
 		f.h_name.focus();
 		return;	
 	}
-	if(!f.h_info.value){
-		alert("소개글을 입력해주세요.");
-		f.h_info.focus();
-		return;	
+	if(document.URL.indexOf("applyHotel")==-1){
+		if(!f.h_info.value){
+			alert("소개글을 입력해주세요.");
+			f.h_info.focus();
+			return;	
+		}
 	}
 	if(!f.h_add1.value){
 		alert("주소를 입력해주세요.");
@@ -37,57 +39,59 @@ function checkHotelInfo(event){
 		f.h_web.focus();
 		return;	
 	}
-	if(!f.h_chkInTime.value){
-		alert("영업시간을 입력해주세요.");
-		f.h_chkInTime.focus();
-		return;	
-	}
-	if(!f.h_chkOutTime.value){
-		alert("영업시간을 입력해주세요.");
-		f.h_chkOutTime.focus();
-		return;	
-	}
-	if(!f.h_petSize.value){
-		alert("크기를 입력해주세요.");
-		f.h_petSize.focus();
-		return;	
-	}
-	if(!f.h_petWeight.value){
-		alert("몸무게를 입력해주세요.");
-		f.h_petWeight.focus();
-		return;	
-	}
-	if(!f.h_price.value){
-		alert("가격을 입력해주세요.");
-		f.h_price.focus();
-		return;	
-	}
-	if(document.URL.indexOf("addHotelM")!=-1){
-		if(!f.filesI.value){
-			alert("숙소 이미지를 등록해주세요.");
-			return;
+	if(document.URL.indexOf("applyHotel")==-1){
+		if(!f.h_chkInTime.value && document.URL.indexOf("applyHotel")==-1){
+			alert("영업시간을 입력해주세요.");
+			f.h_chkInTime.focus();
+			return;	
 		}
-		if(!f.filesD.value){
-			alert("상세페이지를 등록해주세요.");
-			return;
+		if(!f.h_chkOutTime.value && document.URL.indexOf("applyHotel")==-1){
+			alert("영업시간을 입력해주세요.");
+			f.h_chkOutTime.focus();
+			return;	
 		}
-	} else{
-		var chkCntI = f.filesI.closest(".imgContainer").querySelector(".uploadedImgs").childElementCount;
-		var chkCntD = f.filesD.closest(".imgContainer").querySelector(".uploadedImgs").childElementCount;
-		if(chkCntI == 0 && !f.filesI.value){
-			alert("숙소 이미지를 등록해주세요.");
-			return;
-		} else if(chkCntD == 0 && !f.filesD.value){
-			alert("상세페이지를 등록해주세요.");
+		if(!f.h_petSize.value && document.URL.indexOf("applyHotel")==-1){
+			alert("크기를 입력해주세요.");
+			f.h_petSize.focus();
+			return;	
+		}
+		if(!f.h_petWeight.value && document.URL.indexOf("applyHotel")==-1){
+			alert("몸무게를 입력해주세요.");
+			f.h_petWeight.focus();
+			return;	
+		}
+		if(!f.h_price.value && document.URL.indexOf("applyHotel")==-1){
+			alert("가격을 입력해주세요.");
+			f.h_price.focus();
+			return;	
+		}
+		if(document.URL.indexOf("addHotelM")!=-1){
+			if(!f.filesI.value){
+				alert("숙소 이미지를 등록해주세요.");
+				return;
+			}
+			if(!f.filesD.value){
+				alert("상세페이지를 등록해주세요.");
+				return;
+			}
+		} else{
+			var chkCntI = f.filesI.closest(".imgContainer").querySelector(".uploadedImgs").childElementCount;
+			var chkCntD = f.filesD.closest(".imgContainer").querySelector(".uploadedImgs").childElementCount;
+			if(chkCntI == 0 && !f.filesI.value){
+				alert("숙소 이미지를 등록해주세요.");
+				return;
+			} else if(chkCntD == 0 && !f.filesD.value){
+				alert("상세페이지를 등록해주세요.");
+				return;
+			}
+		}
+		if(!priceChk.test(f.h_price.value) && document.URL.indexOf("applyHotel")==-1){
+			alert("가격에 숫자만 입력해주세요.");
 			return;
 		}
 	}
 	if(!phoneChk.test(f.h_phone.value)){
 		alert("전화번호 '-' 제외하거나 다시 확인해주세요.");
-		return;
-	}
-	if(!priceChk.test(f.h_price.value)){
-		alert("가격에 숫자만 입력해주세요.");
 		return;
 	}
 	
@@ -100,13 +104,23 @@ function checkHotelInfo(event){
 
 function checkBookingInfo(event){
 	var b = document.bookingInfo;
+	var today = new Date();
+	var year = today.getFullYear();
+	var month = ('0' + (today.getMonth() + 1)).slice(-2);
+	var day = ('0' + today.getDate()).slice(-2);
+	var dateString = year + '-' + month  + '-' + day;
+	
 	if(!b.b_chkInDate.value){
 		alert("입실날짜를 입력해주세요.");
-		return;
 		return;
 	}
 	if(!b.b_chkOutDate.value){
 		alert("퇴실날짜를 입력해주세요.");
+		return;
+	}
+	
+	if(b.b_chkInDate.value < dateString){
+		alert("입실날짜는 오늘 날짜와 같거나 나중이어야 합니다.");
 		return;
 	}
 	
@@ -229,7 +243,21 @@ function validate(event){
 		return confirm("수정 하시겠습니까?");
 	} else if(event.name == "bookBtn"){
 		return confirm("예약 하시겠습니까?");
+	} else if(event.name == "payBtn"){
+		return confirm("결제 하시겠습니까?");
+	} else if(event.name == "applyBtn"){
+		return confirm("신청 하시겠습니까?");
+	} else if(event.name == "approveBtn"){
+		return confirm("접수 하시겠습니까?");
+	} else if(event.name == "returnBtn"){
+		return confirm("반려 하시겠습니까?");
 	}
 };
 
-
+function loginCheck(loginRs, url){
+	if(loginRs == 0){
+		alert("로그인이 필요합니다");
+		return false;
+	}
+	location.href=url;
+}

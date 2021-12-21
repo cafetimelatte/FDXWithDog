@@ -22,9 +22,7 @@
 		where 
 		<if test="b_id != null">
 			b_id = #{b_id}
-			and 
 		</if>
-		b_state = '예약대기'
 		order by b_regiDate desc
 	</select>
 	
@@ -37,17 +35,13 @@
 						where
 						<if test="category == 'b_id'">
 							b_id like '%'||#{field}||'%'
-							and
 						</if>
 						<if test="category == 'b_name'">
 							b_name like '%'||#{field}||'%'
-							and
 						</if>
 						<if test="category == 'm_id'">
 							m_id like '%'||#{field}||'%'
-							and
 						</if>
-						b_state = '예약대기'
 						order by b_regiDate desc) b)
 		where num between #{pageStart} and #{pageEnd}
 	</select>
@@ -93,8 +87,16 @@
 		where m_id = #{m_id}
 	</select>
 	
+<<<<<<< HEAD
 	<select id="BookingCnt" parameterType="String" resultType="int">
 		select count(*) from booking where m_id = #{userEmail}
 	</select>
+=======
+	<update id="completeBooking" parameterType="String">
+		update booking
+		set b_state = '예약완료'
+		where b_id = #{b_id}
+	</update>
+>>>>>>> branch 'main' of https://github.com/cafetimelatte/FDXWithDog.git
 	
 </mapper>

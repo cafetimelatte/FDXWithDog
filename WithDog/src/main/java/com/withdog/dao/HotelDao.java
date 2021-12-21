@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.withdog.dto.ApplyDto;
 import com.withdog.dto.CriteriaDto;
 import com.withdog.dto.HotelDto;
 import com.withdog.dto.boardDTO;
@@ -60,6 +61,21 @@ public class HotelDao implements IHotelDao {
 	@Override
 	public List<HotelDto> getRecentHotel() {
 		return sqlSession.selectList("com.withdog.mapper.hotelMapper.getRecentHotel");
+	}
+
+	@Override
+	public void insertApply(HashMap<String, Object> map) {
+		sqlSession.insert("com.withdog.mapper.hotelMapper.insertApply", map);
+	}
+
+	@Override
+	public List<ApplyDto> getApplyList() {
+		return sqlSession.selectList("com.withdog.mapper.hotelMapper.getApplyList");
+	}
+
+	@Override
+	public void updateApply(ApplyDto dto) {
+		sqlSession.update("com.withdog.mapper.hotelMapper.updateApply", dto);
 	}
 
 

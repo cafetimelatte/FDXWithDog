@@ -26,6 +26,7 @@
 	<script type="text/javascript" src="js/functions.js?ver=3"></script>
 	<script type="text/javascript" src="js/jquery.fileupload.js"></script>
 	<script type="text/javascript" src="js/jquery.paging.js"></script>
+	<script src="js/verification.js"></script>
 	
     <title>Document</title>
 </head>
@@ -145,7 +146,7 @@
 
                             <!-- 숙박예약 있을시에 button s -->
                             <div class="s21_tabcontent_rbtn">
-                                <button type="button" class="bg_orange" onclick="location.href='booking?h_id=${h_detail.h_id}'">숙박예약</button>
+                                <button type="button" class="bg_orange" onclick="loginCheck(${loginRs eq null?0:loginRs},'booking?h_id=${h_detail.h_id}');">숙박예약</button>
                             </div>
                             <!--// 숙박예약 있을시에 button e -->
 
@@ -164,7 +165,7 @@
 
                             <!-- 요청배너 s -->
                             <div class="s21_tabcontent_rbtn_btm">
-                                <button type="button" class="bg_mgray" onclick="location.href='applyHotel'">장소 및 업체 추가 요청</button>
+                                <button type="button" class="bg_mgray" onclick="loginCheck(${loginRs eq null?0:loginRs},'applyHotel');">장소 및 업체 추가 요청</button>
                             </div>
                             <!-- 요청배너 e -->
 
@@ -187,7 +188,7 @@
 						<div class="s21_review_box">
 							<div class="s21_review_tit pr">
 								<h5>유저리뷰 <span id="review_total"><c:forEach items="${h_review}" varStatus="rvCnt">${rvCnt.last?rvCnt.count:''}</c:forEach></span></h5>
-								<button type="button" class="s21_review_wbtn pa" onclick="location.href='writeReview'">리뷰작성 →</button>
+								<button type="button" class="s21_review_wbtn pa" onclick="loginCheck(${loginRs eq null?0:loginRs},'writeReview');">리뷰작성 →</button>
 							</div>
 							
 							<div class="s21_review_listb" id="review_list">
@@ -224,7 +225,7 @@
 							
                             <!-- 숙박예약 있을시에 button s -->
                             <div class="s21_tabcontent_rbtn">
-								<button type="button" class="bg_orange" onclick="location.href='booking?h_id=${h_detail.h_id}'">숙박예약</button>
+								<button type="button" class="bg_orange" onclick="loginCheck(${loginRs eq null?0:loginRs},'booking?h_id=${h_detail.h_id}');">숙박예약</button>
                             </div>
                             
                             <!--// 숙박예약 있을시에 button e -->
@@ -242,7 +243,7 @@
 
                             <!-- 요청배너 s -->
                             <div class="s21_tabcontent_rbtn_btm">
-                                <button type="button" class="bg_mgray" onclick="location.href='applyHotel'">장소 및 업체 추가 요청</button>
+                                <button type="button" class="bg_mgray" onclick="loginCheck(${loginRs eq null?0:loginRs},'applyHotel');">장소 및 업체 추가 요청</button>
                             </div>
                             <!-- 요청배너 e -->
 

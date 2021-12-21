@@ -141,14 +141,19 @@
 						<input type="hidden" name="mb_id" value="${detail.mb_id}">
 						<input type="hidden" name="m_id" value="${loginEmail}">
 						<input type="hidden" name="h_id" value="${detail.h_id}">
-						<textarea id="mbre_content" name="mbre_content" style="" class="s21_je_textarea" placeholder="댓글을 입력해주세요"></textarea>
-						<span class="s21_je_form_btn">
-							<div class="s21_je_in_btn">
-								<span class="s21_je_btn_register" data-mode="cmtin" style="margin-right: 5px">
-									<button class="replyWriteBtn" onclick="return checkReplyInfo(this);">등록</button>
-								</span>
-							</div>
-						</span>
+						<c:if test="${empty loginRs}">
+							<textarea id="mbre_content" name="mbre_content" style="resize:none" class="s21_je_textarea" disabled="disabled" placeholder="로그인 후 이용가능합니다."></textarea>
+						</c:if>
+						<c:if test="${!empty loginRs}">
+							<textarea id="mbre_content" name="mbre_content" style="resize:none" class="s21_je_textarea" placeholder="댓글을 입력해주세요"></textarea>
+							<span class="s21_je_form_btn">
+								<div class="s21_je_in_btn">
+									<span class="s21_je_btn_register" data-mode="cmtin" style="margin-right: 5px">
+										<button class="replyWriteBtn" onclick="return checkReplyInfo(this);">등록</button>
+									</span>
+								</div>
+							</span>
+						</c:if>
 					</div>
 				</form>
 					<c:forEach items="${reply}" var="reply">

@@ -35,8 +35,14 @@
          <beans:property name="maxInMemorySize" value="10485760"/>
     </beans:bean>
 	
-	<!-- 계정확인 인터셉터 -->
+	<!-- 업로드 패스 설정 --> 
+	<beans:bean class="java.lang.String" id="uploadPath">
+ 		<beans:constructor-arg value="D:/git/FDXWithDog/WithDog/src/main/webapp/resources/upload" />
+	</beans:bean>
+	
+	<!-- 로그인 확인 인터셉터 -->
 	<interceptors>
+		<!-- 로그인 되어 있을 경우 접근 허용 -->
 		<interceptor>
 			<mapping path="/bookingList"/>
 			<mapping path="/booking"/>
@@ -47,9 +53,21 @@
 			<mapping path="/CslistPage"/>
 			<mapping path="/writeReviewpro"/>
 			<mapping path="/replywrite"/>
+<<<<<<< HEAD
+=======
+			<mapping path="/logout"/>
+			<mapping path="/Withdrawal"/>
+			<mapping path="/chPw"/>
+			<mapping path="/chPw.do"/>
+			<mapping path="/CslistPage"/>
+			<mapping path="/CslistPagepro"/>
+			<mapping path="/chPw"/>
+			<mapping path="/chPw.do"/>
+>>>>>>> branch 'main' of https://github.com/cafetimelatte/FDXWithDog.git
 			<beans:bean class="com.withdog.interceptor.IdCheckInterceptor"/>
 		</interceptor>
-		<!-- <interceptor>
+		<!-- 관리자 계정 로그인 되어 있을 경우 접근 허용 -->
+		<interceptor>
 			<mapping path="/hotelListM"/>
 			<mapping path="/updateHotelM"/>
 			<mapping path="/updateImgM"/>
@@ -60,22 +78,25 @@
 			<mapping path="/deleteBookingM"/>
 			<mapping path="/deleteReviewM"/>
 			<mapping path="/ReviewPageM"/>
+			<mapping path="/csmanageList"/>
 			<beans:bean class="com.withdog.interceptor.AdminInterceptor"/>
-		</interceptor> -->
+		</interceptor>
+		<!-- 로그인 안되어 있을 경우 접근 허용 -->
+		<interceptor>
+			<mapping path="/login"/>
+			<mapping path="/login.do"/>
+			<mapping path="/join"/>
+			<mapping path="/join.do"/>
+			<mapping path="/serchUser"/>
+			<mapping path="/serchUserID"/>
+			<mapping path="/serchUserPw"/>
+			<beans:bean class="com.withdog.interceptor.LoginInterceptor"/>
+		</interceptor>
 	</interceptors>
-	
-	<!-- 업로드 패스 설정 --> 
-	<beans:bean class="java.lang.String" id="uploadPath">
- 		<beans:constructor-arg value="D:/git/FDXWithDog/WithDog/src/main/webapp/resources/upload" />
-	</beans:bean>
 	
 	<context:component-scan base-package="com.withdog.controller"/>
 	<context:component-scan base-package="com.withdog.service"/>
 	<context:component-scan base-package="com.withdog.dao"/>
 	<context:component-scan base-package="com.withdog.utils"/>
 
-	<beans:bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolvers">
-		<beans:property name="maxUploadSize" value="10485760" />
-	</beans:bean>
-	
 </beans:beans>

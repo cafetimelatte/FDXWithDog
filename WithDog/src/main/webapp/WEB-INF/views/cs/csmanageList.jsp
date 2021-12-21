@@ -49,27 +49,29 @@
 					<th scope="col">작성일</th>
 				</tr>
 			</thead>
-			<c:forEach var="csmanageList" items="${cslist}">
 			<tbody>
-				<tr onclick="togleimg(206)">
-					<td>&nbsp;&nbsp;&nbsp;&nbsp;
-						${csmanageList.cs_id}</td>
-					<td class="tb_tit_on" id="tb_tit_206">${csmanageList.cs_title}</td>
-					<td>${csmanageList.cs_regidate}</td>
-				</tr>
-				<tr class="h21_list_notice_a" id="notice_a_206"
-					style="display: table-row;">
-					<td colspan="4">
-						<div class="h21_list_notice_info">
-							<div>회원명 : ${csmanageList.m_id}</div>
-							<div>${csmanageList.cs_content}</div>
-						</div>
-					</td>
-				</tr>
+				<c:forEach var="csmanageList" items="${cslist}">
+					<tr onclick="togleimg(206)">
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;
+							${csmanageList.cs_id}</td>
+						<td class="tb_tit_on" id="tb_tit_206">${csmanageList.cs_title}</td>
+						<td>${csmanageList.cs_regidate}</td>
+					</tr>
+					<tr class="h21_list_notice_a" id="notice_a_206"
+						style="display: table-row;">
+						<td colspan="4">
+							<div class="h21_list_notice_info">
+								<div>회원명 : ${csmanageList.m_id}</div>
+								<div>${csmanageList.cs_content}</div>
+							</div>
+						</td>
+					</tr>
+				</c:forEach>
 			</tbody>
-			</c:forEach>
 		</table>
-		
+		<c:if test="${empty cslist}">
+			<h1 style="text-align:center;margin:40px 0 40px 0;">대기중인 민원이 없습니다.</h1>
+		</c:if>
 	</div>
 </body>
 </html>

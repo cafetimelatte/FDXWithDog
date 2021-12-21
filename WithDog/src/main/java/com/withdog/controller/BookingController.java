@@ -106,4 +106,13 @@ public class BookingController {
 		return "redirect:/bookingListM";
 	}
 	
+	@RequestMapping(value="/pay", method=RequestMethod.POST)
+	public void pay(String[] b_id, HttpServletResponse response, Model model) throws IOException {
+		bookingService.completeBooking(b_id);
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.println("<script>alert('예약이 완료되었습니다.');location.href='hotelList';</script>");
+		out.flush();
+	}
+	
 }

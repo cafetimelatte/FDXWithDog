@@ -3,6 +3,7 @@ package com.withdog.dao;
 import java.util.HashMap;
 import java.util.List;
 
+import com.withdog.dto.ApplyDto;
 import com.withdog.dto.CriteriaDto;
 import com.withdog.dto.HotelDto;
 import com.withdog.dto.boardDTO;
@@ -17,5 +18,8 @@ public interface IHotelDao {
 	int getHotelCount(HashMap<String, Object> map);
 	List<boardDTO> getHotelReview(int h_id);
 	List<HotelDto> getRecentHotel();
+	void insertApply(HashMap<String, Object> map);
+	List<ApplyDto> getApplyList();
+	void updateApply(ApplyDto dto);
 	
 }

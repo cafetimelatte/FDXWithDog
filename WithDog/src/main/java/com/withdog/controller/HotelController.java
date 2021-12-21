@@ -1,7 +1,11 @@
 package com.withdog.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.withdog.dto.ApplyDto;
 import com.withdog.dto.CriteriaDto;
 import com.withdog.dto.HotelDto;
 import com.withdog.service.IHotelService;
@@ -48,6 +53,7 @@ public class HotelController {
 	
 	@RequestMapping(value="/hotelListM", method=RequestMethod.GET)
 	public String hotelListM(Model model) {
+		model.addAttribute("a_list",hotelService.getApplyList());
 		return "hotel/managerHotelList";	
 	}
 
@@ -102,8 +108,19 @@ public class HotelController {
 	}
 	
 	@RequestMapping(value="/applyHotel", method=RequestMethod.POST)
-	public String hotelApply(Model model) {
-		return "redirect:/hotelList";
+	public void hotelApply(HotelDto dto, HttpServletResponse response, String m_id, Model model) throws IOException {
+		hotelService.insertApply(m_id, dto);
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.println("<script>alert('신청이 완료되었습니다.');location.href='hotelList';</script>");
+		out.flush();
 	}
+	
+	@RequestMapping(value="/applyHotelM", method=RequestMethod.GET)
+	public String hotelApplyM(ApplyDto dto, Model model) {
+		hotelService.updateApply(dto);
+		return "redirect:/hotelListM";
+	}
+	
 	
 }
