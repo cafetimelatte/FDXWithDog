@@ -19,10 +19,7 @@ public interface IBookingDao {
 	List<BookingDto> getBookingListM(CriteriaDto cDto);
 	List<BookingDto> getBookingList(String m_id);
 	MemberDto getMemberInfo(String m_id);
-<<<<<<< HEAD
 	int getBookingcnt(String userEmail);
-=======
 	void completeBooking(String b_id);
->>>>>>> branch 'main' of https://github.com/cafetimelatte/FDXWithDog.git
 	
 }
