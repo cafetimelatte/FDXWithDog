@@ -22,9 +22,7 @@
 		where 
 		<if test="b_id != null">
 			b_id = #{b_id}
-			and 
 		</if>
-		b_state = '예약대기'
 		order by b_regiDate desc
 	</select>
 	

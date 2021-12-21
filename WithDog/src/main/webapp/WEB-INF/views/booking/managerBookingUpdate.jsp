@@ -46,7 +46,7 @@
             <!-- sub m top -->
             <div class="s21_tour_de_top">
                 <form name="bookingInfo" action="updateBookingM" method="POST">
-                <h3 class="area" style="height:60px">관리자 / 숙소 예약 수정 [예약번호 : RWSKWDIFDK]
+                <h3 class="area" style="height:60px">관리자 / 숙소 예약 수정 [예약번호 : ${b_info.b_id }]
                 	<span>예약상태 : 
                 		<select name="b_state" style="text-align:center;height:24px;padding:2px">
                 			<option value="예약대기" <c:if test="${b_info.b_state eq '예약대기'}">selected</c:if>>예약대기</option>

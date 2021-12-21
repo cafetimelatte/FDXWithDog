@@ -41,7 +41,7 @@
     <style>
         #modal.modal-overlay {
             width: 100%;
-            height: 100%;
+            height: 150%;
             position: absolute;
             left: 0;
             top: 0;
@@ -52,21 +52,20 @@
             background: rgba(255, 255, 255, 0.25);
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
             backdrop-filter: blur(1.5px);
-            -webkit-backdrop-filter: blur(1.5px);
             border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.18);
+            z-index:100;
         }
         #modal .modal-window {
             background: rgba( 255, 112, 18, 0.70 );
             box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
             backdrop-filter: blur( 13.5px );
-            -webkit-backdrop-filter: blur( 13.5px );
             border-radius: 10px;
             border: 1px solid rgba( 255, 255, 255, 0.18 );
             width: 1400px;
             height: 600px;
             position: relative;
-            top: 60px;
+            top: -100px;
             padding: 30px;
         }
         #modal .title {
@@ -153,6 +152,11 @@
 	            			<td>신청일</td>
 	            			<td>신청결과</td>
 	            		</tr>
+	            		<c:if test="${empty a_list}">
+	            			<tr>
+	            				<td colspan="8" height="300px" width="1400px" style="border:none">신청 내역이 없습니다.</td>
+	            			</tr>
+	            		</c:if>
 						<c:forEach items="${a_list}" var="a">
 	            		<tr>
 	            			<td>${a.a_id}</td>
