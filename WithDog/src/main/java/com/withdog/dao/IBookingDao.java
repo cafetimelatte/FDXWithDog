@@ -21,5 +21,5 @@ public interface IBookingDao {
 	MemberDto getMemberInfo(String m_id);
 	int getBookingcnt(String userEmail);
 	void completeBooking(String b_id);
-
+	
 }

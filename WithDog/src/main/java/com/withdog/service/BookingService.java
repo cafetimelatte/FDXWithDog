@@ -69,18 +69,16 @@ public class BookingService implements IBookingService {
 	public MemberDto getMemberInfo(String m_id) {
 		return dao.getMemberInfo(m_id);
 	}
-
-
+	
 	public int getBookingcnt(String userEmail) {
 		return dao.getBookingcnt(userEmail);
 	}
+	
 	@Override
 	public void completeBooking(String[] b_id) {
 		for (int i = 0; i < b_id.length; i++) {
 			dao.completeBooking(b_id[i]);
 		}
 	}
-
-
 }
 
