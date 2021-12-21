@@ -20,6 +20,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.withdog.dao.memberDao;
@@ -201,8 +202,8 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "myReview")
-	public String myReview(String m_id, Model model) {
-		model.addAttribute("boardlist",  boardService.getBoardList(m_id));
-		return "board/MyPageboard";
+	public String myReview(String m_id, Model model){
+		model.addAttribute("list",  boardService.getBoardList(m_id));
+		return "board/ReviewPage";
 	}
 }

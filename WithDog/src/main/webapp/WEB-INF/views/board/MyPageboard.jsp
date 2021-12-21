@@ -3,10 +3,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review</title>
+	<link rel='shortcut icon' href='http://appdata.hungryapp.co.kr/images/hatdog/img/intro/00_hatdog_logo.ico'>
+    <link rel="stylesheet" href="./resources/css/sub_j.css">
+    <link rel="stylesheet" href="./resources/css/sub_h.css">
+    <link rel="stylesheet" href="./resources/css/sub.css">
+    <link rel="stylesheet" href="./resources/css/default.css">
+    <link rel="stylesheet" href="./resources/css/main.css">
+    <link rel="stylesheet" href="./resources/css/layout.css">
+    <link rel="stylesheet" href="./resources/css/shot.css">
+    <link rel="stylesheet" href="./resources/css/swiper-bundle.min.css">
+    
+    <link rel="icon" type="image/png" href="http://example.com/myicon.png"> 
+
+    <script src="./resources/js/jquery.js"></script>
+    <script src="./resources/js/swiper-bundle.min.js"></script>
+    <script src="js/verification.js"></script>
 </head>
 <body>
+   <!-- header-->
+	<jsp:include page="../header.jsp"/>
+	<!-- //header -->
 
 	   <!-- container -->
     <div id="Container">
@@ -58,5 +77,10 @@
 		</div>
 	</div>
     <!-- //container -->
+    
+<!-- footer -->
+<jsp:include page="../footer.jsp"/>
+<!-- //footer -->
+    
 </body>
 </html>

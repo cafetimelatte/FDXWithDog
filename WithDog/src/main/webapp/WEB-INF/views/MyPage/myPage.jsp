@@ -104,7 +104,7 @@
 				<button class=""
 					onclick="location.href='bookingList'">MY예약</button>
 				<button class=""
-					onclick="location.href='ReviewPage'">MY작성글</button>
+					onclick="location.href='myReview?m_id=${loginEmail}'">MY작성글</button>
 				<button class="h21_sm_tab_right "
 					"="" onclick="Store.clear();location.href='?m1Code=etc&amp;m2Code=m_comment'">MY댓글</button>
 			</div>

@@ -58,9 +58,11 @@
 	
 	<!-- 예약내역 가져오기 -->
 	<select id="getBookingList" resultType="com.withdog.dto.BookingDto" parameterType="String">
-		select *
+		select h_id, b_name
 		from booking
 		where m_id = #{m_id}
+		group by h_id, b_name
+		order by h_id
 	</select>
 	
 	<select id="getList" resultType="com.withdog.dto.boardDTO" parameterType="map">
