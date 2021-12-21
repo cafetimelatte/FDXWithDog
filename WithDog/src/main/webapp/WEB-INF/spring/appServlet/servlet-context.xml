@@ -53,8 +53,6 @@
 			<mapping path="/CslistPage"/>
 			<mapping path="/writeReviewpro"/>
 			<mapping path="/replywrite"/>
-<<<<<<< HEAD
-=======
 			<mapping path="/logout"/>
 			<mapping path="/Withdrawal"/>
 			<mapping path="/chPw"/>
@@ -63,7 +61,6 @@
 			<mapping path="/CslistPagepro"/>
 			<mapping path="/chPw"/>
 			<mapping path="/chPw.do"/>
->>>>>>> branch 'main' of https://github.com/cafetimelatte/FDXWithDog.git
 			<beans:bean class="com.withdog.interceptor.IdCheckInterceptor"/>
 		</interceptor>
 		<!-- 관리자 계정 로그인 되어 있을 경우 접근 허용 -->
