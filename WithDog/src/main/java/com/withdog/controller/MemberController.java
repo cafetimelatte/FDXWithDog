@@ -20,6 +20,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.withdog.dao.ReplyDAO;
@@ -208,6 +209,7 @@ public class MemberController {
 		return result;
 	}
 	
+<<<<<<< HEAD
 	@RequestMapping(value = "myReviewList")
 	public String myReview(String m_id, HttpServletRequest request) {
 		List<boardDTO>boardList = boardService.getBoardList(m_id);
@@ -217,6 +219,12 @@ public class MemberController {
 			request.setAttribute("h_name", hdto.getH_name());
 		}
 		return "board/MyPageboard";
+=======
+	@RequestMapping(value = "myReview")
+	public String myReview(String m_id, Model model){
+		model.addAttribute("list",  boardService.getBoardList(m_id));
+		return "board/ReviewPage";
+>>>>>>> refs/remotes/origin/main
 	}
 	
 	@RequestMapping("myReply")

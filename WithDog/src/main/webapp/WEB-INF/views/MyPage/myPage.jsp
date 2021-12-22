@@ -102,9 +102,15 @@
 		<div class="h21_sm_mymenu_box area pr">
 			<div class="h21_sm_tab pa">
 				<button class=""
+<<<<<<< HEAD
 					onclick="location.href='bookingList'">MY결제</button>
 				<button class="" 
 					onclick="location.href='myReviewList?m_id=${loginEmail}'">MY작성글</button>
+=======
+					onclick="location.href='bookingList'">MY예약</button>
+				<button class=""
+					onclick="location.href='myReview?m_id=${loginEmail}'">MY작성글</button>
+>>>>>>> refs/remotes/origin/main
 				<button class="h21_sm_tab_right "
 					 onclick="location.href='myReply?m_id=${loginEmail}'">MY댓글</button>
 			</div>
