@@ -22,6 +22,8 @@
 								<li class=""><a onclick="location.href='ReviewPageM?num=1'">앨범관리</a></li>
 								<li class="line">|</li>
 								<li class=""><a onclick="location.href='csmanageList'">민원관리</a></li>
+								<li class="line">|</li>
+								<li class=""><a onclick="location.href='memberListM'">회원관리</a></li>
 							</c:if>
 							<c:if test="${loginEmail ne 'admin@gmail.com'}">
 								<li class=""><a onclick="location.href='myPage'">마이페이지</a></li>

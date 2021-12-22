@@ -99,5 +99,16 @@ public class memberDaoImpl implements memberDao {
 		return result;
 	}
 
+	@Override
+	public List<MemberDto> showAll() {
+		return sqlSession.selectList("com.withdog.mapper.memberMapper.showAll");
+	}
+
+	@Override
+	public int updateNick(String m_nick) {
+		int result = sqlSession.update("com.withdog.mapper.memberMapper.NickUpdate",m_nick);
+		return result;
+	}
+
 }
 

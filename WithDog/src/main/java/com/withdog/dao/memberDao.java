@@ -15,5 +15,7 @@ public interface memberDao {
 	void changePw(String changePw, String id);
 	boolean deleteMember(String m_id, String m_pw);
 	int nickCk(String nick);
+	List<MemberDto> showAll();
+	int updateNick(String m_nick);
 
 }

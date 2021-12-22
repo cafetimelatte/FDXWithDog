@@ -13,6 +13,10 @@
 	order by re.mbre_id desc 	
 </select>
 
+<select id="replyList2" parameterType="String" resultType="com.withdog.dto.ReplyDTO">
+	select * from mbreply where m_id = #{m_id}
+</select>
+
 <!-- 댓글 작성 -->
 <insert id="replyWrite" parameterType="com.withdog.dto.ReplyDTO">
 	insert into mbreply(mbre_id, mbre_content, mbre_regidate, m_id, mb_id, h_id)

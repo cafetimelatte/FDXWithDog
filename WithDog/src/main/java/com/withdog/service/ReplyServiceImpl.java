@@ -40,4 +40,10 @@ public class ReplyServiceImpl implements ReplyService{
 		// 댓글 삭제
 		return dao.delete(mbre_id);
 	}
+
+	@Override
+	public List<ReplyDTO> list(String m_id) {
+		List<ReplyDTO> list = dao.list(m_id);
+		return list;
+	}
 }

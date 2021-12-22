@@ -234,6 +234,16 @@ public class memberServiceImpl implements MemberService {
 		return result;
 	}
 
+	@Override
+	public List<MemberDto> showAll() {
+		return dao.showAll();
+	}
+
+	@Override
+	public int updateNick(String m_nick) {
+		return dao.updateNick(m_nick);
+	}
+
 	
 }
 

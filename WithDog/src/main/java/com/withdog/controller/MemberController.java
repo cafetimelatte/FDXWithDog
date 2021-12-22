@@ -22,13 +22,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.withdog.dao.ReplyDAO;
 import com.withdog.dao.memberDao;
 import com.withdog.dto.BookingDto;
+import com.withdog.dto.HotelDto;
 import com.withdog.dto.MemberDto;
+import com.withdog.dto.ReplyDTO;
 import com.withdog.dto.boardDTO;
 import com.withdog.service.BookingService;
 import com.withdog.service.IHotelService;
 import com.withdog.service.MemberService;
+import com.withdog.service.ReplyService;
 import com.withdog.service.boardService;
 
 
@@ -44,6 +48,8 @@ public class MemberController {
 	boardService boardService;
 	@Autowired
 	BookingService bookingService;
+	@Autowired
+	ReplyService replyService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -118,12 +124,14 @@ public class MemberController {
 		
 		int bookNum = bookingService.getBookingcnt(userEmail);
 		request.setAttribute("bookNum", bookNum);
-
+		
 		List<BookingDto>memberBook = bookingService.getBookingList(userEmail);
-		request.setAttribute("memberBook", memberBook);
-		for(BookingDto dto : memberBook) {
+		List<BookingDto>memberBooks = bookingService.getBookingLists(userEmail);
+		for(BookingDto dto : memberBooks) {
 			System.out.println(dto);
 		}
+		request.setAttribute("memberBook", memberBook);
+		request.setAttribute("memberBooks", memberBooks);
 		return "MyPage/myPage";
 	}
 	
@@ -200,9 +208,47 @@ public class MemberController {
 		return result;
 	}
 	
-	@RequestMapping(value = "myReview")
-	public String myReview(String m_id, Model model) {
-		model.addAttribute("boardlist",  boardService.getBoardList(m_id));
+	@RequestMapping(value = "myReviewList")
+	public String myReview(String m_id, HttpServletRequest request) {
+		List<boardDTO>boardList = boardService.getBoardList(m_id);
+		request.setAttribute("boardList", boardList);
+		for(boardDTO dto : boardList) {
+			HotelDto hdto = hotelService.getHotelDetail(dto.getH_id());
+			request.setAttribute("h_name", hdto.getH_name());
+		}
 		return "board/MyPageboard";
+	}
+	
+	@RequestMapping("myReply")
+	public String myReply(String m_id, HttpServletRequest request){
+		List<ReplyDTO>replydto = replyService.list(m_id);
+		List<boardDTO>boardList = boardService.getBoardList(m_id);
+		request.setAttribute("replyList", replydto);
+		return "board/MyReply";
+	}
+	
+	@RequestMapping("memberListM")
+	public String memberList(HttpSession session, String m_id, HttpServletRequest request) {
+		String user = (String)session.getAttribute("loginEmail");
+		List<MemberDto>memberList = memberService.showAll();
+		request.setAttribute("memberList", memberList);
+		for(MemberDto dto : memberList) {
+			System.out.println(dto);
+		}
+		return "managerMemberList";
+	}
+	
+	@RequestMapping("memberNickUpdate")
+	@ResponseBody
+	public String NickUpdateM(String m_nick){
+		System.out.println(m_nick);
+		String msg = "";
+		int result = memberService.updateNick(m_nick);
+		if(result==1) {
+			msg = "관리자의 의해 수정되었습니다";
+		}else {
+			msg = "실패";
+		}
+		return msg;
 	}
 }

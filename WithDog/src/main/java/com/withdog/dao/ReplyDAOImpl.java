@@ -46,4 +46,9 @@ public class ReplyDAOImpl implements ReplyDAO{
 		// 댓글 삭제
 		return sqlSession.delete(namespace + ".replyDelete", mbre_id);
 	}
+
+	@Override
+	public List<ReplyDTO> list(String m_id) {
+		return sqlSession.selectList(namespace + ".replyList2", m_id);
+	}
 }

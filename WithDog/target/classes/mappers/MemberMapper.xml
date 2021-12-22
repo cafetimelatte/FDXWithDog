@@ -39,4 +39,13 @@
  	<select id="nickCk" parameterType="String" resultType="int">
  	select count(*) from member where m_nick = #{nick}
  	</select>
+ 	
+ 	<select id="showAll" resultType="com.withdog.dto.MemberDto">
+ 		select m_id, m_pw, m_nick, to_number(to_char(m_birth,'yyyymmdd')), m_phone, m_add1, m_add2, m_add3, m_regidate
+		from member
+ 	</select>
+ 	
+ 	<update id="NickUpdate" parameterType="String">
+ 		
+ 	</update>
 </mapper>

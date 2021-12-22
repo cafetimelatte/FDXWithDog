@@ -96,5 +96,9 @@
 		set b_state = '예약완료'
 		where b_id = #{b_id}
 	</update>
+	
+	<select id="getBookingLists" parameterType="String" resultType="com.withdog.dto.BookingDto">
+		SELECT * from booking where m_id = #{userEmail}
+	</select>
 
 </mapper>

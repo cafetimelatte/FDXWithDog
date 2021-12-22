@@ -16,5 +16,7 @@ public interface ReplyDAO {
 		  int update(int mbre_id, String mbre_content);
 	  
 	  // 댓글 삭제
-		  int delete(int mbre_id); 
+		  int delete(int mbre_id);
+
+		List<ReplyDTO> list(String m_id); 
 }

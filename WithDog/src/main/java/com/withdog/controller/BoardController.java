@@ -236,6 +236,7 @@ public class BoardController {
 		int mb_id = Integer.parseInt(request.getParameter("mb_id"));
 		boardDTO detail = boardService.detailboard(mb_id);
 		model.addAttribute("detail", detail);
+		System.out.println(detail);
 		
 		// 댓글 조회
 		List<ReplyDTO> reply = replyService.list(mb_id);

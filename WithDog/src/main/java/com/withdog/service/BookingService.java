@@ -80,5 +80,9 @@ public class BookingService implements IBookingService {
 			dao.completeBooking(b_id[i]);
 		}
 	}
+
+	public List<BookingDto> getBookingLists(String userEmail) {
+		return dao.getBookingLists(userEmail);
+	}
 }
 

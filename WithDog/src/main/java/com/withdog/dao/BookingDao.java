@@ -72,4 +72,9 @@ public class BookingDao implements IBookingDao {
 		sqlSession.update("com.withdog.mapper.bookingMapper.completeBooking", b_id);
 	}
 
+	@Override
+	public List<BookingDto> getBookingLists(String userEmail) {
+		return sqlSession.selectList("com.withdog.mapper.bookingMapper.getBookingLists",userEmail);		
+	}
+
 }

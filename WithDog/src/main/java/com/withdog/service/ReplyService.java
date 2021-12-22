@@ -17,4 +17,6 @@ public interface ReplyService {
 
 			// 댓글 삭제
 			int delete(int mbre_id);
+
+			List<ReplyDTO> list(String m_id);
 }
